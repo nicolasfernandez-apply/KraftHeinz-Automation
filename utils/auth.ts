@@ -1,0 +1,147 @@
+import { Page } from '@playwright/test';
+import * as path from 'path';
+import * as fs from 'fs';
+
+export interface AuthConfig {
+  username: string;
+  password: string;
+}
+
+/**
+ * Returns the preview auth credentials from env vars.
+ * Throws immediately if either is missing — login is mandatory for the PRV environment.
+ */
+export function requireAuthConfig(): AuthConfig {
+  const username = process.env.PREVIEW_USERNAME?.trim();
+  const password = process.env.PREVIEW_PASSWORD?.trim();
+
+  if (!username || !password) {
+    throw new Error(
+      '\n' +
+      '  PREVIEW_USERNAME and PREVIEW_PASSWORD are required.\n' +
+      '  The PRV environment is protected by Google IAP and always requires login.\n' +
+      '  Add both variables to your .env file and re-run.\n',
+    );
+  }
+
+  return { username, password };
+}
+
+/**
+ * Logs in to the KraftHeinz PRV environment via Google Cloud IAP + GCIP.
+ *
+ * Flow:
+ *   1. Navigate to the target URL → IAP redirects to the GCIP hosted login UI
+ *   2. Fill email and click Next
+ *   3. Wait for the password step, fill password and click Sign In
+ *   4. Wait until IAP redirects back to the heinz.prv.kraftheinz.com domain
+ *
+ * Call this BEFORE analyzePage() so the IAP session cookie is in place.
+ */
+export async function loginToPreview(
+  page: Page,
+  auth: AuthConfig,
+  targetUrl: string,
+): Promise<void> {
+  console.log(`\n  [Auth] Navigating to PRV environment → IAP will redirect to login`);
+  console.log(`  [Auth] Target: ${targetUrl}`);
+
+  // Navigate to the protected URL — IAP intercepts and redirects to the GCIP hosted UI
+  await page.goto(targetUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+
+  // Wait for the JS-rendered login page to fully load
+  await page.waitForLoadState('networkidle', { timeout: 20_000 }).catch(() => {});
+  console.log(`  [Auth] Login page loaded: ${page.url()}`);
+
+  // ── Step 1: Email ───────────────────────────────────────────────────────────
+  const emailField = page.locator('input[type="email"]').first();
+
+  try {
+    await emailField.waitFor({ state: 'visible', timeout: 20_000 });
+  } catch {
+    await saveDebugScreenshot(page, 'auth-step1-no-email-field');
+    throw new Error(
+      `  [Auth] Could not find email input on the login page.\n` +
+      `  Current URL: ${page.url()}\n` +
+      `  A screenshot was saved to reports/screenshots/auth-step1-no-email-field.png\n` +
+      `  Run "npm run compare:headed" to watch the browser live.`,
+    );
+  }
+
+  await emailField.fill(auth.username);
+  console.log(`  [Auth] Email entered — clicking Next`);
+
+  // Click Next / Continue (the first submit button on the email step)
+  await page.locator('button[type="submit"]').first().click();
+
+  // ── Step 2: Password ────────────────────────────────────────────────────────
+  const passwordField = page.locator('input[type="password"]').first();
+
+  try {
+    await passwordField.waitFor({ state: 'visible', timeout: 20_000 });
+  } catch {
+    await saveDebugScreenshot(page, 'auth-step2-no-password-field');
+    throw new Error(
+      `  [Auth] Password field did not appear after the email step.\n` +
+      `  This can mean the email was not recognised or the login UI changed.\n` +
+      `  Current URL: ${page.url()}\n` +
+      `  A screenshot was saved to reports/screenshots/auth-step2-no-password-field.png`,
+    );
+  }
+
+  await passwordField.fill(auth.password);
+  console.log(`  [Auth] Password entered — clicking Sign In`);
+
+  // Click Sign In (first submit button on the password step)
+  await page.locator('button[type="submit"]').first().click();
+
+  // ── Wait for IAP to redirect back to the app ────────────────────────────────
+  try {
+    await page.waitForURL(
+      (url) =>
+        !url.hostname.includes('.run.app') &&
+        !url.hostname.includes('iap.googleapis.com') &&
+        !url.hostname.includes('accounts.google.com'),
+      { timeout: 30_000 },
+    );
+  } catch {
+    // Check if the current page looks like a login-failure error
+    const bodyText = await page.locator('body').innerText().catch(() => '');
+    const looksLikeFail = /invalid|incorrect|wrong|failed|denied|error/i.test(bodyText);
+
+    await saveDebugScreenshot(page, 'auth-sign-in-result');
+
+    if (looksLikeFail) {
+      throw new Error(
+        `  [Auth] Login failed — credentials appear to be incorrect.\n` +
+        `  Check PREVIEW_USERNAME and PREVIEW_PASSWORD in your .env file.\n` +
+        `  A screenshot was saved to reports/screenshots/auth-sign-in-result.png`,
+      );
+    }
+
+    throw new Error(
+      `  [Auth] Sign-in submitted but IAP did not redirect back to the app within 30 s.\n` +
+      `  Current URL: ${page.url()}\n` +
+      `  A screenshot was saved to reports/screenshots/auth-sign-in-result.png\n` +
+      `  Run "npm run compare:headed" to watch the browser live.`,
+    );
+  }
+
+  // Let the page finish loading after the IAP redirect
+  await page.waitForLoadState('networkidle', { timeout: 20_000 }).catch(() => {});
+  console.log(`  [Auth] Login complete — now at: ${page.url()}\n`);
+}
+
+// ── Internal helpers ──────────────────────────────────────────────────────────
+
+async function saveDebugScreenshot(page: Page, name: string): Promise<void> {
+  try {
+    const dir = path.join(process.cwd(), 'reports', 'screenshots');
+    fs.mkdirSync(dir, { recursive: true });
+    const dest = path.join(dir, `${name}.png`);
+    await page.screenshot({ path: dest, fullPage: true });
+    console.log(`  [Auth] Debug screenshot saved: ${dest}`);
+  } catch {
+    // Non-fatal — don't mask the original error
+  }
+}

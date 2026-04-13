@@ -1,0 +1,19 @@
+{
+  "name": "kraftheinz-automation",
+  "version": "1.0.0",
+  "description": "Playwright automation for comparing Preview vs Production URLs",
+  "scripts": {
+    "compare": "playwright test tests/compare-urls.spec.ts",
+    "compare:headed": "playwright test tests/compare-urls.spec.ts --headed",
+    "install:browsers": "playwright install chromium",
+    "test": "playwright test"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "@types/node": "^20.12.0",
+    "typescript": "^5.4.5"
+  }
+}
