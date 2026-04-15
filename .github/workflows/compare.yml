@@ -22,13 +22,24 @@ on:
   # schedule:
   #   - cron: '0 9 * * 1-5'
 
+# Required for GitHub Pages deployment and history branch writes
+permissions:
+  contents: write
+  actions: read
+  pages: write
+  id-token: write
+
 jobs:
   compare:
     name: Compare Preview vs Production
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
+      # ── Setup ────────────────────────────────────────────────────────────────
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -44,10 +55,17 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
-      # ── Resolve URL config ──────────────────────────────────────────────────
-      # If the user pasted JSON via the workflow_dispatch input, write it to a
-      # temp file and point URLS_CONFIG at it.  Otherwise fall back to the
-      # urls.config.json committed in the repository.
+      # ── Restore Allure history cache ─────────────────────────────────────────
+      # Restores the history folder from the previous run so Allure can render
+      # trend charts across multiple runs.
+      - name: Restore Allure history cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .allure-history-cache
+          key: allure-history-${{ github.ref_name }}-${{ github.run_id }}
+          restore-keys: allure-history-${{ github.ref_name }}-
+
+      # ── Resolve URL config ────────────────────────────────────────────────────
       - name: Prepare URL configuration
         env:
           URLS_JSON_INPUT: ${{ inputs.urls_json }}
@@ -56,7 +74,6 @@ jobs:
             echo "Source: workflow input JSON"
             echo "$URLS_JSON_INPUT" > /tmp/urls-input.json
 
-            # Validate that it is parseable JSON before proceeding
             python3 -c "
           import json, sys
           try:
@@ -78,17 +95,49 @@ jobs:
             echo "URLS_CONFIG=urls.config.json" >> "$GITHUB_ENV"
           fi
 
-      # ── Run comparison ──────────────────────────────────────────────────────
+      # ── Run comparison tests ──────────────────────────────────────────────────
+      # continue-on-error so the Allure report is always generated even on failure.
       - name: Run URL comparison
+        id: run_comparison
+        continue-on-error: true
         env:
-          # Credentials stored as repository secrets:
-          # Settings → Secrets and variables → Actions → New repository secret
           PREVIEW_USERNAME: ${{ secrets.PREVIEW_USERNAME }}
           PREVIEW_PASSWORD: ${{ secrets.PREVIEW_PASSWORD }}
-          # URLS_CONFIG is set by the "Prepare URL configuration" step above
         run: npm run compare
 
-      # ── Upload reports ──────────────────────────────────────────────────────
+      # ── Inject previous Allure history ────────────────────────────────────────
+      # Copies the cached history into allure-results/ so trend data is preserved.
+      - name: Inject previous Allure history
+        if: always() && hashFiles('.allure-history-cache/history') != ''
+        run: |
+          mkdir -p allure-results
+          cp -r .allure-history-cache/history allure-results/history
+
+      # ── Generate Allure report ────────────────────────────────────────────────
+      - name: Generate Allure report
+        if: always()
+        env:
+          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_SERVER_URL: ${{ github.server_url }}
+        run: npm run allure:generate
+
+      # ── Persist updated history in cache ─────────────────────────────────────
+      - name: Update Allure history cache payload
+        if: always()
+        run: |
+          mkdir -p .allure-history-cache
+          cp -r allure-report/history .allure-history-cache/history
+
+      - name: Save Allure history cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .allure-history-cache
+          key: allure-history-${{ github.ref_name }}-${{ github.run_id }}
+
+      # ── Upload artifacts ──────────────────────────────────────────────────────
       - name: Upload comparison reports
         if: always()
         uses: actions/upload-artifact@v4
@@ -96,3 +145,24 @@ jobs:
           name: comparison-reports-${{ github.run_number }}
           path: reports/
           retention-days: 30
+
+      - name: Upload Allure report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report-run-${{ github.run_number }}
+          path: allure-report/
+          retention-days: 90
+
+      # ── Deploy Allure report to GitHub Pages (main branch only) ───────────────
+      # To enable: go to Settings → Pages → Source → GitHub Actions
+      - name: Upload Pages artifact
+        if: always() && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: allure-report/
+
+      - name: Deploy to GitHub Pages
+        if: always() && github.ref == 'refs/heads/main'
+        id: deployment
+        uses: actions/deploy-pages@v4

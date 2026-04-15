@@ -6,6 +6,7 @@
     "compare": "playwright test tests/compare-urls.spec.ts",
     "compare:headed": "playwright test tests/compare-urls.spec.ts --headed",
     "install:browsers": "playwright install chromium",
+    "allure:generate": "node scripts/generate-allure-with-history.mjs",
     "test": "playwright test"
   },
   "dependencies": {
@@ -14,6 +15,8 @@
   "devDependencies": {
     "@playwright/test": "^1.44.0",
     "@types/node": "^20.12.0",
+    "allure-commandline": "^2.38.1",
+    "allure-playwright": "^3.7.1",
     "typescript": "^5.4.5"
   }
 }

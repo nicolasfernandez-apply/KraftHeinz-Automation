@@ -15,5 +15,14 @@ playwright-report/*
 test-results/*
 !test-results/.gitkeep
 
+# Allure — raw results, generated report, and history cache
+allure-results/
+allure-report/
+.allure-history-cache/
+
+# GitHub Pages staging directories (used by update-pages-history-site script)
+.pages-site/
+.pages-artifact/
+
 # TypeScript build output
 dist/
