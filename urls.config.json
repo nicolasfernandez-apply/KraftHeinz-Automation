@@ -1,0 +1,14 @@
+{
+  "comparisons": [
+    {
+      "name": "Rules Page - Canada",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/en-CA/poutineketchup",
+      "productionUrl": "https://www.heinz.com/en-CA/poutineketchup"
+    },
+       {
+      "name": "Rules Page - Canada - FR",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/fr-CA/poutineketchup",
+      "productionUrl": "https://www.heinz.com/fr-CA/poutineketchup"
+    }
+  ]
+}

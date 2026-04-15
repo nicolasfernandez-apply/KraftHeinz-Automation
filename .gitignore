@@ -1,0 +1,19 @@
+# Environment variables — contains credentials, never commit
+.env
+
+# Dependencies
+node_modules/
+
+# Generated reports and screenshots — ignore contents, keep folders via .gitkeep
+reports/*
+!reports/.gitkeep
+!reports/screenshots/
+reports/screenshots/*
+!reports/screenshots/.gitkeep
+playwright-report/*
+!playwright-report/.gitkeep
+test-results/*
+!test-results/.gitkeep
+
+# TypeScript build output
+dist/
