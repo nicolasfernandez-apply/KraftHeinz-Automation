@@ -1,13 +1,22 @@
 name: URL Comparison — Preview vs Production
 
 on:
-  # Run manually from the Actions tab
   workflow_dispatch:
     inputs:
-      config_file:
-        description: "Path to the URL config JSON file (relative to repo root)"
+      urls_json:
+        description: >
+          URL pairs to compare (paste the full JSON content).
+          Leave empty to use the urls.config.json file already in the repository.
+
+          Expected format:
+          {
+            "comparisons": [
+              { "name": "Page Name", "previewUrl": "https://prv...", "productionUrl": "https://prod..." },
+              { "name": "Another Page", "previewUrl": "https://prv...", "productionUrl": "https://prod..." }
+            ]
+          }
         required: false
-        default: "urls.config.json"
+        type: string
 
   # Uncomment to run automatically on a schedule (e.g. every weekday at 9 AM UTC)
   # schedule:
@@ -35,16 +44,51 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
+      # ── Resolve URL config ──────────────────────────────────────────────────
+      # If the user pasted JSON via the workflow_dispatch input, write it to a
+      # temp file and point URLS_CONFIG at it.  Otherwise fall back to the
+      # urls.config.json committed in the repository.
+      - name: Prepare URL configuration
+        env:
+          URLS_JSON_INPUT: ${{ inputs.urls_json }}
+        run: |
+          if [ -n "$URLS_JSON_INPUT" ]; then
+            echo "Source: workflow input JSON"
+            echo "$URLS_JSON_INPUT" > /tmp/urls-input.json
+
+            # Validate that it is parseable JSON before proceeding
+            python3 -c "
+          import json, sys
+          try:
+            data = json.load(open('/tmp/urls-input.json'))
+            pairs = data.get('comparisons', [])
+            if not pairs:
+              raise ValueError('\"comparisons\" array is empty or missing')
+            print(f'Valid — {len(pairs)} comparison(s) found:')
+            for p in pairs:
+              print(f'  • {p.get(\"name\", \"(unnamed)\")}')
+          except Exception as e:
+            print(f'ERROR: {e}', file=sys.stderr)
+            sys.exit(1)
+            "
+
+            echo "URLS_CONFIG=/tmp/urls-input.json" >> "$GITHUB_ENV"
+          else
+            echo "Source: urls.config.json from repository"
+            echo "URLS_CONFIG=urls.config.json" >> "$GITHUB_ENV"
+          fi
+
+      # ── Run comparison ──────────────────────────────────────────────────────
       - name: Run URL comparison
         env:
-          # Credentials are stored as repository secrets:
+          # Credentials stored as repository secrets:
           # Settings → Secrets and variables → Actions → New repository secret
           PREVIEW_USERNAME: ${{ secrets.PREVIEW_USERNAME }}
           PREVIEW_PASSWORD: ${{ secrets.PREVIEW_PASSWORD }}
-          # Override the config file path if provided via workflow_dispatch input
-          URLS_CONFIG: ${{ inputs.config_file || 'urls.config.json' }}
+          # URLS_CONFIG is set by the "Prepare URL configuration" step above
         run: npm run compare
 
+      # ── Upload reports ──────────────────────────────────────────────────────
       - name: Upload comparison reports
         if: always()
         uses: actions/upload-artifact@v4
