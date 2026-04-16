@@ -160,22 +160,24 @@ jobs:
       # Settings → Pages → Source must be set to "GitHub Actions".
 
       - name: Configure Git identity
-        if: always() && github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main'
         run: |
           git config --global user.name  "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Clone or initialise report-history branch
-        if: always() && github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           REPO_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
 
           if git ls-remote --exit-code --heads "$REPO_URL" report-history; then
-            git clone --branch report-history --depth 1 "$REPO_URL" .pages-site
+            # Full clone (no --depth) so history.json and all prior reports are present
+            git clone --branch report-history --single-branch "$REPO_URL" .pages-site
+            echo "Cloned report-history branch — $(git -C .pages-site rev-list --count HEAD) commit(s)"
           else
-            echo "Branch report-history does not exist yet — creating it"
+            echo "Branch report-history does not exist yet — creating orphan branch"
             mkdir -p .pages-site
             cd .pages-site
             git init
@@ -186,7 +188,7 @@ jobs:
           fi
 
       - name: Update history dashboard
-        if: always() && github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main'
         env:
           PAGES_SITE_DIR:    .pages-site
           SOURCE_REPORT_DIR: allure-report
@@ -198,7 +200,7 @@ jobs:
         run: node scripts/update-pages-history-site.mjs
 
       - name: Push report-history branch
-        if: always() && github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -207,18 +209,18 @@ jobs:
             HEAD:report-history
 
       - name: Prepare Pages artifact (strip .git)
-        if: always() && github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main'
         run: |
           cp -r .pages-site .pages-artifact
           rm -rf .pages-artifact/.git
 
       - name: Upload Pages artifact
-        if: always() && github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
           path: .pages-artifact/
 
       - name: Deploy to GitHub Pages
-        if: always() && github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main'
         id: deployment
         uses: actions/deploy-pages@v4
