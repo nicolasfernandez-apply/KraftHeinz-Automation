@@ -1,0 +1,3 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","12370","Rules Page - Canada - FR","chromium","2026-04-16","passed","2026-04-16","URL Comparison: Preview vs Production","","",""
+"","14377","Rules Page - Canada","chromium","2026-04-16","passed","2026-04-16","URL Comparison: Preview vs Production","","",""
