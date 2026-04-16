@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/en-CA/poutineketchup
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/8CF34806649CEB26:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DI1TAB2iVcJdwQVx32AuOBYgtMls8k3bq_4pY2KNbHWxdfMyh4wHrs5JWdCwUtXCH3WEh2r0h8fu16Qf27pf83fdroZpspVVOFO0JPn6f6HZKB_3xaO0qMVjurBJkDN__Yqm-qM4T_GY16DvOr8AjjrXhc-a5APkLPpmpr9-BCziwv6vglOBB4S_PsGLVDHG4_gIzBFpf8i-ZRgYqdyvF3K8LOdSKVibypomoyYz-QuJknwiwAByibfcrDIutD6ypS-_jxwjHKNgpS8aF16SQ6m-sDzAtg4S_wHgsNdwE1LdbpzwLyhbKlVYS1ordLBmCgCVc2rTKOedI-ArkGPd8iAY5vZ0zVZbFjOw37Uhv4ElfZPS87rDZEQA2pubemwgsVxjAHxri2fOEdGYYTO3sbRDR4lUeo9jKjgzxwp728Lp4g0PiVvkOoEsdHZ22QGp3XqIPPyX8Pm5ARQzWOZCzaG9jTJvvHJ-Xh9xw-u4osndw-xnHj2xZkUOYoVg_U7dJpQTSM3omjy8XAhMD3uaxD08ggUPp6_fCGOLAaObCxj3rxIlPsKZXN9wQfTCsdO8l9udtcvEc0w6tU-4iuK6yamcdA4rfTkF4y-xd9J5fvSkEwPzRF53nkbK3caZkgbI4ow7ddht-JfeYo9Vo-ZuzOVoN9mkpjWczwuK7rBNtjurytjn2udHEkfYlSgdHNnfR3nbBZmOdc3BIF1Ooy1fZ-pU4GJIy1mADrZcVX2uo9OABcmrLSuVhb-GwPsCGQaMTF1CULq1M_9WnoUI-GXiPRDWebhVkE8h-G9WBWqq3Yp.Iiy6SrOpwn45a3jOuBMQk4N7tyraB0a2SxzR27bJxhksuVqFWp7CgYAamCxEIscZrioMr9trzhLJSKwwn-Kc2Q
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://heinz.prv.kraftheinz.com/en-CA/poutineketchup
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/en-CA/poutineketchup
+Analyzing Production: https://www.heinz.com/en-CA/poutineketchup
+
+============================================================
+COMPARISON SUMMARY — Rules Page - Canada
+============================================================
+Total differences:    8
+Critical differences: 0
+Preview issues:       1
+Production issues:    1
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/rules-page-canada-2026-04-16T13-56-52-128Z.html
+
