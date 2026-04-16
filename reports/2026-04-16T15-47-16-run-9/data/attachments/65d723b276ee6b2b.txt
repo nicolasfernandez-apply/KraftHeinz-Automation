@@ -1,0 +1,27 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://brands.prv.kraftheinz.com/en-CA/KHtasteofsummer
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/8B6C94B66D87E11C:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DJeADT324BsTwFOdxCIpE62MbC2D-AtZuOtG819IMf3fcwR4By1EMHRYRf-G6m4dJdu5MeFsy-GyxkvTccnmfkt2b23H3LIAR8-UEIaQC7L3L4JCgqHETbKpZl1MuNkLmqg4ng7HnijvVEqXhIajpdSY8q5ZyoI3_wnwLKGs0FdwHB7fdF1iLKhcjetKQMp9ORS1p6zu0fiSf2cMFhQEaXoGSIUY3bYTEBz03igqgjzHvPnv7o_zXcj66LSBoSFHWMR0X_uA1ctBnePHy77C6ZWYAAiK4UOI27x-amaNZaH2KUjv5R4-3IXomJhbxrL9EOpTziU5ZglmVCWnpBsHPgiH_umpJq2FGOkQWR8Yqx3VnBvatnqlEA9650iMJmGDzsLDSi3xQaVo2E0MzA1jbvNHAf76NgdGRwfrBHlMoOjg37rhneoYoWfu2DvhuBLdAqAW0VxtGn3QuDpJrmoqB_MAM2mFUCnWUEAdIy0Z2q0TWLbCpPwUSxM1mwfZuqbHu4C30u67F4L8aDp5Vj5itMI440_t2zMuYr5I3eqHn2ZNUOG4Fa7xgbpcCUZczBpb3NOvXP7Awv0GQ3Z5FH4BfcV4ywMm0zjD4GyHMD5MeDPST4C76JqMuho4LSJ-wiHCd_5idTVxj1PQ_OGoj0-sUQVGDLbQEG00CyMyu5NcTS1-aGKuO6GS8Owo2b6bkkK6cpgxcjpnEPbKjTycy6nOzb3SZ9P7-tkU23FQpeSpGYLLrWiuK-0Geqa2lJeUh1nQnBQ0IJncLsJtpr0mvbs3eYIQvzoKbq_vUHTfPoQQ3b-HL7PtFDk.ycfb5LCgKtP1vgRXhCqPQunca_ZdOSWAjn28KGMvfE2uVxWGfngtanNuj0K2BqFF4z8MbQda1tT4mCBn-q57hg
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://brands.prv.kraftheinz.com/en-CA/KHtasteofsummer
+
+
+Analyzing Preview:    https://brands.prv.kraftheinz.com/en-CA/KHtasteofsummer
+Analyzing Production: https://www.kraftheinz.com/fr-CA/KHtasteofsummer
+
+============================================================
+COMPARISON SUMMARY — Summer Offer Page - Canada
+============================================================
+Total differences:    12
+Critical differences: 2
+Preview issues:       2
+Production issues:    1
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/summer-offer-page-canada-2026-04-16T15-46-44-213Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+  • Title: "Walmart Summer Offer: Get a $5 Gift Card on Kraft Heinz Products | Canada | Kraft Heinz" vs "Offre d'été Walmart : Obtenez une Carte-Cadeau de 5 $ sur les produits Kraft Heinz | Canada | Kraft Heinz"
+  • Meta description differs
+
