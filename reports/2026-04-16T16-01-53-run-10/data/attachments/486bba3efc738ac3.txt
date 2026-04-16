@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://brands.prv.kraftheinz.com/fr-CA/KHtasteofsummer
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/8B6C94B66D87E11C:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DLVj8YQ7_JaDU6OSigvmWt1I8XD16UztdVRXUHm6a6YJNstONvPs6ovJijrDmHSiRvGgpSb5PozVrj7NoGsZX9pFx2w6gn6OMQcSzIpLlhlw9pNtjLv2fzErweb17W9oT4U6w8dwyemjuMV1c7yytoXZhFje1bdb1wTQDIPlBE40pC28vs3CMk-TqcnXX6P4l4BUqE8aXxmm2X_llHpqOBdYDb0GauzE812ucuEZuIOsAvRuknpb7lkCocO80QwZaXXqgTRRHoyOtqEApJ_uiGj4WccAIoDtUL4SFrhoo63OmYKAoKoz1XAos-4DS4s8mVmmRvOXOEc6j1L6hQnswhRZhOkx1HelBOnh4OdJcg4JWzgJzT9yBfDXLKvqvNtQ0GQ_xKvtc-ctxVh3qaUdNRfBcADSr48qmVV1-CN9UJpWMLNMImg8Thliz9ZI7F3CuPzx27vLeABA46Fead-GgjZ7Mi18ftR4OGebfEQI7vw1Xxe0oxVnEYA_6nqRPNro-KVPpK4c11ZkGU3v_cOgIvZQ1hCFSaojes-y3farR3DDWjJh3Env2x5jcxw8UpkJgZGyQKFyurxLqdjvK2Qh0ursu4GOmhFDjazE-HB2EmXUW4wMrdFQbSYFoR8QgRsmq0KYs6psqVZWidSIfH7IwKQkyS9SpbE3lRIV7eQjA2crpgQumQvo_fvXhZq_1Lxq5zrd4TuZShFTj2whmw1j6EulcKFm0-XXqUX_m40EyAn0ULUQS4wn9vlyjbMo72Wnb_9DW-rfokpfjT_V_o1IKmeU1hSNwq9pQFWxq-dZrQ-OEEaA2YU.ADoFPcqR131mJZxBvoEOrWDDS-CWeSn-1xX7gSr7AE2Mrro41Y4AR5ajHip8Q-SHgqEvUXcH6q7nqpr_OF9dnw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://brands.prv.kraftheinz.com/fr-CA/KHtasteofsummer
+
+
+Analyzing Preview:    https://brands.prv.kraftheinz.com/fr-CA/KHtasteofsummer
+Analyzing Production: https://www.kraftheinz.com/fr-CA/KHtasteofsummer
+
+============================================================
+COMPARISON SUMMARY — Campaign Page - Canada - FR
+============================================================
+Total differences:    7
+Critical differences: 0
+Preview issues:       2
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/campaign-page-canada-fr-2026-04-16T16-01-27-601Z.html
+
