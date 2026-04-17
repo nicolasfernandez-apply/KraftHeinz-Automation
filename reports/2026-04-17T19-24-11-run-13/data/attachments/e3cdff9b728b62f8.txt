@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DKfohyPD9QScsxewqLLor8nBwsPlESNlyww99OV9N4u2kKbE6sI5kz2u9oSqooHf8Y9VAYEDZDqU8p2eQhzEDJAnrPm42iWQ1-KGZJOE-SHTTtD_fbbieiUd8C5Z8n2NodYkUQ013HNn0Z_IVKRLBmvsSLkzHY1i0hq5LFTVgOEMuXAw42AGqMQgfPJr24958FLzEIDbHpYb5eriwGua2x0Cy1LNWMg0b6CnQ6-4s4BHsLP7hExSL2w7ir35iIYIQUutq04Oim4Gxgs7vLrAsA-7hRdtOui1ZcrDa8DUkmP4lzY9DyJJJaj5MQJAKoKvQGov7YWgFfe5KnzBjBz-yR42RIQVq1yBBzm97_WD2TMuLLE9lDOXfTWcheNGJ1GtXEXXmjzRAaWSQWfuFiTEd_SfSU5jws4arjFLTM63HJ7yjJMOXhbZfTdRCDLOKhT9yUN6UvoIEfoAIQkUyCRwnwgtHXipWQL21r4DHFKf9c9BqyegeDmYfN0-45Bw9XHTgzwHVsEU2pH-LbG95qzqN34EUZjqfaU5CKqPwKDsDM-N10Xcc8QfhyRwNdqy8xMQr1Jl4ILvwE8LZ93z5ZL5ND3PxdNVYFWwHuQUrmhxiRauvzIGQ_BIwgr17yBNamRtMmOfNXeYrC7tIbeu9rs8by3R1K69VFAnnGp7ApXy6tRhbaBgINg25g_wISJZSw6SDY5FhQYGwW0vJzWH8xVV21JoSA6odjA2w_UTahuxsVlva11.LqOPDk9grRz5vhaO9NJgEUQwXd4iVKMAEAbmckut6fYOxNlDr0flxunfJgvNvU_Zb81K1Fulb8ic-rIPvBxOfQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/
+Analyzing Production: https://www.oscarmayer.com/
+
+============================================================
+COMPARISON SUMMARY — Oscar Meyer Home
+============================================================
+Total differences:    4
+Critical differences: 0
+Preview issues:       2
+Production issues:    1
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/oscar-meyer-home-2026-04-17T19-23-48-148Z.html
+
