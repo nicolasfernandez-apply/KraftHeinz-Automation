@@ -1,6 +1,19 @@
 {
   "runs": [
     {
+      "runStamp": "2026-04-17T13-16-59-run-12",
+      "date": "2026-04-17T13:16:59.359Z",
+      "runNumber": 12,
+      "runId": "24567017089",
+      "buildUrl": "https://github.com/nicolasfernandez-apply/KraftHeinz-Automation/actions/runs/24567017089",
+      "reportPath": "reports/2026-04-17T13-16-59-run-12/index.html",
+      "pages": [
+        "Rules Page - Canada",
+        "Rules Page - Canada - FR"
+      ],
+      "sha": "5f8e5f5"
+    },
+    {
       "runStamp": "2026-04-16T16-06-25-run-11",
       "date": "2026-04-16T16:06:25.275Z",
       "runNumber": 11,
