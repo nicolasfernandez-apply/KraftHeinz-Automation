@@ -1,14 +1,30 @@
 {
   "comparisons": [
     {
-      "name": "Rules Page - Canada",
-      "previewUrl": "https://heinz.prv.kraftheinz.com/en-CA/poutineketchup",
-      "productionUrl": "https://www.heinz.com/en-CA/poutineketchup"
+      "name": "Mac&Cheese Flavors",
+      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-mac-and-cheese/flavors",
+      "productionUrl": "https://www.kraftheinz.com/kraft-mac-and-cheese/flavors"
     },
-       {
-      "name": "Rules Page - Canada - FR",
-      "previewUrl": "https://heinz.prv.kraftheinz.com/fr-CA/poutineketchup",
-      "productionUrl": "https://www.heinz.com/fr-CA/poutineketchup"
+        {
+      "name": "Kraft Mac and Cheese Home",
+      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-mac-and-cheese",
+      "productionUrl": "https://www.kraftheinz.com/kraft-mac-and-cheese"
+    },
+        {
+      "name": "United Tastes of America",
+      "previewUrl": "https://brands.prv.kraftheinz.com/unitedtastesofamerica",
+      "productionUrl": "https://www.kraftheinz.com/unitedtastesofamerica"
+    },
+        {
+      "name": "Made by us",
+      "previewUrl": "https://brands.prv.kraftheinz.com/made-by-us",
+      "productionUrl": "https://www.kraftheinz.com/made-by-us"
+    }
+    ,
+        {
+      "name": "Queso Dip",
+      "previewUrl": "https://brands.prv.kraftheinz.com/velveeta/recipes/4eKETkKdqEU3v6R16JixQV-jalapeno-popper-queso-dip",
+      "productionUrl": "https://www.kraftheinz.com/velveeta/recipes/4eKETkKdqEU3v6R16JixQV-jalapeno-popper-queso-dip"
     }
   ]
 }
