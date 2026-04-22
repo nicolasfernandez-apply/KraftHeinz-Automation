@@ -1,4 +1,5 @@
 import { Page } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
 import * as fs from 'fs';
 
 export interface PageMetadata {
@@ -43,6 +44,24 @@ export interface ConsoleEntry {
   text: string;
 }
 
+export interface AxeViolationNode {
+  /** CSS selector path to the element */
+  target: string;
+  /** HTML snippet of the affected element */
+  html: string;
+  /** Why this element fails the rule */
+  failureSummary: string;
+}
+
+export interface AxeViolation {
+  id: string;
+  /** "critical" | "serious" | "moderate" | "minor" */
+  impact: string;
+  help: string;
+  helpUrl: string;
+  nodes: AxeViolationNode[];
+}
+
 export interface PerformanceMetrics {
   loadTime: number;
   domContentLoaded: number;
@@ -70,6 +89,8 @@ export interface PageAnalysis {
   stylesheetsCount: number;
   /** Visible text blocks extracted from content elements (p, li, td, blockquote…) */
   textBlocks: string[];
+  /** Accessibility violations found by axe-core */
+  axeViolations: AxeViolation[];
   timestamp: string;
 }
 
@@ -252,6 +273,24 @@ export async function analyzePage(
     console.warn('Screenshot failed:', (e as Error).message);
   }
 
+  let axeViolations: AxeViolation[] = [];
+  try {
+    const axeResults = await new AxeBuilder({ page }).analyze();
+    axeViolations = axeResults.violations.map((v) => ({
+      id: v.id,
+      impact: v.impact ?? 'unknown',
+      help: v.help,
+      helpUrl: v.helpUrl,
+      nodes: v.nodes.map((n) => ({
+        target: n.target.join(' > '),
+        html: n.html,
+        failureSummary: n.failureSummary ?? '',
+      })),
+    }));
+  } catch (e) {
+    console.warn('axe-core analysis failed:', (e as Error).message);
+  }
+
   return {
     url,
     finalUrl,
@@ -268,6 +307,7 @@ export async function analyzePage(
     scriptsCount,
     stylesheetsCount,
     textBlocks,
+    axeViolations,
     timestamp: new Date().toISOString(),
   };
 }
