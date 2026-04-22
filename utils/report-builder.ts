@@ -1,4 +1,4 @@
-import { PageAnalysis, HeadingInfo, ConsoleEntry } from './analyzer';
+import { PageAnalysis, HeadingInfo, ConsoleEntry, AxeViolation } from './analyzer';
 import { PageDiff, ValueDiff, PerfDiff, SetDiff } from './differ';
 
 // ---- Utility helpers ----
@@ -390,6 +390,100 @@ function contentSection(diff: PageDiff): string {
   </div>`;
 }
 
+function accessibilitySection(diff: PageDiff): string {
+  const total = diff.axe.preview.length + diff.axe.production.length;
+
+  const IMPACT_STYLE: Record<string, { bg: string; border: string; color: string }> = {
+    critical: { bg: '#fde8e8', border: '#c0392b', color: '#c0392b' },
+    serious:  { bg: '#fef3e2', border: '#d35400', color: '#d35400' },
+    moderate: { bg: '#fefbd8', border: '#b7791f', color: '#b7791f' },
+    minor:    { bg: '#f0f0f0', border: '#888',    color: '#666'    },
+  };
+
+  const IMPACT_ORDER: Record<string, number> = {
+    critical: 0, serious: 1, moderate: 2, minor: 3,
+  };
+
+  const sortByImpact = (violations: AxeViolation[]) =>
+    [...violations].sort(
+      (a, b) => (IMPACT_ORDER[a.impact] ?? 4) - (IMPACT_ORDER[b.impact] ?? 4),
+    );
+
+  const MAX_NODES = 5;
+
+  const renderNodes = (nodes: AxeViolation['nodes']): string => {
+    const shown = nodes.slice(0, MAX_NODES);
+    const rest  = nodes.length - shown.length;
+    const rows  = shown.map((n) => {
+      const html    = n.html.length > 250 ? n.html.substring(0, 250) + '…' : n.html;
+      // failureSummary can be multi-line; keep first two lines to stay compact
+      const summary = n.failureSummary.split('\n').slice(0, 2).join(' ').trim();
+      return `
+          <div class="axe-node">
+            <code class="axe-selector">${escapeHtml(n.target)}</code>
+            <code class="axe-html-snippet">${escapeHtml(html)}</code>
+            ${summary ? `<span class="axe-failure">${escapeHtml(summary)}</span>` : ''}
+          </div>`;
+    }).join('');
+    const moreRow = rest > 0 ? `<div class="axe-more">…and ${rest} more element${rest !== 1 ? 's' : ''}</div>` : '';
+    return `<div class="axe-nodes-list">${rows}${moreRow}</div>`;
+  };
+
+  const renderViolations = (violations: AxeViolation[], uniqueIds: Set<string>): string => {
+    if (violations.length === 0) {
+      return '<p class="no-errors">✓ No violations found</p>';
+    }
+    return sortByImpact(violations).map((v) => {
+      const style   = IMPACT_STYLE[v.impact] ?? IMPACT_STYLE.minor;
+      const isUnique = uniqueIds.has(v.id);
+      const count   = v.nodes.length;
+      return `
+        <div class="axe-violation${isUnique ? ' axe-unique' : ''}" style="border-left-color:${style.border}">
+          <div class="axe-header">
+            <span class="axe-impact" style="background:${style.bg};color:${style.color}">${escapeHtml(v.impact)}</span>
+            <a class="axe-id" href="${escapeHtml(v.helpUrl)}" target="_blank">${escapeHtml(v.id)}</a>
+            ${isUnique ? '<span class="heading-only-tag">Only here</span>' : ''}
+            <span class="axe-nodes-count">${count} element${count !== 1 ? 's' : ''}</span>
+          </div>
+          <div class="axe-help">${escapeHtml(v.help)}</div>
+          ${renderNodes(v.nodes)}
+        </div>`;
+    }).join('');
+  };
+
+  const previewUniqueIds    = new Set(diff.axe.onlyInPreview.map((v) => v.id));
+  const productionUniqueIds = new Set(diff.axe.onlyInProduction.map((v) => v.id));
+
+  const inBothNote = diff.axe.inBoth.length > 0
+    ? `<div style="padding:10px 20px;background:#fafafa;border-top:1px solid #f0f0f0;font-size:12px;color:#888">
+        ${diff.axe.inBoth.length} rule${diff.axe.inBoth.length !== 1 ? 's' : ''} with violations on both sides:
+        ${diff.axe.inBoth.map((id) => `<code style="font-size:11px">${escapeHtml(id)}</code>`).join(', ')}
+       </div>`
+    : '';
+
+  return `
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="toggle">▼</span>
+      <h2>♿ Accessibility (axe-core)</h2>
+      <span class="badge-count ${total === 0 ? 'zero' : ''}">${total} violation${total !== 1 ? 's' : ''}</span>
+    </div>
+    <div class="section-body">
+      <div class="two-col-grid">
+        <div class="two-col-pane" style="border-right:1px solid #f0f0f0">
+          <div class="pane-title preview-title">Preview (${diff.axe.preview.length} violation${diff.axe.preview.length !== 1 ? 's' : ''})</div>
+          ${renderViolations(diff.axe.preview, previewUniqueIds)}
+        </div>
+        <div class="two-col-pane">
+          <div class="pane-title production-title">Production (${diff.axe.production.length} violation${diff.axe.production.length !== 1 ? 's' : ''})</div>
+          ${renderViolations(diff.axe.production, productionUniqueIds)}
+        </div>
+      </div>
+      ${inBothNote}
+    </div>
+  </div>`;
+}
+
 // ---- CSS ----
 
 function getStyles(): string {
@@ -414,7 +508,7 @@ function getStyles(): string {
     .url-card.production { border-left: 3px solid #ff6b6b; }
 
     /* Summary */
-    .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+    .summary-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 24px; }
     .summary-card { background: white; border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
     .summary-card .number { font-size: 38px; font-weight: 700; line-height: 1; }
     .summary-card .label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-top: 6px; }
@@ -485,10 +579,29 @@ function getStyles(): string {
     .delta-warn { background: #fff3cd; color: #856404; }
     .delta-ok { background: #d4edda; color: #155724; }
 
+    /* Accessibility */
+    .axe-violation { padding: 8px 12px; margin-bottom: 6px; border-radius: 4px; background: #fafafa; border-left: 3px solid #ccc; }
+    .axe-violation.axe-unique { background: #fff9f9; }
+    .axe-header { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; flex-wrap: wrap; }
+    .axe-impact { font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; text-transform: uppercase; }
+    .axe-id { font-family: 'SFMono-Regular', Consolas, monospace; font-size: 12px; color: #2980b9; }
+    .axe-nodes-count { font-size: 11px; color: #999; margin-left: auto; white-space: nowrap; }
+    .axe-help { font-size: 12px; color: #555; margin-bottom: 6px; }
+    .axe-nodes-list { margin-top: 6px; display: flex; flex-direction: column; gap: 5px; }
+    .axe-node { background: #fff; border: 1px solid #e8e8e8; border-radius: 4px; padding: 7px 10px; font-size: 12px; }
+    .axe-selector { display: block; font-family: 'SFMono-Regular', Consolas, monospace; font-size: 11px; color: #555; margin-bottom: 4px; word-break: break-all; }
+    .axe-selector::before { content: '▸ '; color: #aaa; }
+    .axe-html-snippet { display: block; font-family: 'SFMono-Regular', Consolas, monospace; font-size: 11px; background: #f5f5f5; padding: 4px 8px; border-radius: 3px; white-space: pre-wrap; word-break: break-all; color: #333; margin-bottom: 4px; }
+    .axe-failure { font-size: 11px; color: #888; white-space: pre-wrap; }
+    .axe-more { font-size: 11px; color: #aaa; font-style: italic; padding: 4px 0; }
+
     /* Misc */
     .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 700; color: white; }
     .footer { text-align: center; color: #bbb; font-size: 12px; padding: 32px 24px; }
 
+    @media (max-width: 1100px) {
+      .summary-grid { grid-template-columns: repeat(3, 1fr); }
+    }
     @media (max-width: 900px) {
       .summary-grid { grid-template-columns: 1fr 1fr; }
       .url-grid, .screenshot-grid, .two-col-grid { grid-template-columns: 1fr; }
@@ -508,6 +621,7 @@ export function generateReport(
   const criticalDiffs = diff.criticalDifferences;
   const previewErrors = diff.consoleErrors.preview.length;
   const productionErrors = diff.consoleErrors.production.length;
+  const axeTotal = diff.axe.preview.length + diff.axe.production.length;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -554,6 +668,10 @@ export function generateReport(
       <div class="number">${productionErrors}</div>
       <div class="label">Production Issues</div>
     </div>
+    <div class="summary-card ${axeTotal > 0 ? 'warning' : 'success'}">
+      <div class="number">${axeTotal}</div>
+      <div class="label">A11y Violations</div>
+    </div>
   </div>
 
   <!-- Screenshots -->
@@ -586,6 +704,7 @@ export function generateReport(
   ${headingsSection(diff)}
   ${imagesSection(diff, preview, production)}
   ${contentSection(diff)}
+  ${accessibilitySection(diff)}
   ${consoleSection(diff, preview, production)}
 
   <div class="footer">

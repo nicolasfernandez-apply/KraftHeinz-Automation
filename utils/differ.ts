@@ -1,4 +1,4 @@
-import { PageAnalysis, HeadingInfo, ConsoleEntry, PerformanceMetrics } from './analyzer';
+import { PageAnalysis, HeadingInfo, ConsoleEntry, PerformanceMetrics, AxeViolation } from './analyzer';
 
 export interface ValueDiff<T> {
   preview: T;
@@ -69,6 +69,16 @@ export interface PageDiff {
     text: SetDiff;
     images: SetDiff;
     links: SetDiff;
+  };
+  axe: {
+    preview: AxeViolation[];
+    production: AxeViolation[];
+    /** Violations (by rule id) present only on preview */
+    onlyInPreview: AxeViolation[];
+    /** Violations (by rule id) present only on production */
+    onlyInProduction: AxeViolation[];
+    /** Rule ids with violations on both sides */
+    inBoth: string[];
   };
   totalDifferences: number;
   criticalDifferences: number;
@@ -202,6 +212,18 @@ export function diffAnalyses(preview: PageAnalysis, production: PageAnalysis): P
     links: linkDiff,
   };
 
+  // ── Accessibility diff ────────────────────────────────────────────────────
+  const previewViolationIds  = new Set(preview.axeViolations.map((v) => v.id));
+  const productionViolationIds = new Set(production.axeViolations.map((v) => v.id));
+
+  const axe = {
+    preview:         preview.axeViolations,
+    production:      production.axeViolations,
+    onlyInPreview:   preview.axeViolations.filter((v) => !productionViolationIds.has(v.id)),
+    onlyInProduction: production.axeViolations.filter((v) => !previewViolationIds.has(v.id)),
+    inBoth:          [...previewViolationIds].filter((id) => productionViolationIds.has(id)),
+  };
+
   // ── Difference counts ─────────────────────────────────────────────────────
   const metaDiffs = Object.values(metadata).filter((d) => d.isDifferent).length;
   const structDiffs = [headingsCount, imagesCount, linksCount, formsCount, scriptsCount, stylesheetsCount].filter(
@@ -213,14 +235,20 @@ export function diffAnalyses(preview: PageAnalysis, production: PageAnalysis): P
     (textDiff.isDifferent ? 1 : 0) +
     (imageDiff.isDifferent ? 1 : 0) +
     (linkDiff.isDifferent ? 1 : 0);
+  // Violations unique to one side count as differences; violations on both sides are shared issues
+  const axeUniqueDiffs = axe.onlyInPreview.length + axe.onlyInProduction.length;
+  const axeCriticalUnique = [...axe.onlyInPreview, ...axe.onlyInProduction].filter(
+    (v) => v.impact === 'critical' || v.impact === 'serious',
+  ).length;
 
-  const totalDifferences = metaDiffs + structDiffs + headingsDiff + statusDiff + contentDiffs;
+  const totalDifferences = metaDiffs + structDiffs + headingsDiff + statusDiff + contentDiffs + axeUniqueDiffs;
 
   const criticalDifferences =
     statusDiff +
     (metadata.title.isDifferent ? 1 : 0) +
     (metadata.description.isDifferent ? 1 : 0) +
-    (metadata.robots.isDifferent ? 1 : 0);
+    (metadata.robots.isDifferent ? 1 : 0) +
+    axeCriticalUnique;
 
   return {
     statusCode,
@@ -240,6 +268,7 @@ export function diffAnalyses(preview: PageAnalysis, production: PageAnalysis): P
     },
     headings,
     content,
+    axe,
     totalDifferences,
     criticalDifferences,
   };
