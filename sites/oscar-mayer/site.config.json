@@ -1,0 +1,9 @@
+{
+  "name": "Oscar Mayer",
+  "slug": "oscar-mayer",
+  "previewBaseUrl": "https://oscarmayer.prv.kraftheinz.com/",
+  "productionBaseUrl": "https://www.oscarmayer.com/",
+  "sitemapPath": "/sitemap.xml",
+  "excludePatterns": [],
+  "maxPages": 0
+}
