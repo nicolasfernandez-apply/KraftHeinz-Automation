@@ -1,4 +1,4 @@
-import { PageAnalysis, HeadingInfo, ConsoleEntry, AxeViolation } from './analyzer';
+import { PageAnalysis, HeadingInfo, ConsoleEntry, AxeViolation, VideoInfo } from './analyzer';
 import { PageDiff, ValueDiff, PerfDiff, SetDiff } from './differ';
 
 // ---- Utility helpers ----
@@ -175,6 +175,7 @@ function structureSection(diff: PageDiff): string {
           ${comparisonRow('Images Without Alt Text', diff.imagesWithoutAlt)}
           ${comparisonRow('Links', diff.linksCount)}
           ${comparisonRow('Forms', diff.formsCount)}
+          ${comparisonRow('Embedded Videos', diff.videosCount)}
           ${comparisonRow('External Scripts', diff.scriptsCount)}
           ${comparisonRow('Stylesheets', diff.stylesheetsCount)}
         </tbody>
@@ -301,6 +302,69 @@ function imagesSection(diff: PageDiff, preview: PageAnalysis, production: PageAn
   </div>`;
 }
 
+function videoSubSection(d: PageDiff['content']['videos']): string {
+  const onlyPreviewSrcs    = new Set(d.onlyInPreview.map((v) => v.src));
+  const onlyProductionSrcs = new Set(d.onlyInProduction.map((v) => v.src));
+  const uniqueCount = d.onlyInPreview.length + d.onlyInProduction.length;
+
+  // All videos are CDN-hosted native elements — strip the host so preview and
+  // production CDN domains don't create false positives in the display.
+  const videoPath = (v: VideoInfo): string => {
+    try {
+      const parsed = new URL(v.src);
+      const p = parsed.pathname + parsed.search;
+      return p.length > 100 ? p.substring(0, 100) + '…' : p;
+    } catch {
+      return v.src.length > 100 ? v.src.substring(0, 100) + '…' : v.src;
+    }
+  };
+
+  const renderCard = (v: VideoInfo, isUnique: boolean): string => `
+      <div style="padding:8px 12px;margin-bottom:6px;border-radius:4px;background:${isUnique ? '#fff9f9' : '#fafafa'};border-left:3px solid ${isUnique ? '#e74c3c' : '#e0e0e0'}">
+        ${isUnique || v.title ? `<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+          ${isUnique ? '<span class="heading-only-tag">Only here</span>' : ''}
+          ${v.title ? `<span style="font-size:12px;color:#444">${escapeHtml(v.title)}</span>` : ''}
+        </div>` : ''}
+        <code style="font-size:11px;color:#777;word-break:break-all;display:block">${escapeHtml(videoPath(v))}</code>
+      </div>`;
+
+  const renderSide = (videos: VideoInfo[], onlySrcs: Set<string>): string => {
+    if (videos.length === 0) return '<p style="color:#aaa;font-style:italic;padding:8px 0">No videos found</p>';
+    return videos.map((v) => renderCard(v, onlySrcs.has(v.src))).join('');
+  };
+
+  const header = `
+    <div style="padding:12px 20px;background:#fafafa;font-size:13px;font-weight:600;color:#555">
+      🎬 Videos
+      <span style="font-weight:400;color:#999;margin-left:8px">
+        ${uniqueCount} unique &nbsp;·&nbsp; ${d.inBoth.length} in common
+      </span>
+    </div>`;
+
+  if (d.preview.length === 0 && d.production.length === 0) {
+    return `<div style="border-bottom:2px solid #f0f0f0">${header}</div>`;
+  }
+
+  return `
+    <div style="border-bottom:2px solid #f0f0f0">
+      ${header}
+      <div style="display:grid;grid-template-columns:1fr 1fr">
+        <div style="padding:12px 16px;border-right:1px solid #f0f0f0">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#16a085;background:#e8f8f7;padding:4px 8px;border-radius:3px;display:inline-block;margin-bottom:10px">
+            Preview (${d.preview.length})
+          </div>
+          ${renderSide(d.preview, onlyPreviewSrcs)}
+        </div>
+        <div style="padding:12px 16px">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#c0392b;background:#feecec;padding:4px 8px;border-radius:3px;display:inline-block;margin-bottom:10px">
+            Production (${d.production.length})
+          </div>
+          ${renderSide(d.production, onlyProductionSrcs)}
+        </div>
+      </div>
+    </div>`;
+}
+
 function contentSection(diff: PageDiff): string {
   const totalDiffs =
     diff.content.text.onlyInPreview.length +
@@ -308,7 +372,9 @@ function contentSection(diff: PageDiff): string {
     diff.content.images.onlyInPreview.length +
     diff.content.images.onlyInProduction.length +
     diff.content.links.onlyInPreview.length +
-    diff.content.links.onlyInProduction.length;
+    diff.content.links.onlyInProduction.length +
+    diff.content.videos.onlyInPreview.length +
+    diff.content.videos.onlyInProduction.length;
 
   const MAX = 30; // cap rows per sub-section to keep the report readable
 
@@ -386,6 +452,7 @@ function contentSection(diff: PageDiff): string {
       ${subSection('Text Content', '📝', diff.content.text, 'text blocks', 200)}
       ${subSection('Images (by path)', '🖼️', diff.content.images, 'images', 120)}
       ${subSection('Links (by path)', '🔗', diff.content.links, 'links', 120)}
+      ${videoSubSection(diff.content.videos)}
     </div>
   </div>`;
 }

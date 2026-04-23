@@ -39,6 +39,17 @@ export interface FormInfo {
   inputs: string[];
 }
 
+export interface VideoInfo {
+  /** 'native' | 'youtube' | 'vimeo' | 'wistia' | 'iframe' */
+  platform: string;
+  /** Absolute src URL as resolved by the browser */
+  src: string;
+  /** Extracted video ID for YouTube / Vimeo / Wistia; full src for others */
+  videoId: string;
+  /** title attribute if present */
+  title: string;
+}
+
 export interface ConsoleEntry {
   type: string;
   text: string;
@@ -82,6 +93,7 @@ export interface PageAnalysis {
   images: ImageInfo[];
   links: LinkInfo[];
   forms: FormInfo[];
+  videos: VideoInfo[];
   consoleEntries: ConsoleEntry[];
   performance: PerformanceMetrics;
   screenshotBase64: string;
@@ -215,6 +227,24 @@ export async function analyzePage(
     )
     .catch(() => [] as FormInfo[]);
 
+  // Only native <video> elements are collected — iframes are excluded to avoid false
+  // positives from Recaptcha, cookie banners, analytics, and other embedded widgets.
+  const videos = await page
+    .evaluate(() => {
+      const items: Array<{ platform: string; src: string; videoId: string; title: string }> = [];
+
+      document.querySelectorAll('video').forEach((el) => {
+        const v = el as HTMLVideoElement;
+        // Prefer the resolved .src property; fall back to the first <source> child
+        const src = v.src || (v.querySelector('source') as HTMLSourceElement | null)?.src || '';
+        if (!src) return;
+        items.push({ platform: 'native', src, videoId: src, title: v.getAttribute('title') || '' });
+      });
+
+      return items;
+    })
+    .catch(() => [] as Array<{ platform: string; src: string; videoId: string; title: string }>);
+
   const performance = await page
     .evaluate(() => {
       const entries = window.performance.getEntriesByType('navigation');
@@ -301,6 +331,7 @@ export async function analyzePage(
     images,
     links,
     forms,
+    videos,
     consoleEntries,
     performance: performance ?? EMPTY_PERFORMANCE,
     screenshotBase64,
