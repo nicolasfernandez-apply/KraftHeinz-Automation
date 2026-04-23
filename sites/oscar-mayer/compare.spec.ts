@@ -133,6 +133,56 @@ test.describe('Oscar Mayer — Preview vs Production', () => {
           }
           console.log('');
         }
+
+        // ── Test failure checks ───────────────────────────────────────────────
+        // Marks the test as failed when a page is absent from one environment,
+        // or when the Images / Content Comparison sections show differences.
+        const testFailures: string[] = [];
+
+        // "Only in" — page loads on one side but not the other
+        const previewFailed    = Boolean(previewAnalysis.loadError) || previewAnalysis.statusCode >= 400;
+        const productionFailed = Boolean(productionAnalysis.loadError) || productionAnalysis.statusCode >= 400;
+
+        if (!previewFailed && productionFailed) {
+          testInfo.annotations.push({ type: 'Only in Preview' });
+          testFailures.push(
+            `Only in Preview — Production returned ${productionAnalysis.statusCode || 'error'}` +
+            (productionAnalysis.loadError ? `: ${productionAnalysis.loadError}` : ''),
+          );
+        }
+        if (previewFailed && !productionFailed) {
+          testInfo.annotations.push({ type: 'Only in Production' });
+          testFailures.push(
+            `Only in Production — Preview returned ${previewAnalysis.statusCode || 'error'}` +
+            (previewAnalysis.loadError ? `: ${previewAnalysis.loadError}` : ''),
+          );
+        }
+
+        // Images section + Content Comparison section
+        const contentDiffDetails: string[] = [];
+        if (diff.imagesCount.isDifferent)
+          contentDiffDetails.push(`image count (preview: ${diff.imagesCount.preview}, production: ${diff.imagesCount.production})`);
+        if (diff.imagesWithoutAlt.isDifferent)
+          contentDiffDetails.push(`images missing alt (preview: ${diff.imagesWithoutAlt.preview}, production: ${diff.imagesWithoutAlt.production})`);
+        if (diff.content.images.isDifferent)
+          contentDiffDetails.push(`image paths (${diff.content.images.onlyInPreview.length} only in preview, ${diff.content.images.onlyInProduction.length} only in production)`);
+        if (diff.content.text.isDifferent)
+          contentDiffDetails.push(`text blocks (${diff.content.text.onlyInPreview.length} only in preview, ${diff.content.text.onlyInProduction.length} only in production)`);
+        if (diff.content.links.isDifferent)
+          contentDiffDetails.push(`links (${diff.content.links.onlyInPreview.length} only in preview, ${diff.content.links.onlyInProduction.length} only in production)`);
+        if (diff.content.videos.isDifferent)
+          contentDiffDetails.push(`videos (${diff.content.videos.onlyInPreview.length} only in preview, ${diff.content.videos.onlyInProduction.length} only in production)`);
+
+        if (contentDiffDetails.length > 0) {
+          testInfo.annotations.push({ type: 'Difference in content' });
+          testFailures.push(
+            `Difference in content:\n${contentDiffDetails.map((d) => `  • ${d}`).join('\n')}`,
+          );
+        }
+
+        if (testFailures.length > 0) {
+          throw new Error(testFailures.join('\n'));
+        }
       } finally {
         await previewCtx.close();
         await productionCtx.close();
