@@ -144,14 +144,14 @@ test.describe('Oscar Mayer — Preview vs Production', () => {
         const productionFailed = Boolean(productionAnalysis.loadError) || productionAnalysis.statusCode >= 400;
 
         if (!previewFailed && productionFailed) {
-          testInfo.annotations.push({ type: 'Only in Preview' });
+          testInfo.annotations.push({ type: 'tag', description: 'only-in-preview' });
           testFailures.push(
             `Only in Preview — Production returned ${productionAnalysis.statusCode || 'error'}` +
             (productionAnalysis.loadError ? `: ${productionAnalysis.loadError}` : ''),
           );
         }
         if (previewFailed && !productionFailed) {
-          testInfo.annotations.push({ type: 'Only in Production' });
+          testInfo.annotations.push({ type: 'tag', description: 'only-in-production' });
           testFailures.push(
             `Only in Production — Preview returned ${previewAnalysis.statusCode || 'error'}` +
             (previewAnalysis.loadError ? `: ${previewAnalysis.loadError}` : ''),
@@ -174,7 +174,7 @@ test.describe('Oscar Mayer — Preview vs Production', () => {
           contentDiffDetails.push(`videos (${diff.content.videos.onlyInPreview.length} only in preview, ${diff.content.videos.onlyInProduction.length} only in production)`);
 
         if (contentDiffDetails.length > 0) {
-          testInfo.annotations.push({ type: 'Difference in content' });
+          testInfo.annotations.push({ type: 'tag', description: 'difference-in-content' });
           testFailures.push(
             `Difference in content:\n${contentDiffDetails.map((d) => `  • ${d}`).join('\n')}`,
           );

@@ -192,11 +192,32 @@ export async function analyzePage(
 
   const links = await page
     .evaluate((pageUrl: string) => {
+      // Walk up the DOM; return true if the element lives inside a cookie consent container.
+      const isCookieBanner = (el: Element): boolean => {
+        let node: Element | null = el.parentElement;
+        while (node) {
+          const cls = (node.getAttribute('class') || '').toLowerCase();
+          const id  = (node.getAttribute('id')    || '').toLowerCase();
+          if (
+            cls.includes('cookie')    || id.includes('cookie')    ||
+            cls.includes('consent')   || id.includes('consent')   ||
+            cls.includes('gdpr')      || id.includes('gdpr')      ||
+            cls.includes('onetrust')  || id.includes('onetrust')  ||
+            cls.includes('cookiebot') || id.includes('cookiebot') ||
+            cls.includes('cky-')      || id.includes('cky-')      ||
+            cls.includes('osano')     || id.includes('osano')
+          ) return true;
+          node = node.parentElement;
+        }
+        return false;
+      };
+
       let pageOrigin = '';
       try {
         pageOrigin = new URL(pageUrl).origin;
       } catch {}
       return Array.from(document.querySelectorAll('a[href]'))
+        .filter((a) => !isCookieBanner(a))
         .slice(0, 300)
         .map((a) => {
           const el = a as HTMLAnchorElement;
@@ -265,14 +286,36 @@ export async function analyzePage(
 
   // Extract visible text blocks from content elements.
   // Targets leaf-level elements that carry readable text; deduplicates and filters noise.
+  // Elements inside cookie consent containers are excluded to avoid environment differences
+  // caused by banners that appear differently between Preview and Production.
   const textBlocks = await page
     .evaluate(() => {
+      const isCookieBanner = (el: Element): boolean => {
+        let node: Element | null = el.parentElement;
+        while (node) {
+          const cls = (node.getAttribute('class') || '').toLowerCase();
+          const id  = (node.getAttribute('id')    || '').toLowerCase();
+          if (
+            cls.includes('cookie')    || id.includes('cookie')    ||
+            cls.includes('consent')   || id.includes('consent')   ||
+            cls.includes('gdpr')      || id.includes('gdpr')      ||
+            cls.includes('onetrust')  || id.includes('onetrust')  ||
+            cls.includes('cookiebot') || id.includes('cookiebot') ||
+            cls.includes('cky-')      || id.includes('cky-')      ||
+            cls.includes('osano')     || id.includes('osano')
+          ) return true;
+          node = node.parentElement;
+        }
+        return false;
+      };
+
       const seen = new Set<string>();
       const blocks: string[] = [];
       const elements = Array.from(document.querySelectorAll(
         'p, li, td, th, blockquote, figcaption, label, caption, dt, dd',
       ));
       for (const el of elements) {
+        if (isCookieBanner(el)) continue;
         // Skip elements that themselves contain block children (avoids duplicating parent text)
         if (el.querySelector('p, li, blockquote, div')) continue;
         const text = (el as HTMLElement).innerText
