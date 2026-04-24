@@ -200,19 +200,16 @@ jobs:
           else
             echo "report-history branch not found — root will only show Oscar Mayer section"
             # Create a minimal root index that redirects to /oscar-mayer/
-            cat > .pages-artifact/index.html <<'HTML'
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=oscar-mayer/">
-  <title>KraftHeinz Automation Reports</title>
-</head>
-<body>
-  <p>Redirecting to <a href="oscar-mayer/">Oscar Mayer reports</a>…</p>
-</body>
-</html>
-HTML
+            printf '%s\n' \
+              '<!DOCTYPE html>' \
+              '<html lang="en"><head>' \
+              '  <meta charset="UTF-8">' \
+              '  <meta http-equiv="refresh" content="0; url=oscar-mayer/">' \
+              '  <title>KraftHeinz Automation Reports</title>' \
+              '</head><body>' \
+              '  <p>Redirecting to <a href="oscar-mayer/">Oscar Mayer reports</a>...</p>' \
+              '</body></html>' \
+              > .pages-artifact/index.html
           fi
 
       - name: Upload Pages artifact
