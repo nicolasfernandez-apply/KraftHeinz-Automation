@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700075296-portable-protein-snack-pack-with-dark-chocolate-almond-nut-clusters-turkey-cheddar-cheese/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DKe9JhF9r_N6fZDHOg7epI8gG9AJe_ueiKBVVJYF1D8HC-inbJo3ns400C2HLc0mKqAeQbLTJhVMicPYEyCaKksHTxHfPousGYv1TjGfQEKFkNwpj_CSVKFruRUtskdorX4V7tsRbc3jqduRNm6UbSyV_UiAXPRuNmXNgLS50RlqDjvPMfR0vqZJ7T7BrJUCylgybnU3ZfSv0-J_L4P1pgm7WbgL_qUrCKylUv_Z7M12Kf5lTwxIa2EfBQlV8rcEQ_mWCtFRwBmJsz4LHcq4FDCF_GpJLN930Ay_QjfsXbmx66TEVn-Yy8n8FlTFDbAdseLCBAaUasTt3kncLfmNJfzrmGe7m7GZovZC8JcFZ3Q5wv0T7fUOaKasOf10hfxP4O0-FGyr-bI-U1AQ-f4CyAWmkyhuYmwmDiu1rBU6hSYqXUFCLlrcGD-QajT5BD95cK7bnizAhpgC25m3UTZLdmhDD5h4HIXrgiX_ChT92SDl3GPvNo3c5-77F4His8B5BoBzKNlPX2PO_r1fRrC31hudR6U0MrWGkiEFAEDkRBGb_hCWZknZUuWV4SznPmBo8zZq8gG-Yr8def2wyhXXgCfFg2-Bcti0dEG9u_LL0mVdgulJyDjkgWP9EsGHUcnNmv4yk7iTVear58zQzLFOp6nRPORIyzr2K6t87YKgx_DWzdm432Ys5uV8GgvocAknAlp1gwLmVK0WkfpLPogCbdeBHRzOP8BG6Rfgur8CBCl1XgRDcPK4VzcsRuLtj-aBU02e40XLvHsl_HHFKrKtzqahBWbqg_Cqfki0GKx8FamYlL4EnNUdDp3Ze5-JFYc-3Q6I57fjp7zNVN9z967r_fExn6Kx1XTRy6LToDQkR1Aoooc9YWUYgJLyMnEbJiMlCmJXBFyaavmWleiPNgGgCL7k9OOuK5k2GvwiaYuZ5qXmhOHE6DqzD55H2jV1jIZlVDKYCkkaybAdZRIHZzbu5IMDrbu0AZs-0XJAsfSr91QxIpxYcBa2SqZ70h8N3A9REvRa1_QYBZpS7eMyMb0CAbFTJQZ8Di1r4fNBwiZS4A_nU4O-e_0YE1KSdOMDNEq3n6CeZNByMXWKgzYob3QG3-QGOyVXofudv49cnuDaAsh73ytPdO9mypKIsH0UZkc8HIO9clVfY5n5Wlm1fVzjHzoswb5nqevaaLmP0U5KOmAF-UhsTXRQJIt.5Baj15b3kCXm9uS5IO0zffgae4YVMCdjlnb6cDjj1ROrZTjnGla4bknyzjQe9SM8Jye7KRjQgce4ntgB6e3iRQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700075296-portable-protein-snack-pack-with-dark-chocolate-almond-nut-clusters-turkey-cheddar-cheese
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700075296-portable-protein-snack-pack-with-dark-chocolate-almond-nut-clusters-turkey-cheddar-cheese/
+Analyzing Production: https://www.oscarmayer.com/products/00044700075296-portable-protein-snack-pack-with-dark-chocolate-almond-nut-clusters-turkey-cheddar-cheese/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700075296 Portable Protein Snack Pack With Dark Chocolate Almond Nut Clusters Turkey Cheddar Cheese
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700075296-portable-protein-snack-pack-with-dark-chocolate-almond-nut-clusters-turkey-cheddar-cheese-2026-04-24T20-43-07-710Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700030486-deli-fresh-smoked-uncured-ham/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DJEZx_cqvUoY72tM5B5oiNRFJr7xvqgCrtvbaRWHamz7WeADS9Iog7VCd2PsJPDxQ2InejozboFOu-KAALYCCvia_smoFVSE5uQJe4zNQtIIKwUXBtRQUDlSr8-v-9S8aq9mxH3GcxP_BKnlX0o1RZok7QBYv7zY466B8snIJT9wCHN7SOumw2DSVIJ2dSrs9BBRu1n91hT_bn2Xfc2b65YzCla9ZndBAGlhVOVgrkjJT5JTkvycbm2J-t4A18CjUrpI_C22NwV9AedVKpZg-VabVpxkzwH0bYQeBMVk7D4fmU5UdowLkhHPz0c81pzSEgz96jcwgdOulRolbzsF_si-INCOPqGO5qoPwzdm5b2lknnjzCLLWz9l_Shl_caXcjBt8F6RUTcnYndYKWFWuL2F7wDn2aS7XgaD2jp6Xy6CS60rVyo-bjbjCkFP5EBcBDzB_91f-wxpXnVqCB9TZ0LgEqQssfBFn5P7bz4PGF8yrPXdfNTSXX047sCgajMO31eviA4Vf1hD2KyCVEdpQDO9j7cPDvPEzdyI5dg3BaUWeroo-Yu_xfPgJqxdZsNGyHvphoC2KV9w8lTfMCRfJREDoYSViN7p82LHlpSKZM79KiBMxNk0vjz2KByfE6uM1mjfyMQ_sCOfWdiPLRIqQOhSC_RuIRdSIQXfky5XmgWz_nkT1K1iSCJdzzFH3aFYAg-gU7xEasL5YjkWxya_43ZyTjoTTGOEMjF3gPBj5z8R20CH3q86mzwkA7TS3EjIVYx50mhitL_bdZ48alymH2YDjwilWlTglCdcEXm334oZTY0fRrS3IqAF2XIPr2t00kU-XaNz_LZbmeo_aGTm1tHDmYIjBYNxHyJLQ7DXzcMLDllt96Csxm8F9qkCACbgiJpkt-j0yZq4mg_31fYbRTl_u3zWz2ptbwNBqszGubYyQgU6BtpmNhpp-rUYViq2yLGRzOq.HH2orgNuqti0nVG4lQT2A-b694sBYXapzbpyO74rD97EDwKN4BE9mwtZNEgE9cEesiy3oW-njfH7OEMb_T2pJg
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700030486-deli-fresh-smoked-uncured-ham
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700030486-deli-fresh-smoked-uncured-ham/
+Analyzing Production: https://www.oscarmayer.com/products/00044700030486-deli-fresh-smoked-uncured-ham/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700030486 Deli Fresh Smoked Uncured Ham
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700030486-deli-fresh-smoked-uncured-ham-2026-04-24T20-56-06-501Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

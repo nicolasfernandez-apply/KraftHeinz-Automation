@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700073537-deli-fresh-oven-roasted-turkey-breast-and-smoked-uncured-ham/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DIPdUpCqPbt34COl5Lizlm6e15bVhRPLI1KcmJru5hIYw3ov6uEl5VQvGgphW24RrHdfAkbVRwSCIlLlHKmLPBnVMChsifxATxDtXGYAl_3F8Dv9jErsafelfTfaSmkV2ktWp50EFWfA6pnFqONxf45t9qgsjmhaBqYDGwEuCUOXRXr-J63r7VLl-tUO2Gc1r6r8pBNprdVTECZF19EkWcTsHyFUGyg6iotXRTEeNgbncUcP-b8NPsUXGuypeGjTe1It8MV7Z5S29-2Aum57V-k7ZV1DkFu9wEodIcfgkx6Ffn2SMb9ZINj1V1E1CZEr_rEEvDprEzfhw4Rqh7xvfLCR7K25vbE-1Ji0JbsVB4RBvLeC76UD5IDO4cAe5aFbQWh5ikqyGwSnXheEq3dfiyUmfniKIdZBPBQwpL6Wrt4JfcBusU2ts8h4gn9IHvh-qchWBTkKdkIesCg-cVxchPN2ECJSzrN7DzraQf8QqBGguw1VHhGIzDhP_wneMoIGNB70T6f0N6ukBEMVk0Bun2SK8A5YV1oB1cYQP4sdaU1D92TiY9LuppWoigmNa6zXAKKIBMpUQts_yFWPcyutFMJb_-kid-sYhThAXCE0j6dYp5bKFdzGJhRGIef_dwY3KvXnvykjOyLWBAU9zKN5B9dLG2GVvRG4npauS2MqQpsdFAcnwSAVI1QQszqwqeMxylAfECCrOrQSLIhSw_grUlcmRdtsHFUSDq3JWjXWRc0lcVzL-QNptwc_fWM3A0fDr741SOaQnOseOZNXdLBqRJl2m8RF3L5U-S6dyM7uv5o3pua_h9llNI9VhF_ZGXg_pJXLiUrp1ZQl_0wiDv3IAr5C_WPqgyOn27RbNWXHubz64Gv38yrT-q5voiDhdkyepDWyizVWH1mOR6Oma1kjEE7soakAb8ZKrc56Jy7jzt8T4Z6LsYSG7JQcJK1cY4QOtHPY3HFp8fFW69wRKA_xKDOkH9m3O-J6wUNX7XVT1uxM0OCu0EQZ0ENpNheic_AcaVmZ6uV1tedEiff3YT4NTHcIMF5NH72KAOtILgp8vmrBsP3iz_ZiJz4X7_3nAZ3Oayi.kbfF16372fNKidCfwIAhS_kImya_e2v7c4wQRd5vQF0RCczg41OMx-XhiATLWnyxpmAkK-XMqIzls3PUCO6HQg
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700073537-deli-fresh-oven-roasted-turkey-breast-and-smoked-uncured-ham
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700073537-deli-fresh-oven-roasted-turkey-breast-and-smoked-uncured-ham/
+Analyzing Production: https://www.oscarmayer.com/products/00044700073537-deli-fresh-oven-roasted-turkey-breast-and-smoked-uncured-ham/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700073537 Deli Fresh Oven Roasted Turkey Breast And Smoked Uncured Ham
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700073537-deli-fresh-oven-roasted-turkey-breast-and-smoked-uncured-ham-2026-04-24T20-50-35-583Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

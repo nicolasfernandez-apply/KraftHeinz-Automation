@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/our-story/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DKMT3afeU3AXHo4nL3SOY1x9rEji6_5VQXWVdTeR8T4GAna0p9j2GryHT79IK3iVZDTNGfinVEMfK2K4r7C-Mkwd0i9fvXw0v0NOooz3g8vl5wrFl2tlwbW4twqsmEVUeGJ5nZia-7SCHTO14Wcn5_bKYklKbXBlqALdcixfb9OOMguXm4k4UAcLFD8Gg5oyTT4vTwNGVFyKmWlVaL7uu14XBRP9fP0cj52mHLpJDAF8__kNf0E5vRdghzi4ob-vcOzuSKf2aTIhmOsp3VoJkAREDP9LCZlL3OmKs8Ce07KEP6ZjqyjDf7OosLtHYXLgtiTSdjx75tKRTO5gbK4yyssF8JhYcmZM-D-u0xK2pP8LcMHeT41-hFAOQktZ0qxW3Hqd3nlNszquzWUAJl6GdhXhIJYNMYnEryQ0oxF_ztE99jJsksu6a8iXGetMZ4JlGIH1VZIlDqsKaL2OT7E1yZGm-vziqwllNZRzb3LBAGYY15nftcZgiAmVSTvIgfNP3rFcZrZ22jH2aX0yEYb3d-GYVo7v4IzMgcwUT5L91NKdtRS2iThlPc8jOhloGAE6s1BkCbvE-mEfkIyo67WetYZshshFG5Lchk5IJCHmKHxuTMgDL2Ep0L67IPhj_RXsSZdHW8URLxohq3x6Wvoxp-OvQAlG1GlVdx68kNOBK554HP3It2JjWxQOpC7ky0KRbdqMPM6F1ulEGABhUPlcFtyTAKaedDXPY1hzpFHBUjqCa-qpuwsqYXDyez7EbAaJJ2ufy2MBxQLOkpLKrFh-RcC.sqsPUj-Sm4xl-hTBn7m_w4e5N6ZsUcAV9B1Q015hpx18m1fFiqsFx5bV2OZNrcJwW4E1IRsVLrUFp5Km_eN8-g
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/our-story
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/our-story/
+Analyzing Production: https://www.oscarmayer.com/our-story/
+
+============================================================
+COMPARISON SUMMARY — Our Story
+============================================================
+Total differences:    5
+Critical differences: 3
+Preview issues:       2
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/our-story-2026-04-24T20-34-28-947Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

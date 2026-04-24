@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700102916-naturally-hardwood-smoked-thick-cut-applewood-bacon/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DLFopusaYTC628uWlwlQwVZvy4aPdK9xK94vPB7mwL7CyJ3cHidsZ40HmAQZi-paeRMRFcU79v2_7suv3arm2uDOfy0v7BRmrqXcrV9robJaND1EIi7lxuXh863yHP6PHG2Z6o0_s5LSjPjBm5vlebgQp2Hr29GpX0V3DgQsPxnFoePjg4V2hsGYzouzo3TWKSe0Lrlv6UOP5uVpPZ6Temdf9dMFsMylgqiXBg1p55HgXOwX9TVDa00hCFJLn5QgEclPdMUp7Y2qLKzfZHQHiCDAJ-FKTHaGfOqBjc9dMwjx-f252_y_g8o-OHusAhiVw_vnIHds6wHKpL09lRxg2bglHBYT1VOZ8RkV-sOU0oGwWwhpdC8gcBn3C0dXnt3ysJWn18C8GQ3t3_dv2sUcauZ9gwY-N1IAvR03TKHep6RF8QTWzZoGGSqk-415yy7gjO861SrcT-oyS9ihJH_QZMvTA2OLb9DX3WjjciAo6pvgkBEr-1ES7hF8QFLux4dhekRmPNr8AnuVmOL3U868STIe5jZSRaU1bQgX-Y849L1Vdw6le2umaVTG7CpoxIkm2XsgzbXM0WFi8GRDjKOHfxyoZtLRIZfOVI_Xce4jCl7TzO8XIPcRysHezKz5_jpBtSKtkcgFOujWjqvZj4u202e0IQWaR9wjUPwo0K4k71iaQPYDykaqO15AQV3bzhsKm8zl4zUHZXX7I7eKimg5LWP4RTTN92J6foNmrVUqKmK06hbXGi8x5qEMuO5KgsCQtvkOU5A7S-1hkeQvzDk2iqROMqArghyIA32lT_BzCq0mVKQ8UTJWqiDJR8BeKuGsNsH_AU_ZrGNRacRcRdXHPVAFlDk5TfJCONzzjkmaqzYcjj1gIe7Lzs0YKj-cdgedXpl8mCimXsItrZnOWSuBJ_p3BwpNYIIzBYO_N4iXdcHJ8bdCqNv4z6AzZ0Lmxs6BXfudOBXfXNaYT443qL5GZyxdME3j7Nl1pXL5fRq25UxyHYD_PQzcCPqt3uPVDEWrCY1IIXnYTGCzX_MGcX2h983ThGFoS0L.y6kdwJjkYfcGwCpARHE3NqjPwsJvRTgfG6vzb1UGog8hiGa73pJaC2DHrfVtdyiFE-T6BDBcTDmVVFBUZRtPuw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700102916-naturally-hardwood-smoked-thick-cut-applewood-bacon
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700102916-naturally-hardwood-smoked-thick-cut-applewood-bacon/
+Analyzing Production: https://www.oscarmayer.com/products/00044700102916-naturally-hardwood-smoked-thick-cut-applewood-bacon/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700102916 Naturally Hardwood Smoked Thick Cut Applewood Bacon
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700102916-naturally-hardwood-smoked-thick-cut-applewood-bacon-2026-04-24T20-49-05-288Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

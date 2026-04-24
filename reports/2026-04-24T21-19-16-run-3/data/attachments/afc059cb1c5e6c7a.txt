@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700008607-thick-cut-bologna-sliced-lunch-meat/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DIxxsqu5CqFoJzJz4Kxhewph9YK6f2iGIqVWa2RhESBJe6m4hbeWL24mclwJvH81_9iTml6lx1-bJ7-p6DfVcZ8AbW8dWLbo5e5Hl41MLSFXa9ybY54ciNLsZyk3DDhM1qWwA8l5hpYoBfCn5OASJc7qglj8BKfnzwOIzYahAvn0gaaMXoxsMJBUusqM5NyIYBsK2F5YJwkqsY6y4eu2-DMiAkMtj3GrVBXhmrlr-i1d1a23wKeTeTmYXFP-cF3WZatX4EmfURJnF6FTpjfJhguRwmSu6I4HPq6UC2MSJgrG0KXsj7BFzTv9gPNXKKxsAqW4RU0-tuUcTFsA4SWyygSKKwrF3Pc8Xileak_E4J8Fop2di7wLi7IXBKEOVYy-ZTicVs2YRUYlltXpFj6yEDQKip54byIg7mEL2iQOAIj_tDN-TPv5obrC27XmC8KjbpgJepEwb74aa1MuIXaTalwVKnLbmsXueiRZpQqZ9nfdSVEmRT_p9SzrAJwYTOKx4ikFctq0OR58ZGP27S5jZsZlXdzr1iqhM2AUGRKg7zkwOorEelKpdjzLSr-7nPnEhNSlzfy4Zeoyym0Zkui95jB0nE1wkg6SxDHZ5GAGG3ITwwx8jNoOhh8VOLhJyJMW8_KxYYt24Wk9d4Pm83BqZZ4YyqnJ2UE8tFFVc3FV3Iv_z4ExVG2WLRfXOKBX5CdZUItCBW3F407xzq8rPCcRbJW15OCi52G454ITMGdC_fa2_h9Ic1s_upZEIfo1KjFnkdMqreG7tE6crj6ftppM60Q6H0vnK5OZKJj2_aJ2xa_clKeS1z-Pf51gD2CI8DUFCmKCu8l6BdNdaP23TrsQ0yNh1R4D5ErYH8o5laeLwYRUD-hAU4vv-zLBCGaG4xF3FAhRDEzFUEG26D4DtEi7hhew8_ZD2-107Wd6V2LGmeCbnXEZzHHJmYdyf9t0a7Z97IN5kcbnqVXW6eiDcJIJktoe4zcWjQN.RcWsL4MWzZmdIeYBxRGYeOyi39W3fgzwlWrgCxD8Mvzj9IjZwdqPhK036w4trPhiWMllKp5kQXWGcGIoSq2nwA
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700008607-thick-cut-bologna-sliced-lunch-meat
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700008607-thick-cut-bologna-sliced-lunch-meat/
+Analyzing Production: https://www.oscarmayer.com/products/00044700008607-thick-cut-bologna-sliced-lunch-meat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700008607 Thick Cut Bologna Sliced Lunch Meat
+============================================================
+Total differences:    7
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700008607-thick-cut-bologna-sliced-lunch-meat-2026-04-24T20-56-58-051Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

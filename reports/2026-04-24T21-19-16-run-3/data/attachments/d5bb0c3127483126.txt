@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700066478-original-fully-cooked-bacon/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DIJAuT9c-trckX7z2rBlv5toEtn_dAotMxyD2GoukzXpyTk1qy8ShEB4c6-eJu058RF6kyobCsoSYksT-1tFMW0TfDw05WR4XUCjDLLMV4G2kAOvaiHEYTk5bc1Kcth5UMASvBESLCpm5T-XUxioqTOItbJuHmaBlRNyk20SbbcBazbbPOd5vrYHN0-onFdB6GGNvcqmQsLnjG715eODpMDRk7xqIhwsU1JvNWHw2evYMVT8rmRNNASxhWiGJFXqrMfFB6xeZBkGxgxD6anOCmagMF33YIA4X1KU2piyQqkDYa0GHhqDmAYe-RTfUDcmysgcamu9KCJamDQ-dOm-FMiCU_73x2J4rIB6qgZS18Ucr_R6xw-wWdQqtHQIaWi_guhaYOm_56SXJG4n4twArWg8giKsz0PH-0QdJe7ns3OdQAjbzB-qK_4vndaUK1aznhrQSTxCz04fIvXDF_tOoWtAm_zYs6mqWDLcAoMvuI6RrYjj9Hgf3ht-pRrEa_--XcePj2E5zNcL15SwBSnIzDANu0tTdFcoyVdfRHOt-HsVYuSxrXTkIzQ98X_ivl5CIyHaQ6JI6mp-mR4U_pvQJ4JxPuekQdkBkRAIpniuX0WUBno8dCSmnCIUqAo07x94_-gYhD5V01iEz-DSlEQ4AnY8c-EnzYqN-XB59XWdMebh_3grk_VeaeicQtNhvSP8i-U1f5dT3_kY3f2JdpOYQ3LroLJBfuA426sYHm1PSiE0Qt7ovM5Q9V0BTQeUqJ8mAM395pdzeoRsAba-q60GiYAWARTZIUVLvd4QEjU3E1fo_eH00KcQDVDXvt6jQI2tOlJD7GWExdbxkB_tVFA4Wb_R2dsGNyeLIRWlltrTTzZfAwvijYujufiOJUsHvffWm5aO2dBOqTUZwQOqVb52oTbKB_y-CbRBosg--B47kgL2TsS_VvbfPYe-VvmFmCI.MnOcQ7in_11tMcDBQMaBYH4kUUBMMV9_-hd5jWBUBuxjvnswT_gEsgl-QCCvfMVMOGY1pznBv4_APniIbM7Mbw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700066478-original-fully-cooked-bacon
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700066478-original-fully-cooked-bacon/
+Analyzing Production: https://www.oscarmayer.com/products/00044700066478-original-fully-cooked-bacon/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700066478 Original Fully Cooked Bacon
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700066478-original-fully-cooked-bacon-2026-04-24T20-55-04-321Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

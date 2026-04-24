@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700072752-portable-protein-snack-pack-with-turkey-almonds-colby-jack-cheese/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DJBZGJyLPRFko_cATej5Af3x9UmtHpLAygYB96EI3sLLCac5nScGlB4vZUHiqHsiwko0Y7k0VyOPsng8I8xw_NIItt2hDrlP9u-3C2KOwB8_UbjIy8JWLX1PN0U4Yk2px0W7eGWhT3HSpBxH2DoWV1SmLl-ReYnVMRAoLAriGOApd-7zfy1Uhi68MKKBkLeXC7Kc8WkoqKFr612ICZNWdeeuAC8zD_D9fj4fCjZmURWCj4wqwZdG7JsZxifek6v2v6Hry8OQdW0uZwNGTEYXAPnLYm12ZvHrJvsoNevITEywuUG0rcjhtJChFh_lSRzNSp1-0um8k09GrWRTmQbukiDEVdBIzvyrIX7Yr8ITwxzNjWLCoU-wPi0lWsONW_N5DDvDLMBmH7EWVn8zWLjMzm9kuGMd6SShul33V4Egotl6K9mG9oIl8RO1PWhvYU38kns66Q0M-jb8fWa91JzYAPdIizla-ZGGApyTkf7pERmtJrXK6NiQGpX70EM4ilE3YwogtQa3BxSyrZrN8JHVIVWJMUmfDqVhyMmX-XHnZOIybCcXlSaADhJ13HT9cBsOyzLpqy6-clLXjmY_ILCY8RjzUuT93xAdwFiwh7rWpbCqI6ESqhHd_tQciwX93VaX3_gg_DEXU3ynlfKnYQ3G-Jfoi2yTvjpdxhF2oB_CK44UXwWlN5OveBV3CIs1SxdG3Y397LHB_0UpGt4JJpFNpdKrY2YDDK31ohrvbvc_pG6tCHgA5KhfRXWdg8OB134O1ReNh8GI0OAWa5Tgs8mEiT1Q00UKAyZuvYyWo8iTIBzIHSVabje31bGeux-KUMSUaVx2G6uXlaVKV7UDXQQXc85L0MbRRYWQ--K9pur06es40JwW08bYO_QHTHYL0uQKBcw1AvK-ozjiTpqEe2Qc6JWX_WxnJxZJr61cAmIt83IRt5hDLuh4hiCa-399OEFcQwIjJ9z_OGpMp2jBh_bfB1mM0BHklDstOwJpiBaLee9HLObXPYVdibyOlOSWNBaRfJFvbx981fOpzoo6xRqlDWz2fL-tS1fV3gw0IuSJvs08kp15HLutcHIOKhahC_iywqqq0wA06a1vK_NbNiHjmia.3Aup1eVhd69TsXUG2697ZvP0lgKKd6rQmUjCmQCBxP6jqrKDq0iQDKA-kiCUNVFxN195nnG3A9ZKLKcliwwhJA
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700072752-portable-protein-snack-pack-with-turkey-almonds-colby-jack-cheese
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700072752-portable-protein-snack-pack-with-turkey-almonds-colby-jack-cheese/
+Analyzing Production: https://www.oscarmayer.com/products/00044700072752-portable-protein-snack-pack-with-turkey-almonds-colby-jack-cheese/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700072752 Portable Protein Snack Pack With Turkey Almonds Colby Jack Cheese
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700072752-portable-protein-snack-pack-with-turkey-almonds-colby-jack-cheese-2026-04-24T20-42-29-497Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

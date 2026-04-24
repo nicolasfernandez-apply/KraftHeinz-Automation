@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700076644-naturally-hardwood-smoked-thick-cut-bacon-mega-pack-for-a-low-carb-lifestyle/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DIWkmXupS7gq7C7lIsfuNcmuJP5moX7w0z-8iTLqZ75QPi9qNTl3gsINFBw1q9Vm03iG1vAHdiySLpv__ObYmhY1XQmyIk8Z09N3YrK8_eXopMctXR7gpGTXXHYatP9HmKCK-r6uiQot7UfqvsrGAumJKWTkZL3RzKSUkik52G8bYxBWaAkXhqkqWgsB9Yiw_t0eIa9uI4UGbJGKqMSjyPx2wfgA4_tEgrZtar8P5QQ14N5LO2L_3fZHQvLsgAGRco1DVnESy_ugSUN5pjgVM43qk9y6Cz2YDUDRSclJfUDsfL3koYxWHEM9cD-xwlYzZyzmoUOFqnu2EDSi9v3YWJRlv7pnn_2uQGGoZL1TYYQN4zYJP9IdJ4hst8BYJQNJit_XyDB4_I0uwEcFC18ppfjRaq5QxLH8mepyNcGyl_fMUj93E7HMN37X_zfW6D08yANlo9EMYup6BMw1Fe55GeQj8HVRyCPma755WpKx09gi3elNouQpMKF0xVmy_yEWIaMWxUmFddBWn0hqpQEJHG2wZYw73wlEX8-HhIRSiBCSlpDYVbvhc-rv1JtHsRnhuPAkcWYaY2hkciCDE_3AE3n9uottD1jXDSxpo9V431dZ5us-2IzxhXJN1ORx6utHHeofFCkXZAqTtxpI0B1f6iDySOlzFX_2dzUK_JKPLRuj0DjXd5560RgRz8XATSOMETOzPS20Aj8Au4Ie5Fnp6hVbCT2k_GwDGMHnRidHrtZEBJhLgVropWR8BiA5lTac3JgGcUcQumHoUKNQJPPep-ErE00dWduwa0G5YZd-89VqnvW6W_z2w5gDxOjVM8D3wAfgTQk-zzoEUvQZ6EBi0oxz8tEqQsH5ARg2qCduZApjv5xpHqBmqh3Jr9Z4oJSO_6hqJBGpAyyQfkqWDXrMejuTkMi-H3iEsFOdE49vnSjIes-jY7q261yP2D7fq6oJNIyWD7TUHFGks1qQLZOWf38PSJN0ju2JUWGOrsEKlX6etZl-9-wTSw_021s8dqr5m5lbg2OYcQE72Rujb_XJDrJox3FlEuLZvll3xVs15Lb0UP_JcXjVYWwBLQYrlER21QQAilqaU6MdW_srccTNZ5QyC_CeaKNMZjPou3-4EUnONuGTffV3TyInEL7Rej4CPue.r2yAhPI18Uqg5pzmqI4FqqQPzEVF6fX1eClBKSrqLKaY9Lp7DgzJAXLzR44tJS3ni87M68OFRSBxUpv0SEfvUQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700076644-naturally-hardwood-smoked-thick-cut-bacon-mega-pack-for-a-low-carb-lifestyle
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700076644-naturally-hardwood-smoked-thick-cut-bacon-mega-pack-for-a-low-carb-lifestyle/
+Analyzing Production: https://www.oscarmayer.com/products/00044700076644-naturally-hardwood-smoked-thick-cut-bacon-mega-pack-for-a-low-carb-lifestyle/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700076644 Naturally Hardwood Smoked Thick Cut Bacon Mega Pack For A Low Carb Lifestyle
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700076644-naturally-hardwood-smoked-thick-cut-bacon-mega-pack-for-a-low-carb-lifestyle-2026-04-24T20-49-42-352Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

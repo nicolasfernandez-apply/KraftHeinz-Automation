@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700058640-honey-smoked-turkey-breast-sliced-lunch-meat-family-size/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DK5BQEFbIs0_W4BnvDV7e-6Cb3-8UU1cNf0BhzSQbPz9aQZiL8iEteIJuEfqYUcp0oDohj6quIqZREUIBvuOMCGLcStxzSliruvBAriEwJjRDUSRNBNFjipbgxFzRysFqjtduvyUXuyey536pJQy4mWB_2c1H2A1Du9MFXub936yig0RlMyxrk68OgySMNn6PENFJx4uv2UTiHT0lBUlxhVErvq4X4ipppNzDa3rlemqtBLt29kmOqbU4LUBWIKs8hhmglE1p178z1rzbfMfwMN1FeRJzzfzqasFl6-w-iXH9y3-ABvC-Bk3vCUcry2fEKMc9VF9AW9XxErwXjga02ixVPJUbcJpGe7sK4DJWZ5fc_xqg_hAU3nz5dwj0TquZNSlqTYXUc6JaCT0JTduJV8ciJpsVPPb_uOISctjc-tXaKUBZ945A3zS8cIeJugTAcrU9LUqHoonDT1MszjEfj2SQhlTxU09quc0KsdDrlMuu6QBfKyuzzoor7IFXpJnCCmg0o0tityjKvcmvw32M_AhKz401cu1hFhLuFxhbBoNbsGYgtc7EPTLoBsPpB-SZFIXQ85KsUSCTUM_jZ3wedgNCr-4RBsph5wsitk7aGeAfO8yBsmFSl2Fsz-xVDdZIp9j77mxkYRXCix3o_yqdwAo3AyPgO71tUd-7liWae5Ld_unOO1kNmFQ3tqIy2iDEgx1L-ra9HiQlQ1qglKwxsfUHoO2LJ4VRTjit3UScDCMldm1jV0Ei6eF6a6vKGQehpoBpVrptKiTyCvD9vSFJlrH-WE24T73YaiJbyQ9oarRnx6UfiGDAh8mLKulWsOzNeoePKvfnaV6Ic1EM6oTLLkMcs8KpyBe647FvF97qIo2urMiw5V-xsqnRqwU4EdGxUKaDAxBDwXfua1bFyqu00basLm1hmPGBbJMFES5fdEhlST7DQe4Vhs4QM_2K2SyvNvSamcmkmGi67nEyr2BZc7i9dUfhwqrAgW6_Xw7Mp1nrlU_SRyD71BjIv1UjkaglxNxgqCdE-TkNdUQVO0h6cXPb9SiTxhzeZ203F7260_przzeS53.gWle1q4AXCwmecyTlyFhJPTI9xUVX7bOdbzbh1D7aUmfgcRUB2BornVMCDZkuPVPOFj_q-hU-0AO0D8H7pp9AQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700058640-honey-smoked-turkey-breast-sliced-lunch-meat-family-size
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700058640-honey-smoked-turkey-breast-sliced-lunch-meat-family-size/
+Analyzing Production: https://www.oscarmayer.com/products/00044700058640-honey-smoked-turkey-breast-sliced-lunch-meat-family-size/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700058640 Honey Smoked Turkey Breast Sliced Lunch Meat Family Size
+============================================================
+Total differences:    10
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700058640-honey-smoked-turkey-breast-sliced-lunch-meat-family-size-2026-04-24T20-44-36-119Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

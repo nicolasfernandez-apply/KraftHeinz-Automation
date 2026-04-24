@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/sign-up/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DKPBrnFij_i13_xbQL8CowfMrF74a5jbKkK_H2sUkau538fuKvd6Y8JGAfD53EXiymq5UO8LND6OzjBndS9ebBLuft_rYTdwT-QsE89Im4ub3rKcmc69xAJpomQkYjekhWQ2bmFlXy42kxbDxVRTyRBTCuza5mfYfvHq8bv6JpR_iZ3VtFgDkIiEBJtu0tiyO4r76mHz_UCsWXK2HGxJreCogpDCgTUF_vtE2gHR_6Vq8fShJI79MKzPPoKUyKcxodjsYH6QjslGduKHwLxx4xmSujvy_gsbf9IVOHI5B_1Y0Kaec61pWgkTG_GwI6dbhbg3DKx_v-f4o94shyuNYyYsGnPr3IGuKSVq1OQmInSlTj-GNiFYOP9LIM5buF_voGfxuFkqW9C9UBgeImfdRr8Plvx4h_GwThJqre5Qc3yqxiyDsF4x6a64J83q5W6ypkmgc5SOxVOPY6ZL7jcaLj1Flj94_IeIKWbW1LpM6Hm47zRQf7TRT2Ef5nDYQkpif0YVWFr1RLpDX6i0Q8mghagqY66cIvwZ8B6-yKMMiMFlDvvBwpuv2AELONUvxZlimkqGBfsq1JUe-MfXJ6X2jpKI4-BGaht8Nief552Zwise-2e7h3ie3Wa_mkjOUasGHXys2lumwoXyHuzgpBsjZ5o50NER4-w4pizuNQze8bI6KE0s-dPvO6PmW9UZ-c7HNBjL-Zi6ulYAGQgJlhK22BOvnWD1MUuIg2SbINYY9EakfbVFXyjhWRNyXntiBKL5-b7zMen36-IruqK.-VQ3413EOtlIm0BDkqa1tQLTd0G81WSSRaSg1rvP1mdtWGxYrujLx8vwTmmyzSgsNTY3F-2XRvaxUHGnJEyA4A
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/sign-up/
+Analyzing Production: https://www.oscarmayer.com/sign-up/
+
+============================================================
+COMPARISON SUMMARY — Sign Up
+============================================================
+Total differences:    6
+Critical differences: 4
+Preview issues:       3
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/sign-up-2026-04-24T20-33-40-396Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

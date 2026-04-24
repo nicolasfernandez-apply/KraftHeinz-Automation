@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700032527-deli-fresh-black-forest-uncured-ham/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DInO5h5I6SBAe21HNq4iqiGohbyBd6vpcvp0S6noegMvbmUtPdlt5Zq6ZJRokOCzMTfss6xNuZF6w3LGQjmy5rRf4Zg4wI4mlLKkCpma8AMGxsaaBZmVH1lBUQVmhZ5rTtAYWY3LayW5Z5CW8ubCud3InAyy2XPmLQW6A9mEaQbEAz7v-1jednlKTSqE97rByei02Ixyb65heD8xhMXQXb5DspWDMtPIIFsje0HMPj18bUcs8dXGZHmd9UbZ_-uuWziYGw_tQ-O1JicCtumSbY6LpZ63FXdOi4L6HwJXYAowfCZV0ir3kYOYCb_8oPOr7x2f5U6XMf-TioNO5jCDlfuYPd_npUZtULBsYZAOVMQkwKr3eULzkqIGoUgUYZCruUfv1-LGxOMGyReVFU-67fRNPfTJ-vUplbKokkuiMfRrOs-fwCERd5JhHkZ0Cybd8d99Q_urZH6-L_gmq_SOc5VFcx1mNIFwGhhQs-GnMvhzJX3OX_caVve4cqD1dLTN6lyLB_uj2FAWO89wimJJJJqfYBIlGO3AFAw3yrk_GYPR5WKuR7wAWxct2J58mqE0-iGoffBSUEKbqtsrvg56Pi8uxG5y98Jiqi2zvwPjiQ8-Umvf7mT2hoqj02Y18mCnOg-t__9yZxMn6QDGObGuf2aQ3oplNRRzbVCROmGKbZAQ-kUxB-gFVfvkRJkgSTu4yI1wqsgoquuX7rsPLVS6gCWVaiBURVKWNkvHttOeqijYn4eXmqg7q3h7GsT07lgBZ1N4-Ar8GyeSbyMpPEZlUDwRPXe74u8-7VTzw-w0UpjmnTvLJPjdA-QvSn0sTJIcj-XdKA4u5G0JXPRMhTHLq2-TR6l5CU8MHtMf0zOcp50Z7N0glbha6uQ8EMGluguH-PNZpzbYQK_x3NcBK5aLPuvH4nPEiPIkASZ7pERKSfyir1Hxf2XNoS1lkzfO5HN_EUxfbGn2SD9V3T-T9G7DC-PncZwdTkU._khHmDADI7sU1qaBhY-M45ZDmZ5wxeiVDVXkW1hFRQr7y9Ei8FL8RmcbTYBHRXuybKSGS8uyuQpoCT2X4sFW9Q
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700032527-deli-fresh-black-forest-uncured-ham
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700032527-deli-fresh-black-forest-uncured-ham/
+Analyzing Production: https://www.oscarmayer.com/products/00044700032527-deli-fresh-black-forest-uncured-ham/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700032527 Deli Fresh Black Forest Uncured Ham
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700032527-deli-fresh-black-forest-uncured-ham-2026-04-24T20-51-39-512Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

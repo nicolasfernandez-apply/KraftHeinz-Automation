@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/wienermobile/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DJOZbdc0xts5x-QTC_rKvrWKVClIS0C8l5osbHKu0zVCpUE5zU8tbWVg5PRDaR9akf0JfqVX61Zxf7oaVREJ93NHiHWrGzwGDlizkJ77mODmc4HYhOn56Ohj4k79TjYtmu3Y3sIjQvO3Xz_RXmU0dq_7INIfVZuddF_aRzNvA-oBQx1ugb0KdKLR7xqL4WBKy78zvT6QRVpzzSm1iEG4mQq4K6P14PsVIm6-tsgWDoovpXppiSZJfHHnAKaT1QyoBkzEafqBSrSl4zcpw333TOJiApxmqSogth_YwxI2MGAWZUzZBgwQBFiCUxJ4ezLszOM2vU6fmF_FKWJfSwR8TRhrpOnGWDfMd4luVjovXw2LMpu5c-sZ-scHNjFh-Gt4LdewVdVbU5OWu-ll7ctDpy9mCK7EZOgW_4iz7NhpFLc0biMnrzhAxmqKR1lroaZlGO3dBi4-04rsxIbhsTbC8hSLO6ZU5JS1c8mtH5jNsqBFkt5S6R2sErZne9L7oC2TF7VFB5HINSF0glAklOWID-irmSAWs3fcNOwVqO8PdezaRWwkRWAA-PrmqMtIE3fgBIackHv9qgEfoSwDpKCVM7dXA_AzMQYVGOaC5WTMHbpoAPec5gXAlDLsyuSeGzq9c0dQOPaGaXVahuWTXWsC-_ssRigq7T9Fcgo8mueeq_E8nAynVtAqXrcglqcfz5kmyAXONf-Twm58jm_jFRUBO2K-9qTMLwWtRYB4CdIQUvni6yEikfI7l6uzTqpdsVMz-WkXPBVtEpG-1bQz89msOWSi1e3h1V3a6yw.23-1s82dkApXPvl5WHrSEVCXOcPAo4y3Ghf14AlUdb6kCzlzihP2lX1Cqc4mdneK9H0fxa52A5uXCbxo-VSZbA
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/wienermobile
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/wienermobile/
+Analyzing Production: https://www.oscarmayer.com/wienermobile/
+
+============================================================
+COMPARISON SUMMARY — Wienermobile
+============================================================
+Total differences:    4
+Critical differences: 3
+Preview issues:       2
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/wienermobile-2026-04-24T20-32-49-114Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

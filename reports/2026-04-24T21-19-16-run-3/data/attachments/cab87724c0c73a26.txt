@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700076484-naturally-hardwood-smoked-bacon-mega-pack/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DKgYhD8ShRpnloipJRs7_XD7eKbBwcdxz7si3KxYgIjG1ABzWj61BPsLXwbmXs8JiWF6LqvKe2T_Z63vsZBYDm_pXHCEAmiXbOHckP29SefQfSPhdczI926Lzxipg6sCaXV6hbkn0PK71j1_FTxVNjd7spz8P49YjqDTk-1gQwqP39al0zF6wb9tERlAs4oaxiYpz09kqwOK70ODs274K7cU5In4RSvoxNs4psQE_OCA8Q4Ns1Gmwrz4-0_doJCWp2lEYIAenhLHtm5TbetfF7x0jacu0fdHcyasgqOkhb0bYSM2-xVqgAuic4Hd-x2h562vgB9Wn0IoFuuyagcB0sOMW6SXG1k9uNhY8LpLed906UoVno-0QO2uz6xOHM2HRacMTT1NtVtadT0lqaNfptAML3WFIPl-O3NUOdczeM8_fNL-rZwZnZM2oPQngrqguz-clHSEPJJJcm1TjelHIJm2oVjcmsSgf8qZT3eUI7Uhkd7uOfUB_b7yliOtcqX9G9KlLKsvSv6yhICHT9yJbMJjHET4vjCPlSRjsFLPSyGAoZn5VgUOimgxShi59zrTVm6G8rELLuFqqxe2z1HWp6iAw2V9Oq-NllqaBIiEd1euAJjvyTewo03YYjrP7vLC2Bk6K0nXUuqoe1r3Pl6PCx1EqbohoMeVjoVp9vTSYckBuKUhTHX0KuHaSqkQoKYKhgxlxLmnH_oT8aNIhMVZxjrUFBq_2fFy7c4S652Mio31rFBEMY656PT_BTMjTs4w0pDAADLZajKgGld1aQaohlrGOqDBC-JbChXTt5jxVrwlL7kFbfxo4YxsNIpmmkEVhQy9abDWwK5U_8J_jOCDQ-lnsnxhfvMi6L42FQ6WfOOeDUjcU8lPqzGAO3CdY9GxG1QTPZhCH3ylSp6nm4KNh4OB9CY1lV7gBBkV9oCByN4q9ekni0SOJdprcfv6Y36j_wzfEutVbwmStavn0XtqJMC6WwDZNRhhe4lKdpApAXG_rhNYBgpkeqK.MqH8R2dZMcsw7MsdEszj2PaTiOHy7lcDnLV9aj93VBmFDrVwjs0QkslkMAff8bxfcEWN69283b84-viFunOnwg
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700076484-naturally-hardwood-smoked-bacon-mega-pack
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700076484-naturally-hardwood-smoked-bacon-mega-pack/
+Analyzing Production: https://www.oscarmayer.com/products/00044700076484-naturally-hardwood-smoked-bacon-mega-pack/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700076484 Naturally Hardwood Smoked Bacon Mega Pack
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700076484-naturally-hardwood-smoked-bacon-mega-pack-2026-04-24T20-46-44-540Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

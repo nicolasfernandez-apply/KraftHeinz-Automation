@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700002100-jumbo-wieners-hot-dogs/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DJy5cAO8hwcclugb6IQV-ce5LXPeqJfbcvKXitKkhWwMVJxADR3SsgqYVoH7PVCYdUoekBXrS6kBhb5bSLhIpPY_ar7Hz0dpbPSCCBhvwnCBbBAMqrQBISZAvOuWCDfWq5eDB0O9rbHlSVWSUR584kYcgrVhn_BZ9Sw6CUt6-0RP7Ly1ru9pOXPIWOKyBfB1AwCjkvpEDAfwceXqvaWu3WwZIUj-RFAxPsbz6Xb3DMhmQPm6deVHHiBAVAcAcK_Ng9HigW2mxJIsxXw1BEoAlOcuZYZ3VgstCpWedek2ueMWMJQpCNtnq2stHvDT8nBPnAGOxMyZ5r7x0en9n9lskvqkFnV7JNlD6iW4MecutPAPV5f6Z1mnP8G4sHt4gPJWTL5G7DMFixn19KLfBkXtAEBDJNAIvCtoM7zr658Wj3_GhOI8eZZnJ62LmiUgMaIc4LYDeANWtfCYtGTRMrTkfAxMoaHCROhu_KB_erglfR9csHJavsI0-hXBMEtOR18WCliUlWpGOlf_yGhRLnt4EwSGn36ZLlUCC2DO5XulvA1ElcVZTgphzOSES-BfNAclOyYXaeWFYeYNlndjwqlEQH9ytz_JGKHQs4B0uSE81sDuvOR6tahA3dLE4R9TVgcZHXR36T9fSolNQj0kcKQwjnlMEFP26wFbUK-jtLeHLwYeI0vFARBnwILtoDkxrmZZSerpqpmgjonJkAHZwQrBNNn6OmqEoAQgzX7rX6deZ_BHjpSXgQ-sFDDdBpp4hHV0vzU_-iyDzy44u5b_rsJDTbk3r1e1dSr5Tv5yL999iKS-nl6pI-gGVw86NTYY-c_ituM0BTUwGyoDOZPK-CTQQqKP25nhOSSjsTvJ60n3ZsajivzE8gdAzTk-sxcDusZEUm8K7Mwa3rab1qPsAdglCW0H2PETW5YEnUb1IY3-JJl.-FeteDVAI3tiaDlNAZg0fc6qcW4jCLMfYao_EhEoPzJu3tstnmw2veAiAz8yZpGWquNEaCp0xw7-UnCVXxMExg
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700002100-jumbo-wieners-hot-dogs
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700002100-jumbo-wieners-hot-dogs/
+Analyzing Production: https://www.oscarmayer.com/products/00044700002100-jumbo-wieners-hot-dogs/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700002100 Jumbo Wieners Hot Dogs
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700002100-jumbo-wieners-hot-dogs-2026-04-24T20-55-54-221Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

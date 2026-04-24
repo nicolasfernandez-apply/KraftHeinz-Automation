@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700105436-shaved-smoked-extra-lean-ham/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DLDv0SzQ3-bkvGreHe9T51TyD8L5FA0xGdf9ra2o5Ie8bvkV3WA5K5bIntG7qnbAjSx7lmBcSZnxNycf9F1tqQ-IFWfZKSf8jZ7q56r9pV5wKcXQRaXbQj4-usEPDZ7tXrn5BAdvGYLqVmTdmcI7FX9aFQ1Sw35ARPFloEzl_2kRKq8k7eWOH67PMMLGfeSsau0Jjqq2yYjmCPulhTbKq75W7N3SZMF3P-b3XssG0LLm3WiTeRvkky7lfu_tXjUh4fm7MFGuez6HD0Fe07wvcfEB03ysUAIpymVchbyzH26kEWKr_D7vWa4QKY3pivklenAbDS_o5HYz7_Ew6qo3RD1s3lUKk4mDjUjKA3NZz2u41cdIoSOD3wHQNGcXlmdbSvQMRZdw2biVbUL5BcMqU6vtSrEo8A10G0CCBQmhalncnMfkRw70dBEZ128WA_UZdUp15jO-0YkpZlifanBywzzjTauybl8lwnqH4lXbVZGk_Af2AapBGOJDcdxZIMUME-QHpHQ7CVX2r70_FJNN2KAGgLq9YFjVIMe-ZFjju0_aKnH-u6X0NBc-dTpx6CpD1BZ6bO4Stf5anfEBeFQV1eY6MPkRGfexnp8MBEMLgfH7ZPfqp8lBvbvN7zZW3M6o05HR1kzoU1HCxhBws5DRbq2CLr5WNeb3oCHkvw3qSERAfg5eiJozq2xWBUzDb3uraZT5aHydFbXtWTv7ijkGFExILhOsrE0QIcefARuZCd4W-r7YWATWeWcVZJ4EwLuEfv_CDlj8G7sPP8H8caGfUzEwOQUpHmW8VFYMuntdM-Zo6cPplHROm3NMsaGArx98Im8_6RMin6u5NC3wHYum6FJrhs7eJGkLLTx9nhFnnZUcWPBC6h28On943UV0uvUDBlzTboZ1Ys25dBDaAMvL7m66GFhlcSKxiUpn0yS7aPhcZasXpWEJWmqdXlCtXNF0jR3.FY_U6w4Rt3elqBi7xAIBXJFyTLmlJ9SgEV1ohe0LsdY2HCij2re9XbYjm7dmCiTQB_yFq8FsXwy66KYX3AgSzw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700105436-shaved-smoked-extra-lean-ham
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700105436-shaved-smoked-extra-lean-ham/
+Analyzing Production: https://www.oscarmayer.com/products/00044700105436-shaved-smoked-extra-lean-ham/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700105436 Shaved Smoked Extra Lean Ham
+============================================================
+Total differences:    5
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700105436-shaved-smoked-extra-lean-ham-2026-04-24T20-59-06-562Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

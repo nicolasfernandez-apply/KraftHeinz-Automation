@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/oscarmayer-404/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DKba58-b51_c7yZPoEB2nApoD1-PO2pdpKnn9ivmz_TB7npxV4mEhS0yI2SszqtZpJEgNRDsbiLG3LHIcGXYQVjYoBsm7Cjs_ETMu_8VnPpwBHSxREsMc3iSP-dpvhzlN9FNnvkW_wxSf-fiqViMe-PCHObKfaLp6jUOrMbCDl0k_-ok3eRmk_XgIYyJUiU8AFTtVUI8HwJ2BqG4m70lZHyBj-vhI_PjEHn7BdtappzY41gd0iRMJtEk5X7_T9-GAsr311v94agnWX7y2MFSN5BN4hben_kD0OFSXHAp9OO7slafQKsAw7hzeH_W3jruiJt2_waqiFcTYRz-C99TnB3Flp04xNcYDdWq2VWudEDHvUQtTPPr6887XzqiRIjUSFiD7HDD-5SI354xOHABSNqQEOtDPLzPKg8CsFde5PqwCPg3JzRZiZAiqpURtHEhucUctqLFbl1uZEBxZKoQG-GAxoXyhVe3pGB6aZv2qIDnalmjCGS4AqRW3GxjTGH6C0pRDd3iIwOM0GMx9PQX9H1BeXvYBPEeOKZ3KUijWAdQMaJgcVHP_TIXaPrApc5GYhkbXudgE2vXYgPNmdwi5_3SfSc6_rHDrv68oiwTZ_WXk0GxYFCjXubTf6gQ_Y6RslRONnkB7eKKGKAzbY_YVIbtd8V4CFRQXKSpeD_uKQC4cWRcUHRWdTX6yB6UbBZTMF3QFkF4ceGk-cAF4yaW1Wv5mCY0TG-M7_8R46g0I5kX1-HnQdWXjCMDr5YS7Ya_LVkEs6B-O2DYGdG0bjSBRgCyuBBxUIoVkA9xMeY51j7.FsD5GMEpcdk5KXRFKlu2pEgGz8nErzlO_w0B5-saz24y4bgc1fix_z4bhjpT4-03fbrO6WCCCGNOVdtpFLYfeQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/oscarmayer-404
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/oscarmayer-404/
+Analyzing Production: https://www.oscarmayer.com/oscarmayer-404/
+
+============================================================
+COMPARISON SUMMARY — Oscarmayer 404
+============================================================
+Total differences:    5
+Critical differences: 3
+Preview issues:       2
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/oscarmayer-404-2026-04-24T20-34-53-224Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

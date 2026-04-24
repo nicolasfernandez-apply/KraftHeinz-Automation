@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700101940-deli-fresh-smoked-turkey-breast/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DI0c74vMaGofoy4MSC2bUXwJbOHJyCKc1xcRDMBYT7-3QL5NZCUwuCxXcRtaHsVUXix2Jh2ZwCiza3I01M0AKqeCpYL11RwV_blTXuj1R3TMJEaZ2zngIdiXDKwjN4RZnEkSkRpMzC2y8Fy4hz5QH8rcJy12RLHKQusZ8ysk9HJAKlxYIGIewv-XEuwdWmWdYlp-i3vlWk7F2ufgCL5wbDF4OWd2-ZOR_ZVb665bTd0G1DKB3IeYHiA7TaSAeTwgk0JuYRNi13On3GZ8RA4l6PzWfLoUAb3tHchwJBlUzJKswaC3By7aOcFqdmw_dkyuSKdZNy2gJMo-e1Z14tW6sjp7ayWFLQlbIPBecoLJfUz1DP09Z19Fw9KUGQpdOQw7ho3uFwdssi3gRVvQ1SyAPj83dKG0y_szHwj2zaYSuTwU481cZZK_5C1HEXTU04JrZATsoQ0xzm98LA1x3mNbZu64lvffoh2YNCuiyfciZX0CmGYih8Tlx2_sdptMEcWr1VfUneBr1mF943SxgsPO3E-z2GRfN06j8lUFkx3ojmhPREuux22Ay4WW3BsL4DmUf0cVcWRb_ewPjlL346_pQj5SuvtOSL4_LSwFBJ69ASx7EOHxr6h6Qi02D5o_k-cIX-CZBk4QemO0snYAKiOo9fE5kzRdI_oJpk9YRTWy9Ux53ZE-EHaWgujzPB_TD6CISVcjcar5KmtEABrTI8-F5hpoaUTRd76jLBFV1Gckjq6ZmS__LdKFtZOvcvWpjqktQJiba4BlRi0X6Cc8lbQ7avFXQIGbpmkOCHyEeQpoZJ-wCJFJJ9EtM3vAMUBHFl-jHMypg6ffkoHkO99Sx6PpBV9MNkIOmClDuNZXEK9H43Zq5ldd8AYUjxaM7vL7lEdQfiGmid_9qqabBdO873cty94g7-sSFX5EtiLauQys2zOLN1V8FMXT-Mkk-_Ns_Eiefa94BeOB5Vs5bEJ.IDl2tSUehENTD3ARctW8jdwdqapvGQn74_9WG-LlxKrQ33BSgJ41I10cr7Xg8gdSXH21QBhJ_flOXCURk97_Fg
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700101940-deli-fresh-smoked-turkey-breast
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700101940-deli-fresh-smoked-turkey-breast/
+Analyzing Production: https://www.oscarmayer.com/products/00044700101940-deli-fresh-smoked-turkey-breast/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700101940 Deli Fresh Smoked Turkey Breast
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700101940-deli-fresh-smoked-turkey-breast-2026-04-24T20-36-27-358Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

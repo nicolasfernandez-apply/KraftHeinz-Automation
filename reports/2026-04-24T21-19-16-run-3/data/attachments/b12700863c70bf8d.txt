@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700023280-center-cut-thick-sliced-bacon/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DKiSplDLNowBq6sWHCihXS4DTi2kuZxFIEFsDmsyhQtxDylF0NfQiQkK1As6MJ4sbDGQkHYdz3Q__kao6pzXnfZV-KjOGE_HXNyLLVNqfsSmNCuUXdY_eEYqjTt3zpB5RLq3Q48FcQ5PIrRq0xbHyHxSqeO_g32mYpW563z7SC-P77zZ47oc3FNlmdlfNhzlopNLIrxO1FDrUKZiP0SmTL9wCWbNbmqPjEaBovodV66ci-ltqwFrKVxJIRVH6plUbRlVNyMOc7hTpNi_TJqKghzxRlUW4yRRKvisSKNCeAOXOptK5u4IFLzXnhbBSOW69I0kVjf39aT8BdRJS_sXXvFHxFt6H0CQzkDxfT4wu_K7Bpi3thgx979nGPBbHcWEeoLqPhdgCrsDS-Xvvt6iglRNaf8Duzrn1kyQTedh4S7qsUgNUHA_oaBBvLHhq_Azl4MjJkOgEJUB-OUxONnJPGTBV9MggvOiUcGRP2kSr4KXgk4Giphn1JMWdkE4lwb-IqlT2KLPOcvS0ba9VcTDb-Fddd_fpaomzxBT65csQIfiV5EWfzs5I4Rq1Fds7zoFMqNxn7XMtb0Rm7qnHvOeyOa7pvhRioBeU9b3lWR3JL1DNZJ-5_3JYubq78s9NCV65W44m1-v5nPu7urrwdsTo2ULgvA9MAo2jflHV27aJQ1XQY39yZZemO5-5Tl7sj7DA-CanKioryDKL6uu0XXiaIZAx3rI12PkLWDPdxEU7hC7SL_xsJxhj1sZeer0WQ8yZN_GwWYr47OFzCEi0DkaeJnKO69vLUSfgyHY_tSNXWMDE1IEfmDaq7e4lnmnsmTiaX-GxSFeuGyehua6Zt6_3sYb5DFMenXBYyKD4KNr5SuXu_YR2uZt9kxLhoUDtH9dZ82-wp1_R_3zrxFIJMeH2YtM7u9sf-8Wlan8UvUGmNEtv7pHASrhWsDk2m3ITCJh02lNNln.pAi13XyBjrFNwvviJ_xOjq0nsyVe7WizcS0myQ7xosligHZiKzVEtj3RCBn2xHjKdvCja8T7koOYNkmFIUsljA
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700023280-center-cut-thick-sliced-bacon
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700023280-center-cut-thick-sliced-bacon/
+Analyzing Production: https://www.oscarmayer.com/products/00044700023280-center-cut-thick-sliced-bacon/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700023280 Center Cut Thick Sliced Bacon
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700023280-center-cut-thick-sliced-bacon-2026-04-24T20-57-37-843Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

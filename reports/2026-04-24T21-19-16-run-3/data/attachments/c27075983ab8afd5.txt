@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700031711-sub-kit-with-extra-lean-smoked-ham-water-product-extra-lean-smoked-turkey-breast-sliced-lunch-meat/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DJQLLBCkmgUCD1FY9ZdysWmSD7BJMTLjaLwcZ8juM5k0d--Huvwoo6bywACHCDH80aCIoI4T8gJ1ghp_g47HPkEle-oTbaQ8TDdxsgNTVfncMZ5itmEyN9rhEoTzZcxXuLSb742hPHZK9H9VYTwkGnimWEMt6RDjP4LwUcI8FgeHxwHToLgGBEff7exDjdmN068PlSDVl8YmtXGbHD6Jizzztt7Iinb1Q1ynAUt4KUDzDgPN7jVd61MU-6sbStu3C_DA5qkd04j9eBEOmHk4vn7eGUPtt_i9E6yNZdtztc5j-O_Aerftd3B2Uuze0qmotFi4v96qF9VYjkF1K2UJNjQJa_h24jwQgVL16ZxFHX6Hjhk8OlYoXBBPO90y8vlchnALh5_sEXDEleu2UX-PsrU3xYyeU0DJZ3m-4IxEXxBi7zkkNg6dYbg_SLq79-tbDwoedq7UcxUZPFeK6Z7jSys0TjPKMSHG4or5xmZsM7bGJeUV6D8hHPaYHpuOwGlGbxWG1vhz099mNpSsuDQW-9IVci0r3GKfgfYdGiyoxeQikRy1Vv8pekdZXwSNYvqD4bZNS96Scrr7THZ-BsAKl0URwaNR6DrF6Cn2b6Mqocl4IE4WOqOO70Wn5p83OLiCZTb8dylRZXPt64zfPHnOERIhwmQKS6lMzwiwwgwQU5KeUE45NbRS0AHFBCbJmngcdrYC5qACG0TkaAFWY1BVcRy-GUN0L92jKuF-B0J_7-T1Ar-xGZf1wPLyrh-RHip3SbAvqR4546kxlrleRTq1zLelMVztUJYexfbzc8LkH6OM_xUFZVmA8AbVXYUk6WnsJFUtdPw_bfDKbt-T4VjPqSlPeyRJvdPBddbVio-WzNksRgtKEcFCoamWGS11Ptre-SaIJbSinTyF976HRU1OTSFZF5iop4GbYLbsdBBAR6tj4vwbnskJ4sWqPK9EnL1wXDrdN6u3Jvp5JWfTkm6rWCCUadLf1DOKS9Wc7AG-Nws-svOtXhsC3XCUmeV29rxhVF-VTzWifqr32uGIVKyzKnNaEOj6RPx2sxDTVABdFwYHqo6PBlQq_6tLYI2UlFjOcKXwQuvaGDOR8_knJ9SafFSgtZ0ht1XVUo1Bw3fVcjlhKdsibGTm1Ng4SEF3q_h6EX7WvCjNEQ9s_9uDU-vgeNs0XXBCk0QboKfeuAvS-wdlb_IRoSaB9Nu3T43obskMugczHGMxdV-TgimlKv1MxNKsVJf.p_lew_vTBXH2w5A6PYhTCxjigdoUhSx3Ua2cISkX3avt9d20_SwGx0_7oZXqi0hzlNmwznwgCjO-13asGtzY0g
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700031711-sub-kit-with-extra-lean-smoked-ham-water-product-extra-lean-smoked-turkey-breast-sliced-lunch-meat
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700031711-sub-kit-with-extra-lean-smoked-ham-water-product-extra-lean-smoked-turkey-breast-sliced-lunch-meat/
+Analyzing Production: https://www.oscarmayer.com/products/00044700031711-sub-kit-with-extra-lean-smoked-ham-water-product-extra-lean-smoked-turkey-breast-sliced-lunch-meat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700031711 Sub Kit With Extra Lean Smoked Ham Water Product Extra Lean Smoked Turkey Breast Sliced Lunch Meat
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700031711-sub-kit-with-extra-lean-smoked-ham-water-product-extra-lean-smoked-turkey-breast-sliced-lunch-meat-2026-04-24T20-54-12-182Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

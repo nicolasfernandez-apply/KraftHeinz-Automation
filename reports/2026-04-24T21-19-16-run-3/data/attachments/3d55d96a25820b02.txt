@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700008706-thin-sliced-bologna-sliced-lunch-meat/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DKKSrOSHxeZWGyn2C0La2R4MVI6TRpWPSR7HJ58RfioH9TAdcDbKwYO0tbiX5Xk2ugr8v7mv7WBWFRdmmycWC1v59e-s8Qtv7tFA4KnBazSDrNEn-2IYLkD-lP7pGAFRRj3TckBG97Wkw1y8eOfNxyz7cSMGXGbEghLDIauzkBnQ3dRqwvop19EXmZyUYvpWgVicRm-vFr9HVn3HgftVhUG5WHJbURdDXCpIg8GBeUq5S2wj2eIaOmjxQfa7Qz09278g_eVBw1iAWpLOr0oan-lm3zvk-C8BseXMdLcBLE5mwmUEhPgoR5UiGuc1wkMiDrREi_wFGipbzIxAJgU_aPdCskjye7cdWZ3Wfalrcyzoa_PvkVhKAgciqN0PWPPblTea_SYAPvEUnoLD9WyVQl4uYOw_vdMelb0x0Jo3wi18SNiC2No72LDe3yQvp1TKyyl0kEdevYpcpVanJobqPzc__xzfOGpq7IkTGHqcTzG3VJdPlpPPtUTMTBZP5dc-s9fegQNiv9hfP3h8sfOKSnc0wOuo1EtHcy2prFKBwltW1Oq4nruE3eXwc4Otr30y1F1uo4GzodxKf6Qju0Qq6-w1pDgbiGvFJZAolXrS8mukoqEEkc7lHZ4W_ovfv37KB7dpngr0KFmJU6pxppcK4kHJsnNXJFi86aOuPCjoGApkE4WgxdeerFYSwG_ZQ8PW7mBXbgKzDB0i6sVvkniwI_GuoBuk-G5f8hbNQLyb1dL5LhkkTK1gN5LKRy2WpaHmaXdufWDxnVK4sR6f1sL0nAI-8lmhUkgJG3vGkNe4sIu9fJ6ziZrZegFHPY4VPf9zM08tisvq0S9chlc6QlUzG9dlYlTsaEmkn102lRlcX5PYR55YMrzSEMEgMQr-CeCsBMecZSwRbMP5YX_hC-ZQxHbfhpM74B3yAbaoiv2cw73cZ2ZhPg7QFEgPPJJdzmRKZvAgXgYnnHZhez52uIyAqebXvN77UNBVALfMOzL.oJkFMdD4KYoM5NKhfSOfI8U3UAv_4Zr_P2iEeCs_ZILKs6kJPjuub2PkBw3KZp_e40UURBCwz_7i6Zvp-1BHBA
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700008706-thin-sliced-bologna-sliced-lunch-meat
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700008706-thin-sliced-bologna-sliced-lunch-meat/
+Analyzing Production: https://www.oscarmayer.com/products/00044700008706-thin-sliced-bologna-sliced-lunch-meat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700008706 Thin Sliced Bologna Sliced Lunch Meat
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700008706-thin-sliced-bologna-sliced-lunch-meat-2026-04-24T20-58-16-738Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/turkey-bacon-recall-faq/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DJ_qFPEvFurDAKb_4P4aSEQFxSyTBg3DlQ0Vr1_4oXfaOK6PRbOS9-tYWB4bA-SXS4NSzdGFtkKdeacBoGBILa_WB_TGhnm27UkFB4YFU3hJZLVWm5dWfJaOl8IzvPH67iARoal_0-ejZLpx4AnHCt2kVZjEdkJx-3kkPjcriIYzJRsV3vT5W8GnWTrGfbV5quG-I1iIWsUB3RjWH1V-gKfhcCDiNh5vFapQs5t42WO6M97MQKYloCJnQiJAdl5D4ipJ9hg_7_btKJ7F143UXlDxqX_AvpGbHsIci2EhoLGX303pD9Jl9XWtJ9OKMc2_lNR9vtD4uoK49A30yyd2FBL9Jt-VFVLbwbTevWDBuEX5emoIpd25LAR3skEhsm3KgpLwx22MsuZx32p9vh5sbDrha9hvy-WXTOg7_fr7xeCxPYXt8UILMAXC1wctAMzRPqTJVzJhAM2Df-5QCwRK9IwKkzO2A06SN_uzKKIt8q5RT3w2Cv1gP2MJuaCmfUoElwUam5vNxFu8GsNSf-lsyWTuwdlu9JJDUBjowyzFi_AthCKkOGbz3PIRoOJ__04Iuh1zDPC9W33nhc4mmuqafPwAhIuAkqm8rPgfre3rYgDtJBHh1c96se9lo4MsRexQpW83DGn7_VRgpF26rXzaQULW4puFa6vtPNPl-XzIGGVnGtzJtt-96eckCqN-6R7O8oRgZ8wgxhFwurr5ob7l20k00J05qYwtJNTdXakP4cyrsJpCH3tGPGZ1DEtwhGHuWcXf0mPRL0bfouFzyul42PPoUZyIPQf2G0o6KipZjcKLvIWHTBxfFlwqFdjtprRP-16R4cUCGpCqbF7.SMtHx4vqJi2ZxnE7lxpkb3BiEaCrSxPLkLG7mdtahCo23tpItkVdLEIeEpBx_NnBResy9KV35eXFndwlwtTo1A
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/turkey-bacon-recall-faq
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/turkey-bacon-recall-faq/
+Analyzing Production: https://www.oscarmayer.com/turkey-bacon-recall-faq/
+
+============================================================
+COMPARISON SUMMARY — Turkey Bacon Recall Faq
+============================================================
+Total differences:    5
+Critical differences: 3
+Preview issues:       2
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/turkey-bacon-recall-faq-2026-04-24T20-33-28-924Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

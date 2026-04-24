@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700099995-sub-kit-with-extra-lean-honey-ham-extra-lean-honey-smoked-turkey-breast-sliced-lunch-meat/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DKGb06hLSHAVdWRTAtI8OIpGJMuGzkx3yjMOvxXO7HRZLOHEF4YaSEFHYi4yymFUMGCWQILRcybxSPiI4vBro7pB_HwGrB5vgtGVYJuNQZbGO2dFOFDFI8jpV_n_RABvPxeCAm-KESDEUvDLgsFPjxEZxWn7mlthZElH1Z_XtAq-NX86kIjMFyX23qCUmL_GPnKGqsC3Mi9O9IYC75U0j-baCALOVCmSZId5ZOiPwm0rw41M6shRl4aiX-wrVQt28Yh_pPsJEXmLVtTZ4WL_nNybYmUg97-ecZZx6O78acX2IZ2XAgRQ0JJrw3-f1gWqvfDhN3i8Wb-3GSm0U-d1QBNUi_PNeSh7iGrtSqRBVJHY7jopDgj6Y3qCftWjjO-FVTVOf14WLR2XXu5JxWlwMQ-TmT6kWJokPSi0YA8cYznCXbwFdPT8F_3kL3IxvfiXG7wmkO8h-t1bxN8AGJTKBb8-vhtNmXhnFEoymkbiIsHNy8-NdRDwV5byFx06nX5pwk5kLYRZOav6xcwqNbVjL1xKqhSulvSEQ-AG-wI62t4tJ4xRgC-K5RfSIUXTHspqaxLsk8im24pJr4f41uR3k_mbXbgXmVtQvKsQdT9CLmod4jS75d_QpzXp4GvD8IR_kZ9RmNNBbDxEjy07yBXOjJ0HKMGnWybmSLZ7srelO1QWpmUxv1FZPupv3YBYk1DxQ3a-RQC7OOfN-o328fkJM0ZWT2C07ZXyeG7ZrqROxRkvfhTKa0h1krXd6MLvjPp5MPEdTLDkz8QpH_HueDUEJXIWgLeMQtjfdi-WrsKyQiTKZ8tmCSKYOFIYFFoNVkxz1BC36ASHAkvlMXW98ZFyyYGszmyLhx64o7SdqOMiOpOtl7mmACZa6IvvSqfr2DWj7CiJV6XnmF-hosXzGHxBSiv0WNVtfmGlntwn2QsvWHuek48p2NaUkZ_AKAGtTAnMGbVhFQ0qvYp-uzOy4ucVoKb3ica_lWX0bx_Ld_GkFaRh-UDXs-uAEyrHLJNXwHJQHKKtpXS6xsuHCVQk42kfKd4JW4gcjF9jebNKdp8SXXKxowqk-LoH0XOY0iDkmHjpQtaXhrX20Nk3kLkPLS6Ue4OcZjqKSjmuzoTEVtddPrBKiwFIcuQWOHb6dP0wj80UUL_htWPuw_uVCvT0YBlyesQ8npHhXQY7vEzg1V8hmTimV4_sJtphBvA.VBVdqg8JAf7EZTSWuzBJukk6Yqdhu3WdHbfGOaEIfV90imxp-CxRpBsj4Mh-Urge-hbJydUQmFp9S-kht8JIuA
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700099995-sub-kit-with-extra-lean-honey-ham-extra-lean-honey-smoked-turkey-breast-sliced-lunch-meat
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700099995-sub-kit-with-extra-lean-honey-ham-extra-lean-honey-smoked-turkey-breast-sliced-lunch-meat/
+Analyzing Production: https://www.oscarmayer.com/products/00044700099995-sub-kit-with-extra-lean-honey-ham-extra-lean-honey-smoked-turkey-breast-sliced-lunch-meat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700099995 Sub Kit With Extra Lean Honey Ham Extra Lean Honey Smoked Turkey Breast Sliced Lunch Meat
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       5
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700099995-sub-kit-with-extra-lean-honey-ham-extra-lean-honey-smoked-turkey-breast-sliced-lunch-meat-2026-04-24T20-39-42-264Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

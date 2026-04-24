@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700031599-rotisserie-seasoned-chicken-breast-sliced-lunch-meat-family-size/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DLEdjAU7N8aBbVK_XfRL-rl3rG1WjC7npdPJaQEmZolBJViPzPMY2X-2ijoaf1jGbV5kEdnLER017HjBOLUIvTlbOFwD3_eNEGzVLExZuiwsUBQLlzkWhIj4Sl8o6yHKIicz7NqexbhCmEY-bmIFQE4JY_rne7BwQ4OW4kErM_1EboD_MnOtAVdqF1zoiuQ-dvdACMjGxQ_xXp1H4YBXNd3hizCkPJU4iNq0W03TgRrguJSNYWy4SAkbwtlIAsKwW5pLj4-RY0o0tPvMejlzA1e1pbFIHkA5S1QwbTnBJIm3aSdAr29iTnyaXQYI2Rke4Ur7uW1jnD1rBbibHiR_a5o6VH8y_HMU2kV8LEgPEL06dleRGl1vfGwJURbxuVQzd7xE1ZEk9vNJzoFJ9GgHrkSEMDkh60Wnebo0GnJgRO89s79Es0Fcmv6FkNEwA6ojuAk_vdRX26nbRyW3odAxiXJYOnBAjElWjRbw2hPTwLzBoWzyHRJI10mKU1CjrNPrdk741zmEBchueU3OnayccTOcjz6MokJ2pq2xlUeCjNrAmiIUhDF03-jza1f2JCTLH3og1FFiUi194O7i-P0jz3GH5HNYxBKWLVOYf0UuqNHiiUPHnsNPel61i4hBghA17xp66cBiDDtLb6uehedzH2L9UzlksE2C3VOo79QxiC0rX-7y4APRJFbJN3AkAjDUpr7GjxqrkiWy207SeMFWimi-8a8sjGfXu3sKopNMviYzuSgOw-CX8VHCE2GZNFnOjGcMMqn2tERpYccUePcpzcHjeb6VLRjoJ6i6pDfjPVO62zQsfMTc7_peklDtfQ13ip5Pyp0A38KdAY-ByB5eNV5JwoztwLo8gaGKqRKftzaDAUliLbuMCC2vXvdUx6EfWBT5j7Foe_uRP9rE4JaCbasVOsrZ_vqO6BIXllqT_Uu5stH86HIuaWq4ERfFNDIx5MXJcbjgO5GzReYwBzEqXlh0-fIRnXo8R3tk_dbKD-e_mn4wmjBgYcD8zvdGJ2DxB70yl_LiIROL6k5LKS4XilAFk5lz4pwdPlCxyIJEssdM4n_xfV2XJzmLxJKRpJXV4wRilE4OiBsc4LY0SAe.i5upxaONw-_1ipCoYTl5C5GnBl8PtVWX9BrYzB5bMgwmX-vqyV23XFWoJxZGHH7W5S3-qXjUT0mzuezC87VlIA
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700031599-rotisserie-seasoned-chicken-breast-sliced-lunch-meat-family-size
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700031599-rotisserie-seasoned-chicken-breast-sliced-lunch-meat-family-size/
+Analyzing Production: https://www.oscarmayer.com/products/00044700031599-rotisserie-seasoned-chicken-breast-sliced-lunch-meat-family-size/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700031599 Rotisserie Seasoned Chicken Breast Sliced Lunch Meat Family Size
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700031599-rotisserie-seasoned-chicken-breast-sliced-lunch-meat-family-size-2026-04-24T20-37-06-962Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

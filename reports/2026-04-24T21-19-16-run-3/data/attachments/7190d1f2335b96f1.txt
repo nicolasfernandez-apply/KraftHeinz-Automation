@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00071871544627-turkey-franks-hot-dogs/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DJ2VhtS7dYw0vNprvGO7jY3f8aPzsBPCWbE1GoPF-nRFw8dFCiKEg-XyplI1BXca_-OIJ6OmQ81eVwZhVcH8E8qtuHkpWGb8mvWbn0YckDsUVrFbnS3a589wjWVM_nlhLNl0KhffVCnA-ciEzFr_WCo3eV82TM7EY_GBgJ6lafYZkX8vExMFqbt8mLlhn6_bQiBH-vvYykMUB5ZExMHxAhboBCxl4nDch19tN9xNPLcOgT3DD8ZiBIieVlZSia_wWrzovYrdSiv1nicuocsqaF8qWUOjE949_6MfV7AeKkaT9BqswdfBAOCvthbJvdTPnKUW4owR9TRpGYGZj4WmbIB32A47HS5eT7Qwx46LO37bnSksRAfMW2ENhjaR4bTnRVGN2eoJ5N1BUyOrDwKk66T9mRH716COji5LHQzNrTJnUYOfbTHkpVMSnglNlfB2CP29VqUb2qEBOATSZhGjIaxeoi-BypVIOCTxo7zuG-G17aPDClOuevAcQcJwL_WzWOsWgsJaNbKGsWKQOeGAO8pabp93CEHnkKDOe_WUm-PEqHGJSdaJqP8VrvG_b3Yi7Q2RmmvnOX4zFq5gdRuop32_Wq7AwflzGG-KMrlLO9vo6_jNR4pjFuJ3XZEDQuAuKZi_1cLPHyVr0aYNJE6LFbN3Xu8qROSIPlCvT01MgiCviKiyYiQyOvfcpTDbaRRCW3T0dSazGT8y31fLrX3b5nTkAqwXLV4m03zsPlHjxrTfND-1JgrY4b6t8fTqYZN6vLci9UlqPaBoz6hMjm-EKCmKZj5rqol7NjO1CBqkVWKK43_zpIEhDRTZWmFJImVP-JiTbUpOx2wgxhph5WUVhwT_HXaT48vTK-YeVQyNN2ZOK8keFNJaakDAZERqayDkzjVGCZhPtPzZybVeYQzA5_E9vTs9_7wbOhAoQlo9yj0.EzpE575DIZGKVB30OP0cpyh7pDiQC-76k5bLGUDi9xDoWqJXF6kmt0nvLxdwF8gJDAU_bUKmBjAF10ZYG6lW4Q
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00071871544627-turkey-franks-hot-dogs
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00071871544627-turkey-franks-hot-dogs/
+Analyzing Production: https://www.oscarmayer.com/products/00071871544627-turkey-franks-hot-dogs/
+
+============================================================
+COMPARISON SUMMARY — Products › 00071871544627 Turkey Franks Hot Dogs
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00071871544627-turkey-franks-hot-dogs-2026-04-24T20-41-40-739Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

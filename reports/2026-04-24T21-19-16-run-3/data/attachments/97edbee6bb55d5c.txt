@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700103890-smoked-ham/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DLGnqwIZ4cTclUs1ofp6SQ8WfF7tMsxWVdmn88NTB4CQO04ZzA3Z1X1sWnN6V3PYvinbVQbq_qHzln79fE6PyztGEk64D1XQr2bjHsdSdeFg9whrjOcObtbvbAP-jMI0d7llwZMnEcVh8UeaHsVT6F8RHcKvP_tiGPN-atxMY0SEDbIWRzZBw4beeYasTIgTSpJHPaxrzckJpfT_2Dr9I6Aw4lQ-ZSFzC7Fh5IRN7-joIAKCf0KDt6kxegjQLidkrmkP8kcAtbfd50pPZzr62JXb5SInx9ronplihS5U_KReGFwvNlRz2oSHIlOYregxB1_c0vO__bDZdQoJJV8lgOEFQHfrcKnsLfvXXG0Ed-NSSttcU06aWf7mYcbGOBHgor5vMfhwbeKJoUId_j7Mgeq0LmGX5-7-XAQx1oo1FJWVIpTag11t4F7BEvU3TmQVk15yo5lmp72pezlVFWX8Lc6WvqRVCYT6x_DPNqsauV2Cx1KssrpNU2fZw01X_pI15fasHEybrJHVDwXFhFMLeDfD5EJ8A3Nl4B7R2M8ipYPykKuT3DRhWOFs-GVPrO--KyHvBZtxHNCGCN0jCA1StfJQbfffvWgItXDnDTX7vGF4tohwFx96Co6h-C6W-K18NfcN1gYqgXOxX_DqJ-HjQ-l8GEjTNaBHdD5tuYiLomoconxfcwynUMcAp-IGPhqVDlxWfANyE4cU3dw7ciuKP_F4jCf0qN9g4Fak047Q-pMSxCibJGTos-3cbugjNldbgxD3QuU5Tc79Qv0Jj-7CJmAIGRACLoz3tc1spp9avGjLHIMurIc8AOX-xeDE56icgbpeSi1_-RgDWKRssaavTRa3vLQojJ2Dft2BUmPZ_IMZ6AidAwJcj2tRF9E.O4PS6P7uQtAZLaNqDF0MvLdLmw89QLcYYdtmwEX5wSteQ8g5y9W0iCtUbo4K6nTu4MG4MeRaFFeWHfaDYC1l8w
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700103890-smoked-ham
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700103890-smoked-ham/
+Analyzing Production: https://www.oscarmayer.com/products/00044700103890-smoked-ham/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700103890 Smoked Ham
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700103890-smoked-ham-2026-04-24T20-48-53-042Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700064375-smoked-lean-white-turkey-sliced-lunch-meat/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DKRehoXNNgLM9kj4O5rdDtWPAzBJ2vgLPojLvlp-Jmqt4O0Vh_2TV0r3oa1LiTvsUt93LYIHG9uqk_ZRsMThBAiIntx1ctZcUt-Kn40X0kf3CsvOuG4x1az5E3IUe1AwtcGOG79NcoTidLC-5cc6ZSiNeUlscHfRHik0cBZfac2AvqWKZPHbLcOnCqIdu_Xb0v7lquhYv04AAYk0KL-lNjAR_YUO0Ffq_mTJ2zMdOJzXFZS9olCTdRYOsr4x-b_mJkyz0QcxvX9xhowlkN6v3ZP0FzvhqvMsV59q85GG-Mc8iWPzp_MAzd_M0Z2y6XFvdKoYH67Dz0_L6xDYwKp5xVo9vmSbBJ5sbyPxcRsXR5Foe3edfsxmLbfDPOcg83-RrdWxt5jFZNy9gmQYgaQjv38t_D18_N9hiR2-p9mCKLl18nCqrKD2ZMPzKk13xWEjPiwGaqrz4IyFK_eg3m5UB4ajEeJd65YJ-QBhOpz8gNJCB9lQeLV9YBS15k6RN-e7fbuwvx29J2Ju0uBmmIEevxrbfMhP2tn4OJXHY8Gs0DqVV9-WUCVZPaZOLsrNhzNBUY9f06KXwk70F3uP3sZ_y_7QktGxw_5RXk0_JfslU7v_5RKvuk4yakGk427z2LnheH6PyR6iCAg22O0nnmslNjhtAQBqpFjcTAUvWUJrz7XfpDEO7FTE-vWbQxtl6dwdDovxEnh1pu_xUVViiUC7cLEZlH7OEQcVg5wbr1khBThLS1h4GAMxNfZJxZactHCLxWZrio5KtODa6kNnecG4UhukUBeXq9babW7_lkugbxae-ZcDhVIixMyBznbLAyuVHrAlS6g-Z40IQm3k7hmCMZket8-l4rM35_eQ6VCYAq_aaCg_qcmNTrd33RW0qBdqYcnZK-9SRTkImmaSNlyUz5FNnvwVoI8l3M0A-0W7JlU7a3moLXLlzvfbJ1V4CRYAcn57Dl8KxNV8j62ItHWm9KWl0O93_MMY2VUV2fsSRC6S4rQOIfiCI6_k2ls.BADlczi9whIrG1ZwwO1j2Y2jL2tlk3PXDSEeusYovyaw0oMLLntFNthdIiXtXgPbEp0BuZLeoEyj1I_R1tugBw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700064375-smoked-lean-white-turkey-sliced-lunch-meat
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700064375-smoked-lean-white-turkey-sliced-lunch-meat/
+Analyzing Production: https://www.oscarmayer.com/products/00044700064375-smoked-lean-white-turkey-sliced-lunch-meat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700064375 Smoked Lean White Turkey Sliced Lunch Meat
+============================================================
+Total differences:    7
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700064375-smoked-lean-white-turkey-sliced-lunch-meat-2026-04-24T20-58-29-082Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

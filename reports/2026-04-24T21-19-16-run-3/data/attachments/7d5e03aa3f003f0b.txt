@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/hotdoggers/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DKrLPi4Ha0mbS69jZkiUH0FXuyYtZrAnH2aqyiLtcOm1NZXzXtpCNn8P7xHKVKcIl9bjID6UNJ3F47ohB_1TuYe7aeUmnhwhiWqbohiK5KsGyrifYblP02qbZa01sWcyrWYccmjex7ycgmQ2eOXSWLxxt6ACRudzRS0hnwZnRKuFxcnUw1vmGkokSm66NJBq3ZbEhUaamFa_ITlhuxBKBm8YHPD0olxhZwPC6AwkjAmKECpGFTOZT-nqkiNOcc3udbFFAbh8TuoQU-dBPU9oR45Gm5E4NSn5wZc29GwDp6REKEi6-KfYniD1_oqlLwYL3Agk1iXyo8rTw1jB7NNWqeMjUheK3g5I5pg2rbEpSOm75LRONncE6uzRafrvwFsWHaRr4_EQWeLEeXsTsBB9fsOEquwTxkMzACIUk0hVPlGAL4p57ATMVKD4_KADg3HI2nJFfVc7Wok94cb9hw_ckiSGoXH0T6cU31ZetkpGxvtkyIXv3BToHvBqPn2_j6jdDMc-Bx8hx-bTcDc-tuHQFSnhuYR38PqT9Ea3O-mwFi3_67dKJ8rn0VGZoTZPXU4S4KP3R1P30VoWT_xl7NJdeQ0Tj3NzSWK6naGnaN-vJgUZ45WuuCIDiHy_DogIk37jx0e_rFprieyt9bWKSgE_CMmDjQn90D_CQ8tRm7UVI2rG2H7bqdaB2-3tQKgveEa4ocY2oYWFnFOrEdAaRsFQZNWRa7URIrptc8bsWsKsUzftQOqHwxbCmtrq32F_ze0wQ7KTu063dsVsDt9xV9j7VDUcwfh.-338JZsEdwhCsv2OYaSih6CBDM6ChZDqLl1wIDUNkphGDl7S8SQd7O1Uz4WHGZz9MahZD0hE52SYIzHCgQ5elw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/hotdoggers
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/hotdoggers/
+Analyzing Production: https://www.oscarmayer.com/hotdoggers/
+
+============================================================
+COMPARISON SUMMARY — Hotdoggers
+============================================================
+Total differences:    9
+Critical differences: 3
+Preview issues:       2
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/hotdoggers-2026-04-24T20-35-05-386Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

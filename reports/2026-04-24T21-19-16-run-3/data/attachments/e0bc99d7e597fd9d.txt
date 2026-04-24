@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700091708-deli-fresh-oven-roasted-turkey-breast-with-34-lower-sodium/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DIs60AUZguFkEtwpS2-xeVl8EYye_J0HcjUAeBBgm49d-DpeTSPHs1ZH7zvqtSyp7vztBtwTT4X-QP9YkSMi8pZjW41JqoH227XvWmdjZZWYDkaShB-CcIIuy7pINh-WeSyEP3J5v8HnypFrRh3IkJbLE_zQjZxGNNfL3eX5FDOkae_QiBEtJ-BqhPmQgyojIR1XZ3nDs7vjIajpDeyKEniWRMmiPdBHltN_dGLKpuchByYDmYz0j47LtlggACS4mzHwH1WrctNHAyh66hdoKZns7tasWyHMbYS-Lb_VsMTXuPrcr5fD9me-07-bnMMZAEXMhcrwW1M4tKOaQDTEcEuiJ3duGxmFkZEg7gd4gQv7zotKUJkZgLg-sfpLfXTO2ft64oe6jPPQGwcZpcsNT3bCJaa_AD_MwcyNkf462oNVwR5UXrQAi3klNJcHXnTHclzcZvkv7bqcvIGzK3rxnN4Ji-Vj-axdoiCn5C0NE6j-0BCwwiB6bz7GjvfuSy9GKKj-RIUcj_tlVTcYHyvFsQQmi8FWvt-Fxi9oI_-4JO_lRpoy5GHRyBYwdDIgZE_ARo5YOC1ZQGXEimapOUBOAOfBdFciS6M5QsW-ASoi3aXuvHGlODomcMsPHD3Xq2ThyInOXwaEEvPZVXJd918q2sI7pV0pt2S31g0RCI0d2qGZwfnkbgczn84lOxB7uLAbjY7LmhFIoE0HMPtnkiHmOHZkKtYsdXWYLiBWyWLi2Aouuj9mvZou9Ven5a-L6Q_fxtzhm-Y3IpaL7EaRbCtbRyu7c41kEz2FHNIvAcvRlGwa8BjH0TboZ-pfeyLv3SbtpZSxme1kDnpfwZPs_IHTP-QJBKE_EkK6yBhNo1nH0zXWU8ajf3RGierGsJZDaK8Q62pr7q_TTj35WBU0CMKpOOmYCUfdbUTjRUokrpUkAF8iz2qw2agXecl66GzAh_4fR9Lgl8IFoE82B_X18Z2wsadMVQFVDrUSIvfHDXfpp3GJqlDlbeRGZ9t2-L0OfemZb8PvgcQYAHPef39BA7BVYh0yv70PrI-3zjJOqO0VHCtfkLrZBu_6XIKrGfX.9Mu1numQnLeYTDGM_LzzOIHWJChtGoY3MNgHs9c47Ji4VoAt_PQklh_gbRfuKBatxQkcnTHLeTYIalohEo_eeg
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700091708-deli-fresh-oven-roasted-turkey-breast-with-34-lower-sodium
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700091708-deli-fresh-oven-roasted-turkey-breast-with-34-lower-sodium/
+Analyzing Production: https://www.oscarmayer.com/products/00044700091708-deli-fresh-oven-roasted-turkey-breast-with-34-lower-sodium/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700091708 Deli Fresh Oven Roasted Turkey Breast With 34 Lower Sodium
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700091708-deli-fresh-oven-roasted-turkey-breast-with-34-lower-sodium-2026-04-24T20-55-28-288Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700073667-jumbo-beef-franks-hot-dogs/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DIWzC51sUMTAhnmyjmBt4RnvAdRSLE9o4Jy4HH603vI2hUdWCQFg3GV1xJZPWd5tlXly51JQ00IW2M7dS-GjGeAd6lVL7kIy2CRoZihisnMHf-C3aZt6mimFP9hcjKQt1ajBXgx9xnuw19RF2vMzWB3hz7qMf3KHednBHN0SdKcJEOTHhvuk74vVOrUodrtgeID-Rw8ZUysqb1Yo-ZeS3yWAnOwYXdu22qPjrQ958IZeXncsPo3sk_-1swt3BAs0Df9RrayBeMQzIdmgQAtyIDO1GiLnNbOsALG-WkjbaLmUQuV4Eo1fbhgKcfInfhsL8-6g0ugyA09BDYBQ1KxWEIE_tCgvQO1HJGZHqBoD67VTbPW82dtizSRNAFlqXp9AWqHEx9jmq19lINJdB7gBb4y7YRSA2s73U2dohTbpKKGlGCncyUCUFVWv1gu0zDEQ57-Nh8QS5vLFMT4SBPo4kAip5WCBcIKzxL6GuRkJX4PkCwrNMWu8M3jl7KUpW8SzeLA14OQjPZZQz9txB8krl__efJsBzQr4KghLncnihd4i-669R18dyk05zSK_6CSskgdp_8ggWbHosXFW2SZbC1NmrXYtTxjZwircbqHWAJiQJeIwSHtB2B5pi7lfmdTEvm3hE5U1_AG08RuxbtIvtgslDEgA4OZIL47RuCBoP3-685FqCiVzXVeeo5yngDPDGTcAJORctfBZyB7jgemyllBzCtVynEvi4rD-QCmKoKDpsZ3iBBPL9tDVYRktnWet8uII5t86UnYfYqjw69UIOTjz9-JL40IoZiGkI_8YRL_u_fbNcaroFA3pHWNrDzszl8pDSWP_whfQ2KqlqLo9R7Du7KUDTxq2hEH_KkmTG754I4UVw2BfpV7qeGsP3VblxAVyTHYqgpezEp8b1-UKiqsSkKdsfMpHNjAAVMIG2vAPUbWJ2D3f-QHSvaa.oALW-9DVN-Ca5E1EFT_NH8APKfpvj4mCWEF1J3wvfCw8RL1hKKiyJKJU1wgaUFVSvhDzZUlUGwJadZ4tnHA-CQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700073667-jumbo-beef-franks-hot-dogs
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700073667-jumbo-beef-franks-hot-dogs/
+Analyzing Production: https://www.oscarmayer.com/products/00044700073667-jumbo-beef-franks-hot-dogs/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700073667 Jumbo Beef Franks Hot Dogs
+============================================================
+Total differences:    5
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700073667-jumbo-beef-franks-hot-dogs-2026-04-24T20-52-17-852Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

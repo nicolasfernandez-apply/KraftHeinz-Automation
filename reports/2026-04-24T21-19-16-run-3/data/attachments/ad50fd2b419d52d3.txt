@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700097281-chipotle-seasoned-chicken-breast-sliced-lunch-meat-family-size/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANpd9DIcRp65tnuv3-tfbzis_IKsWk-PaT59wOoBXEVYj1KG6hl-wVSrfCUi8ByNOU8-yWwqlYHnzbxoU4m7PldU4szGoWIP7snZMmL4GwQ8L_IDd4-wONzBuxd12Tqh_qibGeWgxysmFybY3lazZXgcth6RdJ5ktExJEe5lPVK_HcCmPcY_szMhgoEbplSVyFFTS174F6k2DGIHjbDobcXjMLF4YzBXthfJZgQoBw1PZniKWlYAIFzEY4PKGeuzThNM9PmSWYB5t6mTvEffUC6tPF3wa_lUOZ08s1NRkFC_XC28CFX6QzbQhI5CRjXNkunch6l94pOKYpN8t8XETB2TGRJkGW0ypBvUGZthRz6I2pIlAsqW-aMRRXnHImJm1N_h5yfqnOt2fK6HSySxGeanFRfGgIAvwF0_iszUG7-wGrhBiSlCr-D7Kg4yHm9N0xJ1H0wUl7E4Q9L7RgZAhJKxuQ82ABgMmEtg3CndXhA3W6CvjhODylIqevNlfv0RihtK1VVCDilzY9SlN2cl-lfQW5bAs7-rxZdKq_s9ji7Jln6Vv1pXDD8ddLLh-S04x9Kq4y6uDpdJpYNFQTU50e8171mX3UrmhLQcdSjFPXP-x1UZZ_HrrArFfc4rPDWe_JKZOp32APbtt2DWtQzdqt1zvR6NIUKN8eFyqmv9wKUA4KbRrAmRa4L0vNgAte_628z6suEY5wz-bedz3BTYKAWgaAUqQernQLOLlnXWcgBId-gmoahWfXgpbjGNJ_O-83Oa8eeBHjv04W01Jf7SqdYlIq_JmESWvOuTvj2JKGs2CtKS9m7QwS3mZJUs_py7kOJH-VxMCWLmxuaxn8BYhAnG3R-SLqAtVOJYmaJt65CBwgwl_h4EuAUu1wkoZWic8i7-mkyg1mAU1L_nOMRoL1PiDDywJlAUbzMeI78aKqT7vM5Deemekd1myGEy-GwsjVsRhpFyT-4MPmCZmEi1ft6F8awu8vFTkaErsN84NZWqLKuIDZECZRjU4fBvGTSXAWnpX4RViCmxV31Wf0ZkMSsPNlF20DBhnX8Zr435_prDAPjz_ZR047hfVbb2tdtFpLxctQx_gDNaZvfa.TlSwVKs-LVuZIT4nr_SVDKys6fM5fRpaVcwZpMXlPDogxkC6ksxHExs0YYBr5-BKCadTLi2Jf38Cp9i7VgH8JQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700097281-chipotle-seasoned-chicken-breast-sliced-lunch-meat-family-size
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700097281-chipotle-seasoned-chicken-breast-sliced-lunch-meat-family-size/
+Analyzing Production: https://www.oscarmayer.com/products/00044700097281-chipotle-seasoned-chicken-breast-sliced-lunch-meat-family-size/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700097281 Chipotle Seasoned Chicken Breast Sliced Lunch Meat Family Size
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700097281-chipotle-seasoned-chicken-breast-sliced-lunch-meat-family-size-2026-04-24T20-37-48-602Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+
