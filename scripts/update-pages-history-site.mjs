@@ -20,6 +20,7 @@ import path         from 'path';
 const PAGES_SITE_DIR    = process.env.PAGES_SITE_DIR    ?? '.pages-site';
 const SOURCE_REPORT_DIR = process.env.SOURCE_REPORT_DIR ?? 'allure-report';
 const URLS_CONFIG       = process.env.URLS_CONFIG       ?? 'urls.config.json';
+const SITE_TITLE        = process.env.SITE_TITLE        ?? 'KraftHeinz URL Comparison';
 
 const runNumber  = process.env.GITHUB_RUN_NUMBER  ?? '0';
 const runId      = process.env.GITHUB_RUN_ID      ?? '0';
@@ -87,7 +88,7 @@ function generateIndexHtml(runs) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KraftHeinz URL Comparison — Run History</title>
+  <title>${SITE_TITLE} — Run History</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -160,7 +161,7 @@ function generateIndexHtml(runs) {
 </head>
 <body>
   <header>
-    <h1>KraftHeinz URL Comparison</h1>
+    <h1>${SITE_TITLE}</h1>
     <p>Allure report history — click any row to open the full report for that run</p>
     <div class="stats">
       <div>
@@ -193,7 +194,7 @@ function generateIndexHtml(runs) {
     </div>
   </main>
 
-  <footer>KraftHeinz URL Comparison Tool</footer>
+  <footer>${SITE_TITLE}</footer>
 </body>
 </html>`;
 }

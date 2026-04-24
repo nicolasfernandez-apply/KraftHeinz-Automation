@@ -26,3 +26,7 @@ allure-report/
 
 # TypeScript build output
 dist/
+
+# Site-generated files (created by crawler scripts, not committed)
+sites/*/pages.json
+sites/*/reports/

@@ -39,6 +39,17 @@ export interface FormInfo {
   inputs: string[];
 }
 
+export interface VideoInfo {
+  /** 'native' | 'youtube' | 'vimeo' | 'wistia' | 'iframe' */
+  platform: string;
+  /** Absolute src URL as resolved by the browser */
+  src: string;
+  /** Extracted video ID for YouTube / Vimeo / Wistia; full src for others */
+  videoId: string;
+  /** title attribute if present */
+  title: string;
+}
+
 export interface ConsoleEntry {
   type: string;
   text: string;
@@ -82,6 +93,7 @@ export interface PageAnalysis {
   images: ImageInfo[];
   links: LinkInfo[];
   forms: FormInfo[];
+  videos: VideoInfo[];
   consoleEntries: ConsoleEntry[];
   performance: PerformanceMetrics;
   screenshotBase64: string;
@@ -180,11 +192,32 @@ export async function analyzePage(
 
   const links = await page
     .evaluate((pageUrl: string) => {
+      // Walk up the DOM; return true if the element lives inside a cookie consent container.
+      const isCookieBanner = (el: Element): boolean => {
+        let node: Element | null = el.parentElement;
+        while (node) {
+          const cls = (node.getAttribute('class') || '').toLowerCase();
+          const id  = (node.getAttribute('id')    || '').toLowerCase();
+          if (
+            cls.includes('cookie')    || id.includes('cookie')    ||
+            cls.includes('consent')   || id.includes('consent')   ||
+            cls.includes('gdpr')      || id.includes('gdpr')      ||
+            cls.includes('onetrust')  || id.includes('onetrust')  ||
+            cls.includes('cookiebot') || id.includes('cookiebot') ||
+            cls.includes('cky-')      || id.includes('cky-')      ||
+            cls.includes('osano')     || id.includes('osano')
+          ) return true;
+          node = node.parentElement;
+        }
+        return false;
+      };
+
       let pageOrigin = '';
       try {
         pageOrigin = new URL(pageUrl).origin;
       } catch {}
       return Array.from(document.querySelectorAll('a[href]'))
+        .filter((a) => !isCookieBanner(a))
         .slice(0, 300)
         .map((a) => {
           const el = a as HTMLAnchorElement;
@@ -215,6 +248,24 @@ export async function analyzePage(
     )
     .catch(() => [] as FormInfo[]);
 
+  // Only native <video> elements are collected — iframes are excluded to avoid false
+  // positives from Recaptcha, cookie banners, analytics, and other embedded widgets.
+  const videos = await page
+    .evaluate(() => {
+      const items: Array<{ platform: string; src: string; videoId: string; title: string }> = [];
+
+      document.querySelectorAll('video').forEach((el) => {
+        const v = el as HTMLVideoElement;
+        // Prefer the resolved .src property; fall back to the first <source> child
+        const src = v.src || (v.querySelector('source') as HTMLSourceElement | null)?.src || '';
+        if (!src) return;
+        items.push({ platform: 'native', src, videoId: src, title: v.getAttribute('title') || '' });
+      });
+
+      return items;
+    })
+    .catch(() => [] as Array<{ platform: string; src: string; videoId: string; title: string }>);
+
   const performance = await page
     .evaluate(() => {
       const entries = window.performance.getEntriesByType('navigation');
@@ -235,14 +286,36 @@ export async function analyzePage(
 
   // Extract visible text blocks from content elements.
   // Targets leaf-level elements that carry readable text; deduplicates and filters noise.
+  // Elements inside cookie consent containers are excluded to avoid environment differences
+  // caused by banners that appear differently between Preview and Production.
   const textBlocks = await page
     .evaluate(() => {
+      const isCookieBanner = (el: Element): boolean => {
+        let node: Element | null = el.parentElement;
+        while (node) {
+          const cls = (node.getAttribute('class') || '').toLowerCase();
+          const id  = (node.getAttribute('id')    || '').toLowerCase();
+          if (
+            cls.includes('cookie')    || id.includes('cookie')    ||
+            cls.includes('consent')   || id.includes('consent')   ||
+            cls.includes('gdpr')      || id.includes('gdpr')      ||
+            cls.includes('onetrust')  || id.includes('onetrust')  ||
+            cls.includes('cookiebot') || id.includes('cookiebot') ||
+            cls.includes('cky-')      || id.includes('cky-')      ||
+            cls.includes('osano')     || id.includes('osano')
+          ) return true;
+          node = node.parentElement;
+        }
+        return false;
+      };
+
       const seen = new Set<string>();
       const blocks: string[] = [];
       const elements = Array.from(document.querySelectorAll(
         'p, li, td, th, blockquote, figcaption, label, caption, dt, dd',
       ));
       for (const el of elements) {
+        if (isCookieBanner(el)) continue;
         // Skip elements that themselves contain block children (avoids duplicating parent text)
         if (el.querySelector('p, li, blockquote, div')) continue;
         const text = (el as HTMLElement).innerText
@@ -301,6 +374,7 @@ export async function analyzePage(
     images,
     links,
     forms,
+    videos,
     consoleEntries,
     performance: performance ?? EMPTY_PERFORMANCE,
     screenshotBase64,

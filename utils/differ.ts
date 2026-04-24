@@ -1,4 +1,4 @@
-import { PageAnalysis, HeadingInfo, ConsoleEntry, PerformanceMetrics, AxeViolation } from './analyzer';
+import { PageAnalysis, HeadingInfo, ConsoleEntry, PerformanceMetrics, AxeViolation, VideoInfo } from './analyzer';
 
 export interface ValueDiff<T> {
   preview: T;
@@ -45,6 +45,7 @@ export interface PageDiff {
   formsCount: ValueDiff<number>;
   scriptsCount: ValueDiff<number>;
   stylesheetsCount: ValueDiff<number>;
+  videosCount: ValueDiff<number>;
   performance: {
     preview: PerformanceMetrics;
     production: PerformanceMetrics;
@@ -69,6 +70,14 @@ export interface PageDiff {
     text: SetDiff;
     images: SetDiff;
     links: SetDiff;
+    videos: {
+      preview: VideoInfo[];
+      production: VideoInfo[];
+      onlyInPreview: VideoInfo[];
+      onlyInProduction: VideoInfo[];
+      inBoth: string[];
+      isDifferent: boolean;
+    };
   };
   axe: {
     preview: AxeViolation[];
@@ -129,6 +138,19 @@ function setDiff(previewSet: Set<string>, productionSet: Set<string>): SetDiff {
   };
 }
 
+/**
+ * Stable key for a video used in set-comparison.
+ * Platform-specific IDs (YouTube, Vimeo, Wistia) are used directly so that the
+ * same video hosted on different environments is treated as identical.
+ * For native <video> and generic iframes the host-stripped path is used.
+ */
+function videoKey(v: VideoInfo): string {
+  if (['youtube', 'vimeo', 'wistia'].includes(v.platform)) {
+    return `${v.platform}:${v.videoId}`;
+  }
+  return `${v.platform}:${urlPath(v.src)}`;
+}
+
 // ── Main export ───────────────────────────────────────────────────────────────
 
 export function diffAnalyses(preview: PageAnalysis, production: PageAnalysis): PageDiff {
@@ -171,6 +193,7 @@ export function diffAnalyses(preview: PageAnalysis, production: PageAnalysis): P
   const formsCount = vd(preview.forms.length, production.forms.length);
   const scriptsCount = vd(preview.scriptsCount, production.scriptsCount);
   const stylesheetsCount = vd(preview.stylesheetsCount, production.stylesheetsCount);
+  const videosCount = vd(preview.videos.length, production.videos.length);
 
   const performance = {
     preview: preview.performance,
@@ -206,10 +229,24 @@ export function diffAnalyses(preview: PageAnalysis, production: PageAnalysis): P
   );
   const linkDiff = setDiff(previewLinkPaths, productionLinkPaths);
 
+  // Videos: compare by stable platform key (ID for YouTube/Vimeo/Wistia, path for others)
+  const previewVideoKeys   = new Map(preview.videos.map((v) => [videoKey(v), v]));
+  const productionVideoKeys = new Map(production.videos.map((v) => [videoKey(v), v]));
+  const videosDiff = {
+    preview:          preview.videos,
+    production:       production.videos,
+    onlyInPreview:    preview.videos.filter((v) => !productionVideoKeys.has(videoKey(v))),
+    onlyInProduction: production.videos.filter((v) => !previewVideoKeys.has(videoKey(v))),
+    inBoth:           [...previewVideoKeys.keys()].filter((k) => productionVideoKeys.has(k)),
+    isDifferent:      false,
+  };
+  videosDiff.isDifferent = videosDiff.onlyInPreview.length > 0 || videosDiff.onlyInProduction.length > 0;
+
   const content = {
     text: textDiff,
     images: imageDiff,
     links: linkDiff,
+    videos: videosDiff,
   };
 
   // ── Accessibility diff ────────────────────────────────────────────────────
@@ -226,7 +263,7 @@ export function diffAnalyses(preview: PageAnalysis, production: PageAnalysis): P
 
   // ── Difference counts ─────────────────────────────────────────────────────
   const metaDiffs = Object.values(metadata).filter((d) => d.isDifferent).length;
-  const structDiffs = [headingsCount, imagesCount, linksCount, formsCount, scriptsCount, stylesheetsCount].filter(
+  const structDiffs = [headingsCount, imagesCount, linksCount, formsCount, scriptsCount, stylesheetsCount, videosCount].filter(
     (d) => d.isDifferent,
   ).length;
   const headingsDiff = headings.isDifferent ? 1 : 0;
@@ -234,7 +271,8 @@ export function diffAnalyses(preview: PageAnalysis, production: PageAnalysis): P
   const contentDiffs =
     (textDiff.isDifferent ? 1 : 0) +
     (imageDiff.isDifferent ? 1 : 0) +
-    (linkDiff.isDifferent ? 1 : 0);
+    (linkDiff.isDifferent ? 1 : 0) +
+    (videosDiff.isDifferent ? 1 : 0);
   // Violations unique to one side count as differences; violations on both sides are shared issues
   const axeUniqueDiffs = axe.onlyInPreview.length + axe.onlyInProduction.length;
   const axeCriticalUnique = [...axe.onlyInPreview, ...axe.onlyInProduction].filter(
@@ -261,6 +299,7 @@ export function diffAnalyses(preview: PageAnalysis, production: PageAnalysis): P
     formsCount,
     scriptsCount,
     stylesheetsCount,
+    videosCount,
     performance,
     consoleErrors: {
       preview: preview.consoleEntries.filter((e) => ['error', 'warning'].includes(e.type)),

@@ -1,26 +1,10 @@
-name: URL Comparison — Preview vs Production
+name: Oscar Mayer — Crawl & Compare
 
 on:
   workflow_dispatch:
-    inputs:
-      urls_json:
-        description: >
-          URL pairs to compare (paste the full JSON content).
-          Leave empty to use the urls.config.json file already in the repository.
-
-          Expected format:
-          {
-            "comparisons": [
-              { "name": "Page Name", "previewUrl": "https://prv...", "productionUrl": "https://prod..." },
-              { "name": "Another Page", "previewUrl": "https://prv...", "productionUrl": "https://prod..." }
-            ]
-          }
-        required: false
-        type: string
-
-  # Uncomment to run automatically on a schedule (e.g. every weekday at 9 AM UTC)
+  # Uncomment to run automatically on a schedule (e.g. every weekday at 10 AM UTC)
   # schedule:
-  #   - cron: '0 9 * * 1-5'
+  #   - cron: '0 10 * * 1-5'
 
 # Required for GitHub Pages deployment and history branch writes
 permissions:
@@ -30,10 +14,10 @@ permissions:
   id-token: write
 
 jobs:
-  compare:
-    name: Compare Preview vs Production
+  crawl-and-compare:
+    name: Crawl & Compare Oscar Mayer
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     # Prevent simultaneous Pages deployments across workflows
     concurrency:
       group: pages-deploy
@@ -60,57 +44,36 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       # ── Restore Allure history cache ─────────────────────────────────────────
-      # Restores the history folder from the previous run so Allure can render
-      # trend charts across multiple runs.
       - name: Restore Allure history cache
         uses: actions/cache/restore@v4
         with:
           path: .allure-history-cache
-          key: allure-history-${{ github.ref_name }}-${{ github.run_id }}
-          restore-keys: allure-history-${{ github.ref_name }}-
+          key: allure-history-oscar-mayer-${{ github.ref_name }}-${{ github.run_id }}
+          restore-keys: allure-history-oscar-mayer-${{ github.ref_name }}-
 
-      # ── Resolve URL config ────────────────────────────────────────────────────
-      - name: Prepare URL configuration
-        env:
-          URLS_JSON_INPUT: ${{ inputs.urls_json }}
+      # ── Crawl Oscar Mayer sitemap ─────────────────────────────────────────────
+      - name: Crawl Oscar Mayer sitemap
+        run: npm run crawl:oscar-mayer
+
+      - name: Show discovered pages
         run: |
-          if [ -n "$URLS_JSON_INPUT" ]; then
-            echo "Source: workflow input JSON"
-            echo "$URLS_JSON_INPUT" > /tmp/urls-input.json
-
-            python3 -c "
-          import json, sys
-          try:
-            data = json.load(open('/tmp/urls-input.json'))
-            pairs = data.get('comparisons', [])
-            if not pairs:
-              raise ValueError('\"comparisons\" array is empty or missing')
-            print(f'Valid — {len(pairs)} comparison(s) found:')
-            for p in pairs:
-              print(f'  • {p.get(\"name\", \"(unnamed)\")}')
-          except Exception as e:
-            print(f'ERROR: {e}', file=sys.stderr)
-            sys.exit(1)
-            "
-
-            echo "URLS_CONFIG=/tmp/urls-input.json" >> "$GITHUB_ENV"
-          else
-            echo "Source: urls.config.json from repository"
-            echo "URLS_CONFIG=urls.config.json" >> "$GITHUB_ENV"
-          fi
+          echo "Pages discovered:"
+          node -e "
+            const p = require('./sites/oscar-mayer/pages.json');
+            p.comparisons.forEach((c, i) => console.log(\`  \${i + 1}. \${c.name}\`));
+            console.log(\`\nTotal: \${p.comparisons.length} page(s)\`);
+          "
 
       # ── Run comparison tests ──────────────────────────────────────────────────
-      # continue-on-error so the Allure report is always generated even on failure.
-      - name: Run URL comparison
+      - name: Run Oscar Mayer comparison
         id: run_comparison
         continue-on-error: true
         env:
           PREVIEW_USERNAME: ${{ secrets.PREVIEW_USERNAME }}
           PREVIEW_PASSWORD: ${{ secrets.PREVIEW_PASSWORD }}
-        run: npm run compare
+        run: npm run compare:oscar-mayer
 
       # ── Inject previous Allure history ────────────────────────────────────────
-      # Copies the cached history into allure-results/ so trend data is preserved.
       - name: Inject previous Allure history
         if: always() && hashFiles('.allure-history-cache/history') != ''
         run: |
@@ -139,29 +102,29 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: .allure-history-cache
-          key: allure-history-${{ github.ref_name }}-${{ github.run_id }}
+          key: allure-history-oscar-mayer-${{ github.ref_name }}-${{ github.run_id }}
 
       # ── Upload artifacts ──────────────────────────────────────────────────────
       - name: Upload comparison reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: comparison-reports-${{ github.run_number }}
-          path: reports/
+          name: oscar-mayer-reports-${{ github.run_number }}
+          path: sites/oscar-mayer/reports/
           retention-days: 30
 
       - name: Upload Allure report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: allure-report-run-${{ github.run_number }}
+          name: oscar-mayer-allure-run-${{ github.run_number }}
           path: allure-report/
           retention-days: 90
 
-      # ── Publish run-history dashboard to GitHub Pages (main branch only) ────────
-      # Maintains a report-history branch that accumulates every run's Allure report
-      # under reports/<runStamp>/ and serves an index.html dashboard at the root.
-      # Settings → Pages → Source must be set to "GitHub Actions".
+      # ── Publish Oscar Mayer history to GitHub Pages (main branch only) ────────
+      # Maintains an oscar-mayer-history branch that accumulates every run's
+      # Allure report under reports/<runStamp>/ and serves an index.html dashboard.
+      # This branch is served at /oscar-mayer/ on the shared GitHub Pages site.
 
       - name: Configure Git identity
         if: github.ref == 'refs/heads/main'
@@ -169,33 +132,33 @@ jobs:
           git config --global user.name  "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Clone or initialise report-history branch
+      - name: Clone or initialise oscar-mayer-history branch
         if: github.ref == 'refs/heads/main'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           REPO_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
 
-          if git ls-remote --exit-code --heads "$REPO_URL" report-history; then
-            # Full clone (no --depth) so history.json and all prior reports are present
-            git clone --branch report-history --single-branch "$REPO_URL" .pages-site
-            echo "Cloned report-history branch — $(git -C .pages-site rev-list --count HEAD) commit(s)"
+          if git ls-remote --exit-code --heads "$REPO_URL" oscar-mayer-history; then
+            git clone --branch oscar-mayer-history --single-branch "$REPO_URL" .pages-site
+            echo "Cloned oscar-mayer-history branch — $(git -C .pages-site rev-list --count HEAD) commit(s)"
           else
-            echo "Branch report-history does not exist yet — creating orphan branch"
+            echo "Branch oscar-mayer-history does not exist yet — creating orphan branch"
             mkdir -p .pages-site
             cd .pages-site
             git init
             git remote add origin "$REPO_URL"
-            git checkout --orphan report-history
-            # Seed with an empty commit so the branch has a valid HEAD
-            git commit --allow-empty -m "chore: initialise report-history branch [skip ci]"
+            git checkout --orphan oscar-mayer-history
+            git commit --allow-empty -m "chore: initialise oscar-mayer-history branch [skip ci]"
           fi
 
-      - name: Update history dashboard
+      - name: Update Oscar Mayer history dashboard
         if: github.ref == 'refs/heads/main'
         env:
           PAGES_SITE_DIR:    .pages-site
           SOURCE_REPORT_DIR: allure-report
+          URLS_CONFIG:       sites/oscar-mayer/pages.json
+          SITE_TITLE:        "Oscar Mayer — Preview vs Production"
           GITHUB_RUN_NUMBER: ${{ github.run_number }}
           GITHUB_RUN_ID:     ${{ github.run_id }}
           GITHUB_REPOSITORY: ${{ github.repository }}
@@ -203,33 +166,53 @@ jobs:
           GITHUB_SHA:        ${{ github.sha }}
         run: node scripts/update-pages-history-site.mjs
 
-      - name: Push report-history branch
+      - name: Push oscar-mayer-history branch
         if: github.ref == 'refs/heads/main'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd .pages-site
           git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git" \
-            HEAD:report-history
+            HEAD:oscar-mayer-history
 
-      - name: Prepare Pages artifact (strip .git)
+      # ── Build combined Pages artifact ─────────────────────────────────────────
+      # Root (/) comes from the report-history branch (ad-hoc compare dashboard).
+      # /oscar-mayer/ comes from the oscar-mayer-history branch (this workflow).
+      - name: Prepare Pages artifact
         if: github.ref == 'refs/heads/main'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cp -r .pages-site .pages-artifact
-          rm -rf .pages-artifact/.git
-
-          # Include Oscar Mayer history at /oscar-mayer/ if the branch exists
           REPO_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
-          if git ls-remote --exit-code --heads "$REPO_URL" oscar-mayer-history 2>/dev/null; then
-            git clone --branch oscar-mayer-history --single-branch "$REPO_URL" .oscar-mayer-site
-            mkdir -p .pages-artifact/oscar-mayer
-            cp -r .oscar-mayer-site/. .pages-artifact/oscar-mayer/
-            rm -rf .pages-artifact/oscar-mayer/.git
-            echo "Oscar Mayer history included at /oscar-mayer/"
+
+          # Start with the oscar-mayer-history content (already cloned into .pages-site)
+          # Place it at /oscar-mayer/
+          mkdir -p .pages-artifact/oscar-mayer
+          cp -r .pages-site/. .pages-artifact/oscar-mayer/
+          rm -rf .pages-artifact/oscar-mayer/.git
+
+          # Include root report-history content if the branch exists
+          if git ls-remote --exit-code --heads "$REPO_URL" report-history 2>/dev/null; then
+            git clone --branch report-history --single-branch "$REPO_URL" .root-site
+            cp -r .root-site/. .pages-artifact/
+            rm -rf .pages-artifact/.git
+            echo "Ad-hoc compare history included at /"
           else
-            echo "oscar-mayer-history branch not found — skipping /oscar-mayer/ section"
+            echo "report-history branch not found — root will only show Oscar Mayer section"
+            # Create a minimal root index that redirects to /oscar-mayer/
+            cat > .pages-artifact/index.html <<'HTML'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0; url=oscar-mayer/">
+  <title>KraftHeinz Automation Reports</title>
+</head>
+<body>
+  <p>Redirecting to <a href="oscar-mayer/">Oscar Mayer reports</a>…</p>
+</body>
+</html>
+HTML
           fi
 
       - name: Upload Pages artifact

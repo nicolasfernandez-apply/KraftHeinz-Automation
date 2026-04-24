@@ -5,7 +5,8 @@ import path from 'path';
 dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 export default defineConfig({
-  testDir: './tests',
+  testDir: '.',
+  testMatch: ['tests/**/*.spec.ts', 'sites/**/*.spec.ts'],
   timeout: 120_000,
   expect: { timeout: 10_000 },
   fullyParallel: false,

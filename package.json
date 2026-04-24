@@ -7,7 +7,10 @@
     "compare:headed": "playwright test tests/compare-urls.spec.ts --headed",
     "install:browsers": "playwright install chromium",
     "allure:generate": "node scripts/generate-allure-with-history.mjs",
-    "test": "playwright test"
+    "test": "playwright test",
+    "crawl:oscar-mayer": "node sites/oscar-mayer/crawler.mjs",
+    "compare:oscar-mayer": "playwright test sites/oscar-mayer/compare.spec.ts",
+    "site:oscar-mayer": "npm run crawl:oscar-mayer && npm run compare:oscar-mayer"
   },
   "dependencies": {
     "dotenv": "^16.4.5"
