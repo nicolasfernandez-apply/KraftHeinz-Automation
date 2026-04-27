@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://brands.prv.kraftheinz.com/velveeta/recipes/4eKETkKdqEU3v6R16JixQV-jalapeno-popper-queso-dip
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/8B6C94B66D87E11C:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mNExn7jqkZ9KEm3NzsiKdg-QiOFAj_3l32tlCp8WxkAfNYRQOCOBAs4aG7y0KJcNNLMuRdkBn8l7Ym_JiRHMv7EsidAUUQ2DjuYM1YxRuiA0tmAn9gZ8M83rU3p1PcrbroRJpdLsjWlksQHk2sxUuMa0J5gTAvt-jpt6vZGtEhMmxCc2tM9m_77UGTKtGn9PPCAPo4uu2VuQPY4iyfB5qzXTN4-vlRTo8uczSWB5d3OsIDZM6wa5KMlfEj1Oz9CQ_4miU6VHcqiB-7u1j3AY8H4L2_lt351LMxNlBAKR5yIY9hY-i4R1Dgq2Sg9fcEH3BcnRaPPdpNupRWQkUSYnlUchb-givxSPqGi4cJTrNFXSZ__rvaBsVsFoR_PwRk1MJEeWF222vUw8SE9n4oH9PDCHoUAzZnSdRdjdxsNaRx0vzvbUxZeetWHTlcRkn7ps9Cgf5rhLDucUBiXrxHWyb1PeAM_hKZ0Ug5XZauhnDLoVCsQ2TleM4I04HqALmYjkeHikcC4ouShmY6khqAwACtiDcb4fq8FTH9h52UBuUtDWJGHiEGxelb8ipdcL9UlISQ8BUqjmJOQM6rTBveUERp0MumY9o0BlzkOcjtB67gpZ8-7pqb-gv7WsTiNCB6pB8brMkxRMNVDbDLu_lw-TpbTyVu3io3RTWkd657WzzCaI5bSz8IDm1F6hNbMCgHKDxua3ktm7aUCnKMahJQu7CbIwZ-e4Ve3f4C6P_t01IyVyucbukI-QXwmW6PvOYAilCM2vc40sACZUsXnm7BqFt1t9XiJwKD7yClTztRNb2yBrO_9Eyg9z3cEtTinE9JDl_P0-IabMRaFpyh3ohDDIvwAWzOC15BNW9zxRtfNx075rNgbO511wih51xKgQzSegTCyST5JYZn7FvdgwzsWci3O07nX8-nj0FiCHv1momPYNi7KfOBZ1ctaoMdWUvnZRIl8hPh1-MZI183VEZSfvLJFTlnZpcKru1S9.aHs23ZVKs1f_TbokkCFZLfVVHjme_xFoWAzY1ZnJBtL29xt8RZcNZntKOl083xX08Fbhcmwp1c8BFTarPmla0g
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://brands.prv.kraftheinz.com/velveeta/recipes/4eKETkKdqEU3v6R16JixQV-jalapeno-popper-queso-dip
+
+
+Analyzing Preview:    https://brands.prv.kraftheinz.com/velveeta/recipes/4eKETkKdqEU3v6R16JixQV-jalapeno-popper-queso-dip
+Analyzing Production: https://www.kraftheinz.com/velveeta/recipes/4eKETkKdqEU3v6R16JixQV-jalapeno-popper-queso-dip
+
+============================================================
+COMPARISON SUMMARY — Queso Dip
+============================================================
+Total differences:    7
+Critical differences: 2
+Preview issues:       6
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/queso-dip-2026-04-27T13-44-08-602Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

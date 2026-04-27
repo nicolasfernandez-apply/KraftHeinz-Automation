@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://brands.prv.kraftheinz.com/capri-sun/adults
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/8B6C94B66D87E11C:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mM0hf9b30TRugeD7LxD1rGv9UI9mVXYLg2ws6z5uNtuXviZqqRNf0EwLRswcA3Y-WFQDpDNLb9oN_YKlvUT8y1RUu-LUit4zqTeesBXn8nJDsf_luNYas533ASh95r-IGF0bD9O7OfhMlfqV0xIl1Y-DgV_EUdr7afH_5kZWDe9APEG-SbzdoCLnOkDwgpeofvrD6I-_2N6idPXSAwPM9f9cveoYykTJO97hm9gIur8cWp2aSPRTWC2hPc1zIkzPSryAp3CTlG8l72OvPzpbkciEGYNaTgQXd3VY5U6J60VOKa0dvXAxsQIqqM_2AJdOOLOwGgZHN4ZE6U0TRGIaDd3OkUKJoK1Az2SaVbYlIJvc8lyc7EJnUNDSs_rUMndrmXILqMgEdq9IgK3_WlenmLL7bmW8uQenwsOS-lIsBo0icgaEghqiCeKyVlJWr23RvsjWPJgVAbZE3_4HZIBG3GRAQ7g61ymLNJNx8M-9X0-IVwXfAROkZK9zqysJ_wNXb_tX0ZSuDxDfQrQ2k1LVDyGZ7cwgeDSQNSlxd5GxI4qV98HE8maT3HMhpw_7SvvxdqpHXaI7ygFr8YYDKDxEcvUQsZ04HfBiIyhOwzzOtclHhULJrkwNIrniO_xcordPaWfQc8Azp8tkiKkbID9x5W3AZTCLN9lJIFEvqxoyYRslzK_5GaBlXTTVzSkK5L41HuGDQeXCMZ2j3Y4cQoZGUJoqncnCftEMCZHlq9WHdBZYKhuNCtiPHaoIVwgmKhEv0O_NY0B4fxttqcbeNfm5XqBool39_ka.DZx2eyqSb0U8PqqF442ehrrHwoloi_VkpXrDBomEHvfNdnaw29XllSbUDPwsWSozMQ2S2wI6Zw8vjcYPqk_1PQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://brands.prv.kraftheinz.com/capri-sun/adults
+
+
+Analyzing Preview:    https://brands.prv.kraftheinz.com/capri-sun/adults
+Analyzing Production: https://www.kraftheinz.com/capri-sun/adults
+
+============================================================
+COMPARISON SUMMARY — Capri sun adults
+============================================================
+Total differences:    11
+Critical differences: 2
+Preview issues:       5
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/capri-sun-adults-2026-04-27T13-40-41-251Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+
