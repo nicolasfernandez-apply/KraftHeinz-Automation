@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700030684-deli-fresh-virginia-brand-uncured-ham/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mPRusgPhVSujMGsr3tzSyr1wVs8mjzrV-zL1sixZaIhqBTdhI3EZmTQosuYrPMgZHu9dy1q1vKKTYPX406WJ_2ngWuIE0zwhqeVL85_pbjpmbKKsSkcpMDxqlAC3lW3ivSfrfIhT8MGNtRb6gW7fl82bAi07tprVk2lkpku4MwtMPD9OwuqROxQaRyem2nU1XBHuZfEVq10GKt1A-x0xpBkDcIpC6W18y03vQOTo9GhKGaOiJGBSJ3MCydGn3fUz1pCrTwECDz6Fr_GniU0fXmilxWYOkyoHPYaI2Jgj14oVh6l1GMYmqTINrLkPbvz76BcIPYvL8n_dEQaBZ_-saLaP_QAd3mMpixpKGleozM1daOL6yte1cvVxZ66a8WrCitHRxDIXQnpnJuYwcG29Avpwh7kxl_Yo4R45GAdOD8aM-o0cBBMfPOiVaPY8ViBq5vJMzJYCrpE4i5qVfSDrRcZQPV3cw2R8qdaqIu0YfknW4-KLvNts7z5wiR9LANBQrmfaQbmPxGomFCE4Vh55srlxV0JJdA83mPrR2IgagH54iuWb09j6fMc5Hg3xQeFC4wwz3AEKc9G-OqVG3d3WRVHQEtLQePF68rrvDINW1EHHpRgTpqOSFRRBX0ipt4AybLW_cxfYc232BEe5Lrdbk851HXazIBwQbdCTo6d5_gsKbxGQPhePzDmnXADxx76OxFIyCiqUWrchw6-BTUUo6TnzSXsfZ9GzY96ECt7GlndpT0ip0tiNbS99m35jLC90QBKsNLrK63ldLsIyz1WksruvhgBRC_8hmitBTHXqzqTM61m27UQVMxQAiax3e7uElwLl4HSmOcgA1x2anZgBe-HLfcM3UxtHSzPaaL-Kh4LAO6TpynVdxUn_0PVPWLXCI9GRCI5AG67NT8LL0_34IRlfOOdy_Mf-T_4QRLK1apesA0f-o7emwJ1ZMYP6I00oTzylQWfTFt33eRNbWv5NEraHnAHPrESaeyYOvHG.9dX94A9EOTnyvt4HYwVUpjFHqyXGu6jJYk6_2qI7dmzaEYRTW_puJuwIP7dQ9IpSwVq74dPeTaOgDrevI1hXQg
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700030684-deli-fresh-virginia-brand-uncured-ham
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700030684-deli-fresh-virginia-brand-uncured-ham/
+Analyzing Production: https://www.oscarmayer.com/products/00044700030684-deli-fresh-virginia-brand-uncured-ham/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700030684 Deli Fresh Virginia Brand Uncured Ham
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700030684-deli-fresh-virginia-brand-uncured-ham-2026-04-27T18-03-58-470Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

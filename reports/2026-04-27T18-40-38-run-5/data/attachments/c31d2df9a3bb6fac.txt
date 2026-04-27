@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700031728-sub-kit-with-smoked-ham-water-product-cotto-salami-sliced-lunch-meat/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mOrYSf_8zVQsJ8Ip7xpEawg0icq9R99-kcngJ2GfPEy07sI8xfxsHFu1rK0vkXj35Yw_JqcolHmVfrX9gUfkKtFoSopqxVu6Gzkt_eMX_6CP75P1fcfsAS-bgQfKITxVRKNY9sh8mvV6ohUJWPldphqOJPOPLNJ63bq3kbDT1L9v4H6hk3GTsxyQb9-TVrD9aaa7991oQtpIlhBoLgZZkLBiQRbxXaY2kdO7LrM_SPm3riRlLqh6pcMhnZS-ooYLgMcnTxu-dAXfD1-iMo9H229gNDTS3mjRQG8-F2GMViG0uQERPjN-uU50IJpyhv_K9naM-CKPsfIKo_G3akLDovEHsATtqxPeuWK9yihFvO3KW1MFaghbQLiOhsGgWohwon-RyZsOdrbtuO7_IGBFJnsK9V6Ssx8-DauKP1qR-bZH38twavo3UjpG8cnQa6YmgnO57IQp0100cecpsZPjlIiuNldvzTB2Vh5xR0ngvNu8QdOqqtoGG36-tnsTCl3G31Sfj_3uax8Nq0TrIY1nVLkZJrnZkYQSmkDVEyvVjlvkWHB0uH-OEntgEw5b4iVXN2lC63s_o5-RItIsHOxpAfHc_4ECyRPByvgk3gMuq0Ohc7Q1LWqyGsgbyliXusiiZgofWN2djts2_hAUezARCv6Q9zLYr_o2Pw9Vg39O63WTRkF3hwDWQocxBvFTq68AnvQCjwnnXGQYLHspNS5YRxl3TVXikFNt7G4ugFCSDFvYzeLx8gJySvnd2MzCTTgOBLYFqLzvfrFuQMv6uBr7CWwVVajEYgbQQF1YIOaHjiA4jncwKHACrVJ_wFU9GQdnSNinAQ8bcmNZc03A0kGISi0ArukUgv_8HOTaQSROvgzjaR01GvFnjRItyJ_2DV__2lpYXsAVkf6TVqSDkiCruLkkanzfwIuxmlDDkzLzmx9XXQLKIjG9jkzRVqW82DP3iNSIFlhc6LhwK8GL3yWLUg6CJ2_6m4hUDwy8PhqOCEU9BAK3w_8_k1N7Cul_raMZ3fEN9eqXRM5IQK9CJ84j6NmUEt-8nKnxkkjXcFGKx_obyEjTJzQ4LHqo82beOw_lqMDGG82tmK9177bYtUAaVA5EtJOJ9SxdLaS.HSbsHMbdarI8AreSeNKkC8wgIejv98g9gEi4BEn-4rjyUiJeK1RrizAI602-uPIbODTyISEkBYqCBD8f6qnk1w
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700031728-sub-kit-with-smoked-ham-water-product-cotto-salami-sliced-lunch-meat
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700031728-sub-kit-with-smoked-ham-water-product-cotto-salami-sliced-lunch-meat/
+Analyzing Production: https://www.oscarmayer.com/products/00044700031728-sub-kit-with-smoked-ham-water-product-cotto-salami-sliced-lunch-meat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700031728 Sub Kit With Smoked Ham Water Product Cotto Salami Sliced Lunch Meat
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700031728-sub-kit-with-smoked-ham-water-product-cotto-salami-sliced-lunch-meat-2026-04-27T18-10-28-019Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

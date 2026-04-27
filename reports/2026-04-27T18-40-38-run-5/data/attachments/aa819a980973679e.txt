@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mOiPkQVGz5J60umwk9-gBIHQuQAze7O8-atLjXNgiyQ2ta81BpZF_vrzucWtK2hKw4XbW4kD9IvSgCUaENvfmLG_8Ou8-RAVFsMYwpCeEZrwFxoJgiWs611VCIFNYDLAL_kzduKTJXS0w_6XicxCIozjjgZorP3APPt-HiQgBYGhBSZQXHAly_WDKTwZB2irp6SuUxzEwCfFhGmA6hJvZH9IaQxmJDKZOQNKTjHk5hPPHPJW5bhcUehkmy1YFBB7Rray4EyW9Eu5B7kqEHRcEmMBeNoUsOtBT-A2u2kuvgK6BbBb8UGePBhetFILCOIlF1kWPicOJ3BMD8XVZL06MCf8x_4GGb6TkgCL_WchMaHApkSiOHy8hLkdpxAdiKo3Rsvzf_w7C83cqKRxf8kG5b-wGtouBg26uS_KaBNSx-83xqZ6cZ1kUYgcvVHiDCrG8NKAKlLwhkYCa2oDYsNhufcjCvdCNw2qds8BVuI0EOrFlSNfJIsU8ybxRDaqJyypMqy7CCPqTUwrUjdFBm0yu9BBFlDIRu2zK9-ZWpUfuc-YW1bUEPjFK4Sk6t1v74qA60TmbtLWzH52Ka71FOyd8aobS9xmy5sU7E2FCYgKQiYqBpUFEBFmZ1tdTp2uN-ov2cUi9SLpOcc--K24njH6LJ2LLg_FhD3K20vqWDx_X4MmBWNbRgLKeDMNc9IDN87gcvWshr_6nLpVYm1W_hjqafWsV2KetgRBggfvj_NCLsTUR8uDTDmL5l3sWhp-_BzhAcvfwx4OfBRUj279XO4.eYQI2TegLj_bU8u1Tr_FeqgDHQ2dIjTUT1X50R5w_PIsS-rMssPeLk3tJkg-dGWD1TZw46ZwZ7YIemTGM45M9A
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/
+Analyzing Production: https://www.oscarmayer.com/products/
+
+============================================================
+COMPARISON SUMMARY — Products
+============================================================
+Total differences:    6
+Critical differences: 3
+Preview issues:       3
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-2026-04-27T17-51-43-187Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

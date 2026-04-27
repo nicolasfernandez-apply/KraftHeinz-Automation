@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700087374-original-center-cut-bacon-mega-pack/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mPkkvCEXN_ol5paG2RZpyLXjnRFRFHOBDwhOL7IWYof1wWJZh1W_JdlfmkjraFycago_ZW018q3LD94o95nP6iZ6zlJW-de6-Ey8ysshJiOwn-bu4CF3WpDSo7AstQYnepCuzYBojTV2sh972K_n_3hzMMtbzGVBEZbxJ8h06JdRqeM3Yb-cUsGhdLj_OpNrYUtSF9ALbuhJ_fssuyK6I3GHzzQaWKDox5e-3csmMn4CP_XTNB-7eNqS7OQ0Py4yz_87ImM6elQh7zjT2AistiuFI8qdiqcRkKl3easEqKtGuwsL5VWRfiXxaJMNqBbZBvZ6eniAReI76IEOfwnC8Uly2AVspfR4aa8lKxz2lqt9B6V28RVKyAzFn_evMfFjjpEG9FHstz48Ln2cb46o5lRXe3OuGnu9Dx_WCbfUt8Mea6M0mO5zMuow3hyJ_vJcmSdkIer3x2AhhSAr1uoQMEcftLgGeC7SZvc0Gn6glAnf_4PsqwnLAcnzF5A0x_5fpz-e3fwqk4ZGZvWjDszH5gEAb2hEkHVVG0xdQ80ZGLeAnkpjNT7i6FjIe9qtvCBHgHKoxRvJQdMplXO-lmjR0D1zq6RcznmySVUlEzA0ZTAMJdkUytrQSnJIGSofAYRtA7HNQJZNVpkXHGHk2BwlRNgwrTVij61QecygxOpSoJsY94E0f4lqhdZNJI7LmytgNFEx_XvvkcF1QJl-qQmjnRuc4ERMTb7v0fBoL32qhT75XIBU0JkMlGuD-9sN7Xsd_0kC9Fr-AekT8S1SvADHd6kk9OLWCgO-nygC520BIf_vr_B87ZGsLVjPCMhwLYw5qvHXp_x4Y0uqcYZTz8BDRYv4pBZudDndsh52NALE3i-jzBgLCKjA9sFDCOv2_3568v4O7ZHKe6wL7xT5c9c4tQs2cHSmtSRNg4barhPVXBFIwZLjFAmGepyWWMork3p-ndLnWBMegl2yud4jjmOgDRyfWpTAb_K.8uWYhMtU0Y3ADVXbEvs1DnfJAMPW2V118yKhj53G0IQzB69doUXfoNRnMR2VmdJpPFrByXDZd4qzfzlO553Z0g
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700087374-original-center-cut-bacon-mega-pack
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700087374-original-center-cut-bacon-mega-pack/
+Analyzing Production: https://www.oscarmayer.com/products/00044700087374-original-center-cut-bacon-mega-pack/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700087374 Original Center Cut Bacon Mega Pack
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700087374-original-center-cut-bacon-mega-pack-2026-04-27T18-11-09-705Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

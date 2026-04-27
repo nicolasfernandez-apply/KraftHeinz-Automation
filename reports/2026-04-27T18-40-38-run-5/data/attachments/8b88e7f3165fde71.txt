@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700070758-protein-snack-with-turkey-almonds-colby-jack-cheese/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mM3tUtRdsXcEyR8a4amSUjeRxtQEcTUUoOC5TbMhdifAslcYSub1buBvns8r8GwoBaakr_vi7B7C1K1xn-Wk827tLPBXaF61DH_MIWevFU0YsZulCrTd1l_MwyxM0IUjmGw1j2jdoCggi2YKpaFsVnzZvlymATclv3b1dr0LWqOZpiAZZ4hmdBf_uNj2JdVj6E8BD7ZEH8a4H8_tCK-4vgil9_hVKSJcItryzhGZohjAivE21A5TvzcE9mGL336jDb7lUKie_rLWnp8plyORdr6MRgyWF1YJd2vv5MnSm8BCX4CPVw3T060zlVuEOjL2UE_UThRr3wJ6PTnQy9DrjoDgX_GJ2yPgcpDiaQPVvjOPcyQ-UfvZiDEwvGGn1poz798ratWq4U22F72S-FsNKsDfNkkAGTlsO1jl3Yl4bs6eumqpFZy6fTbshpvJDZvuGMGcpvIIRnWrAdY-kK7hv_viHb308ymVHj864ZY6e__6NPwsB0VLIBBZfukeaqG5pWByiG5RnhLlKAEY-XlB-gJv3ZOV6XDLpt7d7WRmsut18t14tVCXzNdD68vfEqHE3urlpPlVh4c2GtEzVtPt2Vy8pFw4RlsRSZ96wIjROGLmDDosBVDH2W1o0Te5NC628ZMcopWmdEc4x7kbC3FI2VLRnPA8YU5zYtHiakkLfgJ1B7uVtt-qzvEayexvfI2jP8wqnMGu1Jf7HGT_MkgSEZaaVgPBYPN_mT8Gw5frUofblV0QPdoMyenP6sQh4oYlDZNcAbrGd6K1MimjxntOXVB0Y7nsqAUwfL0CQxI1Lba2hgeD_fuR-cof4Gx9Rith7inqRsCtlmNXBrR9bk1pXOuotSltfvQpD1jNix5si5D-s5hND-eIb2qv_8f6h8MfVgCDwrznaJ_in-HYcuoMfBhw9oM3IZN5KsExUt8S1FinSHZsD3eyeX_akbcF1LoEZe3ObrCiwweJ_uBLJwGsBheC52-jle1xM44w08FVV2y3NRsi_bGS2MnOvA-1TvFSVaugOJTvkPR_fT7ywUqI6I0AAnz7jMw.B8rkULVXM6Q-gIILBBoRINENB-Xnd7n8ruSYoyRlpyW_qe18PILIXALZTsELVaGKervfL50eCfp9pIgv75iCPg
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700070758-protein-snack-with-turkey-almonds-colby-jack-cheese
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700070758-protein-snack-with-turkey-almonds-colby-jack-cheese/
+Analyzing Production: https://www.oscarmayer.com/products/00044700070758-protein-snack-with-turkey-almonds-colby-jack-cheese/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700070758 Protein Snack With Turkey Almonds Colby Jack Cheese
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700070758-protein-snack-with-turkey-almonds-colby-jack-cheese-2026-04-27T18-01-21-050Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700096994-classic-beef-franks-hot-dogs-mega-pack/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mMKTrYmRGp81fO4ZxD-ZbQieG9sBwXF0I2qyWCVp2BbXB-a78XOk5i5L1zv9aOK6gJGApN3UZig-n2gL3LNfLlU-9VePnwM9ZBG1e14-a6i545wREJ7he3xWBMNRSef_k3uvJANZDaFeE8cpw0dwR3uCR_xoZC24ZlO4gz2Wj4LM1pWiSF6uNdDimMRLC-GoeYASb2HbVIo7aalCg2P0RaMPOPDws-jbj11MB_slWMpzt6Wp_35R4_ZL1TGBzq3YOnswELtit9a5nggC-LWxdntD0mbqKb7CVwYstY104oXYQ2vfptMx_4eeHoflWwfgRdgZjYtAtVz6Ztk9-JG0gMGdxVnHOxxycGjyGd8ChXvIktYaypADW0351EonvBvw46YAgtEuzNb4TwgeGMb7sYIS212RqvjMD4RWIHTWL_FGZCdHKlWGbf6Y_e2_5_RWAjCYCFTIU3Kq9TyUWM_0RHLjOYevDJLWAVUy8Trtk21HVArNLaHUu5lpTpDCbBKe8jzakrAAdJNGWYDRo_dz9OA_CruWzmaV0CQF18XkSqYL16GJuZWimTycjsoUYvdBxsEyESeZc-M8VxNtJKuNvTN9-7dD7To4JJ2TU3zvFtpfQJYn0No20WZRmdh8IIq0PAwUFfw0ndAVtqTamNM61gzCeHrD_pWHiU4ZuoawhU2j_AL1MxQKE51XSkPSmjStRguRRIrpNzqe2RjdtQgAdvuXGQ_FxU3syVgk7pKI7z5heDHIezyyExiVyFFFrBewZoFlrzi5G70cGocdGx6K5jlLD5O6O4WTnq-pA95ScOc84f-9PmmHqPS6FOXBjC3Z-SeUOJlB-cB0UFz-CN3dx2uL0jOFj_dqcod_do0ahcvi9lGsCvsGOikb3KZykjeI7ZuRnPh7a3HS-sBqN_yDJ1JpS9K0Zyr-6qoPokStid1dIzB2HfduKg7QBEGtylUT0gJS83c4U_gdqfJJDB86M84m-plK0xy10QkTDeGoRDY.8WMAoT5osueak9EBoubVR_qUkN5ZH1KCq1m-S2mVC7ChzI90dtFA-iIihU4VW6h3XyjAsuxfAVQJUJeWhdRJXw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700096994-classic-beef-franks-hot-dogs-mega-pack
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700096994-classic-beef-franks-hot-dogs-mega-pack/
+Analyzing Production: https://www.oscarmayer.com/products/00044700096994-classic-beef-franks-hot-dogs-mega-pack/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700096994 Classic Beef Franks Hot Dogs Mega Pack
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700096994-classic-beef-franks-hot-dogs-mega-pack-2026-04-27T18-14-59-432Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

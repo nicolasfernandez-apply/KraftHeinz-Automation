@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700100004-sub-kit-with-smoked-ham-smoked-turkey-breast-sliced-lunch-meat/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mNw9E6VXNeN-p4aKecnlcu3UvMblNppREdP6nCqANeq--849wUCAUElw-ujT1BLBt1A8vxtHrKl7i7MskuTA9bW-S7I7Y1FwSmsykmUaHeTtWK46rZAKqQ1MP9fX1KMCNIcgsoDN48D1bFLZvYxHVea7r6kKuQmQmlmMVCk_wQJuW3pLasZh4jX-jC8PwqbjQ_lkX77wdywhs4Glr6Nv36Huq10njpediGYQ1kx_vjtFXkWRyvb7Xpg_AfMH7fX957Rs-diOgIG5Jo805RIePSNkXTZIpM6XTdU9fFYJXrZh07rMh9hI6xgc2QroFomKen11AYp0lY2GwgYTHfqVAjsttQbRmCif2Qhcn4U-_LFCn7f-jTQSn4GeDU0ZeaUGILt6qI1rVu6ynlmkDNB8P1jGjCPeN1SsctyNZ346wVSGnE4Wpuciaf-i-G9wR_ajf_3mOvLB5GLaobJ05TMjtYuAZEOCrmwQFFMmUr1_bXBHkAbXyeI-XEs7GgYTkCVby24LKQaSXy9Y8rY57OTLyUYyV1nXHegr8STfrIgeKrav1kkbt2F9gmp5vvDCo2QK6xTT_c21m6KAd9qjVAwl6g6_BYPiN8DF9CQVsVgMwp_ACVJaXSi9cUmJ0NU_X-yK9G1HlWe3k1NTKNpyJ2GN8UUNWKlNgSDthvlCk8tT1dZV5SqYTB40cfSsG68gp5dHmUmgpGBgZmVBVnatF_ZOLG3jBIMVPBwUqU8LKd4By0enoi9R_7XwIbUR6cABRZPTa9p3-LjVWP9z7jowVTL2BaWGAOw96z5QUQUz0BslxU5Otj-VClHXnjzFVoodO8qnaY0m3mhL1nf9pBpYN1XvoVOU434GARMGiqTYzacfkRU26rAgW2B8bdfc-IJxL_Mm1cYExWHDkNI5aPg5UI5zf9HsvMXlwT_qY8uu6BSNfExkux3Rg775zU6gkiR61mr3IK4LL8Cd7z0QTJYiLStfTVRAHG9wV2xjAJfVQhRqSP9D7XKdlhcOfehh8fj_t0QP8KLqVHDwBASHK5kx-IHJiwWcoBkf27WHSClOn4CDXUnbdkOB6nQv7tKgf-BW8f49YoOMK-jf1Gj.8jURaPOY7MKixFe_Trmtvk67VQZteyEQIJZjyqIdZOlRuzGK-INj-Spet4zM2WKJAC9BVmJ4c5I54COs0aBEPA
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700100004-sub-kit-with-smoked-ham-smoked-turkey-breast-sliced-lunch-meat
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700100004-sub-kit-with-smoked-ham-smoked-turkey-breast-sliced-lunch-meat/
+Analyzing Production: https://www.oscarmayer.com/products/00044700100004-sub-kit-with-smoked-ham-smoked-turkey-breast-sliced-lunch-meat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700100004 Sub Kit With Smoked Ham Smoked Turkey Breast Sliced Lunch Meat
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700100004-sub-kit-with-smoked-ham-smoked-turkey-breast-sliced-lunch-meat-2026-04-27T18-14-01-075Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

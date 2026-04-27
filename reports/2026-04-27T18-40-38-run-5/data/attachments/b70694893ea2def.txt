@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700031285-deli-fresh-oven-roasted-turkey-breast/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mO0yWj2Ify3NxAXclYeDRQvUiktvzn6Ngg4L8MXDoeDikzc8kHKPF4a6nB_HRyBl1athocJN6vVt7zniYkutJWwWppycVKZGC7At7vu72KVv3UnJ6bcuojV2LgHEgU-XGGGskc5jMfxaBbENqXM3Ia5jNqBi_f_qMUtTLio5dp2OsH_Twf-QKCtMv-YMSjvuHs4y0WmEoDdNshzmacJSf4BRPxMP4x-OeBa-dpY7MTe5RRrBBpj4WkYqcTMP_UNDz66mW9pvwZaQVptDtRCQTxMnXC6gBpsj8_JVVsf5H89CVjgMFHRyVEWixreCWvHmTaHDm-2LNFMnO1FwPYM7Qic_eWrQG4_rGxA3OaB_cXPTzEdN_ZBVdzwoeWlWlywKLYuwHzVqXa1iSdIQfXbk_5mLvgdS9U-YzLK9t9YrD6UebtNWfDDZrgNZbr4A5Z11GWSM8zDAsXz6DaExKeZGTNbDBe2wnTICcdfnSCHTD_vSQSMAnOWYCMpMFEGNUcvYhDMy9RT0T5ut3pjwYnahmp34jG1YIZNo_usaA1tEpaepUjvLwJcvIzWbc0VkxjyvvkDFgJ7nopmRDj0WDGc1RrHdoFHkLB8I3-aDnCtjAO89MkC22_BJKiw3j-4KvYAR0yzGfxKrjQnWgW2EQl2pAoEZSyEcp8d_1ZSBMfBIrwKKoKkl-fx4Rf-P4pF51OzTruxuNtvFUjcfW4cH-SClgxy1E8HS8J4Tgap0F25o6EKSLswVSLAMsZ0rTvjhG3rSyrDv4dcJr1exiLpiVlA6dHvOVpA6T1bv3o133ez-34pfIp8Ysjb1mrqzE0gbgZEXJlbcOUYiVVikq1dDexvYurYJ0PVY-c-1M0_NDXGdmo03dQJiWamJXtR8aplxQMSAd7ZinWAVsVlWnFDjpvc5NFa0blgEfib8YVT1rBmHg2aqJ0MsTdxQeXxisZk2lUqPzyT_W39LQo6whaDKWANZY_AUsXwam7V8M1RSIgl.9mMzVESOCO2OJaErmkzz1iLTFPIjkL-r5f8dFaaGJLxeVpxM3H-8B1J44JN2h4qriFEAVnEkL-DpxBmjOwNxZA
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700031285-deli-fresh-oven-roasted-turkey-breast
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700031285-deli-fresh-oven-roasted-turkey-breast/
+Analyzing Production: https://www.oscarmayer.com/products/00044700031285-deli-fresh-oven-roasted-turkey-breast/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700031285 Deli Fresh Oven Roasted Turkey Breast
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700031285-deli-fresh-oven-roasted-turkey-breast-2026-04-27T18-13-17-847Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700000045-bun-length-wieners-hot-dogs/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mM8N8KOAbSrJhrBjMi33JJMDzfFBvQ4vxOd3yTu18gStyZEfxf8WdkjBWMMai6tfXmZl-TfKqFSNw8GC13uLkj8PrO7IEWXN-51QDYasVTxFLcNUV1Sm622PEao91LAUFZu7vDUqR0s234NUU3sv_3RjACuwD66Chexkkb4ZUGVQdHhx-b9q2Op0R_vuM-hrPtllwA46PNWFrZ14C-FxrK7EUCIlkleOWs6pxemVTjpKfsuTuLYIqaJpI1cAe2GfvqXCe6ga1GYnDL1ZNV0ucDucQOVEM87GYKZhBPqyfZBSz1sdRI1jrWzajg3m1qBrH7e2iPbn-W7s7MOy04NW7MU1WcteeEOOBYJMsej21st0Z3wLt9H1NPvxmxy56ZoILmZ0BUeJodpUGqjtAVeUXIUp9Fe5-LO_cZY10-9Mu1YJFR2JOQ7zBpI_BJDaDSVKY0pt3PorzdBgnF34WjKPob9W9U0dhKukcTunWU8RT00zfbLOewemgloGbSKBGN7UF-GHR7ETmmROmD0MqgkY94NM1FP8TpsAnM3TxUmpfSpuRgSFvxmgvv3xK-Mg-NKkl0LOsgFZSWo5fFwLmbmH6pU1euxlHuSZExAtHz6l6V4-E4wGuY1Dc1WPaQeECKUdMpGY_Wj6hrAqf_yac-uu8x2AXs-zebe1opYYU11a2y1thYN5riBoQoRiI2SGa9d98boZwJ0YDu437VyqKfuMeJ6AFHvepcP1XsApr_7tUjA0hmOdV4d5l28C7cFZ0MmtC7yf5D_XEVCQYJPLHvdc2KXkZe93Vc0Iaf53kFCMv2MeIm4b9KifSpTw4j6PJFGYDdKZErR-48wQ8woRuCt64miqY32tZYKCyUxOjt4YivUkoTpSmindrTdRoEYFQqB3XnFTlBe7LncXfTtfbKl-YWcb7noOIv4UOhwtl_s2bmKG--WspJpcoJVlBQGzqgi.jvcCZ5R8sw_ZXw-JTaiZLHpSJ3PbfKRBN2_2EwCNAolbdkCl8FOIsS9WPjeUmShLAqybMvByBFo3lABATx9PwQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700000045-bun-length-wieners-hot-dogs
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700000045-bun-length-wieners-hot-dogs/
+Analyzing Production: https://www.oscarmayer.com/products/00044700000045-bun-length-wieners-hot-dogs/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700000045 Bun Length Wieners Hot Dogs
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700000045-bun-length-wieners-hot-dogs-2026-04-27T18-13-47-951Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

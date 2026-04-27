@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700032503-deli-fresh-cracked-black-pepper-turkey-breast/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mPtTyJUszz1wVcbPqvyw3JDBjMJmxak8ApjhUr_qDU6MAsFcOWQunB6N9M7b4yhf1bLIqrU_C2phA8WlpfFMOkJVMoDmTwvA0bV5gfewQ8P_T5wI6gSqQeIl8dF4Q8HJib8vBHjhSkZLsJ7pSFz1Zyvz3-yiyumvU-nNDXbxgk1fFJdon64ZzngRQZSO8WLe2w6RfdC6C1VcT2vAqK8_8n5tW-uz4qqCrUXxVv4cUYgACD9JCXSAM2abpN0vGTX5Qfe9XgKBr-sfE1CmUZEZ5fYXlSAuRokToCOoC9kpS_G1f7_3XDVve7iMPvmjtbv5FlTVRMz4ELTasWCa7pGu_9ocvfZnoSTTyio71i-vipHqsqeo2UQWMn2bRqaTqYTWGQavCUXajdDkjWKwHmdeYraDvDzHYacux1Oem_ADwukBTok0kXU-WedjAM1AOqxPZC3aZNPTkYh183uE26X6yHxk_Lw2x6rr5vLe-HWA66JHq0lNovkMGz7Wq8_rvhrYV3gSOpXY0iqyrA_TiUBKkOYDaOjt4eKxTAK4H82o8u1HbdejET2gC0gE3Yj1WFUCXcEVrqVVPJTPEktf0LiNKWzDd_sW9In7pGZWuxqk83Zjy7hnbGoakAW6MFSFyR3xm51GO59NWx70zzjPubDGOTlbXUm2NUhzXMNpatS2A7V3pzJ8Rfsad0Girbls-JDXTQp5hFXXaZJuBnmyJUwUJ1pnbGAkt46Hses6PQY_s1jpENGH2aV_uZmpYPU1VTBAiUYIm2zh0ObfNorBUIpnbNgi_WG3FJI2kvDgbgNsBsOVtNGgZrp3koEM4HhgGb15ciGfLzTSOapk4KFuwtD1V0RdBtMStPjC2WndOWMkEGvsLLNDCPFR3Ev_7BbjY3hEnNB_wdSR48tXsQRK0YuQ3TwIksSzYOwiJoqyM4lIs8RuTuE4HVwmq9qC4ZCQCSQaVtQSylrpsTIl_p447PVqHZD79hnxPJ-1KUvkqvkSIB-P-31hMT_vExWOPPIYYj8V2hTOyF9.HDfZDMLN_FxsaTXFq4LbSt-NsaqW7ZW6wAt82Vn0iqjuOPf8HkS7FEhgCEwKqb2-2bjkoZITbBx0lEoJTXu7fg
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700032503-deli-fresh-cracked-black-pepper-turkey-breast
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700032503-deli-fresh-cracked-black-pepper-turkey-breast/
+Analyzing Production: https://www.oscarmayer.com/products/00044700032503-deli-fresh-cracked-black-pepper-turkey-breast/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700032503 Deli Fresh Cracked Black Pepper Turkey Breast
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700032503-deli-fresh-cracked-black-pepper-turkey-breast-2026-04-27T17-53-19-714Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700105504-cheesy-smokehouse-stuffed-dogs/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mOLqDtrxyHpxxCoKfiqrJjmdYU2BA5XvX1KIyQrARvxfLXPsJ2AzTTSGsjWvKSiGN-kU7ty7tGKr2IelIsb9usuTcXtVRcglA7RQb0QqHcqGkE_sWs9iK97BJUPOURScuq0R0FRSvGwFq6DNcIBw2AVqGJ9aak1nex_9GPJ12Py_baoi1uPjggQ_EbOS27PLNsv6lHcB0dx5El9o6kd9dtzg2CtUF3AXWKrZ1p9zbKtl6d4tUjOIcdVbh6selDR4JkWwBHSPGSWOgwJfAoxkAyb4jHXsN_V-lIRypN8onW8NRX9QnuDuTUmbjPAGarpszLsyhUwIRqsf3mhTvlGOJ_IONKh3ZnW0QTAyqDVQXnorQ-l6Gn3AqkEROh5D4NcBV-OoyW7Ywr3sOpuq_yIWAJPZPhUj8OpnWnC326sf_CgEF_V83byQdKAx88cXlwcjV2wRhaAqGJeIQz1ev04SwHPmHnQXSDtmNywPFwC1Xy_x0CLK-rhGKbL8AT1WXhsFA6bOiK32ioVXfDJJtRC7ttCTmRG4cbdk7bfGzAp-Mg88xd7hrBma8ZEGrmwW9KIkRj63AYtnKyahVXTWdZJd2rVCkT3xK56dLfu81-bwgiNjkt3rSi4Th0fOXS3FUhs4RA4jdZyzM0-6szeiLOUalk5NEI8tI_pHaZ5eguyC7wH24I7C7H8ZpkKCEinXFjeGWBJNrCz49bT5YOiHK7wUGH0K_NOf0qJzMgRPKlNIIkJ1MUN82pZhtvdlm5YK8SKnsC2kfz40UDXYBTeYKDslfysWR1Y46STzUaFQ_RmRMAwEcvbqe1QBWRxRpfCc3IOO9F0Jhq9EiBGugSeqFMj36UjDnddRubILCLxPGBCU3dF4UqTYyDpVFwyS7qTf1fZyiiaJLKkCsRYfZ0rD6pfiAHUQpUsUnkAh_X20OOSh-tlbADycD-qjMVC6fVh2PDtszDSpXhpyOqG.7REOKjy_Xwdta5lwaQA1pItRBFtY_9b3fNyKCdDIVu7wPIA_DbrROCQ3kPgxrgj0FtdroNsGjs8aVfspeSEUDg
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700105504-cheesy-smokehouse-stuffed-dogs
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700105504-cheesy-smokehouse-stuffed-dogs/
+Analyzing Production: https://www.oscarmayer.com/products/00044700105504-cheesy-smokehouse-stuffed-dogs/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700105504 Cheesy Smokehouse Stuffed Dogs
+============================================================
+Total differences:    5
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700105504-cheesy-smokehouse-stuffed-dogs-2026-04-27T17-59-11-799Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

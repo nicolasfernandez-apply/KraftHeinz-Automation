@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700075050-classic-beef-franks-hot-dogs/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mMOfU0PoaftglsL3vOyFJYzTakx-UTIJhMXiYAq-H5CF1CrjwfOfqUY995BXCayYEW3pIM_ai4DAm36ZYw7cAslmx597N1ZyOA7ymC_fwdsnbwZolQ2BssrrPmzSWDuV9EI3Le5OwZG6gHvRl9BWHZV9pe2ce1FpBnGfG_NfcVI7zmPQd2kEt4ltUrIZCVlEvtpLWhawVwgF7FlXC11kOP9ozfEZGfzz0P2ONPVOTf-rzj0blIFM9D6zHGhNL9hKqHpdGfFQZigJhVbdLJ3hs4-X2j0ClUqUcERbKyVjclpcPtw0TcUQafICYRgO8wlN08SsG21pudBepZ8G-LsxEmap2mteLq4ucrbp2qDijx7q9et-5vkcQl3WNmrMYxNQrbAneIENWYifdkI3Cbr7zJXEfU_VfcLgnBzVkwGHNM00m2uk3PJ-LSBE1c9IZTZqAKeXoqQrzxvWi9Y6GYq2oUnh7NhUKj2gIZd1XcSQZqkDo4OAcMsw9t2hnM50AMeANAXULAWVAhZ98-yeyXm3G8EzcaWag-sqh2o2PDJwQtaa0mM8gOdHIGJ9rHJENM8B43Gai1BX-jZ3huJhf1deIC6lpYL3Sfx46ntOy7B8XUYT-ol7UoREyKq2C8LdkAVKHmdW47s-i6874T3j93Gd9XkORqi53w262KDbixbCvPrUXmtEQGt4OFzH97q0DV2lLvbG6XzJ_H6PdwqyrmDnRqPc8Tm5EWtDmdU9xLiwNKyzKmTeF2KxXdyfC2zedZL6EDNQi56pBJr5Mlb2bLRdhRqsWO9p9OiSqMBWrAyznOS-GXBkIX2XZD6iRckr9mBuIUfKk-8jMizu7FxaadV0ig0qosbRFxhsnbIJQYPqAFjJlfI91s2RShZ3fhF0whPRN4CN2VjhhCi3t8EnFjdvPQDTFpzOBs6JyONQgQQrMpZCMF6R4N2YeqoHaadkBkaiTLv.rMp_ciNZcVRVFxTWPbgpCwtC1zj6SCr7P33-AnYU5fb0f4SS1VfeGcmHIHAJRZeAXHan3qBdH9RuqE6MFt5DOA
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700075050-classic-beef-franks-hot-dogs
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700075050-classic-beef-franks-hot-dogs/
+Analyzing Production: https://www.oscarmayer.com/products/00044700075050-classic-beef-franks-hot-dogs/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700075050 Classic Beef Franks Hot Dogs
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700075050-classic-beef-franks-hot-dogs-2026-04-27T18-14-43-884Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

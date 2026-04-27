@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00071871544641-bun-length-turkey-franks-hot-dogs/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mN-WK0hOAxibhHeDO2hZRT_IyB-qJLZJYRp-VbWVRdrmgoVr9LVih5vGkKygKV0MD2OepkoWgbmpfWJRFyZuShbc_9jxGkcepji-RlL5HZBCtYtGYdoz1TyArsb7rJNbaiOhsmTo7c6nQOaskWXCw7nyXXz--Vpqa45e1GwP6sDUUuyuAr6-tXpcccwjMgC39obkPgixtNbdJ-N9HR_2vPSS9HcrTUmaeLDgZtn8NpqedPQOG9OBp1uCq_2SzPxn7VjIfQkM5xZk4Dcc-VuzxvkCY9X4ty_O6S7V9znL845UYCmvUbuIVfs8j3AcqwYaHTj90Sno9H_SCH7tCoQ_aDP3PI6otJ8LwSdoYAjy9oK0FSWsV50NVLIgO4XEdZy7JpJs8ZZPkaXhgTWG8KNxXWCr3PMFg9IqC3o38ty14h2cznofrKOAb_eZSB9-bsvpXfMvQV1tOPFnksj9EdqBhw0hiv-w4du9aVcDf7kP08_E8ENuw9TklClnVXX6BUe62tv0BXkFuQoTy9mbM7B8JkAbXxYkXGdIpQf_khCyxjpPTOqnNY8ogWkbimS1jDKobllfI4RDXWeduAibuxkmrgmfydrbCAWNSZ418TAapsHtphNHXDNvzHYvBv3r1-Hlp_of5gLaNggY3eWmn4M4N4Qi_2BtW-WBAWIiKk7yXyw9YqvjpyNQAa-5i6F39yZ38gEIbGvsEh9OGZBTR-cAzey60s-VGUzM05VDT_hG7wkFfEPW4pWju7zMgIEv6U-0Cb3_h4STxTawpjQ3lMiYa5lGWDfcf1bFPWPp3iZj4L3avaRctJGrMXgKndwCVBFVl038fLQbIoUv7qIrL6llS3BLrSIO_tx5EKG1kyTd8Nog-tVBokJfaxAOZLu6tq9rKC2XW2JwSXgeBFdx1IxiplfGEV6tvW5dxhlU8QAj0uDjtuDcuTPBaA_Zg5LEMjzCr9SishO5YK92BsEg8g9DiRd.crg4BCgKAK_1bXjUuDq32oJixqckg1QqpahZecrV_r0C-u1DOglN0_FpeUM9Rxss0PkKyFKLUd6zUnwcvWh6Xw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00071871544641-bun-length-turkey-franks-hot-dogs
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00071871544641-bun-length-turkey-franks-hot-dogs/
+Analyzing Production: https://www.oscarmayer.com/products/00071871544641-bun-length-turkey-franks-hot-dogs/
+
+============================================================
+COMPARISON SUMMARY — Products › 00071871544641 Bun Length Turkey Franks Hot Dogs
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00071871544641-bun-length-turkey-franks-hot-dogs-2026-04-27T17-59-26-300Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mPPoOWqT0WIZ-0IjNP55cxSD-A07HAvzXDgZ0tVA0_2b-6XofelqC7R9TkN3TT7B6XRHXFvZE1awaEAaEKeKnnVZrb5Qudj54i3ruVxVfHeYnI8l6KoEcPxuwUIDh7-5kK7Ciz7QXyjRoJN-CShn0OnJ0qLt9MXG-ZBVzIjwgvkG28XsITIoqJggC8Sb8K_D2XfG924mDXMbxrjNUQud37MEs3Anuu8e3cwLS70JpABHS4naAIA4MLKGF5B_BXu9hJxVnbXTFz9sLgnxjLJHtGxV6XSzWP7NXWBZvnoN7emA82emH-eyL8YvkJc3REl0lYQfXvX5NPEMV9TH9MZ4PLVO9Rko1WTds6JuTvplMDC4F53cuE3h1oMLCc-WmrR-8anAP4_Z70ESjIQqMXPy8HidKkN2hT2A5mDYxux40OwrFu51tskkVdpsPTFi-89DJxbbiQSkEU9Rp_m4uP1UvCUEnQfLfhAhrQgvJ-3s9M5cJccFUoQYjZwHpL2vZjxelbdw2JuEiOJcg9s40WDu-qzaKDtPS0pQaE0FLCnRQkqwfa2g131FCnAhduf0QcX_UB3P2SBj1QCwBJCru0UQtm_VB1ALehEbL5nwhwHmWjG7F-S7gFYnh33ToBc-gEcc_3EiY-WFD8p3YzqA98CUv7CyKRD5ze444kDvlqpCE6psezlSvkUv8ALSN3Hm2ICVJtnKhceHbZ02tCyXNAiA7SbNM785iWx-3AO-qXn8or5v3OK.kZjKuDDgPwkBzhI0gO8ZI5O8paiHUyOZLBUud1UjtMFomJSfb9vEMXgzym5G9cla8PsdXvSg6uh-4GKA8PjuCg
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/
+Analyzing Production: https://www.oscarmayer.com/
+
+============================================================
+COMPARISON SUMMARY — Oscar Mayer Home
+============================================================
+Total differences:    6
+Critical differences: 3
+Preview issues:       3
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/oscar-mayer-home-2026-04-27T17-49-29-797Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

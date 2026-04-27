@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700022894-carving-board-southwestern-seasoned-grilled-chicken-breast-strips/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mORwkRxOUS9048-_FDJhJd4IeSMMRX7vPEdzHS_7-ib1szLxn5_QiKMewadJ4pTcnFs3NbRRVrnrcwx-A_ypmBF3bXWjGTsyEA9YBH58HkIFxy00gu07-s44FpY0apge7Q-oNxDS0LAaxr69kzitArVK0BjiQZtlfshHKRBivmaaYPByMk8Bl2N_sFurngH26Z40JGlFGL8fJ800D4MEt0ZhcwEUyjy8YPfhnt6zreV033_b1MsS1j7JYWlaHGSG24-Pdi_h7zlSuDrMe_QdDN0bKng6gqTrukeZ5Cxo-eag-ppR-bwWwvqfe2ICHaFH0lHukn6fZ_aEdWFWFhkr4ix4nTmnqK2nasR8c7FyV_Z65VwSz2eex0O2Sb1OKF7U-3hWCamRkHQgOpL473sJqJ0ROF6j10Ca3VfRMqyDKBTLH3d7lw1qoD9jkNrBjFzFZcouVgsv7Nz4HiGCUx3ipbqkTPb5lZpXZ_KOd44RXJlU6zxqi4ZV5CYxRuzjJvKHU2FyjzMHOjG5rP9-FK8-Es103BQuR0OOoQ4kBIjGrUsgxHHu_vbtGAvmkgHZhTl9cRVXpXfXJpzViWiGIhxjNLp2bza_crcKTN1t55FOf99-NhKGYeD6xntzQQWB0cnnj0YYxzG-PVTzSJISgFRYVatSlON60_19DgqMY-Nx-IthS4S9aKYsrkOZ96pMJd15kqqxE3uiCmTJ84JsyOHT21vZ4vRAtPG-PlaMLmm9JMWFnIDgoXZAX82VU-4G9gUzP4lSEu-PQu4d5xDM8x31B7Er7T15MLZXwyrhPkLygH8JHu-OmSa0yW9eKRjSJuWD32BUhqrIaTixn1BWkj7e_AsJwzrUqaZIbHfgpTks4KZ_sMPrSQ0dFjFLuEY2TSKFj5piEy4o4bKb0aE84m9HutSd4I5UaYXxip3L0_Otfjo4c-Uij1TIRrNTlpTePWDMIdYTY51b-mjTxvZq2VsKGNxpajG51lj6k28sqrKYowEgbMEWGzPYVBcCw4ntROPkohX3DUENwJMRtB77h4LFWuz7SD43HiOGGp-9rHhlhp8Ey5YvUBLwmagxUZ6lnKYS_89b9bGrCJtCerTMKLrP7qm.i1VL833emidgD4WMoAc-wIGH4NdIFWA6IfoGqgEz-Y8MOEtbp_sGamUfhuaYDXOHy9HY-Eadkd3LdOS9U3vDhw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700022894-carving-board-southwestern-seasoned-grilled-chicken-breast-strips
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700022894-carving-board-southwestern-seasoned-grilled-chicken-breast-strips/
+Analyzing Production: https://www.oscarmayer.com/products/00044700022894-carving-board-southwestern-seasoned-grilled-chicken-breast-strips/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700022894 Carving Board Southwestern Seasoned Grilled Chicken Breast Strips
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700022894-carving-board-southwestern-seasoned-grilled-chicken-breast-strips-2026-04-27T17-58-30-347Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

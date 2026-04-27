@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700105252-portable-protein-pack-hard-salami-cheddar-cheese-maple-flavored-nut-cluster/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mPTQOS_lDy-o_1-MUfoZwgsqO2UBgpUJZneIakEN2l_DSk1rfKLBfpjyjnNRm6GZgT-CJjqLGL13kVYZT2IKnzA8t0QzDHP9cZFm3af572Dkh16I4kGv4Z7UgmleIwPErUEcWBPS54yhIMe3a-JENUTSBkWjSli4tNTlxp6fS579e4Khhuk6OdV8mVBJ_gfbFIsxND33Wzzrr2rsXFzs5AhutRdTjDyOtV5YdcPA7USeY5LJSCFV6t7_6bnBo5jovmaRiIn_zSIMJdkNyKNpxQax4BzPp4jnPIO6cZXZyN4oQLhn3Gxi1ZgKbCRmcPfAgizNpNWFHg-4229raIykv7X_MxEPN3U2YVvloJdwCVnKCfFXaQW9W6ogq0Jdry3aGyLzK0XxxnzSgbPYs54qfclda3XBeewfLU24VhbXjjOQdiXHYC-Mho-eBpIYbSduhmIexFe8E4sgx0IvCts0utfrUnOtVeEkgcHEVhJoBPNw39r26cFzG2DsKEqOoNCSqRSrbm2b2q_860UD0mD6Q_uvy7a1avD5s5-2VE2pjgvJ0z35BAaThYxgLithlyZzSQE8tzxnNvwzxG0EoycJIHfSWGVEb_r8VqaSySeSuiVMQi1uyDt9vkXKsFp6vI090_zlZYy7d7P6RNZjtnpcZJpixa1bCGsdSSDTuAxxmguNwWGXAeOfnGll-YzuTP97sdean1sIrfY_6ZA-xh4-ztXrLi961ouAtNbOi0nCFrCUfl-p_4_kb7QAyL5jAdTRszhlQqH9tKHvEE439M1pDDtHpQLy8600Yzk9cHTEwZZVjFEnGW9JkVV_km6eOeaoSl_cJORCawY1W0Clut5cV-DIdXT_Tf4gF1IeBvdb9jHF2pP-xvAeVsHpALmAC4sybOzdG8d3JduU1DvKN6GBb84PVVH-78bOHZTFid8JlXQydZgRwrlr15rAQuXE_MZzrkXO9Uw2p3gUApcVxyvRZZqStClU8UHj91cG3emsLcWJNhIxAp7-I2ug_6T6uwDRNNMjKOujIFCGLmV9TI1sbSNV-9CpreFua2zfh-0ExcLE4BgYBbndjSgO8vtjwEwnTPeJOYMWWcVhN2xuZe-hXxRnWSiomd5--lvuba7IIQ_ZMRATIIFwrMec8FQmr6z.6spGKeu3oAAkwtL1vwlI5eYdaXrVrbE2NVAAwWIBNKy5e1o_0OKv2SntFuViFkSNy4spnCDghpVivXv-pGyIFg
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700105252-portable-protein-pack-hard-salami-cheddar-cheese-maple-flavored-nut-cluster
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700105252-portable-protein-pack-hard-salami-cheddar-cheese-maple-flavored-nut-cluster/
+Analyzing Production: https://www.oscarmayer.com/products/00044700105252-portable-protein-pack-hard-salami-cheddar-cheese-maple-flavored-nut-cluster/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700105252 Portable Protein Pack Hard Salami Cheddar Cheese Maple Flavored Nut Cluster
+============================================================
+Total differences:    5
+Critical differences: 2
+Preview issues:       8
+Production issues:    7
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700105252-portable-protein-pack-hard-salami-cheddar-cheese-maple-flavored-nut-cluster-2026-04-27T18-00-08-440Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

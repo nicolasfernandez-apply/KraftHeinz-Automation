@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700075029-bun-length-beef-franks-hot-dogs/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mPG_46IJTiW2DaVi_CLWmizuXzmlDh3ROLIqZb3LEKmaUZ68C4l81OREh9rzar2zMUMjo3h1IpWlKEoxf78u_zz10UiA4XC5b9Fcn-zBwp6LFqSPAmEcuy8asvSRMy45x7ruYB0_str8Pvv_y2RkrCM9gnvwa1sDWMovk_TeQAW1dAZWOGArkj_ElDDDEybY_ykhWV8CO_NNFvBYkl3uRZyYgI0u3m25mk8OFuFZmdfqqZNCKfrnYR7XXG4GVpl73dLmnfYXC83tPhegE4tU6cHkfwcsUqe_pL4jSvU0fvrB6Z30UAji5pf2fvKH6OrI2HQ8Yo7Z_oLBtE9akzrBm0_OzgH1Kkk2PiYMgT-G-acSGElwu7JpoWeNjOgiGNzwm1ilA-FAYo-GxImtCcb3qDP38k53XCL1xZSrCwlvi5NYwYUSL5UZo8vohULm3vDhP_G-z4GjzBSxs5zk9IkVXKSz8env6qtyvYwNWM233Bx0j6Nsx4A9HnEOcX9fTkHoNlhHpNVUHNSEz23Zip6Ae7WUuRjYEtSEF0NcGvLAPWkrW5_WZ4IOjtbSl79J49zM7qfRzshQ5ep7IeEtAiNXHlHUNfiI2XnsQ1ze8tzdoLrF1H519ZhVo0Bwi3H_nsAx0KQ8JjGnYrCEL6TfGX2Rhej12MLbDj28CJJp6w_qoZCQUkM-Mhe8-SA0QxiNN7Ys7JcrWkSK2BaxlkzqrchIWV3P4bZAjyXn1kGAMUaTDMx-xG8VjAZYKwPMARIYvLaBrDDOyv4Yet_sUXJVDCjgOrU0JDyY8LuUHLNCWsfN1t92Guz98xWfdyKcr6m51JNBb_pUBO_WfKB8FMTlGiY76xAlIZW1gibkZKO13kekz5K_9oXN0cmIqWB6lir2R_haBwb_32vZeICrXdvQD66gWb6AadKvn55vCWdZSaLkLPJ6nDxH4q2CKb9tRU4a3e1TguOxeaK7-wge__r.OzGVzm9_7UQbSw0O33568tdpkd1qpsh3hm7jp5BZkqOsz3W-nXCNC8Xl-FpJnWYulplkl4JCq77PeeCIlXMUaQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700075029-bun-length-beef-franks-hot-dogs
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700075029-bun-length-beef-franks-hot-dogs/
+Analyzing Production: https://www.oscarmayer.com/products/00044700075029-bun-length-beef-franks-hot-dogs/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700075029 Bun Length Beef Franks Hot Dogs
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700075029-bun-length-beef-franks-hot-dogs-2026-04-27T18-16-50-829Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

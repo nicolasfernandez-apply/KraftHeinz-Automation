@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700074299-portable-protein-snack-pack-with-chicken-cashews-monterey-jack-cheese/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mN5CCiYMWaowHf3ljC7f7tG4N47R19DbfRCPXaAGFPwVO6OgMsXYmFxaO81t_FWnhMmR9EoNPeG85SqV9WddEm9oscdexo0g6BjosMZFYzHh7wijCF68y42Q7b64JVD6ZXJqnQKkR6adkke0Ee98PB1VK8_8jc_dMxQxGEUxoKSXXbXV_ECQd31ow0BwtqwShY7n6KLoOboEs9jy33GaijMyjA-83tx2PPNXxX1xe8Y3gsSlg7ZOhM0BCDeXhXU4QHBxtvH-SQfR0EM4oaaHVEESiDulfaevG1u6NKVd9L07xn-FE0_Lxagk9nvl-7SMpFOLLXF_snnOMZiDFrcDjAosEqyMaMqnyCqh_qpRlZdEAzRDDCJwd377PoiuW-84uj1_FfcA9g_R3IpckqRS41iVvYKahOD-qjlSIObWAy7LL99FiHn8QTnBHmeIv1BpBfhUdQ7yfoorTT6Mo8bk65OIxN88wbjco9enDkAYbjXWB9rpXtZ5bO6rzLqJBYI7WTwQ-IBsD2OIPVjho2Q8p9X_mOE7YwmvDg2M1uUTRQT94nKOFX91KPVxtZjNuEpIENqmbopikwfH9gINP0ZX6FN5-Jy_d-gDzoTxFghj11nm1-Y9HBD7BoCXAONn9AX6jX__trqC1r91rQfUdQtNk5ekk6vxGlFTtMuNB_X0VAgwSXvC6EIrQOAeyWu_qWN0TbyCTt6d5NaJoiKqzTOkVzKoIX17s8Xpxtic9yr9sf8jpMp-aQsmfvD8uD0C6aJ3dex3tzyUMAaZzc3nDKXgO-YY-aZdPEQijk8xUcy43P7TS4OTGY3kq_bfMqmQjn0b_wD_4S-AKULPJQkhkKCUHKt-wqHbH58DRdBppSfJUTHL9vrWl7oDU8bJat6NNW7E_VJaMLLn6fTvG02reGECV1fhDvbsj7K9U8G_tX_zOGy94na8oINQmXxTalsllkU4Tx_SKwrZQaA_v1YSSQLIQ5Pt30PDyKddi3E0HlEK7I1Zrhhh1ViTM22W13sswtNhRBeZ3PtlermVBvVvyDQwJ5LKr8LuIaPp9WEukHqi0amJ4Cd89kKjLmNy5jTzc3QTFWxJDvAlr6fAWUeW09EUTFMft6Ntf7DfFjINlHd.dkaMJlpHqUCliw7s6FQan1dhawup6bGxq0AroHqdoLInWUa3Ti1GWhICCUYnaY5_mxYNA0sbwnMpAfaJ4sdGCA
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700074299-portable-protein-snack-pack-with-chicken-cashews-monterey-jack-cheese
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700074299-portable-protein-snack-pack-with-chicken-cashews-monterey-jack-cheese/
+Analyzing Production: https://www.oscarmayer.com/products/00044700074299-portable-protein-snack-pack-with-chicken-cashews-monterey-jack-cheese/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700074299 Portable Protein Snack Pack With Chicken Cashews Monterey Jack Cheese
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    7
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700074299-portable-protein-snack-pack-with-chicken-cashews-monterey-jack-cheese-2026-04-27T18-00-28-459Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

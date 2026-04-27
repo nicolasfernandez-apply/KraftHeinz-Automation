@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700075098-deli-fresh-rotisserie-seasoned-chicken-breast/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mMxIxMNK-ZTiOKSqsrdHpX8nEAnlzq_-RB1VlQcJVWYK4Q8VwnsOhF2yvbxvpdgjX1dxTwbrQ6forDHKkom6knzbYDMaO1PCxvj0zjnmc_HeG9cTEVZIA_sjCWj5e6NLuO8qVmYw9hrlPUWstILO5Zm2Xw7mZvJTmvxFOxxcIVmd0ZAmMLxHYO9aZdJ8RSGk0kiN3F7vXSs9-PQQnYSpjVtygXuVs17XOKwJojtBpzHRNexFbW5IMZrt6zutOtPevy03Q5h0Zjkivt_v1PSplMXDE3WCL-L0mUxwqrtHJzwmjfHsY4m3ga1LaCs-iXHqL-dLKfP4nwikarD-rIJJFV4iOQ6TiZG6lSXbuW8bCe01n1Nq8UvwMOeym2mrGEISS7Uhne1BQLusManRc55WWB4JdrVCr9W4s332mDzvOICMoDpJVrU7TJFMz_GLZmdElrbxq5TFN0F7SbejohYPD19TADw6EBeSjg6XpDcMpC0E0_ozZ4n2es7jsbuIGNOqz6aWzKUwSIxuEiKdjzlKo_whQGVjCKvJaMM7_AM579wi2xHYkLcFMcuO1yYfmGth7Lc3Zefs-NWY7DkIKVS2v8pQ96hke8FHxR7xwAFl7dLfCZ-XYE8krcjMScYGnXu9fQz27xbayD3uQC0WLhvmKjwhVnU5aR8Zse-0Cl7NfzeNGR3hwgD9CpLAps68wqDMbAWm2tlv00M3y6pb1pKTFMei4uhbuY92vL05Pi3lYUf_9HdYZOW3B5pRNxLZeIrob0V0oPr6rf5TKFrkTJhc5vwuEfHpq1kqWzGrMgYxKh5c8rmLTTtvGnj4Rp_njFq5Pr4aEnovzhetRT1i5g2WFiUz56fND0t_sqfRYHo_9y4MIz1nA_8LoCqL6EDM8-M88J1VAswSpnDq1efhq_RfMjuQFMiMav0KOEyW1Gewa2YfEnlhN8IppelNovkcfVoMNjzZCKo4pazSEmfmDzcJCkiC9TW9UWOPocUM0yGb3I1wA8_QtOVEuZPrp0DwR4rtP7dSWrx.ow1uBP7M1oLMr6Qh2ZhLe8oN-B4vjozQr2mSIZuoM4FRovOp-w4Y5FbGUn8ZdD9wWb5ijPgFWm39RBqcuq2g9w
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700075098-deli-fresh-rotisserie-seasoned-chicken-breast
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700075098-deli-fresh-rotisserie-seasoned-chicken-breast/
+Analyzing Production: https://www.oscarmayer.com/products/00044700075098-deli-fresh-rotisserie-seasoned-chicken-breast/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700075098 Deli Fresh Rotisserie Seasoned Chicken Breast
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700075098-deli-fresh-rotisserie-seasoned-chicken-breast-2026-04-27T17-55-01-764Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

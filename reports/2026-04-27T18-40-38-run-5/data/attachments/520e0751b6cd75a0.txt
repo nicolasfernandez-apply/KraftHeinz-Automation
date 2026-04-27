@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700009000-beef-bologna-sliced-lunch-meat-twin-pack/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mO0DQblXTVyikhXvgudiCdHDFAl-ZrUhK-djEu93XSD_KWWX4eXe4L4fgf8zy7k5xQLD68Q1wXwtuJlaO9aO6yPNkpkb-oWCP7-2ieYBjqUHS8WkHdetwXbheSiGYVGCiHrf7lHZjOF9LaYS9nYd8-2R4yjqTvhWRg5Nj6DDWP2U-J5WjBMqz6tmqEHfKwYdEgSbV5D36_RDve6seTdcBZ-GfP25gkLGMuJqfNJD4Rfuybhws7lxyyJTTQdue_t_TcIMiIe_Q8eRiaTNgu0kvsS091TQTNDfr54cE3zsS4ncUQGSlt8QiCBa0GMDpVUjQz79GjU3OmXhz1W3fPBQu01H53_RW4kHIzrsH9_Z8NYeme2mHrGzcTyKkOCtMGSvSzv99gBi01AsDcYYGZwhi6YMTGYPdNEgO11DVdQZyx03CIEzfBN9_Kl727Jf3V-w8Rr77WiWLIAU3QuYZNBV_UCPxVfe0kXmbsWVgZz1G8mHkmvLa6l9Q0Ivsre60I010viGVsUqZes6LzL_ISOyOZpjFsO7YNW23-2abBs5kLJFyjKI3N4CdzUxnumHGAbZXGc6Rt7CA57ACVtxE6m4r8TIVYESW3yS3nRpgFVSt_GgGiyaVmuh4MwLKi1rqdE7KdPx4Uk6o-4cUwPqELc_-0K5MlVpuzGqsDVFOUnIjjizipjNCmGMlq8h2LpEitSyvfQbny4Go0gtAAA-Prln5LjYaM-Kf4eE0ofl1Gh-6eMMhPIQgDwySJ57wXHFUiqToOqQfsoT4PxRE9ZXtuL5tmUkl_mmgYby3h9kfq2WzAkjPHaP-3fP6YCNmE338hiHaqwumMjmoU2djpazU3pxElDfAScDUx30xnDgFssz2teEbIbbwCzYnlV7HQRqTzTPiVRibcGeKiOBqlZHJLqZNmiXUsIMj9gVgGntUS6q0b71OBLf4TAtH6qCg-Q53ChmgIhiqo7UkFShMCCs-SzjeQ_knYc5EsE4q18n6mmatp-dVklAaRc.yBrVhkJd6yy2y3d8l8NkXFd5dL6Kim2DSUsylGQOmvG9K9tmtsAFygPmXY4fEiDAjTShj3XkbPMMmJLA2ygAVQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700009000-beef-bologna-sliced-lunch-meat-twin-pack
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700009000-beef-bologna-sliced-lunch-meat-twin-pack/
+Analyzing Production: https://www.oscarmayer.com/products/00044700009000-beef-bologna-sliced-lunch-meat-twin-pack/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700009000 Beef Bologna Sliced Lunch Meat Twin Pack
+============================================================
+Total differences:    5
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700009000-beef-bologna-sliced-lunch-meat-twin-pack-2026-04-27T17-57-06-272Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700022689-original-center-cut-bacon-for-a-low-carb-lifestyle/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mNxLVwg7iDgoNv-ZebmPWyGufaWn9QlaQ8FhyCPHqek-IuGK1YsTE79Q02Y7JAF9CqHSLzawsb6qFfb0puXX7Z_RFzuIggyBsEpbNluPtryCohd-x-K63GVK720dl9CuWBxTv6338RrJ_GT9Tqn2hdlMfIjVSuTFG8xhcY0bUuUFJl36BjMLmNTxxHrRI16KyP-_Xl51Nw366f4DgoTy31fPJRgH4MuxeX16fd1yXhzTAztdoJJCDleqercJOMrWhYVSIBYhL0vab0U8PMGKhPBcXHf5fMdtscWZ-k8WkFJ2yQQ1NrBL8aoPyOZvhdVL4FFw80zWDcxp2E52cS1zqpZ23OBJ31ceQO9zu7PgmfVXU-DcWbWh77rAJajj98mDu4YtHX-j3BCWzPGtClWI92eOR11O12IA-IG4Qqi0egyRlAh9E-m55RO37eUy2jLsTnfk0FS3t7KEt1FGbwu5X94N0pIs99v4nTMWPX4l0qcUxxpqyAaE970zG2LdPQw78t7mfYCMqjE7nt0FTLfoCIyRKUAw3u8ycjKEWrC5W_AEEX83KEIoDmGlfhnQOaa_jBtq4OpvlXB9RYyvW0dN7W5t_u21hEy8QXnOg9BnBWmBl7uIlAcuFN5brTU1cmxBXgi1tUjRIiIDLv47OvLbRu3ySBu5LqAZwGp2zLTdkwFKxio2FMxsEA8Rb7r5EhFms6KvuIAoiPZ6JEiEXqcj7llK4NJODNYFj4OkpHQiQgTZHmUM_vpOwNf3HDsumcJVj_SRFZOfQPrXBBL1guXvxjpOi5PYKsT7-bZk1ps9RbuB3uQ6y2hjWejOjz3Fp_BPFjhjLOm_FM23bdo-cHPpxCcWEiZM9XcWB3KkbfQyMVnLpLkuA8emw1_8YY2k1Keo6dviLGVtOuBRuNrlLCKObDSqSdN5rFxU1GgZrv5CZ4cpjeoFaV8Rrz5HR_IMmaTElgcudo73-Rd-N7IfRhExXkN4qG_ODfwFfjVG5dco8IR_AjeGh-KRzFaspCa2AozsSGHk7t2HydiEjT8Gh1nls9xOFmd.qCsTtC9QoFJiRR_siKzOK7vSRRNeW88KPUv-ghIlESBsmBLDwYi87nmti0iJ13OaakG_XQbMiaKi9TaXh-6IgQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700022689-original-center-cut-bacon-for-a-low-carb-lifestyle
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700022689-original-center-cut-bacon-for-a-low-carb-lifestyle/
+Analyzing Production: https://www.oscarmayer.com/products/00044700022689-original-center-cut-bacon-for-a-low-carb-lifestyle/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700022689 Original Center Cut Bacon For A Low Carb Lifestyle
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700022689-original-center-cut-bacon-for-a-low-carb-lifestyle-2026-04-27T18-10-55-964Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

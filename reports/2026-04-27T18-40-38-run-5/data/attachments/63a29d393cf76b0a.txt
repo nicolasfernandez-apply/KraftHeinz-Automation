@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700104149-honey-ham/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mOI0jXt956_-qyNGPZaOPKO4AvsfrwKAGmQNpfsqe7J1DERvsDZfyj9Go1C1m_dwFVx7EIVlPpjTZaCEVbZfhAACyzZHRSTZu2jhsBIiyMPQmc3v0sU9DZMYup4CqPm8gvQJY4Ilh1dCbFTH0tLbRYZos5SOJXr5cCWBzYM9_hLD8tNQg2HMkMj10JpmsxEh6VmqPTXCrO23N46JrfFr-IEOEWCzef6aTywubvt4yAm5Ej7uD0lHthCiW6jHq7D6HayCNqgEOUEMmdQxCO7NKDeq0GSlxhfYcKPKkzD5PvLFHUOkvBESfamPmu7uJL675fESS1jI2gLJCw-ATW1FvMQYF5Fon4sYlqfH366w7Z4eblztpjEAtzCiWpoGrAwRFNQkhtkl6V9JHt3sHRnlpNLc0dmUxepEiKTCYDYLTK1bLeSdbHGPKNZ9oy9hX2c731rg2d_-6vA08SuJ7AHi4bn7gUpqc7AgSFcvqi7vtWUc-6fJ_2sq4pHrJXH_RymqAe3EY3V6sSa9D9DGa9GbDtnKPrL7V_IIl74cilpJhYVqAnRZQbLAOqH-PGbzk8Mc0GrJizTCY4t-W2lh8HbkktppxkUOn81EVOXtzVUldV2CHgAPQXPlz0WqTX56mwGy8hpjGNC2PVBG15BAw_DnidYTjqlfkry8aOI0VTaXXSbugpchwhcgskyPVbFnSTeAO7Qy--AQMIvppVuy-OsnpTAij4DQsijEEd6ic4PaafinMb3u-rwlE745mOD8d87zhGGIh6rOYb7UjVsFDcVAkJJTcpoEDx5G1alqxd0p0wZlF8yjl9hvS9TV8uNTrUO9iBDCNbtbf5YKJkwrO6lIgD0vPtj2qzrF-oey9eHBo1JReRmsA0Cl59J.GGtetu2QYlcKBVh7Bk4z3YAe5ebevXdam_PFJ2UFq6qRwCf09uq2pJiTImRn9YrZn4N8usNtVX45UJKi7Yh-gw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700104149-honey-ham
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700104149-honey-ham/
+Analyzing Production: https://www.oscarmayer.com/products/00044700104149-honey-ham/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700104149 Honey Ham
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700104149-honey-ham-2026-04-27T18-07-54-631Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700011638-chopped-ham-water-product-sliced-lunch-meat/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mN_sEFIjFBOe0QsyPHaXCTmBaNr71M9uWks9fIH2ta68EI6puquXUqDt-72TjDfiF9anHLnQ2AejW5kGllbtKbNJ-vvtMKzTgEqdzgKjy2AzPoKJfLZC0g2WVZDzc91DK5a957Ehq_9kpSayntk7Im_fhbAQaMzfZrC4Kccbcvqn3AzqVDldooLaxaD6d0Ld3MvJL3WfnVNDGNXG7EidP4i9hFevhVbjdas-DilQKf4vBZ70_RKgvQp_SfIDYDHdcfKIj6Xghq7tOOvIyBdbgEgM6h5M4iil6YzDCpkkxND8l4-OS1CEd0ebG3yJ_7GTceTXMWS1AXIpUVedo0HWSY4hv9afuhvuTv-vbSe9XeI0zjBk-E3h3s-rvohbdeFyPkuQjU1Bdpa5GYo0dmhLrW8LBcIhnnK5oe6yAULCJyoyxEXPAgM4ylB4J4sLwhG-o-IcrH0YkuwDKX_2Wn243Fp35PT7pI84S5GfurFozbFM9oKXevS1Wb7RUZBHEk_gCOq6UyMh-t8ENjl3oKq-T2Cose9OVTs_-q-2_OzKUNeVR4zpalq2PYHNzKfQiC2zMRLaEK5LJ6eenVTDmHm75HkDOWhzcGjWhMs8LcgxgpqnSQPN0N97Bir1BU16UPAHFG8f1eFjC5uBQFJJJTXpFNVI3JNfwkiyIgh-2VLtCYXtN43wymX66yzEWkcTttxm5cSxCFvRH1vFIPBLTmbsWmiZuIW7e3Vf1krVwZLmy04G8SN89q10yiUhUb9zYgD3wGFNmPl1m7ejb5lgEtbMVom2_fJ_ecrqcTUstFv_sf9skw7YbkaxzUkwjwpw4M1KS0ZurLDhHC4t-rNg8wYTPwY7elvYdIwzkQm_I8Xxi6QBga5wAIB1X4bSHWqck6_0kf81LkPnenM5PyEWh-KZAK2javUZ-H0ghmJTRSCyMQd0BS8oImChktb2bUAun4NMJqt7ghlbr1IsHhDeMigO1LJ0757r84DkTN-QQc6dva4WwDVulIYuK-K8fV_6SAq.MPfKg2_n-6ZTpz6tnZNNFc8AstmhULPxHx3xkB3i3EkbfQ37_lgU8OT3nc8eA4Gv9J0b-WkoMxetpYwYjHddKg
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700011638-chopped-ham-water-product-sliced-lunch-meat
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700011638-chopped-ham-water-product-sliced-lunch-meat/
+Analyzing Production: https://www.oscarmayer.com/products/00044700011638-chopped-ham-water-product-sliced-lunch-meat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700011638 Chopped Ham Water Product Sliced Lunch Meat
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700011638-chopped-ham-water-product-sliced-lunch-meat-2026-04-27T18-18-32-651Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+
