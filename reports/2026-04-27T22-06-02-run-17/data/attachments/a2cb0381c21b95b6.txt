@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://brands.prv.kraftheinz.com/capri-sun/adults
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://brands.prv.kraftheinz.com/capri-sun/adults
+Analyzing Production: https://www.kraftheinz.com/capri-sun/adults
+
+============================================================
+COMPARISON SUMMARY — Capri sun adults
+============================================================
+Total differences:    4
+Critical differences: 2
+Preview issues:       5
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/capri-sun-adults-2026-04-27T22-02-52-735Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

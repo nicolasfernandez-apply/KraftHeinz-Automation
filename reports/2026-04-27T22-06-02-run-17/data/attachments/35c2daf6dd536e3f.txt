@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700105504-cheesy-smokehouse-stuffed-dogs/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700105504-cheesy-smokehouse-stuffed-dogs/
+Analyzing Production: https://www.oscarmayer.com/products/00044700105504-cheesy-smokehouse-stuffed-dogs/
+
+============================================================
+COMPARISON SUMMARY — Oscar Mayer Stuffed Dogs
+============================================================
+Total differences:    11
+Critical differences: 2
+Preview issues:       4
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/oscar-mayer-stuffed-dogs-2026-04-27T22-04-51-599Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

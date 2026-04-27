@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://brands.prv.kraftheinz.com
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://brands.prv.kraftheinz.com
+Analyzing Production: https://www.kraftheinz.com
+
+============================================================
+COMPARISON SUMMARY — Kraft Home
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       102
+Production issues:    100
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/kraft-home-2026-04-27T22-04-31-409Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

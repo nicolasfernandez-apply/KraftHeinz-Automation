@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://brands.prv.kraftheinz.com/unitedtastesofamerica
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://brands.prv.kraftheinz.com/unitedtastesofamerica
+Analyzing Production: https://www.kraftheinz.com/unitedtastesofamerica
+
+============================================================
+COMPARISON SUMMARY — United Tastes of America
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       2
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/united-tastes-of-america-2026-04-27T22-02-52-655Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

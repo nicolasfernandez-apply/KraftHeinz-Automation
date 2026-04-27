@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://brands.prv.kraftheinz.com/velveeta/recipes/4eKETkKdqEU3v6R16JixQV-jalapeno-popper-queso-dip
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://brands.prv.kraftheinz.com/velveeta/recipes/4eKETkKdqEU3v6R16JixQV-jalapeno-popper-queso-dip
+Analyzing Production: https://www.kraftheinz.com/velveeta/recipes/4eKETkKdqEU3v6R16JixQV-jalapeno-popper-queso-dip
+
+============================================================
+COMPARISON SUMMARY — Queso Dip
+============================================================
+Total differences:    9
+Critical differences: 2
+Preview issues:       11
+Production issues:    7
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/queso-dip-2026-04-27T22-04-29-918Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

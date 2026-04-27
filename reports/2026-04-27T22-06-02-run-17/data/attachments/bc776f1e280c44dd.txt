@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://brands.prv.kraftheinz.com/kraft-mac-and-cheese
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://brands.prv.kraftheinz.com/kraft-mac-and-cheese
+Analyzing Production: https://www.kraftheinz.com/kraft-mac-and-cheese
+
+============================================================
+COMPARISON SUMMARY — Kraft Mac and Cheese Home
+============================================================
+Total differences:    8
+Critical differences: 4
+Preview issues:       68
+Production issues:    71
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/kraft-mac-and-cheese-home-2026-04-27T22-02-52-610Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+  • Title: "Kraft Mac & Cheese Official Site | KRAFT MAC AND CHEESE | United States | Kraft Heinz" vs "Kraft Mac & Cheese Official Site - Kraft Mac & Cheese | KRAFT MAC AND CHEESE | United States | Kraft Heinz"
+

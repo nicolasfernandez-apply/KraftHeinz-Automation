@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://brands.prv.kraftheinz.com/made-by-us
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://brands.prv.kraftheinz.com/made-by-us
+Analyzing Production: https://www.kraftheinz.com/made-by-us
+
+============================================================
+COMPARISON SUMMARY — Made by us
+============================================================
+Total differences:    5
+Critical differences: 1
+Preview issues:       2
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/made-by-us-2026-04-27T22-02-52-663Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+
