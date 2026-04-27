@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700103425-scramblers-bacon-velveeta/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mO1s89NvCTeP3zOrP85iEkOrJZXnG-CKwvb6nBMuRwUwBJ205n_oZp6FN940IyJY5mr9bG2Q0Ds24daVtL88I5h5hBGlr1tNq-MQ0vYl1HBZzSdF2kD6vvT4HEFVTJEiwS2VF6Ta0JGXkLxbGYuej5QWzjmACLKL_MlyE05E8-nHPCuvdLofYgN6076nJRh_QG_ne26L2iexaU_wpq3eSSicMdDUGkMnfDORqbJwHT-GNuod7baZ9fs1wB-5QX0w9iOtdfWu3JDfyQegcsFeVFKRowTG1LYouk8NFLekuGNQRwXeurCSQxlWsqtkScDAZrndIpV_ODHVLsQ3PqjE7c74MwklRS9NidvouHazYy_VQH08m65j-H6watC-FsfKuI3lopgszpN2Ztf4V7ymzfuX6xSjJCSVpmkuIOPAfGVGM6t_wtkgNVd7IuUtpiKlxyxOIC3uDjsdYTvwYqnqZoOW33ilrw2HAiUV0fAG3-DOAvTYO4lX8pxgONysqukm9cmRpwiCmsIIIC0I_Dyn1B87Y-sbUSLhpSpD5yqJ0fS-Ry8O2oxw92j4WWnkYlYw2xLKF1-Nez8w_-3fDltEKouAme5lURLLgFiWQ4YEs2WQbNU6i36TuSEFxUfxsmG3pk7vpvFi-T7VBK9CUp2fb5617fMrEDQuXVWnqo9rh4Qv5W7W1VYthnq_TKTpftxvDU_mt7tIRPT64883lhrRvgYY0xWosttMGu2CKO_85eW8VC4cdC9heITOB7UkNz0L3qsdyMKmsF3pY-Crq0uxnL_Y3zEmHi35GXqhtdiBJ0F7bqzEjxrDJiqPa4kUXb84iUMiN82rpNbvgeyz5hZS-bD9KpFWhWJruKcFElEBO3ekcyikXIZxbT_z_xTswk_BGZlJ_mChuS25rFkamLE1DAUa2r8Oef2mSJgmyfMZ3j2Bv6CHaQATM4g.MbMlDWilM9t9uJGS9Kj9KPf6FaFNz8sTt-ZXBs2gDPOYu1EHJgiJ9FRIraDyRyof_v_BzSw-Jw7fWKCZRx_k3w
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700103425-scramblers-bacon-velveeta
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700103425-scramblers-bacon-velveeta/
+Analyzing Production: https://www.oscarmayer.com/products/00044700103425-scramblers-bacon-velveeta/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700103425 Scramblers Bacon Velveeta
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       5
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700103425-scramblers-bacon-velveeta-2026-04-27T14-18-00-182Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700105320-bun-length-beef-and-pork-franks-hot-dogs/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mPhMARvWj1NaoJ3BYTHpLfJ_RTWFXI-CVfmHde0Msu9zMto0PMTlMm42q0bW1ag8a1SoUQUcyjPc6OHL6aTGhuM6hQHnL3vqnXQyU5YvRqYYXvO8-QqB4IYbaaSy5rv-U5WbbEY6H22WYv1iCGEOckU3-oQsn_x73J3M51jUjvlaSmXq2VP05zFkoJR-Z0b6IKNksoHmwGYCXTVp8rsixS9_46nnshs8Ns4SBU6r3iNw7aJBVJg05GQYXrP-5q4RmYgInP6Nzk6piUNVMdEe1rAQkqYyQrcDLYxmaLd2VimDFRvLVHshjTgk3zaN5_D4aXmXbddrcVz8Ypf_KcYbmjzqG_fi3KMpPUo3i2vh-YoA5Q3wffqLyVFks5vBSAHWnxsAcSESJWUV0BkYgA7cYnAFGhXmAB269fbPFK9oH9lK3rIejoNaYmGR7sAEynvxu-KMFhZPgqWN26BqQEPknBlF5Ff1iiviHgmniWWIBEmei-tWBYXCbM53tr-P-82G6qQgP3wP-OfLtJMlZKHkHssOpEC4TSjgwJrT-DSJ8jAiG9RAsR_iO2ut5KJX7XOU_Ub-ouzxH7SZlLry6C7coYr03CMPoL9Irn0L52b9xwWKR4Ev5Fkrl8O0jGWGc7b_VRDow9F1KuA5SPfSwsrI6GDegjXaixkdghwTWuQqjw9zXxXwXPjOZuEXJmaqrUBtTlnBG8tRTftNbYDJA-wSeFO-X0nPfoXkfwQrHr3mU1KNfum71OSilsZjoImKU-AZbc3y1vWXpTGQipzPTWpCsGLy1DN0nOmIZ78XihPAa7GQFD1KRtD48PJOOmSJhKH_5SIBaQj-pVtawdpkDV_aiJKWiiG_yWdiZLRRXjLgWNYj5LYQq8jxuxJOvBezfaZBZtk59M59ioM0CxV9wYA0TxUZNNDqV1IlHY0yGluZh_imH4KlL3bwiSy-Ov8ZBziI9njZEPRPhvyK_SXe70eK75qJo9OlTGPliFNqqhkT7vG-hbIMhWK.tlI_W3_eRKfXbO4krWKipPsCmlKJ6PdFVJZitfIPwC5qqNuzQvhngQgUQRiD0upeJrNhbmgWnNwZo5-XHIRtVw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700105320-bun-length-beef-and-pork-franks-hot-dogs
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700105320-bun-length-beef-and-pork-franks-hot-dogs/
+Analyzing Production: https://www.oscarmayer.com/products/00044700105320-bun-length-beef-and-pork-franks-hot-dogs/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700105320 Bun Length Beef And Pork Franks Hot Dogs
+============================================================
+Total differences:    5
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700105320-bun-length-beef-and-pork-franks-hot-dogs-2026-04-27T13-54-35-525Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

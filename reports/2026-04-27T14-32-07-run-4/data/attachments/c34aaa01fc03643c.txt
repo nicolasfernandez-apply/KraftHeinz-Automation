@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700008577-bologna-deli-lunch-meat/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mP2FWiLylemVuSEPOSQ1EdbU5gVUSukwnkc8anXiidi5tYAy7hkIgAEtWHwRQ7eB_T_hPwAHnL_9x1ds0ZV6YhSlwPrdeguvUWpsmGE58_JL2ZCc0j74pltvzQJtIECiW4_Ag1rdSh3YFaNNvCHQVbUi1zavlkseLyuHOi8IsqMhnPSE-OeXviOzZKLL34JqKuqFCsjV1Q48bKEfoV2HPvhwzsls9cCgnYrIVpAKmwBk0o9iFcgqHkGx31kmKkglVs6hmC4kIxWoOVmGfihCYob8N9jf8hwJsn8qM8zLpXxZlDrEQMJXnzN7gV_7FfZo43hCMx8ewHN5pTlhHxZqGpsixK_-efIaqUDk2B0jRsirQ-ZmnzuyDNikYoG3znkWtCRXH5UVFE-5NxynzXkYl43VRVX8slj6ZC2k5asD1jfXNsFTt7iJktymjuyS4RvfawnJRtforjvAu1vkeVG34JiWuj7Gq6oXIkCQ60jaa6btuvyKTkS5Hv6yjtOt0IcviwVuCDVaovQf77stpN0AugKrYlZg0iAwuDp1zf5QuXo7ms01vuFCmjfn_2Ur8dYGER46PTdbTGXLra-XBzF85ECsgKIeryBV4kaT97IiXSYkn5WqvlBomjCAEbyJ059GGpPjae2k1tQxql_VX6--qKbtxPJ3pciad4fjf2fypZBE3UFmFpt3L2E_9osCTLJrxi7NLgJOcLjLvVaxuHL05shasIjyGgxc9x2cxB1Ff7JVN1XjhKX_EIJGZOIqz7pijhrusn6OR85lcJUFE7Zg0V3tPVELKVISsZi7wUWq6cRn7cHImOobHgaRob2d0B0h329HZAfTGIjvUx1HS1B5X5_sxNyodTYyQrgGDTl7pLL10_-sW5ktJG1xxe05tJZEgaqYu6g4CDh5jZ4cyXiuqpaARP1UVuy__XUR-_-xadYM-CI.o5YA56mTE1wvOufHiHrDnLcRCrNF1PUJQXJeXNGUwxMv_zVLTUYR90FEqEoXNtcm5IOvyC6quq_4O23UtiAMmA
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700008577-bologna-deli-lunch-meat
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700008577-bologna-deli-lunch-meat/
+Analyzing Production: https://www.oscarmayer.com/products/00044700008577-bologna-deli-lunch-meat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700008577 Bologna Deli Lunch Meat
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700008577-bologna-deli-lunch-meat-2026-04-27T14-02-25-229Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00071871548793-fully-cooked-gluten-free-turkey-bacon-with-62-less-fat-57-less-sodium/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mNV2VqHSlZAyINKpncm8YTrtZXX-JDuJFqH6O4DGRH8Lu9shgCnrzhJiIYhuyrmCcQsCfy3qhFxnCJNEOsIwLgvvxoTX46p3SvS2ht-HRJmERKeyvWp4srFv0avpBiIV1oeb43TF3vIdseTF6GzHEtmiAkK-IUq1ROs2GuWU0Yq2qXDVZL1JS32eqs4bA-_nOSnSNp3PlpbHN0H9cFSRiDE713Y8dOlio63plMYRHlV7NOVUWnZvQcVqxb7OJEdyBtXg5ARegU6zfypf8I3Jp9k6EcjUd5EO29wYgyJkvWm7L_3Rf33IzaXzHj_qXyrkG0YZZc3aXu6_LcqAc0JWoqz-JA7-KVWSjwUQ_Dg4yWGGwYCJpqrQGs4na5iWhSseCpbVvf1bWlsrGRFDyRSdW9TdIfq9HRvLkBmmYx8eslBiCZKHU8jzTwkD-g9pvGvsLs9m0tlGzC3_ZUjdjNT-1g_n9jnbdQBAFRl0OJ2rBY8zShSOvRYf60ro88QPYFaTPTLqnAuSTL13inetrZ9p3sdXg4dpPiEp84bg5E1oFd0SmnMdiUYsvk1Xk3Nn_g4xiMlYDWcf7mW5We0vHC0aMjhhCE1dwGOn-De3s35fa9ySaSFfVZbR8FidTZ083Mn7k8qFdR81c6tBAChUHxi-W18jTLZ3WmV_XWfAOFDaouOjol01JFdJU1WN2qzGw00hE8hoG8wUEjtTzMSXNpCHJ1msNvLujUFFuwmEY8segPknVr6W892pf5j7MZjAT3EFlpG8iuQEwVrzv2BTvxgrml5Ep6KJUeY0pQCiiE9_U8hMnTt3_OuM93g3PgR6kgJeCndZlFqy70PMrX0CAEWfHSfpd5D1hyL62AOXPmXpovdgiSA93_CAx-bGWp9FM0qEwiu90RiLZ77uu-T9W6y58aSTX-GuvLgz1wp-mHcuduXVCa-8wsTlu5A3z1wC73uuizlFmzEVU-Eke3BYLm40Bz5Gt0ciw3wETHEWCFcuvCC7aznIibk6-jatfIzITXlcrDY6NZw9uFwl9XJ_w085g0Z4VhAgszzvZ7ZC86gcgtnL3-x6C8pjNovjI2RQFmgrLmqH8sgtpsmlFuDnIq5zoOYpYfxOLBHbfLWjJbS.WeUHZ5sKLE7OwCqXMUIOljnzdEpg4uaeJmLXFbol6F4NC6y4-3c9FiN2Ap9iC95m5MokwSZkdVD486zbe99tcw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00071871548793-fully-cooked-gluten-free-turkey-bacon-with-62-less-fat-57-less-sodium
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00071871548793-fully-cooked-gluten-free-turkey-bacon-with-62-less-fat-57-less-sodium/
+Analyzing Production: https://www.oscarmayer.com/products/00071871548793-fully-cooked-gluten-free-turkey-bacon-with-62-less-fat-57-less-sodium/
+
+============================================================
+COMPARISON SUMMARY — Products › 00071871548793 Fully Cooked Gluten Free Turkey Bacon With 62 Less Fat 57 Less Sodium
+============================================================
+Total differences:    5
+Critical differences: 2
+Preview issues:       6
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00071871548793-fully-cooked-gluten-free-turkey-bacon-with-62-less-fat-57-less-sodium-2026-04-27T14-17-13-744Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

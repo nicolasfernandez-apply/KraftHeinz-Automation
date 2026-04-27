@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700030707-deli-fresh-mesquite-smoked-turkey-breast/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mPyPcwdTBQRt_sqFOwMbhSXeXX6U9DlBf6FiXY58x8xWXwQ85qEv0dsitHqzF--NdcEw5y0m1MjaWuJ1oSaExOwvNDZggFO5XcLgRmDcogki2HO8F1cqUnuu3Ant_RFBQoqs6ru0T3z8zzgaSAULeDdlsqyeso046CP34i9WIWxiKcP9GP1dWAOSI3Z2JxwyvjQgsUwTZO_EdpSEVDl7-4Cg5n0O4UzhxDbn5WELQTbsr-T9iOTRSjKSYxGIdXpeE6fWoDxNqOFJJDxho8YCYfnz7zV-FCcIXiQCAh9xCR4LaMaC3nIPgLY3dQCyT1wuU9ANZP4a2hlTAwVCoSWzRb3MKQ6mXEct4oFc0e6jsOvryI6ov0pwdR-vsgxe5N52Wy0eRd6DkcxGV9TR9JMgozvAE3Gh_nD12O3F9qScasBF5zVsqrgl_GpNOyfJHc368_coEmdzDbCaISbLHjvU-9A4H_wRw_SlkXQuXPx3FZsdrio69twT5NTJPXJGfBounPaVjM99vYhBC8O1Sdy9JPJkDnLgfMZygTqaWoUIUD23D5Ih9IvX9xUby6I-XNEmrmEU4iKUdfgWTRaP4CGTqOs0GWJRPDylNRQ3uTsbusDN5paPp--A8P_bxFnPHd-XXiAsHzm-aPUz50tBfyMJF_oPvelqrkw9SBMhT4tFHotwuMKk2i01QS8iCIeYRI9clEcXhMSj_GkyT62GSdZ1opgZNe5REBfKVAlDAI97K1C6DiLH5tSRs9SSkn4cllftvBcWZTjc_yxW_Pj6PdEZtv5gYzRykdGw47LXvVkRcApkGn9QWWwqiGQ1KQ295XEYPfhXyglClRLmzcdyhH_68RLAw4ikK3KWpBtDW-52tvWT7DXX3Q0A7Kexmm4nMduQRYLJ-x_OLhkfy2AXsyJBgTOlxZrGYtblcnKD2R8XI_OlZKm3oHL9xZNNzUh5oUUaI-sBcUVLxUIT8B_ZdUG8QxpQfKIOHnWVT5q7K-TD-ZB3wUgF27Y.KI6VM3EEozNKpSGZmR0FfNpR9agxTEoOYnbAMb5xjcAUO77qyjRhe5TqXz-o1L0TgC8qOq9hk_GdS5kNdYm6MA
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700030707-deli-fresh-mesquite-smoked-turkey-breast
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700030707-deli-fresh-mesquite-smoked-turkey-breast/
+Analyzing Production: https://www.oscarmayer.com/products/00044700030707-deli-fresh-mesquite-smoked-turkey-breast/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700030707 Deli Fresh Mesquite Smoked Turkey Breast
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700030707-deli-fresh-mesquite-smoked-turkey-breast-2026-04-27T14-04-09-519Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

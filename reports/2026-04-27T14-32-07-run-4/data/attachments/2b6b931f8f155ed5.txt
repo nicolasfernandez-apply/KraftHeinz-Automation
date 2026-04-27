@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mMOmBnv7ga2a_gqK89LgyjPGgCAoEnnhRetxR0NuiTzcIV-GAswiQADbvc_2R_uglaloFGagicVLz8H_pzkOSzm-J1C5BYPub0ke_-zqi5gm3nxTye4q2BKS5b3Dz_aZJPt-zZK0mjb-6cAOrIzRO3GkBOHsKxoviiyMehUegDoeAW32Fz3JKSscf8_DVVBuQ0w-FCXuTQ35nFWAg_VocmPOe-wx4-Nw0spAqHS-4_BMYtNCV-aIczGXIV78xk2paZ9rjblZEDXTolA-4-_2mXutn-IV_v58GbKCc3vGNJwlxCTQ36TZ3ZV28aZIm7fah9Q9QpMOfIkRtH8hNMTPBvae3AJSW_2JDwA87z2mrADvoeR9bkG6zvRkmDKEne-3tl-Z0HQNrIypDGEDP0kelovp4v0Ca9MEbQzzffbXYpMGvuTdna9NbHuE74kZQYN3QFPYABfD0fkWQSyWdASNjIfNtVY0VlHOPqpC_Gz0xtthey1KTSIM5tdoql6eQt96yorQrgb8i-MTOZTNuEwVCSUp0AMJ9MP8kYNU0Pdri51gLECNK0n0S0DKQcfYHyPYsdMszkKOL9-hBZyHa_9Qx_cNCvibdTjYFwdDf_QC3PAlEr_Fx2AikGCHLYodWcC_VbNLCMryIePz17PwkkOSsDKS0sUVxZAbjgEWU-QeUaltGTdNrNJ0BgMmrp16RUcGcMUpqVvYRXWZrSKHkS6wER_wAeK61VJ8XR13Xxol0g0CdCf.oSFReC2bP1aOsn4oT2-agNPNaWu-x_RPzB-lzeQzj6psHYDNu5xWov8X1Kp7IK9Z32HROmUNzsCT7gTc9uMm3g
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/
+Analyzing Production: https://www.oscarmayer.com/
+
+============================================================
+COMPARISON SUMMARY — Oscar Mayer Home
+============================================================
+Total differences:    10
+Critical differences: 3
+Preview issues:       3
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/oscar-mayer-home-2026-04-27T13-46-03-007Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700104415-sub-kit-with-smoked-ham-salami/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mMqNZmZYfhDzLfigJmevou0bbrjYck7dP-jdOftLcmmxOedIGGwZ4sffYeUUZjY1g-0DXRzag_bG3hrA91yTURFF4SM8PVdLvyBVZZfwklNbWUHobIkhXVu4DlH-zDRnY8VqbT0QPtS1Rs2ZdKuDhXNBOOmnRsFgJO62_Mgj6P5yRaC-69ninI6I12GpxkOHLoRcIRCWXc8qadUHCjMA1_vrH8wKTEkgbKBkSsQ9fvBCXeghQf8Ht1ia9srYLZC-pALsCvIrgnzVWudq9Lgg1NqZHTaTlPens_76zlzVYb1odSr81JNxCXrEMqQpqaZaOPsESaGWync6XfIA6300h4rHvmNUad1ccafZu00OEAYWX_6XDai3XpmypXJsMX6zO1PpxFD_9qW1B-L2FIVSi6DILWWlNZFFYWN9t77r5WqOuN6gZhWCS5UJuxZFHZ9dKPIMK-psPkqukFogTrHJpRgfXXFYhHLUL6cuEcI3tTVdQFJOUwbeFu9ocC5ied_DZB879Ahj8NAxFwu8VzqX_WrCR1_ePphr5UvEGj9UOx7CDU2yIjwZgWekCW8n2Jijur7QeUfkIB2-QnyNqIH-nCYNvnAbcy1louy1urZYpjsMQiXkn5cvit4b770pkAK_La0qTttwGwqYgfuUKoVRG4mj2OsqYUi3AWPNN7JQli1qrviYwGheyfbdZSVxvk2Wg1MFO43pCWp7lbW8NlGc6-02HyNyRvKK2H1_BOm3OOAu2fpVXP-yimviWG_l9NdIlVzDJlJ8Xeg7U1sKGJpOnIm1-zieu0HMup-rwkaQZ_4RUXluPttvCkCHp45xJ_Y8rd1-wLjyqemFjudM1qRbtKSXW7ILrunvUbjAWvHdOt4zN_TWRDRF4bdea-foTfCQa7aYaM5uSDoPCSVMt1lB6xYIP7t1nP_Edsd0XjzpswyeNoiZf71MmzJ3LE34-2AY0stfxiqkRfA.hFnql3Tq5LgOkB3eO9Gm6xTjr02h-jGKIQ3-9rKV7sGLO4iT-iSPYP9-Lt9xMcq9KFFkrGhsyHAwoSTe0SfgFg
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700104415-sub-kit-with-smoked-ham-salami
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700104415-sub-kit-with-smoked-ham-salami/
+Analyzing Production: https://www.oscarmayer.com/products/00044700104415-sub-kit-with-smoked-ham-salami/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700104415 Sub Kit With Smoked Ham Salami
+============================================================
+Total differences:    5
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700104415-sub-kit-with-smoked-ham-salami-2026-04-27T14-15-45-892Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700072806-chipotle-seasoned-chicken-breast-sliced-lunch-meat/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mMB3rlQfugHb1oGxxRcWGGSnrM7hOSowby2GkIr4EKW9d6WOa04nipi65hzBIEGkLyULi-A_rhToMoAgUq2aBWhf3FUOGVa6cotYVvlx37MGYTkJb2GW2dXVUy4H1sn1yxiUq_5Z2slHfcTyGES-0yU9sKWl8Cgjpmb9M06mpTwfhVrf-7bK1OJA30aqGO57C2pnNUhYabCbmnyBiHVdGKJ3OQRkgN29QizwM0s6befHUSErkQx431hfBT3Mc6RiOufmhkFVQX0gJk0dBh0FSFZog_A7DhKxIJOMMFAaZO5YZkIQxVEHV4Eze0zXNlaIFl2Iy1Kwhcqzzz4AjAnhFCsQI7E5YhnIpVajDJIe0o2ewbn-iWXlIreYT2NyFg3fKOyxO0rZX7wpwcxvd7RKhelA-wdeQciof3d6otju4WpOF45B_FrMyT7OzpGDNQ9kBiYRVhpvhf9FGfcQTEjVpUpMAraNMjvP8Gn62ICyYTCQAUKjgELSN_NQL89D_cY5JHyZMD_LMLfLqGpV1FyQG0-h_k0fteHf31G9dX3cq8k0j_ePy6eGGA6GZiUccqiqncEjb63zbwvDK6FrSYi_BJx3h3e3LydcaQPYPkYZujsiAAZrAgS4FZ4ADyQ3o2u7xfoiS6PVfxf-inbY4eVhInXq7UpBb435drR5eLceKEYbmlJo1fRTpiKcLeKckm-3PrGl3LgvrAu6gCPcPywJ2AQysBzPN84UX-TBaDWx-0P2UxwqjD7Q9mZvOllG_q78es52CRAYC1WWGq-bolh_YPhjESgWhUEU1JOnFslrpJdvru_ymNLE2WYwAAtZBTbk76UjWKLEh2eHn8P7NwYaJR3xxFNsa-_-vOtpZMLSU_ztrF0uPnm-J4hpqjpOJqvLmqRRa2vBSJoYtFtofMim1R9TjI6lSsKks1UdCVZHGCAiG4K6qYgflXhsVgX3bQd4ReB9mk7-yf67EbFsz-Qjfx8hfDwL3vNganV252yoidUA6D3cK3Rx-CrIdZfz3eCmLvcFKQCVRg9AGdZBS6FUseHusqh.7HZiCYXcP2J3YV6bhra6XGsgyrfLJxbATlqfR3T_p_aInEgLIhavPbstMBWFZ8w_3tUc_p86pxU8PW6q2AiCWQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700072806-chipotle-seasoned-chicken-breast-sliced-lunch-meat
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700072806-chipotle-seasoned-chicken-breast-sliced-lunch-meat/
+Analyzing Production: https://www.oscarmayer.com/products/00044700072806-chipotle-seasoned-chicken-breast-sliced-lunch-meat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700072806 Chipotle Seasoned Chicken Breast Sliced Lunch Meat
+============================================================
+Total differences:    5
+Critical differences: 2
+Preview issues:       6
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700072806-chipotle-seasoned-chicken-breast-sliced-lunch-meat-2026-04-27T13-51-12-305Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

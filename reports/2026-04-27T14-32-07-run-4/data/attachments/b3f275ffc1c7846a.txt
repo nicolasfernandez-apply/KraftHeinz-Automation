@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700079195-blackened-chicken-breast-sliced-lunch-meat/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mMZLqVRt9qGX0OhYClAzqqEymdP9VDdV4GhdmAetB4LgdWeKZBk_wWLO97xYwX8tLD17RZA-gDr2sxtQNv-io7dsqQkpLildXFob1nfM0G4lImOOsBuO-q6calMxtoBmhQ9hI1p7F1HECuhldKnYRK9j-UmIuIt31PXg9WJcn3VVjWmzCvHT24EHRTkFpus-rlWSTp_f1DWObJb-UH-3wlRFPk9h128wefig70Gb6jHuBEvJK4YRfpy5JEs1zHQPno5qHbj1iQT-zhkA27C0yV-5u5Ox-vFnDECPH5ZNYO_nFCG0i9AYEhqyXHM9YswHLzR_qaaJoh2GrGr_IKXMUvfMFV6oN9W34aI93dPL0IOUvQstp-Mtg9lO7_SfdGdngUGsPkA5gtsm57Vm184dfxrTA2iSJaLtQkYkd2ISbG4_1PQ9AyjWJFfvgR-EPDZo_Ih2TyZUFfXSYDLJCHqeW9ZgiPZExcImal9v_1AVGhv2mGxkw5BvFzweM5kWJugiLD43o-5OvV25Sf1WL3j3o1amlRhyFXzkXyWoE7caxa77JaKJTKTZ9BT6H_L_IlMcfNs1Q_jOuJVspnfCVzx4QfWRelnKI0AtUJOGvsu-CZGZF8T2hvyDh32mFHmg-or1V7nHb2t5EIiumAxCc24SQZT_bcnTqc7sRaKZLDT441YykoI20cM44T6Q3kH36wrUY9N_eONlBbyo_-2NdPKR2_8ItIYK6p7Ww1HI9neWbMG1mGlr7P_PPV6987R0e47skz17fRIV0ZgqTMwwTWJXB7HUhVwqLk41W9nrnYVu6hAKDOuOA_buOXSkRx5jb_kBMixXUVZAhE5a90Rng7gXSPu95Kr3Ct3WRskaoR5CvNVhRcVsECYv2POZmbswMsVy8oZQLOGkxMC8Bxdgcgmu8Iu1dFlZUskNgJDm7lhrUyJTLGU63OE0wlT9jQMXakF5MunGsEfQO_1VmYKHcBf7Uz23se3MUNjQ1nNQDxATJ--4nw8DU3ppeT-iVEP.fW_KdmewAF8Z_HxNetnuY7sh2M5qXg6kyzDbXjIB17l92Dv_tPtgyDPeQySbRgntrfoinpgQdz5DcmGSQHExiw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700079195-blackened-chicken-breast-sliced-lunch-meat
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700079195-blackened-chicken-breast-sliced-lunch-meat/
+Analyzing Production: https://www.oscarmayer.com/products/00044700079195-blackened-chicken-breast-sliced-lunch-meat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700079195 Blackened Chicken Breast Sliced Lunch Meat
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700079195-blackened-chicken-breast-sliced-lunch-meat-2026-04-27T13-51-41-494Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

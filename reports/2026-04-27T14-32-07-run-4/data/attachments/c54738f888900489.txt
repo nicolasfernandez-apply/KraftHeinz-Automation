@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700104538-oven-roasted-turkey-breast-white-turkey-lunch-meat/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mOATqRUmjlIIqrCerx-q8eBFsCDu8AU-IxPswvYMokOZaK6QsQGRPmyqKU3nCu6G9Rf2t9008j125iX3REsFKfMGqIVkyc9zlpfj6F3vammm5WuOpPn02BpWkl8cHQbxkC-QEVkeN0iFhXh8PnXEVb1TafSoOcv42qv5FXSeIh7-64ZEgY9T421zDQuqcrmmW_AxwzsUXcau9hRocIsiTPwGkspgVZeM7MgvUrnA0LpIXgc5Gk13fMLCCFwDSo3KTtYN_rqWo_NcD-i8hLia2tV82KpghpMxUYY4F2-BOAYV8wDqcWHkVmQrqJTlL_B6TR_q8VG6ubXTGSRMY4JJg1AY8rS-Nnm7IdSApHUvKOZ6yNb84KBXmK797SqKSkGTqpnKnS2Vnwxv5_NLpvIVT5g0I0PgWqmJZfJAUHUjwAIApWVQVtfrIZSfc_qCi5ZK4TSPDEs8sz7_1t4NQByRGmZCfGHWg1t7TdPpo_mwZPyu0VYhL0PrBsy3gTd6UcUuJ1I712dNGzPYhG8ZrXY5tLisRdiBJgr1KkQZBFIzsMMyDEuap_dNOvPSzvMpQNHHWssxZYMJWUWFgAQrOsK6IHpnQhrF5b28K5d9hU-6RQSZhJBgVuBsLFz0iLQiCXORWjN16u2z34i0YkCk-k4ntcZJkEt0TTI0eSvTNSfi_-1ergLhi2UAvoTlvc_hY82HpU2arRStMcy3B2kSRPY0MArPu6eAAIKYuEgFPY5btimVe6pmGAwpJIV4GFqFGirycjiihAuQcdMD2c-7PcyoXy7P7fujMrhEbQ5HkF_p07Mx5R9nYAK-cpIsSnNSsE5mF73772ag7FXHpgsGWMIrq5epNBaid94vZ4m7bxOIlFgt9fjPhMYMlkkDGEK3eIkzRcGMgrxWjZ9X-nOvsbSrmEK0e1tkkrP7u5zv_5FpknqOrebmxvz9p48fwOxo5B_BotL1XWxmSOAHy23aTp0H9wvRS0zleBSs1xdsmbBQrVFUlJ4_hRYh_4Rbab3zz_tXEwPsfgh0weuKAyLwMcpyn-Tv1qe.XDcTd0-0gsY1ZsImef3jAQPsNiu5f8LaJI7OeUeMG-pdcJYHXOZ8C_RWtJMxZoC3nvyy5dRJ4eJ8ZLAY7NroUw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700104538-oven-roasted-turkey-breast-white-turkey-lunch-meat
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700104538-oven-roasted-turkey-breast-white-turkey-lunch-meat/
+Analyzing Production: https://www.oscarmayer.com/products/00044700104538-oven-roasted-turkey-breast-white-turkey-lunch-meat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700104538 Oven Roasted Turkey Breast White Turkey Lunch Meat
+============================================================
+Total differences:    5
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700104538-oven-roasted-turkey-breast-white-turkey-lunch-meat-2026-04-27T13-54-21-132Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

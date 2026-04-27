@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700030998-rotisserie-seasoned-chicken-breast-sliced-lunch-meat-for-a-low-carb-lifestyle/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mMyAso4DgQcYSPkWoC6AOvlGRsIv89phM-sDSFYjTXMv9iz_o-GckhePi0GZlJMGuxJWL13XVzx4BKT36Htn0BGjN9KBeB2xdhBRCAVgjuCC9y-lP40FSWe5WflRNwjSFtR77gkfHC1Bah4dFF9EXJst124-kvE1t1FCq7nMRhGvbP44qKpZecq2KZwTsnAX9qjAcpvl_-5BSyoeTbTmdOtp8d4JwxZkB2XiwLzUfcgljYwdaxjodwP4UnYpl5cii02LRN4DXbtZf9fWgf-30nMbWFVvyp7-hoOfh7AZFQPBbBOlP1xFwp5geZ5r0QkvaWxkFcQmduamyGsT0-3B_ZkAL80nrKerGXv4Up3Dm3z1dyTw85tXYR8hYYlbw-Cu3N0GfkzEbIJ4dsk5NtTvDFKhRruZ-ERF07ym-7SvOLZZKHC2iL61R-MQ1wPvUnZ-9tcxnhwQDOEpLNFV1COU66hhSysqn66RrZ-nu0ti9sCfaiA-jrHw_yyFoyppvrPREWMZpsg85VWKiBTQGdA7NxDVlt034qzkJtWz49vx7Sp28JJjRGVsw4BIT1reDGhOOLvB_wDs486sgIzidLXHjJuQfYV1gqBUWDIYtOXY1xiUJDY9ZJkortO4238HSSq3J4c7N_H7iEQ8rXwjxMlujSTJRagyLF4GNGtd5l_F9Ub5wqIVsWzIZwBb06V3nfLC0EsGvJq0D_Rd0oYS0XJA8oTss1ZYZF3Du4qyrk9ioK6fAWJC1GsNuqBMRfRa8czE-5YuPRAXtOPiPrdN1SZ3KrbprrwOs_y-kpaOXfSSylGCpr2mGHig_rQdUQOoiIlAYn9y1EBKq4km-x7oip21jTN8bkW1V6mjvCTgHrgv5id-BBMrUxdBX2XinPilNheB45awG1f2IcVtzAt1RtDtBaVQJ0V6oZTLPg32bODszSoq2C8HDlpZsKgllnsND6U4ZPAFw-XJVrzoDWjfnwYZlSolVwss8uQ3zENOXDp91mJA_j6_xCIC2IGGqvo2z3TIfdJr8PhdsbJKqkV7JBrvsyS2aKq3sen_eVXWmPFbkfeyG4eH2LMyvbl8CYXXt6ZTwNtEfsA9xyxzYbOLOEy6lGd_ywmcX-HGHLjSvymLiUgA3ydnHiUbtG_Yzj7uagdQKgVVV_q.eNCQnT2HELkLcBWp-rOsZHQZCga-ic7gDlcNBDb0xzcvp8MnIVnMHp6WCtayvETvzVBniqWkluKrYF9mpR9wDw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700030998-rotisserie-seasoned-chicken-breast-sliced-lunch-meat-for-a-low-carb-lifestyle
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700030998-rotisserie-seasoned-chicken-breast-sliced-lunch-meat-for-a-low-carb-lifestyle/
+Analyzing Production: https://www.oscarmayer.com/products/00044700030998-rotisserie-seasoned-chicken-breast-sliced-lunch-meat-for-a-low-carb-lifestyle/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700030998 Rotisserie Seasoned Chicken Breast Sliced Lunch Meat For A Low Carb Lifestyle
+============================================================
+Total differences:    9
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700030998-rotisserie-seasoned-chicken-breast-sliced-lunch-meat-for-a-low-carb-lifestyle-2026-04-27T13-50-26-273Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00071871546683-turkey-bologna-sliced-lunch-meat-with-50-lower-fat/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mOH2MqDdeSlHerPPW4xahvu5F8Y514-Cws6hnPy7yIVyb0HJZdNRRVLW3ZhOJoL59N96Lr8Yaq9pqO8KMr9OGq8pRIG9tw8Ex-6wxpgwKP_kCRa7MLfG1zhKisjzPpj78qtCnr7OUCyJBgcA5gBbvY7vOigqbUeRoz6Iisx-sEdEPVDucGr3IZ9Z1ypy17rX35ti4YL4LZXvfwMRhIlw5nzl0P3HXhS6BRdHXBIPvj9oVJHXuDgExdaEU5mEll2xdi1HT9vY53Au-xA6SP3MGonjaLNZPjRKyfoH0XODkrdY1DeK_Jhj5MsJIAp57M6uX4LT6V5xxQm66c0t0ZTlNWSecu_Bgbd__piG888cNfziHVNuCVERI17pdUGRW0ANxXOIQAiQ-UQbXTueYwZAYKKVxc_GMN9zt4GA8nqi_Um0-zGWg-hUm5378_5eC3mgZJejcE0KwAlefQ48o_ybdlssVcX09Wl7ELnFRyF3GplQUYhbkVVp5aJydHtivJVaD74aks2OSEDOZ3_Z1PJXaLkCjYx7pmvwacyryMqwwkCEVEjnElW5PrybG4_v7eNN6_bT8-95bOuDUSd0eDZ7xJDCPbXDlCP1dGW3wWlrG9AM6ZLjn7naHp8SGxDXYyGceSwtxToYjGte3AyCFh1KIVSxJ8ENivwY89VpboVQyf-5ws159lxl0NoTrq6uR8JJK43m3Wz1kqwY_MQ0ISMrTJPUpv4llA2T-HnFacy9BL9fMUSmpssd9HYR3cwKwYCpMgzUIahmtroDD6wx2Wbu2lpPjW0Eilolmlr4Vro6MWXI67TlmoKJS5buDDSjjHFPXpNWAEMkpVpRf0dIP47f9fGqDjlS-64mTA3WePE_a9votOhDnf6KT9EA-OEJVBgasGlhhA6pxg4MwhKuqiPhVKKjQtBS5nVPca489RuLqiwa45l6PRG3YRX9NfEhIyjliOGO4ySs2f7vQzlIpknKYQH1mjMDMx-rgyxaiQv_fV3MCR6jbir4u0mrLaySu9T-bIfVSyBQo186ngsEggA6wjpiMia.8wjDv0CHLMRE6r8WNz2QJQQtXyqTAG7Fp-fx69XC0m77r6wFxTmCjPyx-6iMts7nwPgU0XA7qkujfSFOvu7dvA
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00071871546683-turkey-bologna-sliced-lunch-meat-with-50-lower-fat
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00071871546683-turkey-bologna-sliced-lunch-meat-with-50-lower-fat/
+Analyzing Production: https://www.oscarmayer.com/products/00071871546683-turkey-bologna-sliced-lunch-meat-with-50-lower-fat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00071871546683 Turkey Bologna Sliced Lunch Meat With 50 Lower Fat
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00071871546683-turkey-bologna-sliced-lunch-meat-with-50-lower-fat-2026-04-27T13-53-54-400Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

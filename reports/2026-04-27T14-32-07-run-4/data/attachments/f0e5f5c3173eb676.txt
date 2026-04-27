@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700099711-maple-fully-cooked-thick-cut-bacon/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mMhWfuRH91DnLC26ZAAHqkoGgBx0HOPlNAwd3xyNTpwanpRa7yYv3vzWb_mcl_xmN5MoUYTejQBe_o7MNHg9gRmc_yslN4SJSM6-gEwt7nP5r12vm64sfcduPu6aB4TcwNdxx3cGtaPJD0L8DRTuMhQapMRKq8TVs5EyYK0BNf-a7Rhyw6e0A5sEWYpzyG5wd6eCKmEzZtnU_ipooQKhxHONZ6p_iTI56cwttwon9kqIpEqfMySfO7xLI2tsi3LxaPWA8O3M4sapLttVG6UpdoJAJ8Mb7x1nkAt1-1zWrNS8pViH66j254qYkuBuywU3xP3QQjdNfOp-m1wdUzLQfzp7aA4Riu3ZtVOehff2LjppJf8OaFRE6JqihUBi-vVZuVYIaOJCvnZHVwiYGVD_J0kBGQ3jFBu0N6EoFvXAXkzPcAsAiqOGDFzWVIyu52LvXbrJYhC3T_Iw4V_LvD5M_Uz4eQIOTHRRDnwvVVuIfXN-Elp7vQt5ZyRsgcKb7yOs9Ll83O7VKrJucXaOFontQapYXR49nJIZa03TLFW8FfPFSyIFa8yGKzMAn_FKSrpgcQdBfzMHV9wiwfhsQRVujcB7PjRzMhWgXyKxCY7t9JsnCbMDjwQTmyWzLp9bPWAyian54FSUukgtZ1ztuhjE5lc3Z2MZBHg5mFi7QHYYboeO7aQBn2DOc01bFPIxdPLa9dO7olxURmS6JGxZfI2h0c2MFjegJN6wX_UcY8j1Y0o_YRUzGo1UD-4ZKpruSEDdGMQLR09kviwPlEJ0aL7hxbIH_035GG8e46xRdCdOWjBjo4AbEaN7CWOTIpPfshkkD7ROE-cwX0puZQHESXl1x_dBvIFf3RlLLb7FOXjcLg8RLnaFTPkxDoXOvQ4BFuFzEnefbk72uy-nqfPMkZ4crxtMS2kCFahndGJSmwxsPmss6dQZDgZw5XDedQ4W1MpEqS98kqMifEZX57Pg6GpYRF8c2eW.2fqfFVtrfio-J9jOxSd2PBbzTYDrdMYPXJH4Ai7CjOn_Tt5ZT--rfAK6mKh4WJog94dNzgfXKUfc7phIjcVxDQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700099711-maple-fully-cooked-thick-cut-bacon
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700099711-maple-fully-cooked-thick-cut-bacon/
+Analyzing Production: https://www.oscarmayer.com/products/00044700099711-maple-fully-cooked-thick-cut-bacon/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700099711 Maple Fully Cooked Thick Cut Bacon
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700099711-maple-fully-cooked-thick-cut-bacon-2026-04-27T14-13-44-698Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

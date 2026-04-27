@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700091739-deli-fresh-honey-uncured-ham-with-25-lower-sodium/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mNjjuC9WMacW5OnXCETBTG-NniiMha-ools4mgmixdMvr7TtrhhOskyhVzhC-MDnkTUOe7zsGeobG1uH5ETyh0Rk5M04RkSe4TBJ-URH7H6pdOMUNvxusGOZ_Kp-WYmk_Nj_l_d5Dj7l9cXPFcpZzwzWZe2Tz8cD6BQxCAGd_tHk3khIK2ZxdIAXcuYM9EUHdxRhspIhBfEi4ZV0FRteB8ctH3cwYcAIXSYomW2bC2TFNlgtK0jKqT8wR05VPlw-Ee52iGHMU_hAK2kat8jpHqyQcKZdi4y15fvGad7SVZcOYgluF1j-NWg-9XGaQwOn18HzWRrnwSjueKcw6KywHqp06o75C1Um1qtjP5C8AunQ1JAjXzprqbdHgwfK7yxxBAImAkYODqxfQ89keYgx0AQlUznZGwkfC857jtqAwyEYllxqk1Pw1SMvHPNt2ksErz08eoPrOG12SRqjxkDv3P4FVBgNjddaHmemxXrF819jV18-OaOrFhR8frj8Xz43O74A8uLf4FbZ1gQF4oee_DHdydtPkA0Zu8GQDKnyHNzYD3kdRbQztA0gQaYEEikvCpK-4vJGRjs4_omM0dUH3nYX0Cz_4tsS7XjqHaO77kLmEd72Evq6DprMZwua3TMGE63sg2o7YboOUitl4e2xm7XoI1v4nuQvSrt6XojnAr2XNwHyoxPR2mdqgkfOai5oLwAAxu_VpiSKzPYKVmAeYYZvYMmPGXLetasDCHi85oXACgKrgG7PJ9kWXfKwLRnuw7QIwjisVU2OnV3n52Wiud3Slv_skSgYPz9g7cQLKq1MLXOcS2cWCYfXNpOFyn589v4smZUMPBGpGKtOe6z-UTfUOpQwe9ZIX3SYUjsaZFLiIwZa3KAIg8J_8dJKzpdzrwT8AU5ylMVgZLCJ0noAWEmGS-yBB4uiaGDpL2MjlAHHiHC8uqk5ySt08uUxDJDDV2OT02lMrZBgMUwJaThtIeJSiPI7QD0nAT_hcN2fhkUsUvXbU0aPx2rHgLgQtTlO96bOyvQaMweo0SueqoC0L3D.bNd9rmkvauDJu1i19MjQrgfNP1eLlNiJD4huubTD1FR6yKhADvs4PJNVaUkMlM-Rdp6_AGXg02-utKhIKQH8vg
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700091739-deli-fresh-honey-uncured-ham-with-25-lower-sodium
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700091739-deli-fresh-honey-uncured-ham-with-25-lower-sodium/
+Analyzing Production: https://www.oscarmayer.com/products/00044700091739-deli-fresh-honey-uncured-ham-with-25-lower-sodium/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700091739 Deli Fresh Honey Uncured Ham With 25 Lower Sodium
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700091739-deli-fresh-honey-uncured-ham-with-25-lower-sodium-2026-04-27T14-11-35-568Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

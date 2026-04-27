@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700009833-2-x-thicker-super-thick-cut-bologna-sliced-lunch-meat/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mMcBaJtz1SLoXmPGIrIdytvUJBbCY8FSIgvLbaEgKrBjivrboPe97_QtDwNw8UdbOn1RkRC2DasoLNMwPt2DBBsvLKR_zj2W8PUimzG2cTBoSPlwEueYQ0VoLSvre5wufGFH2uIRVR4ow5YhSGST5-0MsQ6WcOsPSCQn3d5O9utP08THGGdfXY7MyO-cixsrvZ9Q-ZXcR0DDtB9yXeebG5POi-MYDNHTo1St0TZVviSEi48C-fL8iY6ndi164AxO0H202bfZLxELVwiHwGGJvuUgD_pjs7Ylni17r46hCS73YJ9CdiEBPyUCxuXOKUAwIiDJakhI4pBtauDt0Aan_WDRbYVZHhVSFRYHQUekDYkge1KbOmqxPlnFRvuZuk4sOQffYATDaNjDBFG48lTJ82L9zjV9rKKBFMhs44yTxIn7DCXPvj2Oct6DvnXHTlHCAm7F_wX3BwU_gPLhwWC4Rn_B9T6xusSB521hzZPkFIhJysGKVib92tdIaxUsQGVaWWM7-rrA-Z-2yWT4NnL6fMi68cba43fPpQqYZuJiBPcLGAJzE2-SePTO6B4dPJESPxlDkkgXVnbq9cnrpfResSnfgX-Fce-1oCU_usClA_bajtgYfrYVPU6WfkRTX3YI02yV4mS6w88jpAxcrI9aXoPoqoLBZ-ViLlm-hV5xacZTTUwB2jXLMBuqZjz3M7cXs6yHWnu2QTisBUYFmnm6tz4n2tUcGYw7cclcQ9jmztK6rpwicJwKnIUcjz3t3CfYZ-4affhzkORp0_p0Nr52y416SRbubhGAqbDsyNNrrB6W0ZDGyjZPzXnseFve2Led5BQKjwI45josHy_S-UI3NmW5g-as2aTORiMsxEyXyccU3Ay5qAyS-6pTypu_V5wfbxgLaFRvnPRno95YhrKRGk0gY0FAZnfpWekSD3Azc2YnQr8GTdTCUcO1dgaHsWBZZHXIZeiLW6TpRdWoMGNLy4TX0JxsOn8ORSNh7tUJf_gdqhKgwPOu9WieqGL3KSv6SnQkSnyFP3hyLI0oAp6TCXApv2WgNjclGxX7UN0.DKSHva8ToFH27VLyd8ObUdlprO1DMSHyAeGrqACEbaRvGfAuVUWBsu7oibu0nzOSdWw5Fg7OFZJgSYUHQl0CVg
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700009833-2-x-thicker-super-thick-cut-bologna-sliced-lunch-meat
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700009833-2-x-thicker-super-thick-cut-bologna-sliced-lunch-meat/
+Analyzing Production: https://www.oscarmayer.com/products/00044700009833-2-x-thicker-super-thick-cut-bologna-sliced-lunch-meat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700009833 2 X Thicker Super Thick Cut Bologna Sliced Lunch Meat
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700009833-2-x-thicker-super-thick-cut-bologna-sliced-lunch-meat-2026-04-27T13-58-03-052Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

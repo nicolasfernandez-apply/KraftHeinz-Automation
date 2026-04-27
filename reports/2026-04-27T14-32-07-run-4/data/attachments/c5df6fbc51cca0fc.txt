@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700102893-original-naturally-hardwood-smoked-bacon/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mMfsQgH9Au6VWmLXDSxEntx21LeH12LTLXZ17KnZDigN2RRVqiBt6KrScPawqz6zwUYWQKdYpec_FCAE7Aj4GEvrhYRVL7J3x5T4wmkDkeJlA2OOV-3u6ZZKlBqZI1XE71KynXU12VM72g10ArhzSAMYytY-_KZ3r0wNZ0JUIpKIxVpIvuu3Z78jnLsFh95CasX6_YhXZcjyKUrGISv9PhVHUaUm_hQ0sKntwAonih0jSpeDJ2ESfpzNp_KdWlefBgHnmdF3gfUmWpiORMLyyrCEPRQW0yfLVU-MNe2a1Ho_t2B6vzajNkIhcqlkem0w9gA8ptwRt7vrYZiFuNjxkuoWJ8dMm9ZSRHnwNivKL3POTHTKa8cLv09-zJPZCPvCSeF-W1XMYYeBTE6qoTIOfe9rzr8zh2iihDIeo55lQMjF33CWN3XNKw0FRajDF-80Z83da0rIILZa-hKkJm2pubLAZC-A9sGCrIEwMq2MYf6PJr-jwsQ8VnIIJpjEM5VqT8pptt813_YvOndEYhXhAVptvIx7C69VSdKzaZZI_U56kxG1nkTGvIh7YR7KgOAImGN8yDiPe9ZiOPW7vtfQxEpCsTDt-_uPyuUd4E0P4bVDdePFl2vcpO0-UYniTl5J3zM8zNwoCjLU89jOBRM_0MHwiqKhirNEtZWq1HHAMcqXGKgndkwhp9BHjj3ZRxMmDfC1zUNtOIjAjNM1YAbhdqMJMAkbsORzaUxa7xLq0oUEE8WNREnBzp7AToctMZJn8ERZLxWR42673JZOfURz9wmjga7VqpkSMIddMsVfOUtItix-Nem0-BJ-ByrJxho5orBWJZUNj5FXNhZG7T7pldSN_2a-fxrD-2BJ7fBpcGPRsONFj1t5Zutynx4mxiZhs3X5F4dfq1crCd2QdztHS74CwJUfhXDB6lRdjxhF56-tk8iXi5WDEjJ8HvO9B7xJoq3D-WpqeZulDphz6dYTrXW57yciOvMZ3dp2BMpxuFHx9axKOpN.9ciqbolsfRAtyy0Xlv6qItAMKF465yx0tHi4LM3BEjxex1wJQi1SjtZKDma4y75HRMxxt8qXF9_8o62vrwKN4A
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700102893-original-naturally-hardwood-smoked-bacon
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700102893-original-naturally-hardwood-smoked-bacon/
+Analyzing Production: https://www.oscarmayer.com/products/00044700102893-original-naturally-hardwood-smoked-bacon/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700102893 Original Naturally Hardwood Smoked Bacon
+============================================================
+Total differences:    5
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700102893-original-naturally-hardwood-smoked-bacon-2026-04-27T14-01-06-985Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

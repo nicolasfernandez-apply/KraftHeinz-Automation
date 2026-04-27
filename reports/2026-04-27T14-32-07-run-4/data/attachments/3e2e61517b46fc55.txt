@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700091821-rotisserie-seasoned-chicken-breast-sliced-lunch-meat-with-25-lower-sodium/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mOjp7ZwhykEiKwCeV8SQMtFNtqYvrsx3Hfy9E3k3Q9elSaRM9iQa0KSOKU95D2Y2wLVwU4fNrdIF7DJvwfdjzIkQGmfNx4DKGqqi_EUk1W34ueWcdLMG0KFtaTOUxdgZaTh72_alpvmU8MtSR7_9k6_0clmHUivAONlHNQ7E0WxCXX3weZviHD2Vub6Iv5-uUT3KYvQRu8tlsTgzSsZ8yTknjpg8yL0oy7lhoIHbCu5qvDjC-GYhwUF4zpTjNG5-f-uKkG97yhR53HZ0x0taWp-ftYDdSf2vbW1WfP1xFkF4gWLLjxCX_UAVMlK_b4wPj7yOo3xGCZeGTrhn4_DTBbSyjJbU4DoRgXTF_Olj5i41yX8q7GDQb9jk-7glwUkk_givAhJSF1UEZa3RSkG4AJ5I1zjygXekq1U58_IckaRYBqMCoF8pjOPC_z_mDn4JFMgYJTuozw_B0dbmsCru1pGmJVxQN_gk5PsS-y8KAX3J2miZnBWumRZWa2wVaahXStqK_PGEHcbwmO8YGpPN1MgX0ZU7jj-GXvR66rZDcOs3vqq8-mPYt4Swwe8BS0NNTBUpgb07McFYM_p8esKdrordjoe--u9NAt6F-VNXLsy-MbQF-SX4UYLLMv_yUjE88luEqW4wG70gh5ynJ8XHVOf9IMWZv-wUTsW8qu4_693UTqguUomjRgvqU8F46UlxbbAtvZwhXIb-zonxoyeRNWNPGh23tR2prlsUujA0MXuAz_Cp0TYMyhR0k7D9igIF9-UKngYcdy6OhevypkZ8fb98Nuvs6N5piVGNH1HuODneDaXMoI63HkddaD41CiPPQ3LmtBtAOEZLe7udJNUxfmvbRY4QAPh_GudJaAn0bYmyDBg_aak1acriD6r62BmYEGo4tnCU93JOtrHnOkpsTsClAhF2b2bC1rEOMLrTieMHmZ7wgMsG4quZFHI_Q0o_I4FdT-VndNyMvUZwMl9loRdz8d83OTkgyc2H5e0RBO89_HXdrtWeov-lhSg54DZpaVILL3RmqlhlwBngawxOvYwUQX0iFaP5AHOESDYhHJMtUJxfqkpBMj6R7TYVjsHWvYprn-Y_zRiylqpdZmwEJ10yd8X7sS-yPcWZ2TmJ_DJdngK_dShlzY2.zAtRkDwdEGRkMqYBsucojmdYuFjqybZfxkBmcUr51ADpv8om2usTRMQCc9BuMUXBY_allUwcmen6O8y0HwoOCQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700091821-rotisserie-seasoned-chicken-breast-sliced-lunch-meat-with-25-lower-sodium
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700091821-rotisserie-seasoned-chicken-breast-sliced-lunch-meat-with-25-lower-sodium/
+Analyzing Production: https://www.oscarmayer.com/products/00044700091821-rotisserie-seasoned-chicken-breast-sliced-lunch-meat-with-25-lower-sodium/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700091821 Rotisserie Seasoned Chicken Breast Sliced Lunch Meat With 25 Lower Sodium
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700091821-rotisserie-seasoned-chicken-breast-sliced-lunch-meat-with-25-lower-sodium-2026-04-27T14-05-16-308Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

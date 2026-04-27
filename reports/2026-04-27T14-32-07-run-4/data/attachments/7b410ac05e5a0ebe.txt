@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700103876-smoked-turkey-breast-and-white-turkey/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mOwQnUoujWc4FwQAN12Z-YmBBb_x3oKNG1B_NEbA0K6X6hpcSZIK__GMRux6YU5HnBZLJR1fyulUk4WEH5hFgPuXN1ujRLKcgKWNKyxVt4ocRrj5v1aN8OCHJnfad6je3TF95JLo4iK-Rf_8RwoxAWUdLEw7I0E3Hl6ab6vZkKkxyK3owbVs1IijVrjB2dTPVF0-RomWT3vEAvhZ4fQaoPCxTwS4-NPeTtwr81WPZi-z2ZBXiHV3J_YdTbZ820BtboHbfNf_3JmrWQ6IsSIUrUf2TQ9-hQxv95S77dmaAwOW6gxk4sBkW0W2M4attYYBWadHZQL5XXAtVuzb86TJMi1g_ivd2sXJJzejlMfnG6J34Gmk62rUxDOO9qk-Hh4rKfLgkh8lLfhKu8n08gKIwrH0tOoXzTckBDe6q_P8V0whbVy4OHKyVxKHksiz-Ew70DLKVQBYiU2cI0C4-CXXybhXMBZnFpvQPpz0SEzyqN-GfkdrNNrM9fm98G2QorBRhHk17dTCd1L58fv97MRBk-3zdm3-LnXvh9I0EHhlrT7oAyfsmHpFw1fq-TXfDs3ETYZt3EMsSJk75EQKFq7G6wjH0J--JIAwsThkWdTtix_wBg3jUXyT-FoOuc0gvdToaQ0aEtkO6ii6jldcu7RRAapESHkNflKq3KpqIAY-A92RKnD2mRL37MMyGa7N-zff_QJwx6LlGNCXvZsqqERzZcg26Xzowb60zXMHD5ZF6p3T2onhEyLpsK2bKaMN1wx6dQa5ng3g2R5LAD4kag2keI-acSzYWT8QUoxLWOw-mtl_UDUC8wX21umYYyH8r4MMa6TXN0KCl5IQASFKgLGhU6pS7ct1AafAGKycdtvoRJTbYFG7ZaNCoFfwDMRAqNXRZrG5cxvRKIdc-epbYCOF-6vA4Es0z_2pagyBxTpUP_tjoWGvLogQcrnMWTBsl5TipQKuZUmb7ecrvuMEa34qjmffF1S8f6jWrCZSvZX.rRtZKaIHo20GOIK674M2Kad-iZa2B7--tCH9_6_0rmVftTgjnkBvJ0mdV4qn_S_awh_C4zeXwS6hEDlw4nVqeQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700103876-smoked-turkey-breast-and-white-turkey
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700103876-smoked-turkey-breast-and-white-turkey/
+Analyzing Production: https://www.oscarmayer.com/products/00044700103876-smoked-turkey-breast-and-white-turkey/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700103876 Smoked Turkey Breast And White Turkey
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700103876-smoked-turkey-breast-and-white-turkey-2026-04-27T14-16-11-454Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700105412-bites-variety-pack/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mMuKqWxVO_v3qbTmPI7RQI-3zy5L3hCG4mJAPblGRR-f2aWu7ZPCl22DN9sEdj5O3CCJa7Lg3yBpJV4jkI8ahmej3VGI3Ik6hM01oZDqhPI6_Juar9sYNnhGU-QVEDPtaiDVjRQ8ApE-hCtKoi4UVpUPCM4im8AzReIQm-X2xLnd3lEN5GrpoSBzbLFO_TRipr66lO_vX7OZtSaLxKvA6qcKgzd4Jw5bZupTS5JDCh9SfELezjq7kJKwL7AmvWYyAqoFhHG541vJ4nLGzCKF09v7T8ddSV9YlHTSN9WJJicU3mMAtiX_BWZYjxvowwYyeFi8hXEoNFQYKu_-XRi1jb9HMJFWGTqz4PTp_LNsSffuTA0ODCfL8eO89WJZQ0aXDonAgagODVpZGdEZ13YRtnk6sHy7fVsh7HEpWpeHSK6qa0g3my1Rt33axWQ-0iaab4XJlqTAs3PDMPPaG6-4UHKOe9__m_CWSHo_8q-FzSDJb2RHaM6-KU-K7Vaq_aOBdNZVeMo9syab0ebD1oQUFgqBVdHFORVCzH-QdroWsi_DLBrqJYK7QO-Xa8S79ectFyp4lfYuQmUr4xFiMPkJBzegOCh7gJn95cXNf3R7O3lUqbm48yeOtpXauPiYm5sqjWTrHcoWbPn-tQP_RPaI4QMsijDhyrKWupoDjORzfKFtGOgzGFUwRu6OM_73bkfaNDijJS3V8fg5Mq4JwpFDk-eFJaXan0tNVtqXK7LACnR1FgBUzLNK57RRfdDl6cjCN4FuoXScGsDRxRW4UNuuFBXG2ERa5s4SEV8qyniYUkjkChFAs8H2Llc9667sJE9ParBZoePCKB-yxFdmPrbrn1LVkHXaUkHvCm36pqy5PxorNsSc9wjqXAhyiZiAVce1EORh2iAThCEMPTlzv-83n1iV0Qm.6Gn4JnY3DfeCplmZYN42mimpUkfYOpddQN-5NcrcYGDqZ9pGGw2u8ijq1UWICLcDU2hihsCTo98IwiXsQhHfTQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700105412-bites-variety-pack
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700105412-bites-variety-pack/
+Analyzing Production: https://www.oscarmayer.com/products/00044700105412-bites-variety-pack/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700105412 Bites Variety Pack
+============================================================
+Total differences:    5
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700105412-bites-variety-pack-2026-04-27T14-14-43-131Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

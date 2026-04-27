@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700087350-deli-fresh-honey-smoked-turkey-breast/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mNIGmOTvedDJcaESRvcrp00qeEC_EXjzs0W94JWGE8pojCH9dfzHeVb-jjqM7vkkZ6qMjsCay_LdVRjIaDjsvlaJjlRuNVgUmJL831aRdXd6N7SLnG8rlzSrpZgg-N1I5rGAsWBAQOw-_AF4fUKEKJIFASqagGirud7TFAWktBIwM8XLlgNqcXz3F46aARBXKU9iY5-7VU1US9fJpuYv9jk1wHhIA86Bh4JzeUNKTSN0VUrza57gzFzZ3eAd2D_xA1sj0Ml5jFrbQ9pU_fc3tiYQK3jrN9Y7_EmftfyyHaDt1UWEc2fBLEIf1NTNk3lxv4LvLzIKnkMCQzk9bEyR1T6q8De5XaetUqpOZq42oDm8TbpZtvf-2y4Nv9Wk_94CSu97ZZilnZ2u7Gi2doZdYbp7PAWRcaRjZNMMCorexl-WVSVb-WJXP6PdAiePs8v5YxEkjvaMziR3hBPMgY9xc83mroOTYvwTUmdrx8ZUpSwxGGGGm4gGKGMPtDi04InQhhYnebqGZjHizp4vpoj0VshAwFyOBlCrgX6UPOtxsVxr1x_W1bd0oavzLiwNTPmMhqxYvxpHYKD0VPDCSpfWsZ6RcvSkcpRa1A8FWps8PKZbNAjqf23x1xKXvvDJQv7RbKMkvBgIftr2lIiQ2JSNLM5xVZEVg5M9Yrk--wd6G20I_AIuc1keC_cIAp_ynkcWevsXJ2b3A5EEb4TiwMaJfWd4h4b0hutploembNGFGeQXtYXJ5Q8vw3_J1njQTmbMhrFz-ujjhXp3u0EmmJ7UaumRwe5gL1w5oMEo2LeS4-aFaHwF1VFIZd1KgFCR5McLCIHtEPHBc4TmKrgmg2PmcSjbSlNJrs0JM7P2ro1O50vpD_FlCXLtPlY_MtzDI5h-MxpUZqltbGQshJyfpkizB9mfnDdf9md8GahHGbWqb2Hd4uiUHU9dOnRu6Lje9h3DdpwOstnyrUQ8az0g_5A9vK0ZdIbt0k3ST1Rn0d3.mHqvXXHpoCLJFpC5l1FUoK0ufY-lgQZR1cixaD0irRzw5Ibj3YxP8fDO0LCUVEKv_0bCaBPsy6QeOFQGFpHduw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700087350-deli-fresh-honey-smoked-turkey-breast
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700087350-deli-fresh-honey-smoked-turkey-breast/
+Analyzing Production: https://www.oscarmayer.com/products/00044700087350-deli-fresh-honey-smoked-turkey-breast/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700087350 Deli Fresh Honey Smoked Turkey Breast
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700087350-deli-fresh-honey-smoked-turkey-breast-2026-04-27T13-58-41-602Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700104552-carving-board-buffalo-style-grilled-chicken-breast-strips/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mNd2O441Zgyr0xz6Wxq2EQ8nf4SoBr9FZ-rYEqdl2yAcQ_ZJxQnUxVR2JUY9T0LXoVoCTUA3O5wT1AEVWlszYNw9QBhn5iw6cr5pP_6EEOx7BQUSqKzDo8L6OZJlHCX9AIR6sLda9cJl4Sgaby4RMKDE2AsLbschP9gWq8jFVpSOCrQvgfoxOT1Calk3FzsZkgwK8qk7aXeaYnGFqRqxXrx2rIrp4LHGeCPDtBf_jV9RHGHx1pVeP_Fxd9Q_s9jUvrVBwDcA6_dfat5EzH1MoWBewPwszSHxxVvv7ziD3znxRPoOAZV40rSMl4YUoBlhT2s6vcOPXU_oq_UYIw0QOF9J1akEwRGLd71MHJB7n0bGlQEaI_jPo03x3yl8BL6YWW1crHxGF3JrRxXbJSR51y7nT4rp2UGpxpj9uy8NwkXBFKX5o4YfzHme9ok45kHpTVG02Or7z99t5ajmkvYEF0ncdpGxxfZVLx61FM0vz2A35u2HZh0QCqZs_5R9QD90GhDKXMMQ_fP4fwQKfQol6ISbPaOr_LmgRHXYWtlC6_zyZVIwAotIiWvhKEqYVgZLmT-IfkfXsiUcbTuWZnPHOyg2fniSSyXfNPH52dt1t2BD-5fpfZC5zzily66SxE4kZY3zDjhdVcC17xxbyqDYzANXeMqN93kuh2-ZAhoNXeT4kdAKsLD9Tc4THLNKl1bGscqgTRWV2naaxf1vhSaQBWgarkME-VdJFblb48MlVUFYOxngEk8RUWrbZP9Lh41RBqna7UY_TaqdoRJQqG7fYKPeKuYQjqvLrk83GnFn1T7BdJxbCvhC5QAtp-y-dgZ5bcLrMpzXHiiYsVIp7S740MGlVgCBgbx3Hq3qE50Xdx2rVO5sT9TjbHkAP2qITN06EJn8KTUAisiZifpQcCNdVAbh2niaFJ3DwH_bmFgClT7IuK78wguWGQt0CtM55Ez5cqKnK4GYFIO_BKxm8bUuxFSgapJX1SERBcpg6PFmnfsBSL3CcChiVjnCKKsUQDMqWNwLz_cb2pRfvJZMdMoQOMbmzLMshx2rZ6bEOK1GcUheRseSZ1IQPru.DDb5E9Spic5qcLKSaubuZstLVTQR0tMBPD0U-cnOMGQW-xo7fJkykZ6GEJPhR6wkOAIpcowoSHJ_I5KF1luOrw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700104552-carving-board-buffalo-style-grilled-chicken-breast-strips
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700104552-carving-board-buffalo-style-grilled-chicken-breast-strips/
+Analyzing Production: https://www.oscarmayer.com/products/00044700104552-carving-board-buffalo-style-grilled-chicken-breast-strips/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700104552 Carving Board Buffalo Style Grilled Chicken Breast Strips
+============================================================
+Total differences:    5
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700104552-carving-board-buffalo-style-grilled-chicken-breast-strips-2026-04-27T14-14-30-978Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

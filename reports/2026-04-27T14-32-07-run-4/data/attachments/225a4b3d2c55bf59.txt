@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700074275-portable-protein-snack-pack-with-ham-cashews-colby-jack-cheese/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mOMRrUlF3tDq1agTUy10uXxlaGsuVr4pc5Wy-MKxL69KRp32tr3llk7eUOxdsKnfabjH7040q_hcC6iwpCvk6hTMqeifFcOTCkkdjIjdac-6p46s-7RlkBoxbsS4d5O2JhG1tGdWJYZwcwPIrUlmVgiRwTdnzF9KK1REMjumFnl08YsHc8dNiT54sdOCHCVSr2N7_5elAezOvsxsG5XwRfc8yOXYPcuotzQakV4X0DHymJzoYI3QMyOpn1PbVpwWHKHgdgwlHzMkxN2ziIML4pYwEYqpFNqYbbybZ9H1WwaAn6BbSDdUXjwl5Z_pVDacYKc5X_x3mXP7DHcEO2Gq3NPYm6k1i1RGmH3LXA2MfUMLaxh4J_yj3OUxoFlj6bFHn8LogQFjr67z771KCONE1n1KZD5aOSMwxile2x2PdUCtCIGbURvZe_nMhXXomPWr-lQbp_34evfX0nEbRnGwdjIcGYYyQ3CgTVQSQBIhVLoSYVFALRWuk6KNSLDrfT6JmNcn-t2eny1D7i-fNaDkBztnoQiwPSU49_cFEF1wyaJMeibvjA0EjlP1WCUwYQZCDnR8sW2oIRlZliVsXhZ8hd9fAWNc83NI5W8qpRkoRw0ON9-0pY2gwIkx9XPl8TMNIW7gdeBOWYtQly87JUm8gRSkNgZ1giLzxhIJG3Z5M-nvfyoXaT1f3EeMQHoFbi4sdxsJGEodB2J34I-9Fiq0VtfyIjx-1nYFcgGlukkzhon7UzQokgx9FBn-KaouVJ_P-Z6UP7vUHf1e-zTvxZ0tX3dL3YSWq523UNFuPKNMYK1tmVxKEAroKuTJdzp43Qn4P5DOhEZy9Yq1Et8RbsJpsCj5Zwm8Za7EwhkvaZ8RH-KnWbwlz0s-pIcPdYX8fBiH-5biZPw9IpnVPGyjt09LnQ3YW2NhovPx_Pwbvx2cB37k0RORsSAJWulQIhYEVuCBlgcMCv2Nqg6mdhK6fzJVdRwGkx15z6P7LCAmlNvRLLxe65szWXkRD-aCMRHFrHtHsB6vpKu1j4G-to--3o2PuKhKRvzpRwABOyteG08RobP08sylFYA9DIQxihWJSQKxGSUUizEu2HD.oSHlss7Ux_qI6m4B1y7r3EyfCa_3Z0zzIVWQAFoWgCFVNDWlHUyHcPTTAhjNfO6YFaLgAdMYSWFr_uY_dTY3Zw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700074275-portable-protein-snack-pack-with-ham-cashews-colby-jack-cheese
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700074275-portable-protein-snack-pack-with-ham-cashews-colby-jack-cheese/
+Analyzing Production: https://www.oscarmayer.com/products/00044700074275-portable-protein-snack-pack-with-ham-cashews-colby-jack-cheese/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700074275 Portable Protein Snack Pack With Ham Cashews Colby Jack Cheese
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700074275-portable-protein-snack-pack-with-ham-cashews-colby-jack-cheese-2026-04-27T13-56-25-987Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

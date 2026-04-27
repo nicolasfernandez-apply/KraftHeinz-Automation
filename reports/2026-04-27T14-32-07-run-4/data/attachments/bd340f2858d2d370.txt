@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/test-blurgate/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mPFiqnVKBl-Mvt0PkS433GoqR4QIoagDmTU_x_x9dFe-YIMyzCwc5gc2L0sZl6KsS8Y1LmDa6lby8o8xvsjqvw3OYj4iuzzXbNNhCFragHSxx9EWKRl0aAhR5RqBe1pcLdpT6cS0JHoj8j4NB_A7tlzJzDrZqhOFqJ6qTY6pd7mFiypOhQoWGAHYOESww4zgcdXcPOBQUHxG5i5j1SYti8V4tKADKJXR75o8TWhs2b-8gaKLmgwSAwIlvsEdm-5hR0M-tDFQLM-4B0qyWkSWZjirwtc9tsj5k0SZm5GNIfTIpNxmS5Reep93Cv1nfO43_pBpbC8RaBLm5UbkU1fdsgmDrAb1vfVx2dvp2Eh7YBUgXL4AvxTc82oIW9H8a9oSa-NOzQkOi6PsO1xJEAcZjiGqBT4fynIRKcoD5SKBT_1HN2VJL23AEG3CmwtivDFrsWu9xXSf2QL3sHGBfYEjUmvUfOO1_TzHHB_20IaGEqoLzLwWxxzyxn_4Xo7W8qSsFoJuSJtbDMKMM5GfbulSJjUN4qF7EXDYLnyOAjpFxJI_n23nfBtXD2bhbT7KqMu3VE3_1Tv4oZneFAvZMjSFmSDrDv494vEG3jJU98BmEzeiw5KmCFAwwo0NufqjjHuQ1njm-Dbgwydn-5IKYQN6UOzM2VcKl9t4Bqh_s3wRjvUan0qE_sbWLqeeKO3_hvbDQeAu58E649_azhdT2Woh1gQoVonWfMqJjHS0YyTk05WeCkdJdKehYmnLLxW-pvJeyVSr5aK8JZuRK8zBxaETGDwgY1EypBZlKn2lBst.QnuRallFreNvQ4OjraIheQHPDkYeA9tk6SusQhzpLhCBOJV110FwHxTZnULbJhAkSbgIdOtTZExY4pOLjE75xQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/test-blurgate
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/test-blurgate/
+Analyzing Production: https://www.oscarmayer.com/test-blurgate/
+
+============================================================
+COMPARISON SUMMARY — Test Blurgate
+============================================================
+Total differences:    5
+Critical differences: 2
+Preview issues:       2
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/test-blurgate-2026-04-27T13-46-36-352Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

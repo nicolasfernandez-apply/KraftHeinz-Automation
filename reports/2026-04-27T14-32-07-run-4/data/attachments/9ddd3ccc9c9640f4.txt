@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700105023-maple-bourbon-sliced-bacon/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mNdrVggN4sXB9e3_3uIXsnEGMbMztObY44_RHV3uxDTJcqC2GWSl4QtLni8TiUWKQGR7Pi-yRiSm4TVera5zYChJ95XVElmQ5c0elEJHTREpsUwpRw3IvCuA1lhplGeR3w60v6VBQ1e0JljRiVmt80KtFdmxjCZwssu6__r8XDffQlTvsrpe8hWU2taMJGlBzHkLRm3V-eO5kz6DC95nRTMof6wEuGM3b8YTFsgE3f3SPJ_lWDke8pSvSdttNpLrZkRDptvnD5_TS1RwTXZJik-A3w0RZBaq2EIiawYIyYpHrUY8kkeXKjNOfMZQpJmaF8q5XkHAJf1noz8wigKJH4bLvAbwD4p5PoxVQ2vBEz4_h8DpQ0KxZHIMjzZP6p3IB9TdD0m-Br-wQ0NJABc0mh8m6XifgAtOW8GqmhfU2z7RP7Kk9D6eyjNJ-vfwvUqFk0jhVvGi0e5KDp26rYMpwM2j3fIfMjNCF8DRiZY2Fxc5IwXGSKTGETxhTQhnBVSgsShJYbGVotKDuS0KBbfecyJovfPhEUrA_olHN89n_Yt48sMLtBXptDd1aPvMBb_sQUjAW2XUIyhIjTnHK7nXmiRqRkNeqCFF9NDQLoz8MXy_8Tmb6X0-Ip3LZeue5ySrtTLIzW0zu-KoILWlWHi6yjcojRCgJRJVgMK4gunTMdVMI6Td_hYYFrrmleBJAAgRkqxcsSfSW2BZL_oMiwin20Qzhl76Bg_i9M63E09mfDIKLfMjOJfcz5S6G69D83-RCtR8IWZ9d6dmiQpocOaSiuTt53Af27sm8FFDeFqV1HhT1nhGCbLmBsPoVNNAnuSLK2MW6MtJyCfSBGBktQIaUevnvsU3tHVlIU97pQ6rRHzJSNbwjdI78b1Ood2DpuHKpsE9Tom6qMd7JFWUs3fcG2N1vRZrKRLX0VNkOWfB2L99NOVPKZ6rgLnKcKr.r17S4JwisHNSDO8UzB6S65OKIeiGtbPOQ8U7BKsbaHjJVFF856hFG2CObB-Tieb3N3UiBNFpuJPwBoQOn9cf3g
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700105023-maple-bourbon-sliced-bacon
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700105023-maple-bourbon-sliced-bacon/
+Analyzing Production: https://www.oscarmayer.com/products/00044700105023-maple-bourbon-sliced-bacon/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700105023 Maple Bourbon Sliced Bacon
+============================================================
+Total differences:    5
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700105023-maple-bourbon-sliced-bacon-2026-04-27T14-01-32-727Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

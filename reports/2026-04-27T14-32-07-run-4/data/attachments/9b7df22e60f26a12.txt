@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700102794-maple-naturally-hardwood-smoked-bacon/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mNRrdCWbTusR1X6ibY9CtW3rrEuZqjjnErhioHEvl3IEB3S34mWZjpNy2B_Zbryd6JWWnKr2qp5TTr9JjlY_o0y-4BB_gCnpyO0DJiNWGCxom_4CS75n6uuWfQuLJ-AqsVzVIWobeWB0Fj2djqmL0GkOJ2bYOZBFUuq8C338KyO5kyjZ4I_coe7TL3ghR8ccWKMDgHgYAMeAk2Y6Bny13-5Rqyt-Oc_BkaBRmH9bJOeV61NfskLkSfXIMdTaY_YiPo1AcDx0Lq547SykgXZzGK8PRk28ybLql7vpBp0iwPA9-tk1zZGlp_E2pxka5neJPGFFu2kGvbgHoOx54cz43GjxD96WDVG38Rn3Q8PSbBtF14yi7_Ow2zH_opp7otw_Z1C5fykJoBteVAK0FmuCpBG5DAW9Yd8W1GHwOnvq_i7cLh01gysriP7ogD34K3keL9pa38lSsrZJyFNpHzt-a-2U_0S5B_q5GmijXpAFY-v0R0R4ggKHwKw1UBf4bxEHEjST5F4wXkAiDh9c6_ZTaUn25Mm9nYNB1Z-vI78pk_nR-SQ6Bsv_svr3vkxUdafNqsjrECAPwjVJKJoCzxrEciWzc6mV_AK6tKe47KeUhOZkN_iZKDUjHN6p_gwLUL-Si5iygrxFshweu1T-Q8akmkKOuNgW8V_pcnSM1wSJJWyg470d4cEpj4VkODtyu81mRKAP5HK0uMYkMdvS-ufYtoq3wh3ypNoUwGpPi_qA3ws39IpGwH2aQZ1GsJ5L7LjKPrRkEsEdlvGbgxGGS8ukMvuTELItT0wi0DEpLEplNh0FsKDD7dngQfqHKtZQrl_Esa9TMH3j03z67-b9s6-cbMdfb2RsrzRUwFuNcr9amhPIS-ApvHJ_W1rz3m6v3eit2RZzOIwNw9uLGYGEhEj6VrCIM3gfpx_VwN14vyCG_OhmF9v1pgwsNpO5JtbHbMwixMTNbfeLIQO1-Fgix9usjdNzoj8pMJWGeBhIYeJ.0p9LxHY_nBbNoIDwI5FCuU8IHWNhRk5b9gqdRvyUiYNEQ1neu9bk4lmLpEQUuwjpJvb35-mFCfSyI4GIZpY2UQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700102794-maple-naturally-hardwood-smoked-bacon
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700102794-maple-naturally-hardwood-smoked-bacon/
+Analyzing Production: https://www.oscarmayer.com/products/00044700102794-maple-naturally-hardwood-smoked-bacon/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700102794 Maple Naturally Hardwood Smoked Bacon
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700102794-maple-naturally-hardwood-smoked-bacon-2026-04-27T14-15-58-435Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700104194-rotisserie-seasoned-white-meat-chicken/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mPg5JUSvC8DF0D4heesE_37ZtthxBtLmhsSbgLcythHf-DX7ahUKcFoK7U-nRQslupN6LEDNpGwvtUsYMv23ny-yjVy0o2VOAc61NJ_clRXwDc2UsVx2SNv5K08OU5Ujjk1T0lH2ljUlP4Oqzi-DAeRmNt4V_DOTnmfX7v-GkUKRgGf-_1f6uHo3iPbYDLFcT8Scn8glUastqI3hucrFozJxwPq-DsH79a0UBtco_M8vS4yaNQuITv9mj6G3Ff2W9os9ziiHI3r4I5rC9EAsJSgf9ukYdz0tiocsyddofLxV2U0OEwPzDUf_affLGkol8vBDkkbpOriInqCRBnShOTipmDJ2kM_oPqocXtmQmE7jJYdhZminzJM_RcWFyE69EZgDZ_hM5iQjPIjxtPyZ8kA_YevPqEvKoEBf3lifNUY99MvZ4cuOpoiLYjYAVpFXqQ8Aboi8lwdWtHzELGkPsRsIdyD7iCMZzM49_8H65mtKBERvvVJcp81iLFJvZS8958lrymb4s-k7emvHwFoe_Sz61d3RBNDs3IeN-Nx63bWzg-hPDGR-I2esLaT8y5boE9DGuszQgcgaKKmT6CfV4De5TG11ddgfJP6fbnj8jHrxwkeYQ_5ulOu8cSug9HfZfM6Q1fRJrDUfcX6XwsqKTCBbqskTqiUilEHZZUdYCUu9WpaDsWfqVGZnbtCP-ieFZ_6pdk1Opa1O04aRM23Ya53pXhijXXQrzRbuzqKb6I55DSRf9teBbLcXEb7Fn3OF-egkiaR2kmTPJrAiszthhZr59E_ZTJrlssn8CIbIXmiTXdGsm1DNFnS9aNSeE3YRwOnY98BM8dkRB4Ad_S-5qMGSiDhFZo913eqUE96fC1ZaA7O09SWLGfemhcNlRxMNPsznpoN5sMVPFH02b2lA2V-WTvw0KhyEQaklEEw4PFfPojOVB01cJOfoUbTw3nJn52cPhfi8NlWV4E_ZtupHHlGlViZd7v1L7u7zAruTk8O.jlSDb0yvqrovv-Y7IL46TianjHhlxa8J7SAapGmAIICu0GRxuEIdclNDNMQPMno8aZYvrVb168wx5NxwaFj_qA
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700104194-rotisserie-seasoned-white-meat-chicken
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700104194-rotisserie-seasoned-white-meat-chicken/
+Analyzing Production: https://www.oscarmayer.com/products/00044700104194-rotisserie-seasoned-white-meat-chicken/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700104194 Rotisserie Seasoned White Meat Chicken
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700104194-rotisserie-seasoned-white-meat-chicken-2026-04-27T14-16-24-100Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700010907-hard-salami-sliced-lunch-meat/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mOof4DoPmwv7yU5l5mGySHKr9MlpLjhOI249ht9rTayz0HnUrFyEe1gSkUur5Sdsb6lE2xs20a0kWpxX30UKVuKZmnIGwv2ilu_3pKjDriPBd34BzzSxNUjuuZO51KJnLK6Zt3SdbIPKm5-WHyP3Xsw1fQTg7ZROje2mh2JZlrS2zEfZSYNqVcqunSv_WmwgGde6m1li3dV0xqTHsliC1R7RSXfoOmysCXMVtIOnq27i-5VGxMMbHNeaavjzkKP7Ri9vugybEohhyBvMe6CyFIxkTFl_Ozh-BqiUD4guOBFh6i1Ezm1GCrHakHxeGHWWOmuig7eFE32j_n1-ao7Kv1ynOZyIDjARypp3cZM87ZiHlrNAS417kQf1ZEkTTGpFfh1wTdBcz6LQB3VIz7etiI_cy4wZIKE-GTC3PIveSJfK8ASdDdShvgmAZ0hpDyBNQoSQ22u_GdYynKk-mnrfMiV846-4VEo1t2gNsYFpr7Pk4Vrr7KBOqnzR4dPIdDqoKnf35iiKpXn9GIHq6eYHrcEBEH7nR7brVRjbhz7HrDTkAI-c7HserO2dUVi2tGoZypYoVEzYpb7LdVAZ7O5LgkiZMQWkHsZGdWxRBV6fds5gQ2IMH1UmuDPq6lod09IM46Y4YtCFOTyhpKt4zhWP1B_3m9Xsdd5mLW9Zm9rPKIVMCP3tN0slAq42nrb9dflMQIi9a0v5MNjZwxQAuObnLj2PZ7IMkf7bkDBiV-SqutzMYTWFQdQYcB6A4EpJkltC1Ins4CXs-ANtuUXdfmwstw2b57yVjMsGfURoYduEi3XUwOlTeIEBH56f6-ScaahKMo-9lysn3ZL7UqQyQXacNoKFPZFaNmQPBlRV3bBhX9fRIwqShri3Sgmr3GwERGZkckezSxqCyInoTLbFQBWefcerdDDG6mCzTJiC5SKpfzYUzK12HgkoVE-Fp04vIMDhwqA-FAz.hsOIZPHf221mG4MOZsNma6UfAdL_GfBmfY0CTglUgQexrwr8lHC6iP2U0qQq3J6mHZ1gKiicJtrXZc0oj71zHg
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700010907-hard-salami-sliced-lunch-meat
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700010907-hard-salami-sliced-lunch-meat/
+Analyzing Production: https://www.oscarmayer.com/products/00044700010907-hard-salami-sliced-lunch-meat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700010907 Hard Salami Sliced Lunch Meat
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700010907-hard-salami-sliced-lunch-meat-2026-04-27T14-10-31-431Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

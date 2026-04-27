@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700019238-lean-honey-ham-sliced-lunch-meat-with-added-water/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mO2-hlJohz1C4yv1H2nkQlZiL3k1L3veBTjLUK_WGAGgtLlzDcWHn3OK-BVpL-mIWpEd0X3BhGfYkKMPbMApvvA2Ssw0pdEHpBp5vThnXk076BxDllsYFHdBE3tT7DLgavzdstf8COdBoC-1PGO63qXjx7SesAoiHBVjR279NZY_fGajgQgu06tLGUE4qL3o8u-5heM4ZYTav2R1eYuZeLD9_loQjRBDX45lBsHSVtzflv1uszYdMkxF7TFeslX6AJwoBV_vD-4nSv4PB-HpkV8dyCwvrhnzN1pMoyjdKO7BBj9ssA-ZrnovdCsf5rd_PNzphfvhlRR69qDsXg0238R1g95CuCkVQvfCpW6DZGNtiKKzkxH7GKqP4OnTIpvsFebiCEFsS40v1UopTTLdwWqEZ-B5YItKo-ViNuoJvgVz0Ea5Qoxoj1Oh2OYvfAaHXMeOPcvhelqcGSpaKlCZ8DREPA_cU6FO9Nkft4tCQ78I7DX2Bvnbga7xwg7JadXf2AFuG_K25wIAevahWvmK_88EPKyzIsd3OkgxXsoriYPd5rXbOx3-esSTVS9uz8dx9vwJuZXrN0ubyRk8Ok6W_XaI57OSYc7sUpU2RjqMv-BQBWUR9SlqKX1xZ06k6cMwtqy_D5RWPj2b_UmBixpOrGU9xEtRxaU_i_Nqpcn4e-VnwiEMnIz-EgpK-WD__yxPxj7XBDgcIGOqDk2kFez-wo6bWG7VSK2-ITwO4omiFmM75kaDyd0xYpBnfD_7ZfN5PS4clb70fxPlAtfEITjyKwZaPY5IyiNYWAGcZv3f8RukGZ2H8MZyMkKgI-orCRw3EchPYLmq8LvSZ84wraO0Ad5nnEg4oxo_hFsRRlmcgyn6uQoteTiVu5vRBZZsgoQmh4bMjkX6geWIwyh9UCbJxS4QnlELhq5MHIvsPhzJi2tkER5fJ3y4X5h391FP8WvYTM4b6c_Aalsrg4gYTf_-dsz1Odi0xgLHLO6S5bBQKipvgPrgvtQxnOuUr63wGR63CBE2McTshfS_FJyCTCS1HGH.9MBl0fuEPC5-lSWNgIwbDSPNe6auKRsvgGrLxvM1i-RYB96JN1Vg0m-lr6UJYKEIek1PVkR3amW0I_f1mvHiOw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700019238-lean-honey-ham-sliced-lunch-meat-with-added-water
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700019238-lean-honey-ham-sliced-lunch-meat-with-added-water/
+Analyzing Production: https://www.oscarmayer.com/products/00044700019238-lean-honey-ham-sliced-lunch-meat-with-added-water/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700019238 Lean Honey Ham Sliced Lunch Meat With Added Water
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700019238-lean-honey-ham-sliced-lunch-meat-with-added-water-2026-04-27T13-53-41-264Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

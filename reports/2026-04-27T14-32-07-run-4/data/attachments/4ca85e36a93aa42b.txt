@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700019900-naturally-hardwood-smoked-thick-cut-bacon/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mOqtSWcFuxjDswAi0lgFM0baD4F4BES9J-wm74dM1_wKKT4umNmqY0LYiDZHlBouTgghM-407CtDWIJ8rjyB0pUdwcPzn62dGRpUwdLaABOQeQn8Y4-LW_Ytq0q9tPoMyRrU-4_TDTjJKjghJeAeOQ_ADwP4ZIc9Oy7tZiyeXdUJx9GH7dpW7cWE-fsgkqTVUGFj51QNv3FuNsgJscrWY3_UOa5-LlAyln3z9J41Zufe4883Jjpx6MQir8nlBGcsPrVOGbLYiSbLnySi6Fq7viFNbC_oOHQk0qb45TVWjjrrfZYEpy1HJHcSCAT7j8Ul_Aq-TUjfE9OKddlD-1QNoqdWUGk7IEwfMC6jGpMiAd0xsOG_rf0wGqM2VZeDcAcLo8lUGk05UehG8SvZutB6Ng9KbzKJYcYS_RaERFtW8XEkZP5skUdq-FTwyndYppQ6LCKCj1k-6mjJ52BruS0z52hH-fHZgHm5iRdHMxNhH7c_voRQWQP7XPko5BY3h934jw_e8W_R4lShDHCzbdttmatyZlfOJNpoU3-DG-0zVIYzeUxxLyONBk91NI7ZJadQFXMoZdYRhIuHKB1EvEGZ6VOclVEp0sZNcWcLKGDLLvkiZgwfxKQif7jqiZoXtD7mhYd79hgHFX5A9vTuoXIiF_dsQvilFdTAN_LzSNQ0aPPbpRS52ClzYbwbfmpazSH0GW9tMG4MWgXmcpNAbZQ95WovVYafizhsFrSpDbLBamIJ9pBRnG85BjiY0kQ7YvKrz7HJxbsWkml8fb_AByIyAMW7A1_nnRrBjYwPlYK9uP0P1cROB1Eyv2T-kB79NMYGfxpoxDC36cyP5t_1K-tI0hOnob43yLbAgoj8j9xAwqOjtYKb0Ym2rX3zxDYLcdSpTXaKilvYZI7HMrXdwh0xKa37bDQ-lrErxx54CqAYPzHms2NG4tSv4GnyBh6Q0r02DU_MLHtpQLHu-a6BfY2O9UtnONtun53gtSFXkPyDokZjRTFXbFy01WC.lEr6Y7sUoeSM7UgFvl_7VYOr5HnVLT451auwczoO7yoDGKYkd9EMth7T2PQB0osDzORppb_8ZzBE7PbAT3hOpQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700019900-naturally-hardwood-smoked-thick-cut-bacon
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700019900-naturally-hardwood-smoked-thick-cut-bacon/
+Analyzing Production: https://www.oscarmayer.com/products/00044700019900-naturally-hardwood-smoked-thick-cut-bacon/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700019900 Naturally Hardwood Smoked Thick Cut Bacon
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700019900-naturally-hardwood-smoked-thick-cut-bacon-2026-04-27T14-03-43-865Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700019764-naturally-hardwood-smoked-bacon/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mNM46qIR0mz4Xy914CmxgQDC8pxK4Opsfh8GiGzFxxLgE_60JUCY1yGFJ6oQQuwz0rLtsPnFFoIPhBqYf-K5ejpLvXVwtxSMNlt8o6RX02_Um6dToxcuGd_L5vfgon7h1vHeb45MBm8wL6mnYL70su7SEACZnzkHE-t5tcT9_eca0fqtzzMMAL53ZKPYOJa9E9-Ax8WjfImr_CFu7cGW7eAOFDA7uv-ZWTfHDuIiKKCMA5-l_LtQsea2B-rXoNfTH6dzJUV_wx9mh2tfJsKn80ov2q5DU7HfN05sWdy0xW4_jc-l2PU-YBxlPv0d9uQtLrRujidWVAUAupZsErM4lTs0vOJI_evYWhC66Hxr_53Pdo_fhytdWIXeZ9F1hmpG7kSIoSt1nTfXxkpNEKmtnetcYqtI0oN38WzOy50A265VK0C_I5QqPAnB2vVIUce1Y6w_auwwDvPFAkkPmSz4GTook5huH2IB41SQzHLN8FT6vKTbKGcMUX-X8kartCCfrvMHdPT73knhqzFeF-w8-asVStHELY1NUJyNLzNGOIcV6wRnVxylejkEHdUJ4LUx55g9v8YJ2eBsXPghZ8YUU5h5FLMVfYV29X1kCg9T9-nUZwLWR9proK6ZQOXBjIYHQZDik0tE4HjvSNwVrSZFEnbPNxui8MvdeGqRGcrrJh2BXr1f_1HgowUTRoodXnRyQl_qRFd7r9-irqILXElJ-LEdm3RHFX0iV_lh8-QxcdE14W1lmmrBBnFl_-zg5iSD3r8otIwFLnvit5ZTS6SQmbqvGisaNdxaIvQXsMZV-sc4DYhYGPJLyAip-QR5L-F7xVBr7fZnkr6Q84ZMqG9Wg4Qo1ck_p7koFiftLTcI5qNI60fXhNfJg94xHT7cIvdEcuIq6fVectONUoyNhrb5CHjEYuBNmKdiXHiBEcKzi7B2yE1btBsT0w6juDoFdk1T9ksNCkWo14kXY_h.ymG2YgsnYoMQR_l4AIQ05eK39XfHbKSEASTNlQVzGUy5TNDErQUrFKQxuxMh4JrUbldHGi8a8d1UpS8dwlFo0Q
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700019764-naturally-hardwood-smoked-bacon
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700019764-naturally-hardwood-smoked-bacon/
+Analyzing Production: https://www.oscarmayer.com/products/00044700019764-naturally-hardwood-smoked-bacon/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700019764 Naturally Hardwood Smoked Bacon
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700019764-naturally-hardwood-smoked-bacon-2026-04-27T14-00-07-912Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

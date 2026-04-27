@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700022887-carving-board-flame-grilled-chicken-breast-strips/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mMhzY_nPt20jdNGs1gElMJdevLCPfpznPUwdVh0moGWDtDYDjU5Vta_YNOrBHUrn27nOWskRlnSp3Gpg683Pg-B8RlakYdccPJVqwhEsTxb93Bx1O2I5L0oGRucRFAICHlnD0PmfqKT63KSpfM7acm5zsupXT7MIJztgOetOw3Wwx-AgF_raLVBI1omiZ_TYVmevQiG77NOwCtRak7uYW-7xzdy4Hrf777FTix0RBKxFFnH5CN6mZ_8CwwxHwwp1nBI7-_omVIo4JovsLrimWNxajpa8VMlIKXriqYbAe2FOpjX2CoZxprfurDNHgxO3GSte0UmKZg2uxuB5vFss0fhfBn9oW8EHTIhcSUklJDXQgQoLBpd5Fcsl0dI3Rm25L1tm6H86GWAajC8kQBO1EIaevom1VTn4tNHDjDuo0kZe_4Dh2exkgN14QDX9-pDmXkrh_5NJ61_rXeIYKUX519lwQTui0y96idXzF8J12vjgD57VbJExWhTzrr6-jPJSdPTtpJICJnkhhv4ZW6b7Ks5vVzeHP61L66mcuMs3pprrASOAc1pa8d1IDwWL8BXFVfd9jBHplXs6wA9HXZ61g_cZESpykq57ofRfuU94PZRG-n2n5pCSkifnVoz-YljdBmg30m8wtZRs3MgtxtMMLtuZ-zJ20PxV0o26UEK65nolQS821LasOj7x-OajP07o0xX3-sCbZTybKsQWlzN-GzTBjbp-oxoTZNXIyXjVimCXmJ0CiW-qA98-9OA76YghmCOmB52wBR9F8mwWFYpjU_-S5riSFUruI1uEcRu8Qrs9sg1-tUR3BwqPXZt19qflQUAItoYXLBzUxzJRIas26toypEOVZIwRH8zhBCouLupHBYi9WwuPwL9w8p6Thobloc-9i5-8_feEORs-AbvceskO5igDb9Pjfmlu9xlnHsk2uz_E90A_FLl-MLlP6ymQ-YO_09unYXHdGGTQx7C-HiElPkZljLqeosQoUkTOoE1KwLmkPbRsGlws-OpS5kfWyTTfCK6si1qV4oRYwCyBcZ8.5KtCsvacx2euPN6LInushiTlgpzOHEp6SeXDY-2uDt41-bPOPBDZsbPjVS9coUFb0rUeJdp-wWHk24sLcmyQ4Q
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700022887-carving-board-flame-grilled-chicken-breast-strips
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700022887-carving-board-flame-grilled-chicken-breast-strips/
+Analyzing Production: https://www.oscarmayer.com/products/00044700022887-carving-board-flame-grilled-chicken-breast-strips/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700022887 Carving Board Flame Grilled Chicken Breast Strips
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700022887-carving-board-flame-grilled-chicken-breast-strips-2026-04-27T14-15-33-398Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

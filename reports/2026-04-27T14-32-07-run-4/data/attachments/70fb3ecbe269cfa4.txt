@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700104422-sub-kit-with-oven-roasted-turkey-rotisserie-seasoned-chicken/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mMcJ0GE-GX_kPSSDDtft0RPyQDCkjP2eJbG_L9mt4uaYTazoJf62kiL7i0iVEawzcMzROPd5kijuWPFxa3MZgdQSqjtDPSjzeRgiV7-PVcXKYmPgDRtnsLB3t-NhwvELpPb4D1rGvC_lT8cTfIgrLajNZHGfLBVE13JtJ-EqbIScpz4yn385g9L_9akkoMekiiDebT-Fw8Qb1Lf99IEAdISRWaiM8NaZQa5YKWXXXoNYddHlt9UdoSDqIY80DMWM8dvYg8iwEJW-ZS2CG0MK5p8mwnvKsKiLBEc6zMLWiggLg1bKIGENrO_otm01DrApUt4lzBUxBE8_T21klB_Hb-3v6vJ8B06PPM75-nv6jFlzjRXU_nklDpQK6WKzbxpBB741-pHx-p03oe82JJfQ8EXLHRHx5_1e8ySG9FNBcYhJ0JVnHGwnUd1lUhXiGqUwutg_-vhZlUrvecvjgl4OMUQ55y7_3sDXOR0bNzlSWBNAvzqudNZ-4t64h0cmMxz78TDZ7KDI_971dyJLqVdrRdIQyg2bq8wW0PMiXw58MPPqbKDS2_lhn3baGN5Va6eGbbgMn-d5cutVM_-KIxPN_mDlaJKOTW5OSr-mq6nkarqAl1zRFD4uhX6lzOqmmGBOumFlQlmxJ71lNhLgK-EevzZ8b1fH4i3OBrQdxpnTcz78pQHCEcYxW20rDl4Y_scscPjC5HS1JWZPuXNhG9Ka2t6f9zoF03eeCyGaqD2i_O2rJoLOYAwCN1b2ZecUOIk-GsEVhZeLHgTECu6amtflDUmZjMYO91JVmW8HPYsb0cM2vnjvj9BiazOYzwKwCx1bDOHTlKeNzOBFy8QkJqqXHdDMn3GSsuFPGlfIq000RRd-wwC_9J2fh2Ma-tFJLvdgVzYtakf5zr3MxNp0NTG_lQdU7R12chSkVsWTQbZSgLj8ziVXeIuppiwL103Tct1K9x1BmHAIOLO_JfPxt2hlY88UvrXGIa20U5j2uLltl8aus8U5_4OAvswCBNfzimGkAcSaf4xKK5hxT4nYKbklNmbRC-SLRAxME4RltYTQwQAYKeJeTVLCo8BNUEvFx2yV9p6.V0gJmJ_b9CD8VwRzvc6_Qhj9FY2Hoc7ZSYREDaviFp4nwEp5bvWc-qhWEYQG7eioHkI4CosEZNrSMkNhKO2rLA
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700104422-sub-kit-with-oven-roasted-turkey-rotisserie-seasoned-chicken
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700104422-sub-kit-with-oven-roasted-turkey-rotisserie-seasoned-chicken/
+Analyzing Production: https://www.oscarmayer.com/products/00044700104422-sub-kit-with-oven-roasted-turkey-rotisserie-seasoned-chicken/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700104422 Sub Kit With Oven Roasted Turkey Rotisserie Seasoned Chicken
+============================================================
+Total differences:    5
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700104422-sub-kit-with-oven-roasted-turkey-rotisserie-seasoned-chicken-2026-04-27T14-02-37-046Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

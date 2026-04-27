@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700002667-classic-wieners-hot-dogs/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mNCh3aCaeONcidBPmbz9uwdnV8uKB3me-H2qt9Tl5EF3m3aahe3U7WhMe7cu_N1UYGxm6i3lh4cG3xJh4U8uboWHEdQ7Y1Cx_p3pvt2P0KXk7WB_MkVX8v3co2kt32PsL60slR3-caBoe85WkSyGfalwajk4yMUwXSsty2B5EPQoSUxggfn0mvKvpofjCDh6tqxb1jZE4KMt5h54l78-Lv3nBxQbmsnD35CK-X0KspHanfFtOQpuSNtnLThzOd1X0p-1Ukh_GmFzCuxu3FU2qJtlUqOOnOQQ3n7Cxg_dXH5t0H9AGdUPCgOYjzAIAbHBU4Kh3mJbuGpyFw_v0Ut5jdN3uoXTqM7p-dqPnYU2WM_dYY5B_ed8b8GUMa8TRbYKJS6uBuTtJweypUtoDR2NA1wexQpbYTZGnd2CHxAS0rk-Q37-gu0xMw75k0PEe-suQ-t-MSTSklI9IVY-jQBaasyYFdXGtE3wxnna_9XT8JmWvnS7GMaa6YEfnbXxJycparFtiel1XrGl2cNie_C3fjl6B2IIRhmihZw9M7wfSXu5234sCxNrBCjFDkes1BM1sPPy-1leGz1WfiU0BWP6qyQyqm99t4LZRas_gNG6lvuRHkD_TfL0z5ZdBqbK6iAeKEwuaHbBWa0CUr7qgxey7F0TSWNsRCecx2qjLTimxzMzBUfgT6KD8KuUEaHXD9hwaLgfDqgadAFUrEh0tdb9EmwCxY6m3BNsUoaKsLROFyEToVAagN7Ur7LcHu5Uea47C1rGoPH5GMSbVgaPzovNnsiJNvngV_HXyAGOswju27InoyC37vsXX__R9BGw_XXMxPqPFKzVJ5l1v3KpXYJwYxkfwlgL6Ac2WvjtvCXGst7fJbFp2SkMol_dzbGxVdkl-L7yoklKEBmrGfuUcdF_xAYJnl8FjNB033iQhwbGJzBLQuORLBr.pjWGBdgqSKPOUWsU9EqvnZ3GJo4ULguNaStgAYJCzX275NVhqLFfnZ4yoN_Hx-9dp7ieZzGTk4d0sc6b8qN2Aw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700002667-classic-wieners-hot-dogs
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700002667-classic-wieners-hot-dogs/
+Analyzing Production: https://www.oscarmayer.com/products/00044700002667-classic-wieners-hot-dogs/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700002667 Classic Wieners Hot Dogs
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700002667-classic-wieners-hot-dogs-2026-04-27T13-59-34-625Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

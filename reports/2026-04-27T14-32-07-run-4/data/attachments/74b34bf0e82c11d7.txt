@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700012802-braunschweiger-a-liver-sausage/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mP-AaKOEQvphvrxtGk1vxMU7Y7Po4s-8wzn_3EFJgYllK8Q3Os3pvbFf4i3qKIenlFxDf7Mo9_Lzld62fS5zo34sI3p10BLEdMVW9Rv1HOtkYiXmkmtckrCvU0XYQs4YEmdvgx6HRCLDWS_igZAB55-GmxDL5CVtbpNHXFkGbvNvXLGvUqHjm7ty5ZQP7hccZhkTHj3b1nYmpRoqg8w-uS2T5_qpZZLsv6m0HUZLLD0ekPPZdvKtloENDRV1OqSus2PG7fgffyOCcr0dQ0obgQ5-H56lHz7_-P4rhx3GIFPUtaa2IS1n1n2d9hX1FRHMwH7Xd1L0Wi8fMebWSJWAoXacRzFRm7nW6I79ODP1I8M_f9TuPJa1xO62xY8PZ3bsxOXPRCsrGC6wVL-pUnO2wpz-pgyGt34g3P4F7-QubzYmey1GEzL2lDNGD5ys6dU3cFr_RMJ5IvaX1YRfC57-bkwjEeltBycPQK_3HwcWVshvAZWX7wyxoeP_2jso_-fik4skKUh-RtxVvYnZIBfJEoPAVt_uFSdvxQY7xH0KP28beM9VOlWq0NdL4UPRDUD0Xjx7C_FZomtzOCs3qYiBL-YyMEGAS7jtSVkvmgJm1Av9AeWnV7AsTdY75cRKBSS703_Rjy826SZzXPE_0jqEuRsl_jOhokr4m_LXu67CxXEx9Wq5wPLytuMS8jGAcTHfvDjLUTy2AV9yY2MuHV1qS_dUMgJzjRWQ9nALN3tlafX0L_OJ36XkI3z74_3Bt5gfmFfNa_4hryT3FligwxgTks9Ey-uJwjqQTjIomkm3zv_cnj5Sc6SGn3Abcj_ocWkDKRDN2ou3wIVh50cek-J1loP2LlcnpytjHC2JTbIr_STTRh8qNuEFqf1IwBraDh8YU6yk_wBimEOTK4PJ1kd4cpRb90zNmB0c3kda8HlxAzf8DiHtSZ72qHUPo2Jsz1ogEZhgJbrt68d.Vh10cYxKou5DKVqlxDqnpBXHFzb8rgSJcgAFEziZzxkROSmveyIaqyj2Bs5I4KPZy6g72izZBJ3JYGroGKLaqA
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700012802-braunschweiger-a-liver-sausage
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700012802-braunschweiger-a-liver-sausage/
+Analyzing Production: https://www.oscarmayer.com/products/00044700012802-braunschweiger-a-liver-sausage/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700012802 Braunschweiger A Liver Sausage
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700012802-braunschweiger-a-liver-sausage-2026-04-27T14-12-22-393Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

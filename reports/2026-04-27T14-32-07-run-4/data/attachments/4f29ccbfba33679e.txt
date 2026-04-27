@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700105528-deli-fresh-honey-uncured-ham/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mNGZoaddDArVMTohXgaK4CezeEmCB6Z-LPny21PwYjQXJQb73ig-SUS47PDsQtJaR48IEP-OS2GkfjC1K2D_dHkrDL5s4cJczMOb2M8J4YHtWxUY4uBas39QwbbHEfT0Zwt0NCCSs7wo_isVB1GKDbA1SBTp1XhW8IpfDsCPjCi3CGRpBAfk5HsR7gWIWA5yGgrI6eFiMWByWek2GVdgqsFSVDC5Cb9LfskY756JIG2wOGQUbPj7UXXBLZQMmli5tdqwzLOobw9Gn8YCM_Won12EiXQ5HL_6NGHcoIqi981KPIlHQkbvwvVHBrONyMmr1rH31xytAh2RqiDCNL-oflJ7Ns01L3VS1Kx7NbaYykwQ-6XHTm4T8Y1mQ3y2wxbNgdm8JKXMfyojpxXf_m9C1ts0_1wYo99_HG9_mIECBz2p52ofO6mYn-URDo4cyPXxJsWvvU9jU6PwflLVJcqKbd0fu-Oe_mbryApYCTbK0Sbc0xMVcTotbVFapeb-pzesxzZ56nqzCAw54IwjT6B-Htq1uPp9H74TohuPiHaj-DwMB5q2WSLc-8_NP8uSiPZlLYghXJGqxw0IIMCa6zE-vB_X_frSU3Zqg3jcE1WZk-Cb3vUywDrkJErEsYUO_cJ9ZnFxuWKdGvhz-nxs_P8wF1eYR6NcSkXA5Q7ZzbWBznDmDdyP-CLpJO6XGxYWaoUtXIos5W6cySGs_QVLUzWMJk9tac-kIUnFRqttrL2AO5mosGB8QwcxFOmbXo0Xkpp0j8MUMCv3HP7Ly5HgFX17a0v7cQhX0qSEas-BtljZVYyoWYOSTO2_bReuWkQASx7RnmJLiSZCqv4YM4vDgxEk3AodSzRwHSG5hSKwAOeEjtjja9ZBKf5E4mDdxOrGs4kZ91AtkX6AglVVxTuUJD2xlADpLoNtJMnPYnSsObUqT5zBMrTzL-XRVDvupO7zx_kfgJE.XtHzKBWqOodrBgxVBpy5Epx-26mMa_jZvMS8eE9kyKRcDrm0CH6BM2Onv-lWxvZ1seV5JUwg2kbVVeXsGgRpdg
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700105528-deli-fresh-honey-uncured-ham
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700105528-deli-fresh-honey-uncured-ham/
+Analyzing Production: https://www.oscarmayer.com/products/00044700105528-deli-fresh-honey-uncured-ham/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700105528 Deli Fresh Honey Uncured Ham
+============================================================
+Total differences:    5
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700105528-deli-fresh-honey-uncured-ham-2026-04-27T14-15-08-020Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

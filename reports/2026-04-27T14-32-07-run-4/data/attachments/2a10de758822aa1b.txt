@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700008652-bologna-sliced-lunch-meat/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mOcJ6zfn-76Fd3ZxYKqUyWlX4StDamNMl2NATxVdfQEUWyIMmR1aHfrO_sutZxYzxARLN1MYqj_ptB0V1GyOqngqDz6fnszN1vSvF47d5DMD0Tc5HE5Qelr0n6X5PQ7GN04nMe-WnWGamGLWzlhsI7xWuaT3E6B8CJeIi2owkBf3-MGM1bxoifyJTsg7YT9ko9IZewoKmctt-j0LpepZdNFZ1BnUI3tsYwv_cRW2X7VUCaDIqC_vShEvNsdrqoHg54To48WLXNbPuLjIzreOZgsYH8HvGFo9SyB2DrKvgFpA1yqyPuH-Wg3TkF_SaZC6NRdMahGsMO8kRVG89Qj5d-eYW60Guoq7Mu5JvrKbSeUEuPDQSl0Wi0OO0hkXqCxOU0FmR-R8lfRm832pDtkV3YQFcA6ZZvOGe1oKEbxKu5oijTuU89_sV0owPRKfWaTMekF5cMPwEDOHa7sf672fGuj8siXV03TyVdhLpwUlehVeiOBrGB85xmFnwLMPTVjLcBEUlKsj7yjHnSTZFjKJQ-sid4g94xzLqGqDjkQDd8uEEsNVlLtktEBGjf3IMZ7ngNFC0q62-zDpr3UhQPhwsz2unWIGGG7OeCx0wPa3Z6biuKWBnHBWa_IOGizQaV2CTMuH3T0mOItV0ofD9ysaFQYNTzqNQiQ6rVVIvERbwL-rBMbHsancGwo6HCb_SLVQxq_IR7KCJqttI9de4DK23Gqp9GyXNf7ALXKyKvQIP0PeBsm94XkHx0BmKVulG2iHz0ilqHaV4xk_hAc7ClmvUTprPUx0Z7iI4dSZgWtDEOTdX_GXmsS_XQW3iIzMNSoJeBN0PDsxpohMyqRQ7hggDwR_nFH51dVCYRWTRDlxyWL2gdvYI4mnqVfFUhh4cJUbj9KIcZE-dYiqhwgm3_Ibx75XAUq0Kt0mF-QUJYYv6uZBN-5api_GyTW.9JeC6OykvAuB8frENHU3S779nE53JW6TQp99M5KiSE1pQ4HYsmZN5leJ5XeWe9WvYZqbpTAmr6qRKM1FbJA7-Q
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700008652-bologna-sliced-lunch-meat
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700008652-bologna-sliced-lunch-meat/
+Analyzing Production: https://www.oscarmayer.com/products/00044700008652-bologna-sliced-lunch-meat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700008652 Bologna Sliced Lunch Meat
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700008652-bologna-sliced-lunch-meat-2026-04-27T14-01-45-970Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

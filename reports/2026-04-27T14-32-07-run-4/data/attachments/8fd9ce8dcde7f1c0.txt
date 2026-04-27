@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/MeetMeAtTheWMB/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mMgyki3xeYt3e9SpctvayuQoUhaHYY_Bhf1rkKeD-8Dn2elY84RCL45KDAgtM9MTZeWucS6bdAeWi6pF1sHNbJ3EZEhWYoNAMPUgRSEOAZK_qRkNZVPk61C6Jw6J7mQkWk3zU15AlkKjRJzYn_3keAsLEBFCMNb5NaEpyy7G_NaRgUGR06rAxsLNLZgAyJtWU-anwgLQSuP18cUbrfye_42UqB7Z-ARgEXH3ScSHZGHl6WQ8w7xVyML-8O1rmfH81Bdbw0iZLehbVPNpJGdSPfMX3YCyNA1BU3bdmsDjkefTVrn9wO6_SzT9kZcORSgJPU9o4p4qqt4wnV5r9SOBT6PdjQookxOpe8uykCDPSCTyooio8Npjd6ehwCCM_8J75Ak9xFd1I_vHp6vg4XjEwxz1z08dd90UZP8gpT5A2UkyFBHJNJkuaGYIwyJhS-cQC1H9u2Svxqb7J7tejw_vGuDLwhI2r5qy4RUJDTMiDQVFBL_B0mSOfjpSjctlJ_nXO9_g3lmQeXKB3jSCgbGT0mPTjr_Uwu47-it_oZRK2dSGDz8R48fCgxM81EEPQ3bjX2_HhBOV7TXT-NGvDHjm1XTHqO8nAVHNz9QO996CnYhKglwjnpiWAhqwZFWtgvI10R-MK3l7Ypfyt1nxCGz5sSY6LgtGAnreFr_jLMQrv2-xP2hMl90-uio4FWzKkKhqgmgzTnld9ggUhDo6F6S1hZkfbxzwMRUqAz4578Dm7nXKWHQb7fKAwSTChbsBwiOR65f1DCyWeR-IxgiiFnvwJHreDm6FvdML5744lqVQFjc.u0eqalJrOScQ3vJnCHNw6NZBwfn9kkRrAsy8Ysdw_O-PjUv9D-o3dMRdzUdArXTuX2VdALHc1jZkCRYdkJHUAw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/MeetMeAtTheWMB
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/MeetMeAtTheWMB/
+Analyzing Production: https://www.oscarmayer.com/MeetMeAtTheWMB/
+
+============================================================
+COMPARISON SUMMARY — MeetMeAtTheWMB
+============================================================
+Total differences:    5
+Critical differences: 3
+Preview issues:       2
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/meetmeatthewmb-2026-04-27T13-47-37-655Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

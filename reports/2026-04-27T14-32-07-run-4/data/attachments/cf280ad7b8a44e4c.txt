@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700068410-original-fully-cooked-bacon-mega-pack/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mOry6TBJmqdmILpWWVKpVArtBBLzHH6DL0XpY2HMDTUpiFAEsFiP88XnYaoN7ok1TmMeyAPuluj93EpFGF-Z1l6s2kCLeA8HE1dDb65Iz_vrSu895GRNjaj4Nzc0OjLmaJYR_3nKL4mrZllUDckB2yETfhgIRIAz1OjT1Vz_Xpl27kBF87TFchZ-l_FUrTFToS4y3gQAzbuY9EKhj2XhRe_2prx9Zo2muATdDSb4hE6hAUHmGs0lsBr_Hj-C5DhdbpjCfh44AIRfLP0nSxU94vw7KyY9IJJNafIRoBvKsEPpnvpebBpUJFAgo9JkderRHbx6Odt4bexlXvnJKYSc87UapCEnrQvOXlQX9_k1Eiuakro08hUNi9x2EtOj1Im1TxqBUy1HF9G36lUbiD_htGdtUbyy1UknXtDik_RDkeBDcW0aT62Cb4-0VxZhlssM3AomZW-VrmWp4D4VGKL8_SzjqG4gdBujN9B0lHjskVXij8pPE96NBmVh6ZP5flbeScswfT-96I04K2mMrxkxyCijsF9yjmKyG7t1sE9PUBVnSjYdVnVUXYr2TaWxFL8lJnkYfJ5LRCQ2Cj17OLTg17mqGMazqGdM7ZbFNMtrKZgzZ_ZUlIcze7uydNXdcYA8KztDI1t3natpX6bDnRGLFW8OKmGBQsLbvtItP_HHFh_bhXGWG0KI2oWphkQtxncaj6evWyvxRBYFnbq8Gu1SeqFV52QfgiOsGfjDcYPVu4v2_TZRmMGXNIhaZvGR5nsxRKbMO9NUN99oJEdjziulxwANRI_2Pp_MENdp-_egPussnhT5xdN3hbyJotsRKfl9s204P6xE8s9utaJl0ekxafWaPbF2e2RB-wr3p6rnD0zDowrqlbqNJXgwq3YXLruXpumLKqvhscbhmJFZ1JBUknT62BncXaMgRIOC6tPxNukgpD-wOOGBb2IwxmC_3WkaKGha-H1uPDJQZTmw6TyVT2b2qBscMe0QYMmIA5Z.wiGjVZnAF_AHsIyHtDBF56p2Gm-gX4YxkFL6QgFWf5elnfh8iqa_dWtHTSKr-WAHvz4eq1Zi3OmaqwrhmzKotw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700068410-original-fully-cooked-bacon-mega-pack
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700068410-original-fully-cooked-bacon-mega-pack/
+Analyzing Production: https://www.oscarmayer.com/products/00044700068410-original-fully-cooked-bacon-mega-pack/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700068410 Original Fully Cooked Bacon Mega Pack
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       6
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700068410-original-fully-cooked-bacon-mega-pack-2026-04-27T14-09-59-023Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

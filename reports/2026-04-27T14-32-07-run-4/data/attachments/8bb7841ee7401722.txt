@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700104620-portable-protein-pack-with-turkey-dark-chocolate-nut-clusters-cheddar-cheese/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mN8XvJpcf-K2yYKpP-icGGQZIzX9J9rb26IvVwFU-8kb9weYHI8RPwse8IBZNlzmJ5Z7ZSKiLvDYCrp8OMwJ3tVeIU7zKAh80T2IkpcCIWh9kc9Zqb-JNtAPu7AXYhE-DdGqXClMV19XxQ93p6mZaeO-Jn18SvzxL8MNjhuEhONOPkpc2rCG-J8YQFvvBvAd_W4vQF_I9BvwsIn1FxmyuALfpFLo-wstB-Eg9u_qltrfO_ma_R9gkzISiGf2DVteJFwzrLWwUEIPmm3FlwXgBXM8m1F74AJasGMWPP6uZMbkZ-LEcFhnWE9Yj6dH2Z38dtA8YBwJGcPVMlFqzcakldD55Tko_73v75bnl3wXUtCu6gweHVZMtcke60kI6Btnh6UpXxQVqpsQo938oJ8ipOsggOrUMRio9Iiio6q5vlXoBbIKqvSaWETDGxOrcwvok1j74s70ilenEZkAQA34fvA8vf6nX9Cc_Sp-zQsjr3g5WjNGJwAYVSEPuG7lGdoSw1rAHCMIdAGt_N-2HTg1a3YGGwXM2Nk2p5OYHAcT_mXclW0hyngyoBG-ECqvoE9GB3lsVmSPUBAPs_an161xo7mOlT8jzkneQugS4KMrcOKfrVWj-W6zQ2gxNpwVRFGvg6nxeSMQgKlqLsfl5yFdrnLEzLNcgCUofsolODeCx1icN-zAp50eF8cl0_I4mAyxI9blWH1xEF-C-BL9cZLWCCBIphwWG9rjuUrhWdDd9vxWN4jlREIz5JQpWnAwQZqNi0tCq1I0da1olZ4HzwSwVUGy2cNo8fuX0suIWGSyvbDh43GRik2DnZw-xdSnv24AILT5DgUHlh4GydoVpqBTn1Ug_CmGOZi1doRCKBTtwOu93t1zd2nSludsCVQlTzEkfjidFgj1jFYNrtNVnTi-cWUgZl9Apat6RKG7eigAmxS6coH-Rl9vMmIg5vy6mMCAE6AhYxj9KutqWKiVxD6DBDq5Z25NmCPQLCqxlsmGBpEBC8rVHhMo5XDdZ9XNSelkPCFABmk1XHT5H2W1mcBcHMkBaB52vnfYBf9aOEy7NrkeLekFt7AePQ8NuasJ-hj1k5mL2NGhfHlB3t5RDgcICAVtxdMkC9TvmV_hgr_7xBa0VO1_XWwEtoSgH2ylgJgPfEK.S_UIEdDnY-8vBnJuXumL0OxogSuZ4l1sb3-zRCoG8kmqHqR3zrNaIxwjlOtVTkGMgKvdIophXTcCX33lnOWxUg
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700104620-portable-protein-pack-with-turkey-dark-chocolate-nut-clusters-cheddar-cheese
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700104620-portable-protein-pack-with-turkey-dark-chocolate-nut-clusters-cheddar-cheese/
+Analyzing Production: https://www.oscarmayer.com/products/00044700104620-portable-protein-pack-with-turkey-dark-chocolate-nut-clusters-cheddar-cheese/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700104620 Portable Protein Pack With Turkey Dark Chocolate Nut Clusters Cheddar Cheese
+============================================================
+Total differences:    5
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700104620-portable-protein-pack-with-turkey-dark-chocolate-nut-clusters-cheddar-cheese-2026-04-27T13-57-37-855Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

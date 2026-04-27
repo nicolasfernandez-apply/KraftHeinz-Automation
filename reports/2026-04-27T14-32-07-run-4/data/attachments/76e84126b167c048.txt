@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700104248-portable-protein-pack-with-turkey-ham-cheddar-cheese/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mM_Q6oTU3uAzwC7snBUP7JnIcDnBb03qNdmG6fQUYT480MBnaSCyKMZ3-7s2ef2aQPZCDPIAFcJQY1fIupWhpE-IC93gfoVkDnvw7IoV7dA-JSkxIIrfAlFJUYUpz9v6pGjF9yF_1tqHkWbKwEUpQ_I4NQKCvWKcqCYhJFoKJOHZTVTrusKxILo3-a95bQXwbjxllW1MEByToM9-GvwbEalR3G9ZI1a7wjfGCsNuV3QdR2ac8q9w2DT5iG5IzcvpcARKfqp_O5VkDdNntIP38ge5SqVfFV5L-OlTudG02D7_0Dk8W5qtPuVdR2Trni0hhxnSUcPpkmXo28UsX5vJol1MvKROP5rbB5eywp-9ZNG90gHzD2F9aaEGwr19dit88fuTiFDz_kudncxe-ChAuCVDUTYAenF3ErUzFitWXTclev5GyZMLyEJ-G8nhDG8JPfM3WtKlU3KB4mL2vmEuKdcrq5xic7on9QcfdUJs3ZU8A19BsYZlaeFRlilNYdFmG4WZbCKMN6P8ZtuiOwDHcAYX-ta4IONUA4C_WzbO1QayyqCU1oI9e1QGN3OGc3BAuvjRNHb1JDeClbx3DShS5cZC_uD31ZnUsSyR0jorTmZnGu9dvEUKKXgfa2acplouYtDDDdVbWugpcT-ildplolfnlgA54mLpT2pnvl6SJxTAhJVfhus3AjOmCYF2vDZ8txvCPTkh4Ut9ZhFxBxfbV2LnvbRbi7txOtm6oHDKx-JDDgCuSJfJtN5RUf-WsgFFjGV2JdGeodngZ9l1FWbbzMM8KWuCeecUytKv0H47GB2qniZ6pyQPgbw3t8871ShbApsp3b53ZptV08JJgarf_RIoldJkiWyHnieA8nB9JzW9aRo34SdA_NsXtN8n3sT9QnhvvxwcQqnZXmeGl78YV3C_Cth8OCKnfgK2X3nVc2WWFMeMwD0iqY1xVlqEcGR9Gr91A_Q8CAn9YAsDllOlisK2s7NjhQ3Bn2P1ARRaWXcrUrinVpPojLq9l8449DdgfXygutguINbnS8R1n3XvzApM81l9oaw59yq.I_DLQvdDU8qsdSWdkgiWs3eT76gtTA96IIi_1OqcxfqCFVGIQ4zP1yCe-WhR1uyuou5cSn4A4NjpRz-DJjBCTQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700104248-portable-protein-pack-with-turkey-ham-cheddar-cheese
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700104248-portable-protein-pack-with-turkey-ham-cheddar-cheese/
+Analyzing Production: https://www.oscarmayer.com/products/00044700104248-portable-protein-pack-with-turkey-ham-cheddar-cheese/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700104248 Portable Protein Pack With Turkey Ham Cheddar Cheese
+============================================================
+Total differences:    9
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700104248-portable-protein-pack-with-turkey-ham-cheddar-cheese-2026-04-27T13-57-50-591Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

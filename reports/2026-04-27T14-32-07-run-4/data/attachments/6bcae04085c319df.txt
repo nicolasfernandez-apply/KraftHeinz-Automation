@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700104576-carving-board-herb-roasted-grilled-chicken-breast-strips/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mOZssfQAbZptPOqhKSoYWaX2lFedCXRaS-uIWjneHCJZynkKk39jYijwDDlVj2X8_PTtNjUoss3xOO1URPoW2U0jjjqHnACJ-E5S-hTRIOZH6zqsYAX5tcEUqarHpaIONVwjv5himGcLIuBTUbsJnWOvz5NBc2zGaN59NWrBLuf2W5L84A2paXW34XdR_5M80D-lm8F-3PdeWZmLG_5cofvxdJI-Uq4J_UttKNCUlFtOe1BhcPXoizzrn4l-20j14RF89-6If_yBShRglmkN_ge1QheQXFWyiP90cPO0D566e-PYSGLzbkVbGAB4W-R1c5QRoJChPbXo56xedJ6I5fnlXxFcurW82IMr5wZQbksH-OBr8szpW1b_UYYLw3p9LksXNEiSc0gGCvS8nWIYHWgTLvO-gVpkolodvQwAPi20uV-FmBB8y-dZiRwACyp8klQeBZiFVdDlsnTQysvomqJXQbs9UJnTNdAr6coVXbfa9NtoLPi3_hfJ1XsNh8Dheuo3hq90i9eTpNI8KT2kQuPBWv_PbKQ0li_PVfM7a4OeSViBa6zEnX2xpS4N7WEWOkA9KQUZc2WE4-nvOklDjYmGHfkfsPtbAVWzjEaJD76idfXKGRwvb7KrIvtl6z8bLJv8gRiXMCY0REOyinXtxLaNP5EsWmdKv5KZ2Tst8HKa-OgwzDs4r11yfS1zIKOYj-34JpQb9XGE7v5oDs1XfQwjhXf3YEUb7kdGKnyB0coeIcyxO5KyMpBCbY3mAGgmnpr6o6ew-ONM4Ih8cpUVaz-XAibMEDXE4nAWCkwZ6fWoU1gWzoXCekjqRh27vfl00koktmmi-UsTTxKJ-6xmc-GxSZATDnhTPgooPI4onqj_lXGWLY65KwrPxOtJM6BmzVYsCb4G7fMgdZbed73OezDAAP868UxnRQfZrX4ziYp0YnRNty5q6q3yiJFnzjfOqK85lp4Njukim-HwHgIG_hUX-Niq8M-9RPehEEoJqky_RItfzaXtK6Yi5F3wDPAtw4MJeiuvpINeFCSEPa4958zcbhmWlX38g8HVYATxbYOygO0PnsS.shl2K6q0cEaIk0skuC_5orAV48pAyNMnhi_JgHlMG8lPuVpRIWVMDRUToFcVQQ6Cni3Z4P_hUcH89kkHl0hx-A
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700104576-carving-board-herb-roasted-grilled-chicken-breast-strips
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700104576-carving-board-herb-roasted-grilled-chicken-breast-strips/
+Analyzing Production: https://www.oscarmayer.com/products/00044700104576-carving-board-herb-roasted-grilled-chicken-breast-strips/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700104576 Carving Board Herb Roasted Grilled Chicken Breast Strips
+============================================================
+Total differences:    5
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700104576-carving-board-herb-roasted-grilled-chicken-breast-strips-2026-04-27T14-15-20-073Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

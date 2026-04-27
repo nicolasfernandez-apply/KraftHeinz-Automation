@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700097014-classic-wieners-hot-dogs-mega-pack/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mPqdiYjjROupoCpp8ox_ekgj_JTC38lQs4I0dxrt7lKhXGdraub6zjnCzkStHoemGi2YgwHRlvTP8Q1OgAGeXhlFlQw0nURADdmz5YUGXHF_sqhNOcjak-LKbqfBVmipBOz8Tz7YhQRc15gGhLmy2gmqgTJAF_mXG_KZPf6pSbCazvOQ8vw8nyMiTdLPklDviuyjktzuQEa2nG63EmW93ql8GNXBCar_80bHzwQXRGYNlHbwMIumuDjXNiTPXby4eu08zOGCdNWhNf7nBQ1afIbAU2NC534SrxdtvrevdwSw3oY9zFME0AcvSNQjHRO_CF9F6RG_VfiIMpESxhJg3lx31qzbUXaAxNVEy0mPoSKHmXhVbgWeskACp2Q1jkEYGnr-cXHKKFPL1VQmHDKTHjNpvdH3go31q6E04Bk_7QSRrtChWMthu4BfScyUvn-pW0BlXaUxIV11x1k-tjLCxH8NLdHm9cox6VO6RYClCFV5uRIU053QYUzhL6Pd63ZxwKjsTJngNrH6VLh3iEoR_w-KFJZPzcjB8A6fTQCB2syS_dH3JKFIErp_1-V7rFLdZWJFte4idmdCUY6IwAj513UL2Cix0FrhgxNV9n63eI7a36LIdFvvdF17z9K3UWhBZ0XJjGP-vY9je8SS6GwEz3FWhm6qVIzjIXY_ES-0GtYoMc9PT2Iuh2QynFJGDrfOeiEaa0927Sor4guKzPfYbUNRO8VMDUp3CSVksmHN-1TRjDAkL5tNnuYkKxvOVCAx_o72jaWLZl_MylSNjK6H1ywyCr9j1y3EkMJe5DqzLVfo_HDDwuMC7Bm-bovbosjw4JjdsO1tsjJ1ahx3VEi2kaZaffTUANLQsncsRUE8X8c9mH-S_7B6fMGCpBcgy3LyNOOV3yy1LKLDVzeqi56Wv8u43dfaiafJkvWD7pD4viy10-gCUslaDCZM0UNGkBrWGRIeGVEDCvXHKEU7qTW0vhil8_k.LPwJgfdObY-4tpiw4kfZunrgk7bbYx715K88BfmXK8yNzj5yP1YSHhEm5lvzD5v3S49PxC7G260WojyYnlCKIw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700097014-classic-wieners-hot-dogs-mega-pack
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700097014-classic-wieners-hot-dogs-mega-pack/
+Analyzing Production: https://www.oscarmayer.com/products/00044700097014-classic-wieners-hot-dogs-mega-pack/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700097014 Classic Wieners Hot Dogs Mega Pack
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700097014-classic-wieners-hot-dogs-mega-pack-2026-04-27T13-59-21-888Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

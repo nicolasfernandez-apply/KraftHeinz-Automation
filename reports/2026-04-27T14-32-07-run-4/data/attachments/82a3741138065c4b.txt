@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700104002-jalapeno-cheddar-stuffed-dogs/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mP-5QbO3nlzhBV_E-0gLhyW0A1ZPtsOwCth7e6k1cT2-9sNWRhfA0XqjbvA1KZ-GaTP0FkXWsU4K74spH2HRS9VBn71eNbXaLxP-mfsEh0cKVYlIU0R98GKUuaSt4XbBcjYyrUqxxwPMFr38mud4y4QSNNEWm_AGA1Y1TN5yISoAGlwQqTrYFqgQkjxIV8OWjhckcmMZiA9XmBdzQLqD7OiDDa5u4uDjmr_Fe7JHyucKFg8LCYKapvE2XiAurFOnEuy4nTBSiQzNIqf3F7VUCoLwSTCeKQvvTGucZEljkPRrCGHQ7VMh0RejhT5JCUx4TZZAXeijmFf_6_Ir7PWwQkTvapvAXUIEDBREUcwND0wCpNEWujJuthTzkqdMnQs_KatbS6-G0bchtBx7d6rybuVYZB5sncFkenWZVjkBTZ5mLMZ9fMLg4Y9OTRtqzBuHUhzp8nhVu9eUQ8fNgaI2F68Jheses9NVYAisGYs_WjiLLzJ-vo3F-ot2JNe0XgGGDLo4LgSFDnljwWY-IewGTpKc6h-oPEkWIB6zFpKJmreFsFDo04d8zzrYP6yj5HaXxbUkI_bgRuIaXaXVOuVLOjyQRlg0Kl85epiVEhY-hV24Y5Cy9pFrTM8Zfup7zkhtaaCAjWJVsTi7Iw6Daf_tgMtBvIu_pX_BvmdCtNKwxstz-3uFqb9l-ghpL5n3rLMYPbogz7gj206BXgecYokskwFD7b8VQp5-w7CH8i-zBvlKw7Fuerz4ury8W-Tz19eNprlINPXFCPsEysWSbBCkiDXick0ts1yrx0Vz8rLKdGmu80PbwTGc69lQV4Q8QLypmIOrg-1yTgUOEm3OQnJXIrhRINhbzpLgsSHmqyQ5quukF1ibmBE3v75shgrFY8cTuFU_avYm9RRXQxaGy6vGmgj4xmaHFLenqrPOUDlvh_DpkhbBwuKcglNLqB9ondOi9g4gjBo.VXeqNTUWkG0o74sqpKgXLEIV0ruRKqzOLL67jKWh8YWq6ehYCSLo3wYiw91AxGIydzKebNIrSthPk4Yj8unp3w
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700104002-jalapeno-cheddar-stuffed-dogs
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700104002-jalapeno-cheddar-stuffed-dogs/
+Analyzing Production: https://www.oscarmayer.com/products/00044700104002-jalapeno-cheddar-stuffed-dogs/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700104002 Jalapeno Cheddar Stuffed Dogs
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700104002-jalapeno-cheddar-stuffed-dogs-2026-04-27T14-17-47-628Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

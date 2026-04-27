@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700103869-oven-roasted-turkey-breast-and-white-turkey/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mPMIbe5DK6tRZ6vgOv49iTsnTCJLzWgnmd0ACvvOQvbfS2hFUJheqEey3lKXBzktskybx1j91jIDPztGjsXgyZtA8eVkEf6B_SeNOOYt1IF_XpJhPQdM4LmPhvsn705OmN_mXDzyRDwrwI6h1u5XKXbKoRT5LoYcs7ktYgMNnsnZa5aCkpiMHMLz121umQCGgJE71DaX2KG8KtqVAgBx1oFBAeycW8xhUCCiWLiZ_2q46Wl5lhRBz4K3WBpD9gk8gnAkOkeMU7yzhK-AVoIayeApQYYpMw4FqYI50Oozsy6n6i7-VAmsM3solQFTV9fhQo1kbtqh6qRGYqzBYvpX74WgC0GfwcBDqpEOlzwyeSp-pYzLJA0RRCxMP4pTgf6yLSKmgyrUNSb8NO-cRMS-lpTuZRKX5vTSNhoafeXX703ZZzzP8eArdPuRE2YM6ZUguktDF50WYja-7YFWL-en_vo4L-ElSB-kZGUMXwTUjLeLtfiRR5KktVq-0i_MC0R442wtzHm2Hf_xcpDy-2L9l_mGP1xtnOVJxqZUnPkRs7tCMQProXWADiZr3dTc_j_LD04t6KywRC6dKpdeXP6PXSb1CpgjLJf_E9fjylA-oIhDyjh_WmLrtTdFzN232L8vb8jqnGmcW6qzLm6zdWN7j1GHcZTSx6cRtEnvU2-7nWrXQCg-MBPrUEzpSkClcEnfqK-YLegHiHfvQMicPfS0AObUBXg6rdqwYfiX9VpKRdwGQi6DKKgHyO-g3fNP6RqHI7CCO-DvqvV--tqmUzXp7Ds43ds1zwA9zLvWuDWACnHm4Ol1nuJfjZI7LVMvBhDBPOwcU6WSTS9X-hqP4L5RgmB__cX4T9zep-MdwDEw26e5wndWdljUnUOM0Omzzy28tU-vyAGDQcetXm76Bvl7dewP-5PbvV8fMouo6eU6E-vFMizuEJbEXnrSsD2579PO4rrVW81lT1x-bcbq_juNPdQoJVkFEgtglcAPQxkqsDms0R_b9kS3lKwOQ_qjjqI.A2VFDNbjELik4j1rYR6Ows8ubWUZ-EORuzk-bVLLdZrUnG6ydlQQQEJVpbuEMPG627e-SQsUVua6rmD7IXcZeg
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700103869-oven-roasted-turkey-breast-and-white-turkey
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700103869-oven-roasted-turkey-breast-and-white-turkey/
+Analyzing Production: https://www.oscarmayer.com/products/00044700103869-oven-roasted-turkey-breast-and-white-turkey/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700103869 Oven Roasted Turkey Breast And White Turkey
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700103869-oven-roasted-turkey-breast-and-white-turkey-2026-04-27T14-16-36-214Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+
