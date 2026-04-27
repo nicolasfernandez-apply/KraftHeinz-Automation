@@ -1,0 +1,89 @@
+name: Deploy GitHub Pages
+
+# Runs automatically after either comparison workflow finishes on main.
+# Combines both history branches into one Pages site:
+#   /              → ad-hoc compare dashboard  (report-history branch)
+#   /oscar-mayer/  → Oscar Mayer dashboard     (oscar-mayer-history branch)
+
+on:
+  workflow_run:
+    workflows:
+      - "URL Comparison — Preview vs Production"
+      - "Oscar Mayer — Crawl & Compare"
+    types: [completed]
+    branches: [main]
+
+  # Allow manual re-deploy (e.g. after a branch is force-pushed)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one deployment can run at a time; queue rather than cancel.
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Build & deploy combined Pages site
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Configure Git identity
+        run: |
+          git config --global user.name  "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Build Pages artifact
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          REPO_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
+          mkdir -p .pages-artifact
+
+          # ── Root: ad-hoc compare dashboard ───────────────────────────────────
+          if git ls-remote --exit-code --heads "$REPO_URL" report-history 2>/dev/null; then
+            git clone --branch report-history --single-branch "$REPO_URL" .root-site
+            cp -r .root-site/. .pages-artifact/
+            rm -rf .pages-artifact/.git
+            echo "Compare dashboard included at /"
+          else
+            echo "report-history branch not found — skipping root"
+          fi
+
+          # ── /oscar-mayer/: Oscar Mayer dashboard ─────────────────────────────
+          if git ls-remote --exit-code --heads "$REPO_URL" oscar-mayer-history 2>/dev/null; then
+            git clone --branch oscar-mayer-history --single-branch "$REPO_URL" .oscar-mayer-site
+            mkdir -p .pages-artifact/oscar-mayer
+            cp -r .oscar-mayer-site/. .pages-artifact/oscar-mayer/
+            rm -rf .pages-artifact/oscar-mayer/.git
+            echo "Oscar Mayer dashboard included at /oscar-mayer/"
+          else
+            echo "oscar-mayer-history branch not found — skipping /oscar-mayer/"
+          fi
+
+          # ── Fallback root index if neither branch exists yet ──────────────────
+          if [ ! -f .pages-artifact/index.html ]; then
+            printf '%s\n' \
+              '<!DOCTYPE html>' \
+              '<html lang="en"><head><meta charset="UTF-8">' \
+              '<title>KraftHeinz Automation Reports</title></head>' \
+              '<body><p>No reports published yet. Run a comparison workflow first.</p></body>' \
+              '</html>' \
+              > .pages-artifact/index.html
+          fi
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .pages-artifact/
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

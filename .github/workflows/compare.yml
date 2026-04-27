@@ -22,25 +22,16 @@ on:
   # schedule:
   #   - cron: '0 9 * * 1-5'
 
-# Required for GitHub Pages deployment and history branch writes
+# Write access for history branch; Pages deployment is handled by deploy-pages.yml
 permissions:
   contents: write
   actions: read
-  pages: write
-  id-token: write
 
 jobs:
   compare:
     name: Compare Preview vs Production
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    # Prevent simultaneous Pages deployments across workflows
-    concurrency:
-      group: pages-deploy
-      cancel-in-progress: false
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       # ── Setup ────────────────────────────────────────────────────────────────
@@ -212,33 +203,5 @@ jobs:
           git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git" \
             HEAD:report-history
 
-      - name: Prepare Pages artifact (strip .git)
-        if: github.ref == 'refs/heads/main'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          cp -r .pages-site .pages-artifact
-          rm -rf .pages-artifact/.git
-
-          # Include Oscar Mayer history at /oscar-mayer/ if the branch exists
-          REPO_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
-          if git ls-remote --exit-code --heads "$REPO_URL" oscar-mayer-history 2>/dev/null; then
-            git clone --branch oscar-mayer-history --single-branch "$REPO_URL" .oscar-mayer-site
-            mkdir -p .pages-artifact/oscar-mayer
-            cp -r .oscar-mayer-site/. .pages-artifact/oscar-mayer/
-            rm -rf .pages-artifact/oscar-mayer/.git
-            echo "Oscar Mayer history included at /oscar-mayer/"
-          else
-            echo "oscar-mayer-history branch not found — skipping /oscar-mayer/ section"
-          fi
-
-      - name: Upload Pages artifact
-        if: github.ref == 'refs/heads/main'
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .pages-artifact/
-
-      - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/main'
-        id: deployment
-        uses: actions/deploy-pages@v4
+      # Pages deployment is handled by deploy-pages.yml, which is triggered
+      # automatically when this workflow finishes.

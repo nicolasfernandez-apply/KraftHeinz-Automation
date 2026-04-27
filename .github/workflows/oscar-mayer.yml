@@ -6,25 +6,16 @@ on:
   # schedule:
   #   - cron: '0 10 * * 1-5'
 
-# Required for GitHub Pages deployment and history branch writes
+# Write access for history branch; Pages deployment is handled by deploy-pages.yml
 permissions:
   contents: write
   actions: read
-  pages: write
-  id-token: write
 
 jobs:
   crawl-and-compare:
     name: Crawl & Compare Oscar Mayer
     runs-on: ubuntu-latest
     timeout-minutes: 60
-    # Prevent simultaneous Pages deployments across workflows
-    concurrency:
-      group: pages-deploy
-      cancel-in-progress: false
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       # ── Setup ────────────────────────────────────────────────────────────────
@@ -57,14 +48,18 @@ jobs:
 
       - name: Show discovered pages
         run: |
-          echo "Pages discovered:"
+          COUNT=$(node -e "const p = require('./sites/oscar-mayer/pages.json'); console.log(p.comparisons.length);")
+          echo "Total pages discovered: ${COUNT}"
           node -e "
             const p = require('./sites/oscar-mayer/pages.json');
-            p.comparisons.forEach((c, i) => console.log(\`  \${i + 1}. \${c.name}\`));
-            console.log(\`\nTotal: \${p.comparisons.length} page(s)\`);
+            p.comparisons.forEach((c, i) => console.log('  ' + (i + 1) + '. ' + c.name));
           "
+          if [ "$COUNT" -le 1 ]; then
+            echo "::warning::Only ${COUNT} page(s) discovered. The sitemap may be unreachable from GitHub Actions runners (many sites block CI IP ranges). Check the 'Crawl Oscar Mayer sitemap' step logs for errors."
+          fi
 
       # ── Run comparison tests ──────────────────────────────────────────────────
+      # continue-on-error so the Allure report is always generated even on failure.
       - name: Run Oscar Mayer comparison
         id: run_comparison
         continue-on-error: true
@@ -72,6 +67,15 @@ jobs:
           PREVIEW_USERNAME: ${{ secrets.PREVIEW_USERNAME }}
           PREVIEW_PASSWORD: ${{ secrets.PREVIEW_PASSWORD }}
         run: npm run compare:oscar-mayer
+
+      - name: Show allure result count
+        if: always()
+        run: |
+          COUNT=$(find allure-results -maxdepth 1 -name "*-result.json" 2>/dev/null | wc -l | tr -d ' ')
+          echo "Test result files generated: ${COUNT}"
+          if [ "$COUNT" -eq 0 ]; then
+            echo "::warning::No allure result files found. The tests may have failed before producing results."
+          fi
 
       # ── Inject previous Allure history ────────────────────────────────────────
       - name: Inject previous Allure history
@@ -84,8 +88,9 @@ jobs:
       - name: Generate Allure report
         if: always()
         env:
+          URLS_CONFIG:       sites/oscar-mayer/pages.json
           GITHUB_RUN_NUMBER: ${{ github.run_number }}
-          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_RUN_ID:     ${{ github.run_id }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_SERVER_URL: ${{ github.server_url }}
         run: npm run allure:generate
@@ -121,10 +126,9 @@ jobs:
           path: allure-report/
           retention-days: 90
 
-      # ── Publish Oscar Mayer history to GitHub Pages (main branch only) ────────
-      # Maintains an oscar-mayer-history branch that accumulates every run's
-      # Allure report under reports/<runStamp>/ and serves an index.html dashboard.
-      # This branch is served at /oscar-mayer/ on the shared GitHub Pages site.
+      # ── Publish Oscar Mayer history to oscar-mayer-history branch ────────────
+      # The deploy-pages.yml workflow picks this up and publishes it to /oscar-mayer/
+      # on the shared GitHub Pages site.
 
       - name: Configure Git identity
         if: github.ref == 'refs/heads/main'
@@ -175,50 +179,5 @@ jobs:
           git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git" \
             HEAD:oscar-mayer-history
 
-      # ── Build combined Pages artifact ─────────────────────────────────────────
-      # Root (/) comes from the report-history branch (ad-hoc compare dashboard).
-      # /oscar-mayer/ comes from the oscar-mayer-history branch (this workflow).
-      - name: Prepare Pages artifact
-        if: github.ref == 'refs/heads/main'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          REPO_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
-
-          # Start with the oscar-mayer-history content (already cloned into .pages-site)
-          # Place it at /oscar-mayer/
-          mkdir -p .pages-artifact/oscar-mayer
-          cp -r .pages-site/. .pages-artifact/oscar-mayer/
-          rm -rf .pages-artifact/oscar-mayer/.git
-
-          # Include root report-history content if the branch exists
-          if git ls-remote --exit-code --heads "$REPO_URL" report-history 2>/dev/null; then
-            git clone --branch report-history --single-branch "$REPO_URL" .root-site
-            cp -r .root-site/. .pages-artifact/
-            rm -rf .pages-artifact/.git
-            echo "Ad-hoc compare history included at /"
-          else
-            echo "report-history branch not found — root will only show Oscar Mayer section"
-            # Create a minimal root index that redirects to /oscar-mayer/
-            printf '%s\n' \
-              '<!DOCTYPE html>' \
-              '<html lang="en"><head>' \
-              '  <meta charset="UTF-8">' \
-              '  <meta http-equiv="refresh" content="0; url=oscar-mayer/">' \
-              '  <title>KraftHeinz Automation Reports</title>' \
-              '</head><body>' \
-              '  <p>Redirecting to <a href="oscar-mayer/">Oscar Mayer reports</a>...</p>' \
-              '</body></html>' \
-              > .pages-artifact/index.html
-          fi
-
-      - name: Upload Pages artifact
-        if: github.ref == 'refs/heads/main'
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .pages-artifact/
-
-      - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/main'
-        id: deployment
-        uses: actions/deploy-pages@v4
+      # Pages deployment is handled by deploy-pages.yml, which is triggered
+      # automatically when this workflow finishes.
