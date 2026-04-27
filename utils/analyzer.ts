@@ -125,7 +125,11 @@ export async function analyzePage(
   const consoleEntries: ConsoleEntry[] = [];
 
   page.on('console', (msg) => {
-    consoleEntries.push({ type: msg.type(), text: msg.text() });
+    const text = msg.text();
+    // Skip error-logging endpoint calls — they are environment-specific noise
+    // (e.g. client-side error reporters that fire only on one side).
+    if (text.includes('/log/error?msg=')) return;
+    consoleEntries.push({ type: msg.type(), text });
   });
 
   let statusCode = 0;
@@ -182,11 +186,15 @@ export async function analyzePage(
 
   const images = await page
     .evaluate(() =>
-      Array.from(document.querySelectorAll('img')).map((img) => ({
-        src: img.getAttribute('src') || '',
-        alt: img.alt || '',
-        hasAlt: img.hasAttribute('alt') && img.alt.trim() !== '',
-      })),
+      Array.from(document.querySelectorAll('img'))
+        .map((img) => ({
+          src: img.getAttribute('src') || '',
+          alt: img.alt || '',
+          hasAlt: img.hasAttribute('alt') && img.alt.trim() !== '',
+        }))
+        // Exclude cookie-consent service logos — they are injected by consent
+        // SDKs and differ between environments based on banner visibility.
+        .filter((img) => !img.src.includes('/logos/')),
     )
     .catch(() => [] as ImageInfo[]);
 
@@ -231,7 +239,13 @@ export async function analyzePage(
             isExternal,
           };
         })
-        .filter((l) => l.href && l.href !== '#' && !l.href.startsWith('javascript:'));
+        .filter((l) =>
+          l.href &&
+          l.href !== '#' &&
+          !l.href.startsWith('javascript:') &&
+          // Exclude cookie-consent logo links (same root cause as image filter above)
+          !l.href.includes('/logos/'),
+        );
     }, url)
     .catch(() => [] as LinkInfo[]);
 
