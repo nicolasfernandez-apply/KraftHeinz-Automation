@@ -26,5 +26,23 @@
       "previewUrl": "https://brands.prv.kraftheinz.com/velveeta/recipes/4eKETkKdqEU3v6R16JixQV-jalapeno-popper-queso-dip",
       "productionUrl": "https://www.kraftheinz.com/velveeta/recipes/4eKETkKdqEU3v6R16JixQV-jalapeno-popper-queso-dip"
     }
+        ,
+        {
+      "name": "Kraft Home",
+      "previewUrl": "https://brands.prv.kraftheinz.com",
+      "productionUrl": "https://www.kraftheinz.com"
+    }
+        ,
+        {
+      "name": "Oscar Mayer Home",
+      "previewUrl": "https://oscarmayer.prv.kraftheinz.com/",
+      "productionUrl": "https://www.oscarmayer.com/"
+    }
+        ,
+        {
+      "name": "Oscar Mayer Stuffed Dogs",
+      "previewUrl": "https://oscarmayer.prv.kraftheinz.com/products/00044700105504-cheesy-smokehouse-stuffed-dogs/",
+      "productionUrl": "https://www.oscarmayer.com/products/00044700105504-cheesy-smokehouse-stuffed-dogs/"
+    }
   ]
 }
