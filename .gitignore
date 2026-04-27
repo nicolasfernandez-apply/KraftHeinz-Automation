@@ -1,6 +1,9 @@
 # Environment variables — contains credentials, never commit
 .env
 
+# Saved IAP session cookies (created by setupPreviewAuth, contain auth tokens)
+.auth/
+
 # Dependencies
 node_modules/
 

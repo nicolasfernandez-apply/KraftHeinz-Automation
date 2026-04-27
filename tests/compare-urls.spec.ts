@@ -79,7 +79,6 @@ const urlPairs = loadUrlPairs();
 test.describe('URL Comparison: Preview vs Production', () => {
   for (const pair of urlPairs) {
     test(pair.name, async ({ browser }, testInfo) => {
-      // Credentials are mandatory — throws immediately with a clear message if missing
       const auth = requireAuthConfig();
 
       // Set up output directories
@@ -92,15 +91,22 @@ test.describe('URL Comparison: Preview vs Production', () => {
       const previewScreenshot = path.join(screenshotsDir, `${slug}-preview-${timestamp}.png`);
       const productionScreenshot = path.join(screenshotsDir, `${slug}-production-${timestamp}.png`);
 
-      // Open both pages in separate browser contexts
-      const previewCtx = await browser.newContext({ ignoreHTTPSErrors: true });
+      // Restore the IAP session written by globalSetup — loginToPreview will
+      // detect the valid session and skip the Firebase email-lookup entirely.
+      const hostname = new URL(pair.previewUrl).hostname;
+      const stateFile = path.join(process.cwd(), '.auth', `${hostname}.json`);
+      const previewCtx = await browser.newContext({
+        ignoreHTTPSErrors: true,
+        ...(fs.existsSync(stateFile) ? { storageState: stateFile } : {}),
+      });
       const productionCtx = await browser.newContext({ ignoreHTTPSErrors: true });
 
       const previewPage = await previewCtx.newPage();
       const productionPage = await productionCtx.newPage();
 
       try {
-        // Authenticate against Google IAP before analyzing the PRV page
+        // loginToPreview returns immediately when the session is already valid;
+        // it only performs a full login if the IAP session has expired.
         await loginToPreview(previewPage, auth, pair.previewUrl);
 
         // Analyze both URLs (sequentially — login must finish first, then parallel is fine)

@@ -56,13 +56,21 @@ test.describe('Oscar Mayer — Preview vs Production', () => {
       const previewScreenshot  = path.join(screenshotsDir, `${slug}-preview-${timestamp}.png`);
       const productionScreenshot = path.join(screenshotsDir, `${slug}-production-${timestamp}.png`);
 
-      const previewCtx     = await browser.newContext({ ignoreHTTPSErrors: true });
+      // Restore the IAP session written by globalSetup — loginToPreview will
+      // detect the valid session and skip the Firebase email-lookup entirely.
+      const hostname = new URL(pair.previewUrl).hostname;
+      const stateFile = path.join(process.cwd(), '.auth', `${hostname}.json`);
+      const previewCtx     = await browser.newContext({
+        ignoreHTTPSErrors: true,
+        ...(fs.existsSync(stateFile) ? { storageState: stateFile } : {}),
+      });
       const productionCtx  = await browser.newContext({ ignoreHTTPSErrors: true });
       const previewPage    = await previewCtx.newPage();
       const productionPage = await productionCtx.newPage();
 
       try {
-        // Authenticate to Google IAP before analyzing the preview page
+        // loginToPreview returns immediately when the session is already valid;
+        // it only performs a full login if the IAP session has expired.
         await loginToPreview(previewPage, auth, pair.previewUrl);
 
         console.log(`\nAnalyzing Preview:    ${pair.previewUrl}`);
@@ -135,11 +143,8 @@ test.describe('Oscar Mayer — Preview vs Production', () => {
         }
 
         // ── Test failure checks ───────────────────────────────────────────────
-        // Marks the test as failed when a page is absent from one environment,
-        // or when the Images / Content Comparison sections show differences.
         const testFailures: string[] = [];
 
-        // "Only in" — page loads on one side but not the other
         const previewFailed    = Boolean(previewAnalysis.loadError) || previewAnalysis.statusCode >= 400;
         const productionFailed = Boolean(productionAnalysis.loadError) || productionAnalysis.statusCode >= 400;
 
@@ -158,7 +163,6 @@ test.describe('Oscar Mayer — Preview vs Production', () => {
           );
         }
 
-        // Images section + Content Comparison section
         const contentDiffDetails: string[] = [];
         if (diff.imagesCount.isDifferent)
           contentDiffDetails.push(`image count (preview: ${diff.imagesCount.preview}, production: ${diff.imagesCount.production})`);

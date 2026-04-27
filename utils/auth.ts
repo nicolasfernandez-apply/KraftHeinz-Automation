@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+import { Browser, Page } from '@playwright/test';
 import * as path from 'path';
 import * as fs from 'fs';
 
@@ -51,7 +51,21 @@ export async function loginToPreview(
 
   // Wait for the JS-rendered login page to fully load
   await page.waitForLoadState('networkidle', { timeout: 20_000 }).catch(() => {});
-  console.log(`  [Auth] Login page loaded: ${page.url()}`);
+
+  // If IAP did not redirect us to a login page the session is already valid —
+  // skip the login form entirely (avoids Firebase email-lookup quota hits).
+  const currentUrl = page.url();
+  const isLoginPage =
+    currentUrl.includes('.run.app') ||
+    currentUrl.includes('iap.googleapis.com') ||
+    currentUrl.includes('accounts.google.com');
+
+  if (!isLoginPage) {
+    console.log(`  [Auth] Session already valid — skipping login\n`);
+    return;
+  }
+
+  console.log(`  [Auth] Login page loaded: ${currentUrl}`);
 
   // ── Step 1: Email ───────────────────────────────────────────────────────────
   const emailField = page.locator('input[type="email"]').first();
@@ -130,6 +144,59 @@ export async function loginToPreview(
   // Let the page finish loading after the IAP redirect
   await page.waitForLoadState('networkidle', { timeout: 20_000 }).catch(() => {});
   console.log(`  [Auth] Login complete — now at: ${page.url()}\n`);
+}
+
+/**
+ * Logs in to each unique PRV hostname found in urlPairs — exactly once per
+ * hostname — saves the IAP session cookies to .auth/<hostname>.json, and
+ * returns a Map<hostname, storageStatePath>.
+ *
+ * Call this in test.beforeAll.  Each test then creates its preview context
+ * with `storageState: stateMap.get(hostname)`, so loginToPreview detects the
+ * valid session and returns immediately without triggering a Firebase
+ * email-lookup (which is subject to a strict per-hour quota).
+ */
+export async function setupPreviewAuth(
+  browser: Browser,
+  auth: AuthConfig,
+  urlPairs: ReadonlyArray<{ previewUrl: string }>,
+): Promise<Map<string, string>> {
+  const stateDir = path.join(process.cwd(), '.auth');
+  fs.mkdirSync(stateDir, { recursive: true });
+
+  const stateByHostname = new Map<string, string>();
+  const seen = new Set<string>();
+
+  for (const pair of urlPairs) {
+    let hostname: string;
+    try { hostname = new URL(pair.previewUrl).hostname; } catch { continue; }
+    if (seen.has(hostname)) continue;
+    seen.add(hostname);
+
+    const statePath = path.join(stateDir, `${hostname}.json`);
+
+    // If a state file from this process already exists (e.g. Playwright restarted
+    // the worker after a test failure), reuse it — the session is still valid and
+    // re-logging in would consume another Firebase email-lookup quota slot.
+    if (fs.existsSync(statePath)) {
+      stateByHostname.set(hostname, statePath);
+      console.log(`[Auth] Reusing existing session for ${hostname}`);
+      continue;
+    }
+
+    console.log(`\n[Auth] Logging in to ${hostname} (once for all tests on this domain)…`);
+
+    const ctx = await browser.newContext({ ignoreHTTPSErrors: true });
+    const page = await ctx.newPage();
+    await loginToPreview(page, auth, pair.previewUrl);
+    await ctx.storageState({ path: statePath });
+    await ctx.close();
+
+    stateByHostname.set(hostname, statePath);
+    console.log(`[Auth] Session saved → ${statePath}`);
+  }
+
+  return stateByHostname;
 }
 
 // ── Internal helpers ──────────────────────────────────────────────────────────
