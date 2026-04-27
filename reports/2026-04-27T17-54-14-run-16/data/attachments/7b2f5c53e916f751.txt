@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700105504-cheesy-smokehouse-stuffed-dogs/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mPhnsPdzBQwXM4MpPtcTZPh-z6QQKIJNMir-DoVms7VZmsQ4pf4jr7ure_Ca2H0SJuaZ9Z1cIpombgz9UZEP6f5kMx44ubwQHgRj6m66DsUtuNpBjq8oXCOW4JETB2PF1Vtn_9fDzqeG_aavpXRLGs08XQ6LrrBpH0Zb6Eyft3eJLyZA_Hg6HORM4xWizx68e_RnVqx3t4AMM4xJPwzetbQ8LwBmUFoHkG0CFKX93rw0J_ljHGOrjyRu_XpNDJvWyqVkQAS8OCVTug5u7tw9ExOyWW6mVziftk_2NzkzmoZWGQ4nKJCM9Mu4e5r67r37PzkFZAko_dC4GF0zIBLVI4fx5tkbftIH3g9NMD0gFF9FYr3xbGYdpiRwlv3mODwIf0v6brVL2jmXlI2acvzMZEZcBvgUHvCM9EAL67BINFTSpvjKDmdoD3le6YRyPaYSWBTJOskxPOKtmXAOh8UCzQK-vsE2F7vL2bAsuxox99Olp4cw7oUN8e_iY_on23pc09yBwyph-6GewC5sw6clqXD4cJu-ZG-QZL5prT2xIkevOusFQIRkVVdHvMp1ngxROHOS6KHN9uKpSv1qEddn_QIAH4rseL9JFMnoWZuimBtkU1ynTyMb-Z4_e1n_9trLKqXtro223zS5mp2gQAqiWjcBHKe_4Hjv0xzxAHoKqwqldr9F7mUlJJgZmLZCVtviNVgIblFQAP5Da4RnePsR3q9QCPHm8X77FsHgueyndLAAqpR9sWm2LjPqOwaGTdnC7Vpcg8kESyQt1e6Tv6wLLuC5ULN89krqFhLPqihUizgSLip1Mcbus_3xJJa91Ey1CvjjJTStlm8WJp8YCLzVCFIYSZTA9VSBJy-UzD0ssMM2-rD4UY_eOfyV9fY7WwNs8yr-BfE-E1UDmSz9RBlV_vIwaAhELyMOhSGH03h2gvzKnOvOcL8-V44-GMGEbPS6t5qm_Hvd_9z.g7-gkJ444aE00yabSq83QlHRHAih0f2p-BFI2Y8IYNzZB81BpXY3-Wafcg8N1cfvv_TwYpjbyDe3zQDrOkdHEA
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/products/00044700105504-cheesy-smokehouse-stuffed-dogs
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700105504-cheesy-smokehouse-stuffed-dogs/
+Analyzing Production: https://www.oscarmayer.com/products/00044700105504-cheesy-smokehouse-stuffed-dogs/
+
+============================================================
+COMPARISON SUMMARY — Oscar Mayer Stuffed Dogs
+============================================================
+Total differences:    5
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/oscar-mayer-stuffed-dogs-2026-04-27T17-53-49-575Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

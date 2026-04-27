@@ -1,0 +1,26 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://brands.prv.kraftheinz.com/kraft-mac-and-cheese
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/8B6C94B66D87E11C:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mMc1SDSuOt7JWweCk_OLpex33ezQLA-QwXnrkA9TE0gvOJLEXG7tT83UW0E2lF-VuJbkQAxwWnfm9bB8IQG_NvAsR1oeSW2IDmn0sTI-wDJBhL9UlhGni-8qnA3bT8_-JjVltHEmfujDNYYFcADiv6haw1Pow0oSzsMKvCzc7Cou1R8jKIPoBrqPGk3wIjcPrDGArvWromT8Imrgqd3PMLvCwzIn4cag2tyJoC7DOrbCrZ-lkTHEK493BuJVMyPlVfq5y86Fc0_k7a_3ntato78JKeooj-OMQdNyzrdNhEyd_iwxonUZOfit5BMAeTavK6pryly79dzlnUOTUi0GPMX-myyzrd7GwM3GQeFV_eQzAPW3axgNKJdcNqMa5SinkCQcPoggsKBdJI-wHZ8YrMu1Fh8fuH-ruSszoxieL6mlxwUOmNTD9qfmlTUmazH8c8zsMWqilJlX2U-Fs5UHF2hYpz4OrOldE0tFmKO9EyZ789GY0VRgzYE_M-FTQLO7iobVRT1v9so3xEkC1H3_sg7Vgno_dqKDgH8KEc4Va3KvL-fS_HkLZOvhZ5DEFipVZUQvKpaCdn0TZrpi6ZVmUR0H9LyBYuxEOX25NwqOnYgbmXLxPCjdkSmBCPY-kyCwyBRS7dULrwiC24FMhThsBj7LvPT64YNo4YpQMaPhB8Bd_ATYOvVcQsDlhbPnuUTwEQ6rKtZTW6PcLdWZLi7vJYe4SZeNnRx594r7KML2G6HmGbd7yaJkPc1Zo_Bb16YvlXX3taQ61s1xMZvqz31g2b5TZ1LlQeB4puJwaNUvsNmH76r.6jL020jeWJMyBrmqdCoT2vgX1Z5rdnzuIvUBBipdDUbChx6tKh9IQp2cBdQyhpfRnS7xANFshdMlIJIJ8Zu2LQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://brands.prv.kraftheinz.com/kraft-mac-and-cheese
+
+
+Analyzing Preview:    https://brands.prv.kraftheinz.com/kraft-mac-and-cheese
+Analyzing Production: https://www.kraftheinz.com/kraft-mac-and-cheese
+
+============================================================
+COMPARISON SUMMARY — Kraft Mac and Cheese Home
+============================================================
+Total differences:    8
+Critical differences: 3
+Preview issues:       70
+Production issues:    75
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/kraft-mac-and-cheese-home-2026-04-27T17-49-56-677Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+  • Title: "Kraft Mac & Cheese Official Site | KRAFT MAC AND CHEESE | United States | Kraft Heinz" vs "Kraft Mac & Cheese Official Site - Kraft Mac & Cheese | KRAFT MAC AND CHEESE | United States | Kraft Heinz"
+

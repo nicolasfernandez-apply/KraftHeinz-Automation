@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://brands.prv.kraftheinz.com/unitedtastesofamerica
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/8B6C94B66D87E11C:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mOgHvTA2w1WJncS-bufb5XFQs-saNg6bGO7y06ygnVdhBP6O7SZPT08ovKTLMCDrjSXBkISw3hXnqldlISPprMYSixVhbhZkdi5Xhz8Ua7tjBSK7f5ZvTMjSjHnYqWuoL8ZPl1TSVaqY-FUgaG0Z0iwIHo9mGbzyaxypwsb-B7r1uOA_6lZ1SHuSIDHwGKFronnE_Dje6cnyyE5i19wXUIiDHx7xhw8Ztll5K5NPx2voORk9CKbqRzcienkIlf7pNQhWgPiND8THNYs9qvrAcYxMeobVvEvQOhGB1NbKqVF4h_1K5FG6EbVqooxTJ7QYM7J0E1KA5hajVuKj_dTgGMFu3ZCEcjgWlSxvgiD4gxxNNvC5ujZRM0W_tzK46hqDtLTp5_UkyGnZLHOERDaO_aymdn698DaQh0pz9QJYch456-tdJA9P3FUhS7EfooxHi5ynaLY9VIW5E42URwwAcThhNcn0AbxIPuDovkeJS7O6fRg61uTLIRfH6zBoiRr7u0MW8XgmOAz7CEwHlSyM6FeeH7y103ARywiC3vRs_kAh4bvZaw1mybxRSnKOc_St-0Iscr7VxK5l1NXUtlwpyU2OqA6L52q2y1YO2ORTbKGLvg0VHcRbWVvtgnr0TYtFVR07ZWlLC-0WucFM5ZrK9Fg95Hhf5U6lhMkfIC2Z1xmLhLSwLst2MkNYKppXIUR1qYyNerD65PHqowEM-iD_DQMrIQVmJlWlefUxNfdNRoA2jjokaiLdVG7n97RzIs4Orgpg0s1W1jBDVIKDuznuMU4gRI4WZtagFuc61ZIb-qVCtROUjBu.VEV9MXDSbeTTEF-5r7n3napukeTDidHCzYLMoSzpGk0Qdaj7rKuz_G3h4ho6eCZCF0YGBAy2m2jxze8gF_120A
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://brands.prv.kraftheinz.com/unitedtastesofamerica
+
+
+Analyzing Preview:    https://brands.prv.kraftheinz.com/unitedtastesofamerica
+Analyzing Production: https://www.kraftheinz.com/unitedtastesofamerica
+
+============================================================
+COMPARISON SUMMARY — United Tastes of America
+============================================================
+Total differences:    4
+Critical differences: 2
+Preview issues:       2
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/united-tastes-of-america-2026-04-27T17-50-39-446Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

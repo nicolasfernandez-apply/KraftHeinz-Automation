@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mNy1H9N_iam3lcxw5QO__ETh3GJdQCFt6qGkYsA-UcXBpux_2uRjFnEfC9u5chdxf4F7KS_p76vwPM2U0IDlSM-6XxO4dSzFXr7Gh-qgd5ontGqmS3Q8dthtHGTBtsy6eG8SWoRQScDPhmHcUou4kF2VTJoGCBOu2KAgy5dJXZCuNjnwW1EW23OuMebdpWzWWP4oV8suxgJUDybakln2wW_Mij1aMSxK3Pf7SMr-vo8riDShFIUl0pDIdPk1P4GqWUGrYVkVXcj37dBpqf7BUDWubli-G0UKdBRwKyM3ol3JCCbSb21wvkG7KXpjvpo-HaXRWirqeWOmkqwjKA9pcfN__cIRAeWYunjIxisRNiBL7YywVuQ5rpBKKxxDrnemQ2YQZcGgp1br7Yx3JW40U1Cle_kswqFCxrukkzjAIQYYssgfLPj3QA4I9Kx4ZFn-h5gzyM2FiiCHD0iAk8MXQSD2bU7UrfL2EIx225xjwbv3n2JlgGD-VCQIpvAjNKuzLCdilC1s4vJagKcW6LBej8rsaSvzFsrOTKCn7ZblKzM3jDOHdAC3ygm_KJ1NBESiJLBTfRh1K9AnO18WGGehRozfm5Yw-stBlRANQakQJAPwaAL7rJjClmQH6JQYEcud0GFNdk7DgeQc6nSGqK2vqjpP7m1aMQdUf6AxnvNvoByatgxywHwHkqkbmEWFTMjwv9nBiIrsQxRisudcl9g7BBM17MBdfnMVhRPyAxjh-WlmVSD.6YTcKNUnoJsAh2exg08-zwR820-GPH-kdS3qAKK6lgDLP8mFzqu4Nzz5zcTA-HhUm6FB5LGU_KztqT5g-hTxcg
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/
+Analyzing Production: https://www.oscarmayer.com/
+
+============================================================
+COMPARISON SUMMARY — Oscar Mayer Home
+============================================================
+Total differences:    5
+Critical differences: 3
+Preview issues:       3
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/oscar-mayer-home-2026-04-27T17-53-33-202Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

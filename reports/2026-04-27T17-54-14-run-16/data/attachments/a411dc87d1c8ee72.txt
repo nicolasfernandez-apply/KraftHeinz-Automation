@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://brands.prv.kraftheinz.com
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/8B6C94B66D87E11C:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mOUOat2Hv1cZeRgdtygPLxO71uAN-Yvk3LchhbVya7hzeGwe9UE0VQayP0MOqj5-kcPZdQCGITPrtSHLOk1o2ANmjpoNrCE-s8BYUMh9PKmqcUSWU6BHvOjNFFWIAS8t3pjJ-MlzKxchInmNvK9B3Yn-g06-akwWpZIJ-FisSkQyHKo0QC2i1ZpWbeBcUTlvqoyOToIhuPFxOEjFg7CaYJGbSzjb7N4O53kW1LWfjaSU16SCEIfAFiRbgRMcULfvpjX4nVdRkxP7x7lhv89_Q9CeDY6wBUquMugSsekNkwN1D7QQU2927rVOue-01b3TW0ahj6gyhRkZMIXfhG83HF3KOtBKD1-JZiqUJbF3DvfJhwevMKiRqieQtwQZUHnL3K833W-yWM0fnwpqYZQhnpefOKz-LwqqCLOhT0VKWjOX6TNpFxtJyTXOZByGnW5dTT_LhPLXxiPNs4kYIAz4qtom0j5Ap4bxedOnbQk0_fdYECXDbDmWEG7EoVJIHyFxVpOhDC39W27BydV4jN_75GhHYSDXJ2ASMZoT_ggzEqQlrKjT8wh0nQbpe8LTBNnZdL81bxCtUpvSvwDSQx3HuE1PKBOtEW0Kc9ObDVuOFBxwNhoJvazuh9yPcqvld9dQ6UCulCmBjluDoK8eww8M2HRcDYpN9X8ErcQJDPUaI6tzS07OIe_yqp1Aht35QOyMV0hN0CLZsvdO7rqmVjp3yh7vXM2RKdg.yMoh5oAKbN0IQ9Nwc6IJLHNITTttsu0-80orojQeGnL-MxBWuQZhVb9eoRYFAZaaQgyGBF4TiP4hKvUyeY6BnQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://brands.prv.kraftheinz.com/
+
+
+Analyzing Preview:    https://brands.prv.kraftheinz.com
+Analyzing Production: https://www.kraftheinz.com
+
+============================================================
+COMPARISON SUMMARY — Kraft Home
+============================================================
+Total differences:    3
+Critical differences: 1
+Preview issues:       97
+Production issues:    102
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/kraft-home-2026-04-27T17-52-26-654Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

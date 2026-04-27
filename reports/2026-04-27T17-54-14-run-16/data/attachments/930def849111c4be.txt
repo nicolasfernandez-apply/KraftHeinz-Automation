@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://brands.prv.kraftheinz.com/made-by-us
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/8B6C94B66D87E11C:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mMQFb-VPikXSCvDDCnCHtdAdwPniIo2V0j5NK91nigxbfNeWPGyeFSr1_B0j7vIDrz4mBcntixC5uSBVfgL3SDAyRiQd12BZ4As2jZp1WE6pnZ3PZFAyzs_HOEVz_4mIDuWiksIvFcOR6wimwLSF5bDCJ-eFS84L9Rwo2pM_umvuqEIRt-_Fz25E1CamiyRwJr34uFzkxhD3TlKuDGqUVAX-31j2X9pj5dnnn_MYZtdGe5FfQ8nkRg6Leket99dEbzXQUwyavJ_lTdp9rn31EVGCQkD-o919sy2btngo1zBTE210gEUgbQ5JbLjeNq1ommFW0xdsV4G-ujx3l_MBKIOVOj4W2Gu2wEHuvcKGtte-HUcDtyBJ49LfdNe8FuEKtL94Jmv2MW3LNAF_Zq6Sd5StVj_3LgneTvPdzIKwWlKdNVo6UojBnfsZUMElNUm-EeUAHbU0uesvc8Q7qXQYIVNRQLR-sbyfz5tI1Gw9OAs5xiziK_DFfD85xXA_CgoBWnnYI9BIWUIollTSzFY-RT6X91oyjNQGRFh5Y7J2JC4WGTqJK0mpbljpdLsUQjINavGE06BKVCGxK3KAoNvHjwqB216DA-8w-6HnOZn1PqwuYUZNljws4JgJ_8nP7pvUAK8xooQm3U8SZBWIZqn9kEuPAFOiXbx_H1qsT3OSKKXfqteUAfzI8ei6etafmQb5l9_WHP43FYrqtOleeayyfK6z4vAsAL74dKZg2s3t46-70bPmqKigcyUz2r1BPt1lL9CKA4s.45z2Hy8mSwyTMJ1ENX5tRTyVVsEW5fpkSGWjV8nme76dHtl4F_9YYNEWod4K-Fy6ZbuIQVdMfqzU7g-XG6Z7zQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://brands.prv.kraftheinz.com/made-by-us
+
+
+Analyzing Preview:    https://brands.prv.kraftheinz.com/made-by-us
+Analyzing Production: https://www.kraftheinz.com/made-by-us
+
+============================================================
+COMPARISON SUMMARY — Made by us
+============================================================
+Total differences:    3
+Critical differences: 1
+Preview issues:       2
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/made-by-us-2026-04-27T17-51-15-359Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+
