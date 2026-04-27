@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00071871544726-turkey-franks-hot-dogs/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00071871544726-turkey-franks-hot-dogs/
+Analyzing Production: https://www.oscarmayer.com/products/00071871544726-turkey-franks-hot-dogs/
+
+============================================================
+COMPARISON SUMMARY — Products › 00071871544726 Turkey Franks Hot Dogs
+============================================================
+Total differences:    7
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00071871544726-turkey-franks-hot-dogs-2026-04-27T22-08-52-068Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

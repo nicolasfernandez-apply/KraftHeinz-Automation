@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700104019-chili-cheese-stuffed-dogs/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700104019-chili-cheese-stuffed-dogs/
+Analyzing Production: https://www.oscarmayer.com/products/00044700104019-chili-cheese-stuffed-dogs/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700104019 Chili Cheese Stuffed Dogs
+============================================================
+Total differences:    9
+Critical differences: 3
+Preview issues:       6
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700104019-chili-cheese-stuffed-dogs-2026-04-27T22-17-12-553Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+  • Meta description differs
+

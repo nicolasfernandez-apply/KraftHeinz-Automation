@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700031407-real-bacon-bits-value-pack/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700031407-real-bacon-bits-value-pack/
+Analyzing Production: https://www.oscarmayer.com/products/00044700031407-real-bacon-bits-value-pack/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700031407 Real Bacon Bits Value Pack
+============================================================
+Total differences:    8
+Critical differences: 2
+Preview issues:       6
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700031407-real-bacon-bits-value-pack-2026-04-27T22-19-02-573Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700019917-naturally-hardwood-smoked-bacon-with-30-lower-sodium/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700019917-naturally-hardwood-smoked-bacon-with-30-lower-sodium/
+Analyzing Production: https://www.oscarmayer.com/products/00044700019917-naturally-hardwood-smoked-bacon-with-30-lower-sodium/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700019917 Naturally Hardwood Smoked Bacon With 30 Lower Sodium
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700019917-naturally-hardwood-smoked-bacon-with-30-lower-sodium-2026-04-27T22-19-03-563Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

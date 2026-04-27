@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700102787-naturally-hardwood-smoked-bacon-original/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700102787-naturally-hardwood-smoked-bacon-original/
+Analyzing Production: https://www.oscarmayer.com/products/00044700102787-naturally-hardwood-smoked-bacon-original/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700102787 Naturally Hardwood Smoked Bacon Original
+============================================================
+Total differences:    8
+Critical differences: 2
+Preview issues:       7
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700102787-naturally-hardwood-smoked-bacon-original-2026-04-27T22-04-39-549Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

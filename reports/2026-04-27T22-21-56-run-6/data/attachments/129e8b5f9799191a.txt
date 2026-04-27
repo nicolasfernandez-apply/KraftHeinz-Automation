@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700008744-bologna-sliced-lunch-meat/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700008744-bologna-sliced-lunch-meat/
+Analyzing Production: https://www.oscarmayer.com/products/00044700008744-bologna-sliced-lunch-meat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700008744 Bologna Sliced Lunch Meat
+============================================================
+Total differences:    8
+Critical differences: 2
+Preview issues:       8
+Production issues:    7
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700008744-bologna-sliced-lunch-meat-2026-04-27T22-10-58-952Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/MeetMeAtTheWMB/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/MeetMeAtTheWMB/
+Analyzing Production: https://www.oscarmayer.com/MeetMeAtTheWMB/
+
+============================================================
+COMPARISON SUMMARY — MeetMeAtTheWMB
+============================================================
+Total differences:    7
+Critical differences: 3
+Preview issues:       2
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/meetmeatthewmb-2026-04-27T22-03-35-171Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

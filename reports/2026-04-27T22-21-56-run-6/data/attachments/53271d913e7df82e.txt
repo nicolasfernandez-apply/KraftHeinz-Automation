@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700075050-classic-beef-franks-hot-dogs/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700075050-classic-beef-franks-hot-dogs/
+Analyzing Production: https://www.oscarmayer.com/products/00044700075050-classic-beef-franks-hot-dogs/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700075050 Classic Beef Franks Hot Dogs
+============================================================
+Total differences:    11
+Critical differences: 2
+Preview issues:       6
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700075050-classic-beef-franks-hot-dogs-2026-04-27T22-13-23-167Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

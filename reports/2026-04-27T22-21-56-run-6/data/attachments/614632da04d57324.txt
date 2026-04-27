@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700094433-bites-natural-hickory-smoked-uncured-ham-monterey-jack-cracker-trio-meat-cheese-snack-plate/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700094433-bites-natural-hickory-smoked-uncured-ham-monterey-jack-cracker-trio-meat-cheese-snack-plate/
+Analyzing Production: https://www.oscarmayer.com/products/00044700094433-bites-natural-hickory-smoked-uncured-ham-monterey-jack-cracker-trio-meat-cheese-snack-plate/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700094433 Bites Natural Hickory Smoked Uncured Ham Monterey Jack Cracker Trio Meat Cheese Snack Plate
+============================================================
+Total differences:    8
+Critical differences: 2
+Preview issues:       4
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700094433-bites-natural-hickory-smoked-uncured-ham-monterey-jack-cracker-trio-meat-cheese-snack-plate-2026-04-27T22-17-37-257Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

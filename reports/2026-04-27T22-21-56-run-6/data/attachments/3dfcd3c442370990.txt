@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700104149-honey-ham/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700104149-honey-ham/
+Analyzing Production: https://www.oscarmayer.com/products/00044700104149-honey-ham/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700104149 Honey Ham
+============================================================
+Total differences:    8
+Critical differences: 2
+Preview issues:       6
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700104149-honey-ham-2026-04-27T22-11-01-943Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

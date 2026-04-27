@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/oscarmayer-404/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/oscarmayer-404/
+Analyzing Production: https://www.oscarmayer.com/oscarmayer-404/
+
+============================================================
+COMPARISON SUMMARY — Oscarmayer 404
+============================================================
+Total differences:    7
+Critical differences: 3
+Preview issues:       3
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/oscarmayer-404-2026-04-27T22-04-04-143Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+
