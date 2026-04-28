@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00071871548793-fully-cooked-gluten-free-turkey-bacon-with-62-less-fat-57-less-sodium/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00071871548793-fully-cooked-gluten-free-turkey-bacon-with-62-less-fat-57-less-sodium/
+Analyzing Production: https://www.oscarmayer.com/products/00071871548793-fully-cooked-gluten-free-turkey-bacon-with-62-less-fat-57-less-sodium/
+
+============================================================
+COMPARISON SUMMARY — Products › 00071871548793 Fully Cooked Gluten Free Turkey Bacon With 62 Less Fat 57 Less Sodium
+============================================================
+Total differences:    7
+Critical differences: 2
+Preview issues:       8
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00071871548793-fully-cooked-gluten-free-turkey-bacon-with-62-less-fat-57-less-sodium-2026-04-28T14-06-56-947Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

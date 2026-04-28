@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700009833-2-x-thicker-super-thick-cut-bologna-sliced-lunch-meat/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700009833-2-x-thicker-super-thick-cut-bologna-sliced-lunch-meat/
+Analyzing Production: https://www.oscarmayer.com/products/00044700009833-2-x-thicker-super-thick-cut-bologna-sliced-lunch-meat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700009833 2 X Thicker Super Thick Cut Bologna Sliced Lunch Meat
+============================================================
+Total differences:    9
+Critical differences: 2
+Preview issues:       6
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700009833-2-x-thicker-super-thick-cut-bologna-sliced-lunch-meat-2026-04-28T13-57-58-635Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

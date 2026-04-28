@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00071871546683-turkey-bologna-sliced-lunch-meat-with-50-lower-fat/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00071871546683-turkey-bologna-sliced-lunch-meat-with-50-lower-fat/
+Analyzing Production: https://www.oscarmayer.com/products/00071871546683-turkey-bologna-sliced-lunch-meat-with-50-lower-fat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00071871546683 Turkey Bologna Sliced Lunch Meat With 50 Lower Fat
+============================================================
+Total differences:    8
+Critical differences: 2
+Preview issues:       9
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00071871546683-turkey-bologna-sliced-lunch-meat-with-50-lower-fat-2026-04-28T13-55-47-880Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

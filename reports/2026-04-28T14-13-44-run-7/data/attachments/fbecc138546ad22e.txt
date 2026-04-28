@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/test-blurgate/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/test-blurgate/
+Analyzing Production: https://www.oscarmayer.com/test-blurgate/
+
+============================================================
+COMPARISON SUMMARY — Test Blurgate
+============================================================
+Total differences:    7
+Critical differences: 2
+Preview issues:       2
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/test-blurgate-2026-04-28T13-49-19-129Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+
