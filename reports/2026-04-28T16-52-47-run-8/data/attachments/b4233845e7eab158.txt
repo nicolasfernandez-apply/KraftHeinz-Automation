@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700087374-original-center-cut-bacon-mega-pack/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700087374-original-center-cut-bacon-mega-pack/
+Analyzing Production: https://www.oscarmayer.com/products/00044700087374-original-center-cut-bacon-mega-pack/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700087374 Original Center Cut Bacon Mega Pack
+============================================================
+Total differences:    9
+Critical differences: 2
+Preview issues:       8
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700087374-original-center-cut-bacon-mega-pack-2026-04-28T16-39-54-242Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

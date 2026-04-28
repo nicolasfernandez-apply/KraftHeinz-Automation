@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/
+Analyzing Production: https://www.oscarmayer.com/products/
+
+============================================================
+COMPARISON SUMMARY — Products
+============================================================
+Total differences:    9
+Critical differences: 3
+Preview issues:       3
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-2026-04-28T16-29-08-697Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

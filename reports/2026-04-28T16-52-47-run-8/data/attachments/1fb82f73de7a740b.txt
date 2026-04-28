@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700103425-scramblers-bacon-velveeta/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700103425-scramblers-bacon-velveeta/
+Analyzing Production: https://www.oscarmayer.com/products/00044700103425-scramblers-bacon-velveeta/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700103425 Scramblers Bacon Velveeta
+============================================================
+Total differences:    8
+Critical differences: 2
+Preview issues:       6
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700103425-scramblers-bacon-velveeta-2026-04-28T16-46-35-060Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+
