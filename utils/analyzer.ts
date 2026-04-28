@@ -194,7 +194,8 @@ export async function analyzePage(
         }))
         // Exclude cookie-consent service logos — they are injected by consent
         // SDKs and differ between environments based on banner visibility.
-        .filter((img) => !img.src.includes('/logos/')),
+        // Exclude tracking/logging pixel paths — environment-specific noise.
+        .filter((img) => !img.src.includes('/logos/') && !img.src.startsWith('/log/')),
     )
     .catch(() => [] as ImageInfo[]);
 
@@ -244,7 +245,9 @@ export async function analyzePage(
           l.href !== '#' &&
           !l.href.startsWith('javascript:') &&
           // Exclude cookie-consent logo links (same root cause as image filter above)
-          !l.href.includes('/logos/'),
+          !l.href.includes('/logos/') &&
+          // Exclude "where to buy" widget links — environment-specific retailer lookups
+          !l.href.startsWith('/wtb/'),
         );
     }, url)
     .catch(() => [] as LinkInfo[]);
