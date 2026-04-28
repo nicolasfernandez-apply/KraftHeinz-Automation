@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700032527-deli-fresh-black-forest-uncured-ham/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700032527-deli-fresh-black-forest-uncured-ham/
+Analyzing Production: https://www.oscarmayer.com/products/00044700032527-deli-fresh-black-forest-uncured-ham/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700032527 Deli Fresh Black Forest Uncured Ham
+============================================================
+Total differences:    7
+Critical differences: 2
+Preview issues:       4
+Production issues:    7
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700032527-deli-fresh-black-forest-uncured-ham-2026-04-28T18-36-51-305Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

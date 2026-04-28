@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700023280-center-cut-thick-sliced-bacon/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700023280-center-cut-thick-sliced-bacon/
+Analyzing Production: https://www.oscarmayer.com/products/00044700023280-center-cut-thick-sliced-bacon/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700023280 Center Cut Thick Sliced Bacon
+============================================================
+Total differences:    7
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700023280-center-cut-thick-sliced-bacon-2026-04-28T18-40-18-388Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

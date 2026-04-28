@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700099995-sub-kit-with-extra-lean-honey-ham-extra-lean-honey-smoked-turkey-breast-sliced-lunch-meat/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700099995-sub-kit-with-extra-lean-honey-ham-extra-lean-honey-smoked-turkey-breast-sliced-lunch-meat/
+Analyzing Production: https://www.oscarmayer.com/products/00044700099995-sub-kit-with-extra-lean-honey-ham-extra-lean-honey-smoked-turkey-breast-sliced-lunch-meat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700099995 Sub Kit With Extra Lean Honey Ham Extra Lean Honey Smoked Turkey Breast Sliced Lunch Meat
+============================================================
+Total differences:    4
+Critical differences: 2
+Preview issues:       6
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700099995-sub-kit-with-extra-lean-honey-ham-extra-lean-honey-smoked-turkey-breast-sliced-lunch-meat-2026-04-28T18-31-24-725Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

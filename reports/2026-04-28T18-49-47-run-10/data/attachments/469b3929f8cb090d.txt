@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700030486-deli-fresh-smoked-uncured-ham/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700030486-deli-fresh-smoked-uncured-ham/
+Analyzing Production: https://www.oscarmayer.com/products/00044700030486-deli-fresh-smoked-uncured-ham/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700030486 Deli Fresh Smoked Uncured Ham
+============================================================
+Total differences:    7
+Critical differences: 2
+Preview issues:       4
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700030486-deli-fresh-smoked-uncured-ham-2026-04-28T18-39-22-806Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700031728-sub-kit-with-smoked-ham-water-product-cotto-salami-sliced-lunch-meat/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700031728-sub-kit-with-smoked-ham-water-product-cotto-salami-sliced-lunch-meat/
+Analyzing Production: https://www.oscarmayer.com/products/00044700031728-sub-kit-with-smoked-ham-water-product-cotto-salami-sliced-lunch-meat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700031728 Sub Kit With Smoked Ham Water Product Cotto Salami Sliced Lunch Meat
+============================================================
+Total differences:    7
+Critical differences: 2
+Preview issues:       8
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700031728-sub-kit-with-smoked-ham-water-product-cotto-salami-sliced-lunch-meat-2026-04-28T18-36-21-499Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

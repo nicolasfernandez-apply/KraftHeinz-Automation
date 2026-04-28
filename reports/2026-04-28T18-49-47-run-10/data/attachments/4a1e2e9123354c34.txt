@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700027738-real-bacon-recipe-pieces/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700027738-real-bacon-recipe-pieces/
+Analyzing Production: https://www.oscarmayer.com/products/00044700027738-real-bacon-recipe-pieces/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700027738 Real Bacon Recipe Pieces
+============================================================
+Total differences:    7
+Critical differences: 2
+Preview issues:       4
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700027738-real-bacon-recipe-pieces-2026-04-28T18-45-37-300Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700009758-thick-cut-beef-bologna-sliced-lunch-meat/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700009758-thick-cut-beef-bologna-sliced-lunch-meat/
+Analyzing Production: https://www.oscarmayer.com/products/00044700009758-thick-cut-beef-bologna-sliced-lunch-meat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700009758 Thick Cut Beef Bologna Sliced Lunch Meat
+============================================================
+Total differences:    7
+Critical differences: 2
+Preview issues:       8
+Production issues:    9
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700009758-thick-cut-beef-bologna-sliced-lunch-meat-2026-04-28T18-31-16-943Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

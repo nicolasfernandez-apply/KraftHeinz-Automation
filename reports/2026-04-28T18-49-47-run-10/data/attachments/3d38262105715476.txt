@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/our-story/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/our-story/
+Analyzing Production: https://www.oscarmayer.com/our-story/
+
+============================================================
+COMPARISON SUMMARY — Our Story
+============================================================
+Total differences:    2
+Critical differences: 1
+Preview issues:       2
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/our-story-2026-04-28T18-26-17-907Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+
