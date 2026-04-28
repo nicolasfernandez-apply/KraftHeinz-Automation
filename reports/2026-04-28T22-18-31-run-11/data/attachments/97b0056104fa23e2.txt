@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700030547-deli-fresh-honey-uncured-ham/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700030547-deli-fresh-honey-uncured-ham/
+Analyzing Production: https://www.oscarmayer.com/products/00044700030547-deli-fresh-honey-uncured-ham/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700030547 Deli Fresh Honey Uncured Ham
+============================================================
+Total differences:    4
+Critical differences: 1
+Preview issues:       8
+Production issues:    7
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700030547-deli-fresh-honey-uncured-ham-2026-04-28T22-06-53-370Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

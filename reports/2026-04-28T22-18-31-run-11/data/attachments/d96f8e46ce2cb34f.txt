@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700012802-braunschweiger-a-liver-sausage/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700012802-braunschweiger-a-liver-sausage/
+Analyzing Production: https://www.oscarmayer.com/products/00044700012802-braunschweiger-a-liver-sausage/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700012802 Braunschweiger A Liver Sausage
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       6
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700012802-braunschweiger-a-liver-sausage-2026-04-28T22-09-14-362Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

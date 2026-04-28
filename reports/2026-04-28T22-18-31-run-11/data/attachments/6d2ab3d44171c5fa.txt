@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/turkey-bacon-recall-faq/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/turkey-bacon-recall-faq/
+Analyzing Production: https://www.oscarmayer.com/turkey-bacon-recall-faq/
+
+============================================================
+COMPARISON SUMMARY — Turkey Bacon Recall Faq
+============================================================
+Total differences:    7
+Critical differences: 3
+Preview issues:       2
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/turkey-bacon-recall-faq-2026-04-28T21-55-15-256Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

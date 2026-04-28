@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700091739-deli-fresh-honey-uncured-ham-with-25-lower-sodium/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700091739-deli-fresh-honey-uncured-ham-with-25-lower-sodium/
+Analyzing Production: https://www.oscarmayer.com/products/00044700091739-deli-fresh-honey-uncured-ham-with-25-lower-sodium/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700091739 Deli Fresh Honey Uncured Ham With 25 Lower Sodium
+============================================================
+Total differences:    4
+Critical differences: 2
+Preview issues:       10
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700091739-deli-fresh-honey-uncured-ham-with-25-lower-sodium-2026-04-28T22-08-52-660Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

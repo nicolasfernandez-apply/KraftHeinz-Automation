@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700022887-carving-board-flame-grilled-chicken-breast-strips/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700022887-carving-board-flame-grilled-chicken-breast-strips/
+Analyzing Production: https://www.oscarmayer.com/products/00044700022887-carving-board-flame-grilled-chicken-breast-strips/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700022887 Carving Board Flame Grilled Chicken Breast Strips
+============================================================
+Total differences:    3
+Critical differences: 2
+Preview issues:       4
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700022887-carving-board-flame-grilled-chicken-breast-strips-2026-04-28T22-10-54-563Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+
