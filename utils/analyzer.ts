@@ -247,15 +247,16 @@ export async function analyzePage(
             isExternal,
           };
         })
-        .filter((l) =>
-          l.href &&
-          l.href !== '#' &&
-          !l.href.startsWith('javascript:') &&
-          // Exclude cookie-consent logo links (same root cause as image filter above)
-          !l.href.includes('/logos/') &&
-          // Exclude "where to buy" widget links — environment-specific retailer lookups
-          !l.href.startsWith('/wtb/'),
-        );
+        .filter((l) => {
+          if (!l.href || l.href === '#' || l.href.startsWith('javascript:')) return false;
+          if (l.href.includes('/logos/')) return false;
+          // Exclude "where to buy" widget links — environment-specific retailer lookups.
+          // Check pathname so that both relative (/wtb/...) and absolute
+          // (https://domain/wtb/...) forms are caught.
+          let pathname = l.href;
+          try { pathname = new URL(l.href).pathname; } catch {}
+          return !pathname.startsWith('/wtb/');
+        });
     }, url)
     .catch(() => [] as LinkInfo[]);
 
