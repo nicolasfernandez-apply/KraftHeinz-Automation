@@ -194,8 +194,15 @@ export async function analyzePage(
         }))
         // Exclude cookie-consent service logos — they are injected by consent
         // SDKs and differ between environments based on banner visibility.
-        // Exclude tracking/logging pixel paths — environment-specific noise.
-        .filter((img) => !img.src.includes('/logos/') && !img.src.startsWith('/log/')),
+        // Exclude tracking/logging pixels — environment-specific noise.
+        // Check the pathname so that both relative (/log/...) and absolute
+        // (https://domain/log/...) tracking URLs are caught.
+        .filter((img) => {
+          if (img.src.includes('/logos/')) return false;
+          let pathname = img.src;
+          try { pathname = new URL(img.src).pathname; } catch {}
+          return !pathname.startsWith('/log/');
+        }),
     )
     .catch(() => [] as ImageInfo[]);
 
