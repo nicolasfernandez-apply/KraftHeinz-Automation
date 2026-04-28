@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700104194-rotisserie-seasoned-white-meat-chicken/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700104194-rotisserie-seasoned-white-meat-chicken/
+Analyzing Production: https://www.oscarmayer.com/products/00044700104194-rotisserie-seasoned-white-meat-chicken/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700104194 Rotisserie Seasoned White Meat Chicken
+============================================================
+Total differences:    5
+Critical differences: 2
+Preview issues:       6
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700104194-rotisserie-seasoned-white-meat-chicken-2026-04-28T17-36-30-448Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

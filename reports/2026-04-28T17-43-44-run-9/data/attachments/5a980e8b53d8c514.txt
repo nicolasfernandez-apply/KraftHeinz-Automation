@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700103876-smoked-turkey-breast-and-white-turkey/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700103876-smoked-turkey-breast-and-white-turkey/
+Analyzing Production: https://www.oscarmayer.com/products/00044700103876-smoked-turkey-breast-and-white-turkey/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700103876 Smoked Turkey Breast And White Turkey
+============================================================
+Total differences:    9
+Critical differences: 2
+Preview issues:       4
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700103876-smoked-turkey-breast-and-white-turkey-2026-04-28T17-36-30-782Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700099711-maple-fully-cooked-thick-cut-bacon/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700099711-maple-fully-cooked-thick-cut-bacon/
+Analyzing Production: https://www.oscarmayer.com/products/00044700099711-maple-fully-cooked-thick-cut-bacon/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700099711 Maple Fully Cooked Thick Cut Bacon
+============================================================
+Total differences:    4
+Critical differences: 2
+Preview issues:       8
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700099711-maple-fully-cooked-thick-cut-bacon-2026-04-28T17-35-01-886Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700087442-cheese-stuffed-hot-dogs-mega-pack/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700087442-cheese-stuffed-hot-dogs-mega-pack/
+Analyzing Production: https://www.oscarmayer.com/products/00044700087442-cheese-stuffed-hot-dogs-mega-pack/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700087442 Cheese Stuffed Hot Dogs Mega Pack
+============================================================
+Total differences:    8
+Critical differences: 2
+Preview issues:       4
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700087442-cheese-stuffed-hot-dogs-mega-pack-2026-04-28T17-41-39-066Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

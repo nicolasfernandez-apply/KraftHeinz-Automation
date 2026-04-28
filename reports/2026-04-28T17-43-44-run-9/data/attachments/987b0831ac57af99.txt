@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/recipes/brunch-time-bacon-wrapped-carrots/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/recipes/brunch-time-bacon-wrapped-carrots/
+Analyzing Production: https://www.oscarmayer.com/recipes/brunch-time-bacon-wrapped-carrots/
+
+============================================================
+COMPARISON SUMMARY — Recipes › Brunch Time Bacon Wrapped Carrots
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    4
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/recipes-brunch-time-bacon-wrapped-carrots-2026-04-28T17-41-49-301Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

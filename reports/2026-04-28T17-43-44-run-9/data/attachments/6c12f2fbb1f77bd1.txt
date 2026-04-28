@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700070758-protein-snack-with-turkey-almonds-colby-jack-cheese/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700070758-protein-snack-with-turkey-almonds-colby-jack-cheese/
+Analyzing Production: https://www.oscarmayer.com/products/00044700070758-protein-snack-with-turkey-almonds-colby-jack-cheese/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700070758 Protein Snack With Turkey Almonds Colby Jack Cheese
+============================================================
+Total differences:    8
+Critical differences: 2
+Preview issues:       9
+Production issues:    7
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700070758-protein-snack-with-turkey-almonds-colby-jack-cheese-2026-04-28T17-27-33-015Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

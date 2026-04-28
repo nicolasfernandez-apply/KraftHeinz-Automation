@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700058626-deli-fresh-mesquite-smoked-turkey-breast/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700058626-deli-fresh-mesquite-smoked-turkey-breast/
+Analyzing Production: https://www.oscarmayer.com/products/00044700058626-deli-fresh-mesquite-smoked-turkey-breast/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700058626 Deli Fresh Mesquite Smoked Turkey Breast
+============================================================
+Total differences:    9
+Critical differences: 2
+Preview issues:       6
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700058626-deli-fresh-mesquite-smoked-turkey-breast-2026-04-28T17-22-21-815Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

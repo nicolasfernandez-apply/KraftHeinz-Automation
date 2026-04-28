@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700033357-carving-board-rotisserie-seasoned-chicken-breast-sliced-deli-meat/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700033357-carving-board-rotisserie-seasoned-chicken-breast-sliced-deli-meat/
+Analyzing Production: https://www.oscarmayer.com/products/00044700033357-carving-board-rotisserie-seasoned-chicken-breast-sliced-deli-meat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700033357 Carving Board Rotisserie Seasoned Chicken Breast Sliced Deli Meat
+============================================================
+Total differences:    5
+Critical differences: 2
+Preview issues:       9
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700033357-carving-board-rotisserie-seasoned-chicken-breast-sliced-deli-meat-2026-04-28T17-39-14-466Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+
