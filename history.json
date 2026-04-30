@@ -1,0 +1,14 @@
+{
+  "runs": [
+    {
+      "runStamp": "2026-04-30T19-39-51-run-1",
+      "date": "2026-04-30T19:39:51.341Z",
+      "runNumber": 1,
+      "runId": "25185342459",
+      "buildUrl": "https://github.com/nicolasfernandez-apply/KraftHeinz-Automation/actions/runs/25185342459",
+      "reportPath": "reports/2026-04-30T19-39-51-run-1/index.html",
+      "pages": [],
+      "sha": "0732272"
+    }
+  ]
+}
