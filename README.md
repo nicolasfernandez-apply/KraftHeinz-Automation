@@ -162,6 +162,34 @@ Reports are saved to `sites/oscar-mayer/reports/` — one HTML file per page.
 
 **Tip:** After crawling, you can open `sites/oscar-mayer/pages.json` and manually remove entries before running the comparison. The crawl step does not need to be repeated unless the site structure changes.
 
+#### Navigation tests
+
+Verifies that all header links, footer links, social media links, and the KraftHeinz brand-switcher (hamburger) menu work correctly.
+
+```bash
+# Both environments (default)
+npm run nav:oscar-mayer
+
+# Preview only (IAP-protected — requires PREVIEW_USERNAME / PREVIEW_PASSWORD in .env)
+npm run nav:oscar-mayer:preview
+
+# Production only (no credentials required)
+npm run nav:oscar-mayer:production
+```
+
+The target environment is controlled by the `TARGET_ENV` env var (`both` | `preview` | `production`). Base URLs are read from [`sites/oscar-mayer/site.config.json`](sites/oscar-mayer/site.config.json).
+
+**What is tested:**
+
+| Suite | Tests |
+|---|---|
+| Header — primary navigation links | Logo → `/`, Products → `/products`, Wienermobile® → `/wienermobile`, Our Story → `/our-story` |
+| Header — visible on all main pages | Nav renders on Home, Products, Wienermobile, Our Story |
+| Footer — internal links | Each of the 5 footer links navigates correctly, verified from every header page |
+| Footer — external KraftHeinz links | Product Locator, TasteVIP, Contact Us, Corporate, Terms, Privacy — `href` attributes checked |
+| Footer — social media links | TikTok, Instagram, Facebook, YouTube — `href` attributes checked |
+| Brand menu (hamburger) | All 11 KraftHeinz brand links are present with correct absolute URLs |
+
 ---
 
 ## Adding a new brand site

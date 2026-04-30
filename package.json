@@ -10,7 +10,10 @@
     "test": "playwright test",
     "crawl:oscar-mayer": "node sites/oscar-mayer/crawler.mjs",
     "compare:oscar-mayer": "playwright test sites/oscar-mayer/compare.spec.ts",
-    "site:oscar-mayer": "npm run crawl:oscar-mayer && npm run compare:oscar-mayer"
+    "site:oscar-mayer": "npm run crawl:oscar-mayer && npm run compare:oscar-mayer",
+    "nav:oscar-mayer": "TARGET_ENV=both playwright test sites/oscar-mayer/navigation.spec.ts",
+    "nav:oscar-mayer:preview": "TARGET_ENV=preview playwright test sites/oscar-mayer/navigation.spec.ts",
+    "nav:oscar-mayer:production": "TARGET_ENV=production playwright test sites/oscar-mayer/navigation.spec.ts"
   },
   "dependencies": {
     "dotenv": "^16.4.5"
