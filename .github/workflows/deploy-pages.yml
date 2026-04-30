@@ -10,6 +10,7 @@ on:
     workflows:
       - "URL Comparison — Preview vs Production"
       - "Oscar Mayer — Crawl & Compare"
+      - "Oscar Mayer — Navigation Tests"
     types: [completed]
     branches: [main]
 
@@ -66,6 +67,17 @@ jobs:
             echo "Oscar Mayer dashboard included at /oscar-mayer/"
           else
             echo "oscar-mayer-history branch not found — skipping /oscar-mayer/"
+          fi
+
+          # ── /oscar-mayer/navigation/: Oscar Mayer navigation tests dashboard ──
+          if git ls-remote --exit-code --heads "$REPO_URL" oscar-mayer-nav-history 2>/dev/null; then
+            git clone --branch oscar-mayer-nav-history --single-branch "$REPO_URL" .oscar-mayer-nav-site
+            mkdir -p .pages-artifact/oscar-mayer/navigation
+            cp -r .oscar-mayer-nav-site/. .pages-artifact/oscar-mayer/navigation/
+            rm -rf .pages-artifact/oscar-mayer/navigation/.git
+            echo "Oscar Mayer navigation dashboard included at /oscar-mayer/navigation/"
+          else
+            echo "oscar-mayer-nav-history branch not found — skipping /oscar-mayer/navigation/"
           fi
 
           # ── Fallback root index if neither branch exists yet ──────────────────
