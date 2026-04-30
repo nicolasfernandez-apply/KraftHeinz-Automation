@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700105436-shaved-smoked-extra-lean-ham/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700105436-shaved-smoked-extra-lean-ham/
+Analyzing Production: https://www.oscarmayer.com/products/00044700105436-shaved-smoked-extra-lean-ham/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700105436 Shaved Smoked Extra Lean Ham
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       8
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700105436-shaved-smoked-extra-lean-ham-2026-04-30T19-48-56-409Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

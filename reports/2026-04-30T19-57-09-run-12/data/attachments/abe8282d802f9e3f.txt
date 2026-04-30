@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700094440-bites-natural-honey-smoked-turkey-asiago-cheese-cracker-trio-meat-cheese-snack-plate/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700094440-bites-natural-honey-smoked-turkey-asiago-cheese-cracker-trio-meat-cheese-snack-plate/
+Analyzing Production: https://www.oscarmayer.com/products/00044700094440-bites-natural-honey-smoked-turkey-asiago-cheese-cracker-trio-meat-cheese-snack-plate/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700094440 Bites Natural Honey Smoked Turkey Asiago Cheese Cracker Trio Meat Cheese Snack Plate
+============================================================
+Total differences:    4
+Critical differences: 1
+Preview issues:       10
+Production issues:    7
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700094440-bites-natural-honey-smoked-turkey-asiago-cheese-cracker-trio-meat-cheese-snack-plate-2026-04-30T19-51-21-860Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

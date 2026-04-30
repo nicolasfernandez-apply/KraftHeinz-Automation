@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/recipes/pimento-bbq-hot-dog/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/recipes/pimento-bbq-hot-dog/
+Analyzing Production: https://www.oscarmayer.com/recipes/pimento-bbq-hot-dog/
+
+============================================================
+COMPARISON SUMMARY — Recipes › Pimento Bbq Hot Dog
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       4
+Production issues:    4
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/recipes-pimento-bbq-hot-dog-2026-04-30T19-54-40-953Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700091708-deli-fresh-oven-roasted-turkey-breast-with-34-lower-sodium/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700091708-deli-fresh-oven-roasted-turkey-breast-with-34-lower-sodium/
+Analyzing Production: https://www.oscarmayer.com/products/00044700091708-deli-fresh-oven-roasted-turkey-breast-with-34-lower-sodium/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700091708 Deli Fresh Oven Roasted Turkey Breast With 34 Lower Sodium
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       8
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700091708-deli-fresh-oven-roasted-turkey-breast-with-34-lower-sodium-2026-04-30T19-46-51-925Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

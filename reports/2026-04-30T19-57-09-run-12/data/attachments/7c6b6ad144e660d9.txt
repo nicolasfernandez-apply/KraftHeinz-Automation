@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700076484-naturally-hardwood-smoked-bacon-mega-pack/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700076484-naturally-hardwood-smoked-bacon-mega-pack/
+Analyzing Production: https://www.oscarmayer.com/products/00044700076484-naturally-hardwood-smoked-bacon-mega-pack/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700076484 Naturally Hardwood Smoked Bacon Mega Pack
+============================================================
+Total differences:    4
+Critical differences: 2
+Preview issues:       4
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700076484-naturally-hardwood-smoked-bacon-mega-pack-2026-04-30T19-36-40-030Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+
