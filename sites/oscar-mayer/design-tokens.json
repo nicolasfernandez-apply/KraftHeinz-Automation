@@ -1,0 +1,1348 @@
+{
+  "$schema": "https://schemas.figma.com/design-tokens/0.0/schema.json",
+  "source": "Figma file: Oscar Mayer — DS (4x9zraTVxAlxseCdCeEyYz)",
+  "exportedAt": "2026-05-05T12:28:55.901Z",
+  "colors": {
+    "OM white": {
+      "feedback": {
+        "error-primary": "#b70b0b",
+        "success-primary": "#007a40",
+        "warning-primary": "#d15800"
+      },
+      "headlines": {
+        "subhead-primary": "#222222",
+        "headline-primary": "#c80e2c"
+      },
+      "cta": {
+        "cta-press": "#8d0017",
+        "cta-text-primary": "#ffffff",
+        "cta-subdued-hover": "#a8001b",
+        "cta-default": "#c80e2c",
+        "cta-subdued-press": "#8d0017",
+        "cta-hover": "#a8001b",
+        "cta-subdued-default": "#c80e2c"
+      },
+      "backgrounds": {
+        "bg-primary": "#ffffff",
+        "bg-secondary": "#f0f0f0",
+        "bg-tertiary": "#dddddd"
+      },
+      "strokes": {
+        "stroke-secondary": "#222222",
+        "stroke-primary": "#ededed"
+      },
+      "decorative": {
+        "decorative-primary": "#c80e2c"
+      },
+      "text": {
+        "text-tertiary": "#3b3b3b",
+        "text-secondary": "#2f2f2f",
+        "text-primary": "#222222"
+      }
+    },
+    "OM orange": {
+      "backgrounds": {
+        "bg-secondary": "#ffb738",
+        "bg-primary": "#efa31e",
+        "bg-tertiary": "#ffc257"
+      },
+      "decorative": {
+        "decorative-primary": "#c80e2c"
+      },
+      "strokes": {
+        "stroke-primary": "#c77f00",
+        "stroke-secondary": "#222222"
+      },
+      "headlines": {
+        "headline-primary": "#c80e2c",
+        "subhead-primary": "#222222"
+      },
+      "cta": {
+        "cta-hover": "#2f2f2f",
+        "cta-default": "#222222",
+        "cta-press": "#3b3b3b",
+        "cta-subdued-default": "#222222",
+        "cta-subdued-hover": "#2f2f2f",
+        "cta-text-primary": "#ffffff",
+        "cta-subdued-press": "#3b3b3b"
+      },
+      "feedback": {
+        "warning-primary": "#222222",
+        "error-primary": "#222222",
+        "success-primary": "#222222"
+      },
+      "text": {
+        "text-tertiary": "#3b3b3b",
+        "text-primary": "#222222",
+        "text-secondary": "#2f2f2f"
+      }
+    },
+    "OM red": {
+      "cta": {
+        "cta-subdued-press": "#ffc9d3",
+        "cta-subdued-hover": "#ffe4e9",
+        "cta-press": "#ffc9d3",
+        "cta-text-primary": "#c80e2c",
+        "cta-default": "#ffffff",
+        "cta-hover": "#ffe4e9",
+        "cta-subdued-default": "#ffffff"
+      },
+      "strokes": {
+        "stroke-primary": "#8d0017",
+        "stroke-secondary": "#ffffff"
+      },
+      "backgrounds": {
+        "bg-tertiary": "#8d0017",
+        "bg-secondary": "#a8001b",
+        "bg-primary": "#c80e2c"
+      },
+      "headlines": {
+        "subhead-primary": "#ffffff",
+        "headline-primary": "#ffffff"
+      },
+      "decorative": {
+        "decorative-primary": "#f5b845"
+      },
+      "feedback": {
+        "success-primary": "#ffffff",
+        "warning-primary": "#ffffff",
+        "error-primary": "#ffffff"
+      },
+      "text": {
+        "text-primary": "#ffffff",
+        "text-secondary": "#fff0f2",
+        "text-tertiary": "#ffe4e9"
+      }
+    },
+    "OM yellow": {
+      "strokes": {
+        "stroke-secondary": "#222222",
+        "stroke-primary": "#ffa300"
+      },
+      "backgrounds": {
+        "bg-primary": "#f3c500",
+        "bg-tertiary": "#ffda3a",
+        "bg-secondary": "#ffd523"
+      },
+      "cta": {
+        "cta-subdued-default": "#222222",
+        "cta-press": "#8d0017",
+        "cta-hover": "#a8001b",
+        "cta-default": "#c80e2c",
+        "cta-subdued-hover": "#2f2f2f",
+        "cta-subdued-press": "#3b3b3b",
+        "cta-text-primary": "#ffffff"
+      },
+      "headlines": {
+        "subhead-primary": "#222222",
+        "headline-primary": "#c80e2c"
+      },
+      "decorative": {
+        "decorative-primary": "#c80e2c"
+      },
+      "feedback": {
+        "error-primary": "#222222",
+        "success-primary": "#222222",
+        "warning-primary": "#222222"
+      },
+      "text": {
+        "text-secondary": "#2f2f2f",
+        "text-primary": "#222222",
+        "text-tertiary": "#3b3b3b"
+      }
+    },
+    "OM cream": {
+      "backgrounds": {
+        "bg-primary": "#f9eed5",
+        "bg-tertiary": "#fffaef",
+        "bg-secondary": "#fff7e5"
+      },
+      "cta": {
+        "cta-hover": "#a8001b",
+        "cta-text-primary": "#ffffff",
+        "cta-subdued-default": "#c80e2c",
+        "cta-default": "#c80e2c",
+        "cta-subdued-hover": "#a8001b",
+        "cta-subdued-press": "#8d0017",
+        "cta-press": "#8d0017"
+      },
+      "feedback": {
+        "warning-primary": "#222222",
+        "error-primary": "#222222",
+        "success-primary": "#222222"
+      },
+      "decorative": {
+        "decorative-primary": "#c80e2c"
+      },
+      "headlines": {
+        "headline-primary": "#c80e2c",
+        "subhead-primary": "#1d1d1d"
+      },
+      "text": {
+        "text-secondary": "#2f2f2f",
+        "text-tertiary": "#3b3b3b",
+        "text-primary": "#222222"
+      },
+      "strokes": {
+        "stroke-secondary": "#222222",
+        "stroke-primary": "#fffaef"
+      }
+    },
+    "OM light yellow": {
+      "strokes": {
+        "stroke-primary": "#ffa300",
+        "stroke-secondary": "#222222"
+      },
+      "decorative": {
+        "decorative-primary": "#c80e2c"
+      },
+      "feedback": {
+        "success-primary": "#222222",
+        "warning-primary": "#222222",
+        "error-primary": "#222222"
+      },
+      "cta": {
+        "cta-text-primary": "#ffffff",
+        "cta-subdued-press": "#8d0017",
+        "cta-subdued-default": "#c80e2c",
+        "cta-press": "#8d0017",
+        "cta-hover": "#a8001b",
+        "cta-default": "#c80e2c",
+        "cta-subdued-hover": "#a8001b"
+      },
+      "backgrounds": {
+        "bg-primary": "#f9dfa8",
+        "bg-secondary": "#ffedc6",
+        "bg-tertiary": "#fbeccd"
+      },
+      "text": {
+        "text-secondary": "#2f2f2f",
+        "text-tertiary": "#3b3b3b",
+        "text-primary": "#222222"
+      },
+      "headlines": {
+        "subhead-primary": "#222222",
+        "headline-primary": "#c80e2c"
+      }
+    },
+    "OM transparent": {
+      "text": {
+        "text-primary": "#ffffff",
+        "text-secondary": "#ffffff",
+        "text-tertiary": "#ffffff"
+      },
+      "strokes": {
+        "stroke-secondary": "#ffffff",
+        "stroke-primary": "#ffffff"
+      },
+      "decorative": {
+        "decorative-primary": "#ffffff"
+      },
+      "cta": {
+        "cta-subdued-default": "#ffffff",
+        "cta-press": "#ffffff",
+        "cta-subdued-hover": "#ffffff",
+        "cta-default": "#ffffff",
+        "cta-text-primary": "#ffffff",
+        "cta-subdued-press": "#ffffff",
+        "cta-hover": "#ffffff"
+      },
+      "feedback": {
+        "warning-primary": "#ffffff",
+        "error-primary": "#ffffff",
+        "success-primary": "#ffffff"
+      },
+      "headlines": {
+        "headline-primary": "#ffffff",
+        "subhead-primary": "#ffffff"
+      },
+      "backgrounds": {
+        "bg-tertiary": "#ffffff",
+        "bg-primary": "#ffffff",
+        "bg-secondary": "#ffffff"
+      }
+    }
+  },
+  "typography": {
+    "tablet": {
+      "cards": {
+        "headline": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 24,
+          "lineHeightPx": 30,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "eyebrow": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 600,
+          "fontSize": 18,
+          "lineHeightPx": 22.5,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        }
+      },
+      "headlines": {
+        "headline-6": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 36,
+          "lineHeightPx": 36,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "headline-2": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 96,
+          "lineHeightPx": 96,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "headline-3": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 72,
+          "lineHeightPx": 72,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "headline-5": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 48,
+          "lineHeightPx": 48,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "headline-4": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 60,
+          "lineHeightPx": 60,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "headline-1": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 128,
+          "lineHeightPx": 128,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        }
+      },
+      "body links": {
+        "xsmall": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 14,
+          "lineHeightPx": 21,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "large": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 24,
+          "lineHeightPx": 36,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "small": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 16,
+          "lineHeightPx": 24,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "xlarge": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 30,
+          "lineHeightPx": 45,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "medium": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 18,
+          "lineHeightPx": 27,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        }
+      },
+      "buttons and links": {
+        "nav-link": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 600,
+          "fontSize": 16,
+          "lineHeightPx": 24,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "button": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 18,
+          "lineHeightPx": 27,
+          "letterSpacing": 0,
+          "textCase": "TITLE"
+        }
+      },
+      "subheads": {
+        "large": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 24,
+          "lineHeightPx": 36,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "medium": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 20,
+          "lineHeightPx": 30,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "xlarge": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 30,
+          "lineHeightPx": 45,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        }
+      },
+      "paragraph": {
+        "regular": {
+          "xlarge": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 425,
+            "fontSize": 30,
+            "lineHeightPx": 45,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "large": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 425,
+            "fontSize": 24,
+            "lineHeightPx": 36,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "xsmall": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 425,
+            "fontSize": 14,
+            "lineHeightPx": 21,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "small": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 425,
+            "fontSize": 16,
+            "lineHeightPx": 24,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "medium": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 425,
+            "fontSize": 18,
+            "lineHeightPx": 27,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        "prominent": {
+          "medium": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 600,
+            "fontSize": 18,
+            "lineHeightPx": 27,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "xsmall": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 600,
+            "fontSize": 14,
+            "lineHeightPx": 21,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "small": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 600,
+            "fontSize": 16,
+            "lineHeightPx": 24,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "xlarge": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 600,
+            "fontSize": 30,
+            "lineHeightPx": 45,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "large": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 600,
+            "fontSize": 24,
+            "lineHeightPx": 36,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        }
+      }
+    },
+    "small desktop": {
+      "headlines": {
+        "headline-4": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 60,
+          "lineHeightPx": 60,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "headline-2": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 96,
+          "lineHeightPx": 96,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "headline-1": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 128,
+          "lineHeightPx": 128,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "headline-6": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 36,
+          "lineHeightPx": 36,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "headline-3": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 72,
+          "lineHeightPx": 72,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "headline-5": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 48,
+          "lineHeightPx": 48,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        }
+      },
+      "paragraph": {
+        "regular": {
+          "small": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 425,
+            "fontSize": 16,
+            "lineHeightPx": 24,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "large": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 425,
+            "fontSize": 24,
+            "lineHeightPx": 36,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "medium": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 425,
+            "fontSize": 18,
+            "lineHeightPx": 27,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "xsmall": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 425,
+            "fontSize": 14,
+            "lineHeightPx": 21,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "xlarge": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 425,
+            "fontSize": 30,
+            "lineHeightPx": 45,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        "prominent": {
+          "xsmall": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 600,
+            "fontSize": 14,
+            "lineHeightPx": 21,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "medium": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 600,
+            "fontSize": 18,
+            "lineHeightPx": 27,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "small": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 600,
+            "fontSize": 16,
+            "lineHeightPx": 24,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "xlarge": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 600,
+            "fontSize": 30,
+            "lineHeightPx": 45,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "large": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 600,
+            "fontSize": 24,
+            "lineHeightPx": 36,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        }
+      },
+      "subheads": {
+        "xlarge": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 30,
+          "lineHeightPx": 45,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "large": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 24,
+          "lineHeightPx": 36,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "medium": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 20,
+          "lineHeightPx": 30,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        }
+      },
+      "cards": {
+        "headline": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 24,
+          "lineHeightPx": 30,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "eyebrow": {
+          "fontFamily": "FilsonProMedium",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 24,
+          "lineHeightPx": 30,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        }
+      },
+      "body links": {
+        "xsmall": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 14,
+          "lineHeightPx": 21,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "medium": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 18,
+          "lineHeightPx": 27,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "small": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 16,
+          "lineHeightPx": 24,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "xlarge": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 30,
+          "lineHeightPx": 45,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "large": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 24,
+          "lineHeightPx": 36,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        }
+      },
+      "buttons and links": {
+        "nav-link": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 600,
+          "fontSize": 16,
+          "lineHeightPx": 24,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "button": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 24,
+          "lineHeightPx": 36,
+          "letterSpacing": 0,
+          "textCase": "TITLE"
+        }
+      }
+    },
+    "mobile": {
+      "headlines": {
+        "headline-1": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 96,
+          "lineHeightPx": 96,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "headline-2": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 72,
+          "lineHeightPx": 72,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "headline-6": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 30,
+          "lineHeightPx": 30,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "headline-3": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 60,
+          "lineHeightPx": 60,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "headline-5": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 36,
+          "lineHeightPx": 36,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "headline-4": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 48,
+          "lineHeightPx": 48,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        }
+      },
+      "subheads": {
+        "large": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 20,
+          "lineHeightPx": 30,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "xlarge": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 24,
+          "lineHeightPx": 36,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "medium": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 18,
+          "lineHeightPx": 27,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        }
+      },
+      "body links": {
+        "medium": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 16,
+          "lineHeightPx": 24,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "xlarge": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 24,
+          "lineHeightPx": 36,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "large": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 20,
+          "lineHeightPx": 30,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "small": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 14,
+          "lineHeightPx": 21,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "xsmall": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 12,
+          "lineHeightPx": 18,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        }
+      },
+      "buttons and links": {
+        "button": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 20,
+          "lineHeightPx": 30,
+          "letterSpacing": 0,
+          "textCase": "TITLE"
+        },
+        "nav-link": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 32,
+          "lineHeightPx": 48,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        }
+      },
+      "cards": {
+        "headline": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 16,
+          "lineHeightPx": 20,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "eyebrow": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 600,
+          "fontSize": 14,
+          "lineHeightPx": 17.5,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        }
+      },
+      "paragraph": {
+        "prominent": {
+          "xlarge": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 600,
+            "fontSize": 24,
+            "lineHeightPx": 36,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "large": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 600,
+            "fontSize": 20,
+            "lineHeightPx": 30,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "medium": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 600,
+            "fontSize": 16,
+            "lineHeightPx": 24,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "small": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 600,
+            "fontSize": 14,
+            "lineHeightPx": 21,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "xsmall": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 600,
+            "fontSize": 12,
+            "lineHeightPx": 18,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        "regular": {
+          "large": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 425,
+            "fontSize": 20,
+            "lineHeightPx": 30,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "medium": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 425,
+            "fontSize": 16,
+            "lineHeightPx": 24,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "small": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 425,
+            "fontSize": 14,
+            "lineHeightPx": 21,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "xlarge": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 425,
+            "fontSize": 24,
+            "lineHeightPx": 36,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "xsmall": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 425,
+            "fontSize": 12,
+            "lineHeightPx": 18,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        }
+      }
+    },
+    "desktop": {
+      "body links": {
+        "medium": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 20,
+          "lineHeightPx": 30,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "xsmall": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 14,
+          "lineHeightPx": 21,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "small": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 16,
+          "lineHeightPx": 24,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "large": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 30,
+          "lineHeightPx": 45,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "xlarge": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 36,
+          "lineHeightPx": 54,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        }
+      },
+      "headlines": {
+        "headline-1": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 144,
+          "lineHeightPx": 144,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "headline-6": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 40,
+          "lineHeightPx": 40,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "headline-3": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 96,
+          "lineHeightPx": 96,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "headline-2": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 128,
+          "lineHeightPx": 128,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "headline-4": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 72,
+          "lineHeightPx": 72,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "headline-5": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 60,
+          "lineHeightPx": 60,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        }
+      },
+      "subheads": {
+        "xlarge": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 36,
+          "lineHeightPx": 54,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "medium": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 24,
+          "lineHeightPx": 36,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        },
+        "large": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 700,
+          "fontSize": 30,
+          "lineHeightPx": 45,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        }
+      },
+      "paragraph": {
+        "prominent": {
+          "large": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 600,
+            "fontSize": 30,
+            "lineHeightPx": 45,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "xlarge": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 600,
+            "fontSize": 36,
+            "lineHeightPx": 54,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "medium": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 600,
+            "fontSize": 20,
+            "lineHeightPx": 30,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "small": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 600,
+            "fontSize": 16,
+            "lineHeightPx": 24,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "xsmall": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 600,
+            "fontSize": 14,
+            "lineHeightPx": 21,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        "regular": {
+          "xsmall": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 425,
+            "fontSize": 14,
+            "lineHeightPx": 21,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "small": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 425,
+            "fontSize": 16,
+            "lineHeightPx": 24,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "large": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 425,
+            "fontSize": 30,
+            "lineHeightPx": 45,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "xlarge": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 425,
+            "fontSize": 36,
+            "lineHeightPx": 54,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          },
+          "medium": {
+            "fontFamily": "Filson Pro",
+            "fontStyle": "normal",
+            "fontWeight": 425,
+            "fontSize": 20,
+            "lineHeightPx": 30,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        }
+      },
+      "buttons and links": {
+        "button": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 30,
+          "lineHeightPx": 45,
+          "letterSpacing": 0,
+          "textCase": "TITLE"
+        },
+        "nav-link": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 20,
+          "lineHeightPx": 30,
+          "letterSpacing": 0,
+          "textCase": "ORIGINAL"
+        }
+      },
+      "cards": {
+        "eyebrow": {
+          "fontFamily": "Filson Pro",
+          "fontStyle": "normal",
+          "fontWeight": 600,
+          "fontSize": 18,
+          "lineHeightPx": 22.5,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        },
+        "headline": {
+          "fontFamily": "FilsonProBlack",
+          "fontStyle": "normal",
+          "fontWeight": 400,
+          "fontSize": 24,
+          "lineHeightPx": 30,
+          "letterSpacing": 0,
+          "textCase": "UPPER"
+        }
+      }
+    }
+  }
+}

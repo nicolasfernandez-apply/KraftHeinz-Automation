@@ -58,6 +58,17 @@ jobs:
             echo "::warning::Only ${COUNT} page(s) discovered. The sitemap may be unreachable from GitHub Actions runners (many sites block CI IP ranges). Check the 'Crawl Oscar Mayer sitemap' step logs for errors."
           fi
 
+      # ── Refresh design tokens from Figma ─────────────────────────────────────
+      # Overwrites sites/oscar-mayer/design-tokens.json with the latest tokens.
+      # continue-on-error: if the Figma API is unreachable the existing committed
+      # file is used and the comparison continues normally.
+      - name: Refresh Oscar Mayer design tokens
+        continue-on-error: true
+        env:
+          FIGMA_TOKEN:    ${{ secrets.FIGMA_TOKEN }}
+          FIGMA_FILE_KEY: 4x9zraTVxAlxseCdCeEyYz
+        run: node sites/oscar-mayer/refresh-tokens.mjs
+
       # ── Run comparison tests ──────────────────────────────────────────────────
       # continue-on-error so the Allure report is always generated even on failure.
       - name: Run Oscar Mayer comparison

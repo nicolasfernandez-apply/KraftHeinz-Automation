@@ -55,6 +55,38 @@ export interface ConsoleEntry {
   text: string;
 }
 
+// ── Design token types ────────────────────────────────────────────────────────
+
+/** Nested color/typography token structure as produced by refresh-tokens.mjs */
+export interface DesignTokens {
+  colors:     Record<string, unknown>;
+  typography: Record<string, unknown>;
+}
+
+/** A color found on the page that is not present in the design token palette. */
+export interface ColorViolation {
+  color:      string;   // lowercase hex, e.g. "#ff0000"
+  count:      number;   // number of elements using this color
+  properties: string[]; // CSS properties where it was found
+}
+
+/** A font family found on the page that is not in the design token set. */
+export interface FontViolation {
+  fontFamily: string;
+  count:      number;
+}
+
+export interface DesignTokenViolations {
+  /** Non-token colors found on the page, sorted by element count descending. */
+  unknownColors: ColorViolation[];
+  /** Non-token font families found on the page. */
+  unknownFonts: FontViolation[];
+  /** Number of distinct token-compliant colors actually used. */
+  compliantColorCount: number;
+  /** Number of distinct token-compliant font families actually used. */
+  compliantFontCount: number;
+}
+
 export interface AxeViolationNode {
   /** CSS selector path to the element */
   target: string;
@@ -103,6 +135,11 @@ export interface PageAnalysis {
   textBlocks: string[];
   /** Accessibility violations found by axe-core */
   axeViolations: AxeViolation[];
+  /**
+   * Design-token compliance check results.
+   * null when no design tokens were provided to analyzePage().
+   */
+  designTokenViolations: DesignTokenViolations | null;
   timestamp: string;
 }
 
@@ -117,10 +154,38 @@ const EMPTY_PERFORMANCE: PerformanceMetrics = {
   responseEnd: 0, domInteractive: 0, transferSize: 0, decodedBodySize: 0,
 };
 
+// ── Design-token helpers ──────────────────────────────────────────────────────
+
+/** Recursively collect every leaf hex string from a nested color token object. */
+function flattenTokenColors(obj: unknown, out: Set<string> = new Set()): Set<string> {
+  if (typeof obj === 'string' && obj.startsWith('#')) {
+    out.add(obj.toLowerCase());
+  } else if (obj && typeof obj === 'object') {
+    for (const v of Object.values(obj)) flattenTokenColors(v, out);
+  }
+  return out;
+}
+
+/**
+ * Collect every distinct fontFamily value from a nested typography token object.
+ * Works by looking for objects that have a `fontFamily` string property.
+ */
+function flattenTokenFonts(obj: unknown, out: Set<string> = new Set()): Set<string> {
+  if (obj && typeof obj === 'object') {
+    const rec = obj as Record<string, unknown>;
+    if (typeof rec.fontFamily === 'string') {
+      out.add(rec.fontFamily.toLowerCase());
+    }
+    for (const v of Object.values(rec)) flattenTokenFonts(v, out);
+  }
+  return out;
+}
+
 export async function analyzePage(
   page: Page,
   url: string,
   screenshotPath: string,
+  designTokens?: DesignTokens | null,
 ): Promise<PageAnalysis> {
   const consoleEntries: ConsoleEntry[] = [];
 
@@ -389,6 +454,93 @@ export async function analyzePage(
     console.warn('axe-core analysis failed:', (e as Error).message);
   }
 
+  // ── Design-token compliance check ─────────────────────────────────────────
+  // Only runs when design tokens are provided (Oscar Mayer comparison).
+  // Samples up to 800 visible elements on the page, extracts computed
+  // background-color / color / border-color and font-family values, then
+  // compares them against the flat set of values defined in the token file.
+
+  let designTokenViolations: DesignTokenViolations | null = null;
+
+  if (designTokens) {
+    const validColors = [...flattenTokenColors(designTokens.colors)];
+    const validFonts  = [...flattenTokenFonts(designTokens.typography)];
+
+    designTokenViolations = await page
+      .evaluate(
+        ({ validColorsArr, validFontsArr }) => {
+          // ── Color extraction ─────────────────────────────────────────────
+          const COLOR_PROPS = ['backgroundColor', 'color', 'borderTopColor'] as const;
+
+          /** Convert rgb(r,g,b) / rgba(r,g,b,a) → lowercase hex, or null. */
+          const rgbToHex = (val: string): string | null => {
+            const m = val.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
+            if (!m) return null;
+            const alpha = m[4] !== undefined ? parseFloat(m[4]) : 1;
+            if (alpha < 0.05) return null; // fully transparent — skip
+            return '#' + [m[1], m[2], m[3]]
+              .map((n) => parseInt(n, 10).toString(16).padStart(2, '0'))
+              .join('');
+          };
+
+          const colorMap: Record<string, { count: number; properties: string[] }> = {};
+          const fontMap:  Record<string, number> = {};
+
+          const elements = Array.from(document.querySelectorAll<HTMLElement>('*'))
+            .filter((el) => el.offsetWidth > 0 && el.offsetHeight > 0) // visible only
+            .slice(0, 800);
+
+          for (const el of elements) {
+            const style = getComputedStyle(el);
+
+            // Colors
+            for (const prop of COLOR_PROPS) {
+              const hex = rgbToHex(style[prop] ?? '');
+              if (!hex) continue;
+              if (!colorMap[hex]) colorMap[hex] = { count: 0, properties: [] };
+              colorMap[hex].count++;
+              if (!colorMap[hex].properties.includes(prop)) {
+                colorMap[hex].properties.push(prop);
+              }
+            }
+
+            // Font family — use the first declared family (ignore fallbacks)
+            const ff = style.fontFamily
+              .split(',')[0]
+              .trim()
+              .replace(/['"]/g, '')
+              .toLowerCase();
+            if (ff) fontMap[ff] = (fontMap[ff] ?? 0) + 1;
+          }
+
+          // ── Compare against token sets ───────────────────────────────────
+          const tokenColorSet = new Set(validColorsArr);
+          const tokenFontSet  = new Set(validFontsArr);
+
+          const unknownColors = Object.entries(colorMap)
+            .filter(([hex]) => !tokenColorSet.has(hex))
+            .map(([color, data]) => ({ color, count: data.count, properties: data.properties }))
+            .sort((a, b) => b.count - a.count)
+            .slice(0, 50); // cap to keep report readable
+
+          const compliantColorCount = Object.keys(colorMap)
+            .filter((hex) => tokenColorSet.has(hex)).length;
+
+          const unknownFonts = Object.entries(fontMap)
+            .filter(([ff]) => !tokenFontSet.has(ff))
+            .map(([fontFamily, count]) => ({ fontFamily, count }))
+            .sort((a, b) => b.count - a.count);
+
+          const compliantFontCount = Object.keys(fontMap)
+            .filter((ff) => tokenFontSet.has(ff)).length;
+
+          return { unknownColors, compliantColorCount, unknownFonts, compliantFontCount };
+        },
+        { validColorsArr: validColors, validFontsArr: validFonts },
+      )
+      .catch(() => null);
+  }
+
   return {
     url,
     finalUrl,
@@ -407,6 +559,7 @@ export async function analyzePage(
     stylesheetsCount,
     textBlocks,
     axeViolations,
+    designTokenViolations,
     timestamp: new Date().toISOString(),
   };
 }
