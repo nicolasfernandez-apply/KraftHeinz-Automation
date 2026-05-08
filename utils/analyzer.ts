@@ -68,12 +68,14 @@ export interface ColorViolation {
   color:      string;   // lowercase hex, e.g. "#ff0000"
   count:      number;   // number of elements using this color
   properties: string[]; // CSS properties where it was found
+  samples:    string[]; // up to 3 example element descriptors (tag#id.class) that use this color
 }
 
 /** A font family found on the page that is not in the design token set. */
 export interface FontViolation {
   fontFamily: string;
   count:      number;
+  samples:    string[]; // up to 3 example element descriptors that use this font
 }
 
 export interface DesignTokenViolations {
@@ -438,7 +440,27 @@ export async function analyzePage(
 
   let axeViolations: AxeViolation[] = [];
   try {
-    const axeResults = await new AxeBuilder({ page }).analyze();
+    // Restrict to <body> so head/scripts/document-level rules don't fire — those
+    // concerns are covered by the metadata diff. Exclude common cookie/consent
+    // SDK containers (OneTrust, Cookiebot, Cookieyes, Osano, generic cookie/gdpr)
+    // because their markup is environment-specific noise.
+    const axeResults = await new AxeBuilder({ page })
+      .include('body')
+      .exclude('[id*="onetrust" i]')
+      .exclude('[class*="onetrust" i]')
+      .exclude('[id*="cookie" i]')
+      .exclude('[class*="cookie" i]')
+      .exclude('[id*="consent" i]')
+      .exclude('[class*="consent" i]')
+      .exclude('[id*="cookiebot" i]')
+      .exclude('[class*="cookiebot" i]')
+      .exclude('[id*="cky-" i]')
+      .exclude('[class*="cky-" i]')
+      .exclude('[id*="osano" i]')
+      .exclude('[class*="osano" i]')
+      .exclude('[id*="gdpr" i]')
+      .exclude('[class*="gdpr" i]')
+      .analyze();
     axeViolations = axeResults.violations.map((v) => ({
       id: v.id,
       impact: v.impact ?? 'unknown',
@@ -469,6 +491,40 @@ export async function analyzePage(
     designTokenViolations = await page
       .evaluate(
         ({ validColorsArr, validFontsArr }) => {
+          // ── Cookie/consent ancestor detector ─────────────────────────────
+          // Mirrors the same filter applied to text/links extraction so that
+          // OneTrust, Cookiebot, etc. don't pollute the token compliance check.
+          const isCookieBanner = (el: Element): boolean => {
+            let node: Element | null = el.parentElement;
+            while (node) {
+              const cls = (node.getAttribute('class') || '').toLowerCase();
+              const id  = (node.getAttribute('id')    || '').toLowerCase();
+              if (
+                cls.includes('cookie')    || id.includes('cookie')    ||
+                cls.includes('consent')   || id.includes('consent')   ||
+                cls.includes('gdpr')      || id.includes('gdpr')      ||
+                cls.includes('onetrust')  || id.includes('onetrust')  ||
+                cls.includes('cookiebot') || id.includes('cookiebot') ||
+                cls.includes('cky-')      || id.includes('cky-')      ||
+                cls.includes('osano')     || id.includes('osano')
+              ) return true;
+              node = node.parentElement;
+            }
+            return false;
+          };
+
+          /** Short selector-like description: tag#id, tag.class, or tag. */
+          const describeElement = (el: HTMLElement): string => {
+            let s = el.tagName.toLowerCase();
+            if (el.id) {
+              s += '#' + el.id;
+            } else if (typeof el.className === 'string' && el.className.trim()) {
+              const classes = el.className.trim().split(/\s+/).filter(Boolean).slice(0, 2);
+              if (classes.length) s += '.' + classes.join('.');
+            }
+            return s;
+          };
+
           // ── Color extraction ─────────────────────────────────────────────
           const COLOR_PROPS = ['backgroundColor', 'color', 'borderTopColor'] as const;
 
@@ -483,24 +539,30 @@ export async function analyzePage(
               .join('');
           };
 
-          const colorMap: Record<string, { count: number; properties: string[] }> = {};
-          const fontMap:  Record<string, number> = {};
+          const colorMap: Record<string, { count: number; properties: string[]; samples: string[] }> = {};
+          const fontMap:  Record<string, { count: number; samples: string[] }> = {};
 
-          const elements = Array.from(document.querySelectorAll<HTMLElement>('*'))
+          // Body-scoped, cookie-banner descendants excluded.
+          const elements = Array.from(document.querySelectorAll<HTMLElement>('body *'))
             .filter((el) => el.offsetWidth > 0 && el.offsetHeight > 0) // visible only
+            .filter((el) => !isCookieBanner(el))
             .slice(0, 800);
 
           for (const el of elements) {
             const style = getComputedStyle(el);
+            const desc  = describeElement(el);
 
             // Colors
             for (const prop of COLOR_PROPS) {
               const hex = rgbToHex(style[prop] ?? '');
               if (!hex) continue;
-              if (!colorMap[hex]) colorMap[hex] = { count: 0, properties: [] };
+              if (!colorMap[hex]) colorMap[hex] = { count: 0, properties: [], samples: [] };
               colorMap[hex].count++;
               if (!colorMap[hex].properties.includes(prop)) {
                 colorMap[hex].properties.push(prop);
+              }
+              if (colorMap[hex].samples.length < 3 && !colorMap[hex].samples.includes(desc)) {
+                colorMap[hex].samples.push(desc);
               }
             }
 
@@ -510,7 +572,13 @@ export async function analyzePage(
               .trim()
               .replace(/['"]/g, '')
               .toLowerCase();
-            if (ff) fontMap[ff] = (fontMap[ff] ?? 0) + 1;
+            if (ff) {
+              if (!fontMap[ff]) fontMap[ff] = { count: 0, samples: [] };
+              fontMap[ff].count++;
+              if (fontMap[ff].samples.length < 3 && !fontMap[ff].samples.includes(desc)) {
+                fontMap[ff].samples.push(desc);
+              }
+            }
           }
 
           // ── Compare against token sets ───────────────────────────────────
@@ -519,7 +587,12 @@ export async function analyzePage(
 
           const unknownColors = Object.entries(colorMap)
             .filter(([hex]) => !tokenColorSet.has(hex))
-            .map(([color, data]) => ({ color, count: data.count, properties: data.properties }))
+            .map(([color, data]) => ({
+              color,
+              count:      data.count,
+              properties: data.properties,
+              samples:    data.samples,
+            }))
             .sort((a, b) => b.count - a.count)
             .slice(0, 50); // cap to keep report readable
 
@@ -528,7 +601,11 @@ export async function analyzePage(
 
           const unknownFonts = Object.entries(fontMap)
             .filter(([ff]) => !tokenFontSet.has(ff))
-            .map(([fontFamily, count]) => ({ fontFamily, count }))
+            .map(([fontFamily, data]) => ({
+              fontFamily,
+              count:   data.count,
+              samples: data.samples,
+            }))
             .sort((a, b) => b.count - a.count);
 
           const compliantFontCount = Object.keys(fontMap)

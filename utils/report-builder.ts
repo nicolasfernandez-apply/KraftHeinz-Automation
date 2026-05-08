@@ -577,12 +577,16 @@ function designTokensSection(diff: PageDiff): string {
       const border   = isUnique ? '#e74c3c' : shared ? '#f39c12' : '#ddd';
       const label    = isUnique ? 'only here' : shared ? 'both sides' : '';
       const props    = c.properties.join(', ').replace(/([A-Z])/g, ' $1').toLowerCase();
+      const samples  = (c.samples ?? []).slice(0, 3);
       return `
-        <div style="display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid #f5f5f5">
-          <div style="width:20px;height:20px;border-radius:3px;border:2px solid ${escapeHtml(border)};background:${escapeHtml(c.color)};flex-shrink:0"></div>
-          <code style="font-size:12px;color:#444;min-width:70px">${escapeHtml(c.color)}</code>
-          <span style="font-size:11px;color:#888">${c.count} element${c.count !== 1 ? 's' : ''} · ${escapeHtml(props)}</span>
-          ${label ? `<span class="heading-only-tag" style="margin-left:auto">${escapeHtml(label)}</span>` : ''}
+        <div style="padding:6px 0;border-bottom:1px solid #f5f5f5">
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="width:20px;height:20px;border-radius:3px;border:2px solid ${escapeHtml(border)};background:${escapeHtml(c.color)};flex-shrink:0"></div>
+            <code style="font-size:12px;color:#444;min-width:70px">${escapeHtml(c.color)}</code>
+            <span style="font-size:11px;color:#888">${c.count} element${c.count !== 1 ? 's' : ''} · ${escapeHtml(props)}</span>
+            ${label ? `<span class="heading-only-tag" style="margin-left:auto">${escapeHtml(label)}</span>` : ''}
+          </div>
+          ${samples.length ? `<div style="font-size:11px;color:#888;margin-left:30px;margin-top:3px;font-family:monospace">e.g. ${samples.map((s) => escapeHtml(s)).join(', ')}</div>` : ''}
         </div>`;
     }).join('');
     return `
@@ -605,11 +609,15 @@ function designTokensSection(diff: PageDiff): string {
       const isUnique = onlyHere.includes(f.fontFamily);
       const shared   = inBoth.includes(f.fontFamily);
       const label    = isUnique ? 'only here' : shared ? 'both sides' : '';
+      const samples  = (f.samples ?? []).slice(0, 3);
       return `
-        <div style="display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid #f5f5f5">
-          <code style="font-size:12px;color:#444;flex:1">${escapeHtml(f.fontFamily)}</code>
-          <span style="font-size:11px;color:#888">${f.count} element${f.count !== 1 ? 's' : ''}</span>
-          ${label ? `<span class="heading-only-tag">${escapeHtml(label)}</span>` : ''}
+        <div style="padding:6px 0;border-bottom:1px solid #f5f5f5">
+          <div style="display:flex;align-items:center;gap:8px">
+            <code style="font-size:12px;color:#444;flex:1">${escapeHtml(f.fontFamily)}</code>
+            <span style="font-size:11px;color:#888">${f.count} element${f.count !== 1 ? 's' : ''}</span>
+            ${label ? `<span class="heading-only-tag">${escapeHtml(label)}</span>` : ''}
+          </div>
+          ${samples.length ? `<div style="font-size:11px;color:#888;margin-top:3px;font-family:monospace">e.g. ${samples.map((s) => escapeHtml(s)).join(', ')}</div>` : ''}
         </div>`;
     }).join('');
     return `
