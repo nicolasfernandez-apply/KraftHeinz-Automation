@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700063767-natural-bun-length-angus-beef-uncured-franks-hot-dogs/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700063767-natural-bun-length-angus-beef-uncured-franks-hot-dogs/
+Analyzing Production: https://www.oscarmayer.com/products/00044700063767-natural-bun-length-angus-beef-uncured-franks-hot-dogs/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700063767 Natural Bun Length Angus Beef Uncured Franks Hot Dogs
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       7
+Production issues:    9
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700063767-natural-bun-length-angus-beef-uncured-franks-hot-dogs-2026-05-12T20-18-08-692Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

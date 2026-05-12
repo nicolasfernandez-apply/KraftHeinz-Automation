@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700078594-portable-protein-snack-pack-with-turkey-ham-cheddar-cheese/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700078594-portable-protein-snack-pack-with-turkey-ham-cheddar-cheese/
+Analyzing Production: https://www.oscarmayer.com/products/00044700078594-portable-protein-snack-pack-with-turkey-ham-cheddar-cheese/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700078594 Portable Protein Snack Pack With Turkey Ham Cheddar Cheese
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       7
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700078594-portable-protein-snack-pack-with-turkey-ham-cheddar-cheese-2026-05-12T20-09-08-455Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700104538-oven-roasted-turkey-breast-white-turkey-lunch-meat/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700104538-oven-roasted-turkey-breast-white-turkey-lunch-meat/
+Analyzing Production: https://www.oscarmayer.com/products/00044700104538-oven-roasted-turkey-breast-white-turkey-lunch-meat/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700104538 Oven Roasted Turkey Breast White Turkey Lunch Meat
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       7
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700104538-oven-roasted-turkey-breast-white-turkey-lunch-meat-2026-05-12T20-07-58-031Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700103890-smoked-ham/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700103890-smoked-ham/
+Analyzing Production: https://www.oscarmayer.com/products/00044700103890-smoked-ham/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700103890 Smoked Ham
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       7
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700103890-smoked-ham-2026-05-12T20-10-22-108Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700105511-deli-fresh-oven-roasted-turkey-breast/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700105511-deli-fresh-oven-roasted-turkey-breast/
+Analyzing Production: https://www.oscarmayer.com/products/00044700105511-deli-fresh-oven-roasted-turkey-breast/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700105511 Deli Fresh Oven Roasted Turkey Breast
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       9
+Production issues:    7
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700105511-deli-fresh-oven-roasted-turkey-breast-2026-05-12T20-15-22-566Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

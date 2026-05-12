@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/hotdoggers/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/hotdoggers/
+Analyzing Production: https://www.oscarmayer.com/hotdoggers/
+
+============================================================
+COMPARISON SUMMARY — Hotdoggers
+============================================================
+Total differences:    8
+Critical differences: 4
+Preview issues:       4
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/hotdoggers-2026-05-12T20-01-42-745Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

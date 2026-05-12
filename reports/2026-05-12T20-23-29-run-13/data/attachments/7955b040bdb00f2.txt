@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700105023-maple-bourbon-sliced-bacon/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700105023-maple-bourbon-sliced-bacon/
+Analyzing Production: https://www.oscarmayer.com/products/00044700105023-maple-bourbon-sliced-bacon/
+
+============================================================
+COMPARISON SUMMARY — Products › 00044700105023 Maple Bourbon Sliced Bacon
+============================================================
+Total differences:    6
+Critical differences: 2
+Preview issues:       11
+Production issues:    7
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700105023-maple-bourbon-sliced-bacon-2026-05-12T20-09-35-330Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+
