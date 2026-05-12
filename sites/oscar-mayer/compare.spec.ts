@@ -1,10 +1,26 @@
 import { test } from '@playwright/test';
 import * as fs from 'fs';
 import * as path from 'path';
-import { analyzePage } from '../../utils/analyzer';
+import { analyzePage, DesignTokens } from '../../utils/analyzer';
 import { diffAnalyses } from '../../utils/differ';
 import { generateReport } from '../../utils/report-builder';
 import { requireAuthConfig, loginToPreview } from '../../utils/auth';
+
+// ── Design tokens ─────────────────────────────────────────────────────────────
+// Loaded once at module initialisation.  refresh-tokens.mjs may have updated
+// the file before this spec runs; if the file is absent we proceed without
+// token checking rather than failing the whole suite.
+
+const designTokensPath = path.resolve(__dirname, 'design-tokens.json');
+const designTokens: DesignTokens | null = fs.existsSync(designTokensPath)
+  ? (JSON.parse(fs.readFileSync(designTokensPath, 'utf8')) as DesignTokens)
+  : null;
+
+if (designTokens) {
+  console.log('[compare] Design tokens loaded — token compliance will be checked for each page.');
+} else {
+  console.warn('[compare] design-tokens.json not found — skipping token compliance check.');
+}
 
 // ── Load discovered pages ─────────────────────────────────────────────────────
 
@@ -77,8 +93,8 @@ test.describe('Oscar Mayer — Preview vs Production', () => {
         console.log(`Analyzing Production: ${pair.productionUrl}\n`);
 
         const [previewAnalysis, productionAnalysis] = await Promise.all([
-          analyzePage(previewPage, pair.previewUrl, previewScreenshot),
-          analyzePage(productionPage, pair.productionUrl, productionScreenshot),
+          analyzePage(previewPage, pair.previewUrl, previewScreenshot, designTokens),
+          analyzePage(productionPage, pair.productionUrl, productionScreenshot, designTokens),
         ]);
 
         if (previewAnalysis.loadError)
@@ -181,6 +197,34 @@ test.describe('Oscar Mayer — Preview vs Production', () => {
           testInfo.annotations.push({ type: 'tag', description: 'difference-in-content' });
           testFailures.push(
             `Difference in content:\n${contentDiffDetails.map((d) => `  • ${d}`).join('\n')}`,
+          );
+        }
+
+        // Design token violations — fail the test only when Production has
+        // unknown colors or fonts left over after the design-system aliasing.
+        // Preview is allowed to carry violations (work-in-progress); the
+        // signal we care about is regressions reaching the live site.
+        const productionTokens = productionAnalysis.designTokenViolations;
+        const productionTokenCount =
+          (productionTokens?.unknownColors.length ?? 0) +
+          (productionTokens?.unknownFonts.length  ?? 0);
+
+        if (productionTokenCount > 0) {
+          testInfo.annotations.push({ type: 'tag', description: 'design-token-violations' });
+          testFailures.push(
+            `Design token violations in Production: ${productionTokenCount}`,
+          );
+        }
+
+        // Critical accessibility violations — same Production-only policy.
+        const productionCritical = productionAnalysis.axeViolations.filter((v) => v.impact === 'critical');
+
+        if (productionCritical.length > 0) {
+          testInfo.annotations.push({ type: 'tag', description: 'critical-a11y-violations' });
+          const ruleIds = Array.from(new Set(productionCritical.map((v) => v.id))).join(', ');
+          testFailures.push(
+            `Critical accessibility violations in Production: ${productionCritical.length}` +
+            (ruleIds ? ` — rules: ${ruleIds}` : ''),
           );
         }
 

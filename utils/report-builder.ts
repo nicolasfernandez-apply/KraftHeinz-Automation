@@ -1,4 +1,4 @@
-import { PageAnalysis, HeadingInfo, ConsoleEntry, AxeViolation, VideoInfo } from './analyzer';
+import { PageAnalysis, HeadingInfo, ConsoleEntry, AxeViolation, VideoInfo, DesignTokenViolations } from './analyzer';
 import { PageDiff, ValueDiff, PerfDiff, SetDiff } from './differ';
 
 // ---- Utility helpers ----
@@ -551,6 +551,153 @@ function accessibilitySection(diff: PageDiff): string {
   </div>`;
 }
 
+function designTokensSection(diff: PageDiff): string {
+  if (!diff.designTokens) return '';
+
+  const { preview, production, colorsOnlyInPreview, colorsOnlyInProduction,
+          colorsInBoth, fontsOnlyInPreview, fontsOnlyInProduction, fontsInBoth } = diff.designTokens;
+
+  const totalUnknownColors =
+    (preview?.unknownColors.length  ?? 0) + (production?.unknownColors.length ?? 0);
+  const totalUnknownFonts =
+    (preview?.unknownFonts.length   ?? 0) + (production?.unknownFonts.length  ?? 0);
+  const totalViolations = totalUnknownColors + totalUnknownFonts;
+
+  /** Render one side's color violations as a swatch grid. */
+  const renderColors = (violations: DesignTokenViolations | null, onlyHere: string[], inBoth: string[]): string => {
+    if (!violations) return '<p style="color:#aaa;font-style:italic;padding:8px 0">Not analysed</p>';
+    const compliant = violations.compliantColorCount;
+    const unknown   = violations.unknownColors;
+    if (unknown.length === 0) {
+      return `<p class="no-errors">✓ All ${compliant} detected color${compliant !== 1 ? 's' : ''} match the design token palette</p>`;
+    }
+    const swatches = unknown.map((c) => {
+      const isUnique = onlyHere.includes(c.color);
+      const shared   = inBoth.includes(c.color);
+      const border   = isUnique ? '#e74c3c' : shared ? '#f39c12' : '#ddd';
+      const label    = isUnique ? 'only here' : shared ? 'both sides' : '';
+      const props    = c.properties.join(', ').replace(/([A-Z])/g, ' $1').toLowerCase();
+      const samples  = (c.samples ?? []).slice(0, 3);
+      return `
+        <div style="padding:6px 0;border-bottom:1px solid #f5f5f5">
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="width:20px;height:20px;border-radius:3px;border:2px solid ${escapeHtml(border)};background:${escapeHtml(c.color)};flex-shrink:0"></div>
+            <code style="font-size:12px;color:#444;min-width:70px">${escapeHtml(c.color)}</code>
+            <span style="font-size:11px;color:#888">${c.count} element${c.count !== 1 ? 's' : ''} · ${escapeHtml(props)}</span>
+            ${label ? `<span class="heading-only-tag" style="margin-left:auto">${escapeHtml(label)}</span>` : ''}
+          </div>
+          ${samples.length ? `<div style="font-size:11px;color:#888;margin-left:30px;margin-top:3px;font-family:monospace">e.g. ${samples.map((s) => escapeHtml(s)).join(', ')}</div>` : ''}
+        </div>`;
+    }).join('');
+    return `
+      <p style="font-size:12px;color:#555;margin-bottom:8px">
+        ✓ <strong>${compliant}</strong> token-compliant color${compliant !== 1 ? 's' : ''} &nbsp;·&nbsp;
+        <span style="color:#e74c3c"><strong>${unknown.length}</strong> not in token palette</span>
+      </p>
+      ${swatches}`;
+  };
+
+  /** Render one side's font violations. */
+  const renderFonts = (violations: DesignTokenViolations | null, onlyHere: string[], inBoth: string[]): string => {
+    if (!violations) return '<p style="color:#aaa;font-style:italic;padding:8px 0">Not analysed</p>';
+    const compliant = violations.compliantFontCount;
+    const unknown   = violations.unknownFonts;
+    if (unknown.length === 0) {
+      return `<p class="no-errors">✓ All ${compliant} detected font${compliant !== 1 ? 's' : ''} match the design token set</p>`;
+    }
+    const rows = unknown.map((f) => {
+      const key      = `${f.fontFamily}|${f.fontWeight}`;
+      const isUnique = onlyHere.includes(key);
+      const shared   = inBoth.includes(key);
+      const label    = isUnique ? 'only here' : shared ? 'both sides' : '';
+      const samples  = (f.samples ?? []).slice(0, 3);
+      // fontWeight === 0 is the sentinel for weight-baked families
+      // (FilsonProBlack et al.); their weight isn't a meaningful comparison
+      // axis, so show "any weight" instead of "weight 0".
+      const weightLabel = f.fontWeight === 0 ? 'any weight' : `weight ${f.fontWeight}`;
+      return `
+        <div style="padding:6px 0;border-bottom:1px solid #f5f5f5">
+          <div style="display:flex;align-items:center;gap:8px">
+            <code style="font-size:12px;color:#444;flex:1">${escapeHtml(f.fontFamily)} <span style="color:#999;font-weight:normal">· ${weightLabel}</span></code>
+            <span style="font-size:11px;color:#888">${f.count} element${f.count !== 1 ? 's' : ''}</span>
+            ${label ? `<span class="heading-only-tag">${escapeHtml(label)}</span>` : ''}
+          </div>
+          ${samples.length ? `<div style="font-size:11px;color:#888;margin-top:3px;font-family:monospace">e.g. ${samples.map((s) => escapeHtml(s)).join(', ')}</div>` : ''}
+        </div>`;
+    }).join('');
+    return `
+      <p style="font-size:12px;color:#555;margin-bottom:8px">
+        ✓ <strong>${compliant}</strong> token-compliant font${compliant !== 1 ? 's' : ''} &nbsp;·&nbsp;
+        <span style="color:#e74c3c"><strong>${unknown.length}</strong> not in token set</span>
+      </p>
+      ${rows}`;
+  };
+
+  const crossEnvNote = (colorsOnlyInPreview.length + colorsOnlyInProduction.length +
+                        fontsOnlyInPreview.length  + fontsOnlyInProduction.length) > 0
+    ? `<div style="padding:10px 20px;background:#fffde7;border-top:1px solid #f0f0f0;font-size:12px;color:#856404">
+        ⚠ Some violations appear on only one environment:
+        ${colorsOnlyInPreview.length  ? `${colorsOnlyInPreview.length} color${colorsOnlyInPreview.length !== 1 ? 's' : ''} only on Preview` : ''}
+        ${colorsOnlyInProduction.length ? `${colorsOnlyInProduction.length} color${colorsOnlyInProduction.length !== 1 ? 's' : ''} only on Production` : ''}
+        ${fontsOnlyInPreview.length   ? `${fontsOnlyInPreview.length} font${fontsOnlyInPreview.length !== 1 ? 's' : ''} only on Preview` : ''}
+        ${fontsOnlyInProduction.length ? `${fontsOnlyInProduction.length} font${fontsOnlyInProduction.length !== 1 ? 's' : ''} only on Production` : ''}
+        &nbsp;(highlighted in red swatches above)
+       </div>`
+    : '';
+
+  return `
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="toggle">▼</span>
+      <h2>🎨 Design Token Compliance</h2>
+      <span class="badge-count ${totalViolations === 0 ? 'zero' : ''}">${totalViolations} violation${totalViolations !== 1 ? 's' : ''}</span>
+    </div>
+    <div class="section-body">
+      <!-- Colors -->
+      <div style="border-bottom:2px solid #f0f0f0">
+        <div style="padding:12px 20px;background:#fafafa;font-size:13px;font-weight:600;color:#555">
+          🎨 Colors
+          <span style="font-weight:400;color:#999;margin-left:8px">
+            ${colorsInBoth.length} violation${colorsInBoth.length !== 1 ? 's' : ''} on both sides
+            &nbsp;·&nbsp; ${colorsOnlyInPreview.length + colorsOnlyInProduction.length} environment-specific
+          </span>
+        </div>
+        <div class="two-col-grid">
+          <div class="two-col-pane" style="border-right:1px solid #f0f0f0">
+            <div class="pane-title preview-title">Preview</div>
+            ${renderColors(preview, colorsOnlyInPreview, colorsInBoth)}
+          </div>
+          <div class="two-col-pane">
+            <div class="pane-title production-title">Production</div>
+            ${renderColors(production, colorsOnlyInProduction, colorsInBoth)}
+          </div>
+        </div>
+      </div>
+      <!-- Fonts -->
+      <div>
+        <div style="padding:12px 20px;background:#fafafa;font-size:13px;font-weight:600;color:#555">
+          🔤 Font Families
+          <span style="font-weight:400;color:#999;margin-left:8px">
+            ${fontsInBoth.length} violation${fontsInBoth.length !== 1 ? 's' : ''} on both sides
+            &nbsp;·&nbsp; ${fontsOnlyInPreview.length + fontsOnlyInProduction.length} environment-specific
+          </span>
+        </div>
+        <div class="two-col-grid">
+          <div class="two-col-pane" style="border-right:1px solid #f0f0f0">
+            <div class="pane-title preview-title">Preview</div>
+            ${renderFonts(preview, fontsOnlyInPreview, fontsInBoth)}
+          </div>
+          <div class="two-col-pane">
+            <div class="pane-title production-title">Production</div>
+            ${renderFonts(production, fontsOnlyInProduction, fontsInBoth)}
+          </div>
+        </div>
+      </div>
+      ${crossEnvNote}
+    </div>
+  </div>`;
+}
+
 // ---- CSS ----
 
 function getStyles(): string {
@@ -689,6 +836,14 @@ export function generateReport(
   const previewErrors = diff.consoleErrors.preview.length;
   const productionErrors = diff.consoleErrors.production.length;
   const axeTotal = diff.axe.preview.length + diff.axe.production.length;
+  // Design-token violation totals — sum unknown colors + fonts across both
+  // sides. null when no token check ran for this comparison.
+  const tokenTotal = diff.designTokens
+    ? (diff.designTokens.preview?.unknownColors.length    ?? 0) +
+      (diff.designTokens.preview?.unknownFonts.length     ?? 0) +
+      (diff.designTokens.production?.unknownColors.length ?? 0) +
+      (diff.designTokens.production?.unknownFonts.length  ?? 0)
+    : null;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -739,6 +894,11 @@ export function generateReport(
       <div class="number">${axeTotal}</div>
       <div class="label">A11y Violations</div>
     </div>
+    ${tokenTotal !== null ? `
+    <div class="summary-card ${tokenTotal > 0 ? 'warning' : 'success'}">
+      <div class="number">${tokenTotal}</div>
+      <div class="label">Design Token Violations</div>
+    </div>` : ''}
   </div>
 
   <!-- Screenshots -->
@@ -772,6 +932,7 @@ export function generateReport(
   ${imagesSection(diff, preview, production)}
   ${contentSection(diff)}
   ${accessibilitySection(diff)}
+  ${designTokensSection(diff)}
   ${consoleSection(diff, preview, production)}
 
   <div class="footer">

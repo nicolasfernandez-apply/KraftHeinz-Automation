@@ -1,4 +1,4 @@
-import { PageAnalysis, HeadingInfo, ConsoleEntry, PerformanceMetrics, AxeViolation, VideoInfo } from './analyzer';
+import { PageAnalysis, HeadingInfo, ConsoleEntry, PerformanceMetrics, AxeViolation, VideoInfo, DesignTokenViolations } from './analyzer';
 
 export interface ValueDiff<T> {
   preview: T;
@@ -89,6 +89,26 @@ export interface PageDiff {
     /** Rule ids with violations on both sides */
     inBoth: string[];
   };
+  /**
+   * Design-token compliance comparison.
+   * null when no design tokens were provided during analysis.
+   */
+  designTokens: {
+    preview:    DesignTokenViolations | null;
+    production: DesignTokenViolations | null;
+    /** Unknown colors present on preview but not on production */
+    colorsOnlyInPreview: string[];
+    /** Unknown colors present on production but not on preview */
+    colorsOnlyInProduction: string[];
+    /** Unknown colors present on both sides */
+    colorsInBoth: string[];
+    /** Unknown fonts present on preview but not on production */
+    fontsOnlyInPreview: string[];
+    /** Unknown fonts present on production but not on preview */
+    fontsOnlyInProduction: string[];
+    /** Unknown fonts present on both sides */
+    fontsInBoth: string[];
+  } | null;
   totalDifferences: number;
   criticalDifferences: number;
 }
@@ -261,6 +281,27 @@ export function diffAnalyses(preview: PageAnalysis, production: PageAnalysis): P
     inBoth:          [...previewViolationIds].filter((id) => productionViolationIds.has(id)),
   };
 
+  // ── Design-token diff ────────────────────────────────────────────────────
+  let designTokensDiff: PageDiff['designTokens'] = null;
+
+  if (preview.designTokenViolations || production.designTokenViolations) {
+    const previewColors   = new Set((preview.designTokenViolations?.unknownColors   ?? []).map((c) => c.color));
+    const productionColors = new Set((production.designTokenViolations?.unknownColors ?? []).map((c) => c.color));
+    const previewFonts    = new Set((preview.designTokenViolations?.unknownFonts    ?? []).map((f) => `${f.fontFamily}|${f.fontWeight}`));
+    const productionFonts  = new Set((production.designTokenViolations?.unknownFonts  ?? []).map((f) => `${f.fontFamily}|${f.fontWeight}`));
+
+    designTokensDiff = {
+      preview:    preview.designTokenViolations,
+      production: production.designTokenViolations,
+      colorsOnlyInPreview:    [...previewColors].filter((c) => !productionColors.has(c)),
+      colorsOnlyInProduction: [...productionColors].filter((c) => !previewColors.has(c)),
+      colorsInBoth:           [...previewColors].filter((c) => productionColors.has(c)),
+      fontsOnlyInPreview:    [...previewFonts].filter((f) => !productionFonts.has(f)),
+      fontsOnlyInProduction: [...productionFonts].filter((f) => !previewFonts.has(f)),
+      fontsInBoth:           [...previewFonts].filter((f) => productionFonts.has(f)),
+    };
+  }
+
   // ── Difference counts ─────────────────────────────────────────────────────
   const metaDiffs = Object.values(metadata).filter((d) => d.isDifferent).length;
   const structDiffs = [headingsCount, imagesCount, linksCount, formsCount, scriptsCount, stylesheetsCount, videosCount].filter(
@@ -308,6 +349,7 @@ export function diffAnalyses(preview: PageAnalysis, production: PageAnalysis): P
     headings,
     content,
     axe,
+    designTokens: designTokensDiff,
     totalDifferences,
     criticalDifferences,
   };

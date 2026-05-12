@@ -8,6 +8,27 @@ export interface AuthConfig {
 }
 
 /**
+ * Maximum number of login attempts (initial + retries). Cloudflare and IAP
+ * occasionally serve interstitial pages or transient 5xx responses on the
+ * Preview environment — retrying clears almost all of these.
+ */
+const MAX_LOGIN_ATTEMPTS = 3;
+
+/** Delay between login attempts. */
+const LOGIN_RETRY_DELAY_MS = 5_000;
+
+/**
+ * Thrown when the sign-in form rejected the credentials. Retrying is pointless
+ * — the password is wrong — so the retry wrapper rethrows this immediately.
+ */
+class CredentialsError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'CredentialsError';
+  }
+}
+
+/**
  * Returns the preview auth credentials from env vars.
  * Throws immediately if either is missing — login is mandatory for the PRV environment.
  */
@@ -36,9 +57,46 @@ export function requireAuthConfig(): AuthConfig {
  *   3. Wait for the password step, fill password and click Sign In
  *   4. Wait until IAP redirects back to the heinz.prv.kraftheinz.com domain
  *
+ * Retries up to MAX_LOGIN_ATTEMPTS times on transient errors (Cloudflare
+ * interstitials, IAP redirect timeouts, network blips). A definitive
+ * credential rejection is not retried.
+ *
  * Call this BEFORE analyzePage() so the IAP session cookie is in place.
  */
 export async function loginToPreview(
+  page: Page,
+  auth: AuthConfig,
+  targetUrl: string,
+): Promise<void> {
+  let lastError: unknown;
+
+  for (let attempt = 1; attempt <= MAX_LOGIN_ATTEMPTS; attempt++) {
+    try {
+      await attemptLogin(page, auth, targetUrl);
+      return;
+    } catch (err) {
+      // Wrong username/password — no amount of retrying will fix this.
+      if (err instanceof CredentialsError) throw err;
+
+      lastError = err;
+      const firstLine = ((err as Error).message ?? String(err)).split('\n')[0];
+      console.warn(`  [Auth] Attempt ${attempt}/${MAX_LOGIN_ATTEMPTS} failed: ${firstLine}`);
+
+      if (attempt < MAX_LOGIN_ATTEMPTS) {
+        console.warn(
+          `  [Auth] Retrying in ${LOGIN_RETRY_DELAY_MS / 1000}s — ` +
+          `often a transient Cloudflare/IAP issue on the Preview environment…\n`,
+        );
+        await new Promise((resolve) => setTimeout(resolve, LOGIN_RETRY_DELAY_MS));
+      }
+    }
+  }
+
+  throw lastError;
+}
+
+/** Single login attempt — see loginToPreview for retry behaviour. */
+async function attemptLogin(
   page: Page,
   auth: AuthConfig,
   targetUrl: string,
@@ -126,7 +184,7 @@ export async function loginToPreview(
     await saveDebugScreenshot(page, 'auth-sign-in-result');
 
     if (looksLikeFail) {
-      throw new Error(
+      throw new CredentialsError(
         `  [Auth] Login failed — credentials appear to be incorrect.\n` +
         `  Check PREVIEW_USERNAME and PREVIEW_PASSWORD in your .env file.\n` +
         `  A screenshot was saved to reports/screenshots/auth-sign-in-result.png`,

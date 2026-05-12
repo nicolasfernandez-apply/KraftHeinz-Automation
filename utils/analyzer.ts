@@ -55,6 +55,41 @@ export interface ConsoleEntry {
   text: string;
 }
 
+// ── Design token types ────────────────────────────────────────────────────────
+
+/** Nested color/typography token structure as produced by refresh-tokens.mjs */
+export interface DesignTokens {
+  colors:     Record<string, unknown>;
+  typography: Record<string, unknown>;
+}
+
+/** A color found on the page that is not present in the design token palette. */
+export interface ColorViolation {
+  color:      string;   // lowercase hex, e.g. "#ff0000"
+  count:      number;   // number of elements using this color
+  properties: string[]; // CSS properties where it was found
+  samples:    string[]; // up to 3 example element descriptors (tag#id.class) that use this color
+}
+
+/** A font family + weight combination found on the page that is not in the design token set. */
+export interface FontViolation {
+  fontFamily: string;
+  fontWeight: number;   // numeric CSS weight (100–900); keywords normalised to numbers
+  count:      number;
+  samples:    string[]; // up to 3 example element descriptors that use this font
+}
+
+export interface DesignTokenViolations {
+  /** Non-token colors found on the page, sorted by element count descending. */
+  unknownColors: ColorViolation[];
+  /** Non-token font families found on the page. */
+  unknownFonts: FontViolation[];
+  /** Number of distinct token-compliant colors actually used. */
+  compliantColorCount: number;
+  /** Number of distinct token-compliant font families actually used. */
+  compliantFontCount: number;
+}
+
 export interface AxeViolationNode {
   /** CSS selector path to the element */
   target: string;
@@ -103,6 +138,11 @@ export interface PageAnalysis {
   textBlocks: string[];
   /** Accessibility violations found by axe-core */
   axeViolations: AxeViolation[];
+  /**
+   * Design-token compliance check results.
+   * null when no design tokens were provided to analyzePage().
+   */
+  designTokenViolations: DesignTokenViolations | null;
   timestamp: string;
 }
 
@@ -117,10 +157,125 @@ const EMPTY_PERFORMANCE: PerformanceMetrics = {
   responseEnd: 0, domInteractive: 0, transferSize: 0, decodedBodySize: 0,
 };
 
+// ── Design-token helpers ──────────────────────────────────────────────────────
+
+/** Recursively collect every leaf hex string from a nested color token object. */
+function flattenTokenColors(obj: unknown, out: Set<string> = new Set()): Set<string> {
+  if (typeof obj === 'string' && obj.startsWith('#')) {
+    out.add(obj.toLowerCase());
+  } else if (obj && typeof obj === 'object') {
+    for (const v of Object.values(obj)) flattenTokenColors(v, out);
+  }
+  return out;
+}
+
+/**
+ * Normalises a font-family string so comparisons are case-insensitive and
+ * robust to surrounding quotes/whitespace. Used by BOTH the token side and
+ * the page side so the two are guaranteed to produce the same key for the
+ * same logical font.
+ */
+function normalizeFontFamily(raw: string): string {
+  return raw
+    .split(',')[0]        // take first family if it's a CSS stack
+    .trim()
+    .replace(/['"]/g, '') // strip quote characters
+    .toLowerCase();
+}
+
+/**
+ * Pattern (as a string so it can be re-built inside page.evaluate) that
+ * matches fonts whose weight is baked into the family name — e.g.
+ * "FilsonProBlack", "OpenSansBold", "InterSemiBoldItalic". For these fonts
+ * the CSS `font-weight` value is unreliable: the visual weight is
+ * determined by which font face the browser loaded, and UA stylesheets
+ * (`h1`–`h6`, `<strong>`, `<th>`, `<dt>` etc.) force `font-weight: bold` on
+ * top, producing apparent weight mismatches that don't reflect a real
+ * design-system violation.
+ *
+ * When a family matches this pattern, we drop the weight from the lookup
+ * key and compare by family alone.
+ */
+const WEIGHT_SUFFIX_PATTERN =
+  '(thin|extralight|ultralight|light|regular|medium|semibold|demibold|bold|extrabold|ultrabold|black|heavy|book)(italic)?$';
+
+/**
+ * Builds the canonical lookup key for a (family, weight) pair. Used by both
+ * the token side and the page side so they produce identical keys for the
+ * same logical font.
+ */
+function fontLookupKey(family: string, weight: number): string {
+  return new RegExp(WEIGHT_SUFFIX_PATTERN).test(family)
+    ? `${family}|*`
+    : `${family}|${weight}`;
+}
+
+/**
+ * Maps weight-suffix words (lowercase) to their canonical CSS weight number.
+ * Used by the page-side alias resolver to translate things like
+ * "FilsonProBold" → ("Filson Pro", 700).
+ */
+const WEIGHT_WORD_TO_NUMBER: Record<string, number> = {
+  thin:       100,
+  extralight: 200, ultralight: 200,
+  light:      300,
+  book:       425, regular: 400, normal: 400,
+  medium:     500,
+  semibold:   600, demibold: 600,
+  bold:       700,
+  extrabold:  800, ultrabold: 800,
+  black:      900, heavy: 900,
+};
+
+/**
+ * Builds a "compressed → canonical" alias map from the token typography tree.
+ * For every token family that contains non-alphanumeric characters (spaces,
+ * hyphens, underscores), we register `compressed → canonical` so the page side
+ * can resolve a CSS font name like "FilsonProBold" back to the design-system's
+ * canonical family "Filson Pro" by stripping the weight suffix and looking up
+ * the remaining base in this map.
+ */
+function buildFontAliasMap(
+  obj: unknown,
+  out: Record<string, string> = {},
+): Record<string, string> {
+  if (obj && typeof obj === 'object') {
+    const rec = obj as Record<string, unknown>;
+    if (typeof rec.fontFamily === 'string') {
+      const canonical  = normalizeFontFamily(rec.fontFamily);
+      const compressed = canonical.replace(/[^a-z0-9]/g, '');
+      if (compressed !== canonical && !(compressed in out)) {
+        out[compressed] = canonical;
+      }
+    }
+    for (const v of Object.values(rec)) buildFontAliasMap(v, out);
+  }
+  return out;
+}
+
+/**
+ * Collect every distinct (fontFamily, fontWeight) tuple from a nested typography
+ * token object. Each entry is encoded as `"family|weight"` (normalised family,
+ * numeric weight) so it can be looked up with a single Set.has() call.
+ */
+function flattenTokenFonts(obj: unknown, out: Set<string> = new Set()): Set<string> {
+  if (obj && typeof obj === 'object') {
+    const rec = obj as Record<string, unknown>;
+    if (typeof rec.fontFamily === 'string') {
+      const family = normalizeFontFamily(rec.fontFamily);
+      const weight = Number(rec.fontWeight) || 400;
+      out.add(fontLookupKey(family, weight));
+    }
+    for (const v of Object.values(rec)) flattenTokenFonts(v, out);
+  }
+  return out;
+}
+
 export async function analyzePage(
   page: Page,
   url: string,
   screenshotPath: string,
+  designTokens?: DesignTokens | null,
 ): Promise<PageAnalysis> {
   const consoleEntries: ConsoleEntry[] = [];
 
@@ -173,20 +328,28 @@ export async function analyzePage(
     })
     .catch(() => EMPTY_METADATA);
 
+  // Carousel selector — applied across content extractors so rotating items
+  // don't show up as preview/production differences.
+  const CAROUSEL_SELECTOR = '[aria-label="Carousel" i], [aria-roledescription="carousel" i]';
+
   const headings = await page
-    .evaluate(() =>
+    .evaluate((carouselSel: string) =>
       Array.from(document.querySelectorAll('h1, h2, h3, h4, h5, h6'))
+        .filter((el) => !el.closest(carouselSel))
         .map((el) => ({
           level: parseInt(el.tagName[1], 10),
           text: (el as HTMLElement).innerText.trim().substring(0, 200),
         }))
         .filter((h) => h.text),
+      CAROUSEL_SELECTOR,
     )
     .catch(() => [] as HeadingInfo[]);
 
   const images = await page
-    .evaluate(() =>
+    .evaluate((carouselSel: string) =>
       Array.from(document.querySelectorAll('img'))
+        // Exclude carousel descendants — slide content rotates between runs.
+        .filter((el) => !el.closest(carouselSel))
         .map((img) => ({
           src: img.getAttribute('src') || '',
           alt: img.alt || '',
@@ -203,11 +366,12 @@ export async function analyzePage(
           try { pathname = new URL(img.src).pathname; } catch {}
           return !pathname.startsWith('/log/');
         }),
+      CAROUSEL_SELECTOR,
     )
     .catch(() => [] as ImageInfo[]);
 
   const links = await page
-    .evaluate((pageUrl: string) => {
+    .evaluate(({ pageUrl, carouselSel }: { pageUrl: string; carouselSel: string }) => {
       // Walk up the DOM; return true if the element lives inside a cookie consent container.
       const isCookieBanner = (el: Element): boolean => {
         let node: Element | null = el.parentElement;
@@ -233,6 +397,8 @@ export async function analyzePage(
         pageOrigin = new URL(pageUrl).origin;
       } catch {}
       return Array.from(document.querySelectorAll('a[href]'))
+        // Exclude carousel descendants — slide content rotates between runs.
+        .filter((a) => !a.closest(carouselSel))
         .filter((a) => !isCookieBanner(a))
         .slice(0, 300)
         .map((a) => {
@@ -257,7 +423,7 @@ export async function analyzePage(
           try { pathname = new URL(l.href).pathname; } catch {}
           return !pathname.startsWith('/wtb/');
         });
-    }, url)
+    }, { pageUrl: url, carouselSel: CAROUSEL_SELECTOR })
     .catch(() => [] as LinkInfo[]);
 
   const forms = await page
@@ -276,11 +442,13 @@ export async function analyzePage(
   // Only native <video> elements are collected — iframes are excluded to avoid false
   // positives from Recaptcha, cookie banners, analytics, and other embedded widgets.
   const videos = await page
-    .evaluate(() => {
+    .evaluate((carouselSel: string) => {
       const items: Array<{ platform: string; src: string; videoId: string; title: string }> = [];
 
       document.querySelectorAll('video').forEach((el) => {
         const v = el as HTMLVideoElement;
+        // Exclude carousel descendants — slide content rotates between runs.
+        if (v.closest(carouselSel)) return;
         // Prefer the resolved .src property; fall back to the first <source> child
         const src = v.src || (v.querySelector('source') as HTMLSourceElement | null)?.src || '';
         if (!src) return;
@@ -288,7 +456,7 @@ export async function analyzePage(
       });
 
       return items;
-    })
+    }, CAROUSEL_SELECTOR)
     .catch(() => [] as Array<{ platform: string; src: string; videoId: string; title: string }>);
 
   const performance = await page
@@ -314,7 +482,7 @@ export async function analyzePage(
   // Elements inside cookie consent containers are excluded to avoid environment differences
   // caused by banners that appear differently between Preview and Production.
   const textBlocks = await page
-    .evaluate(() => {
+    .evaluate((carouselSel: string) => {
       const isCookieBanner = (el: Element): boolean => {
         let node: Element | null = el.parentElement;
         while (node) {
@@ -341,19 +509,23 @@ export async function analyzePage(
       ));
       for (const el of elements) {
         if (isCookieBanner(el)) continue;
+        // Exclude carousel descendants — slide content rotates between runs.
+        if (el.closest(carouselSel)) continue;
         // Skip elements that themselves contain block children (avoids duplicating parent text)
         if (el.querySelector('p, li, blockquote, div')) continue;
-        const text = (el as HTMLElement).innerText
-          ?.replace(/\s+/g, ' ')
-          .trim()
-          .substring(0, 400);
+        // Only consider elements that expose an innerText string. Pure Element
+        // / SVGElement instances don't, and the property is also undefined on
+        // disconnected or shadow-DOM nodes — we want concrete rendered text.
+        const innerText = (el as HTMLElement).innerText;
+        if (typeof innerText !== 'string') continue;
+        const text = innerText.replace(/\s+/g, ' ').trim().substring(0, 400);
         if (text && text.length >= 15 && !seen.has(text)) {
           seen.add(text);
           blocks.push(text);
         }
       }
       return blocks.slice(0, 500);
-    })
+    }, CAROUSEL_SELECTOR)
     .catch(() => [] as string[]);
 
   const { scriptsCount, stylesheetsCount } = await page
@@ -373,7 +545,27 @@ export async function analyzePage(
 
   let axeViolations: AxeViolation[] = [];
   try {
-    const axeResults = await new AxeBuilder({ page }).analyze();
+    // Restrict to <body> so head/scripts/document-level rules don't fire — those
+    // concerns are covered by the metadata diff. Exclude common cookie/consent
+    // SDK containers (OneTrust, Cookiebot, Cookieyes, Osano, generic cookie/gdpr)
+    // because their markup is environment-specific noise.
+    const axeResults = await new AxeBuilder({ page })
+      .include('body')
+      .exclude('[id*="onetrust" i]')
+      .exclude('[class*="onetrust" i]')
+      .exclude('[id*="cookie" i]')
+      .exclude('[class*="cookie" i]')
+      .exclude('[id*="consent" i]')
+      .exclude('[class*="consent" i]')
+      .exclude('[id*="cookiebot" i]')
+      .exclude('[class*="cookiebot" i]')
+      .exclude('[id*="cky-" i]')
+      .exclude('[class*="cky-" i]')
+      .exclude('[id*="osano" i]')
+      .exclude('[class*="osano" i]')
+      .exclude('[id*="gdpr" i]')
+      .exclude('[class*="gdpr" i]')
+      .analyze();
     axeViolations = axeResults.violations.map((v) => ({
       id: v.id,
       impact: v.impact ?? 'unknown',
@@ -387,6 +579,300 @@ export async function analyzePage(
     }));
   } catch (e) {
     console.warn('axe-core analysis failed:', (e as Error).message);
+  }
+
+  // ── Design-token compliance check ─────────────────────────────────────────
+  // Only runs when design tokens are provided (Oscar Mayer comparison).
+  // Samples up to 800 visible elements on the page, extracts computed
+  // background-color / color / border-color and font-family values, then
+  // compares them against the flat set of values defined in the token file.
+
+  let designTokenViolations: DesignTokenViolations | null = null;
+
+  if (designTokens) {
+    const validColors = [...flattenTokenColors(designTokens.colors)];
+    const validFonts  = [...flattenTokenFonts(designTokens.typography)];
+    const fontAliases = buildFontAliasMap(designTokens.typography);
+
+    designTokenViolations = await page
+      .evaluate(
+        ({ validColorsArr, validFontsArr, weightSuffixPattern, fontAliasMap, weightWordMap }) => {
+          const weightSuffixRe = new RegExp(weightSuffixPattern);
+          const buildFontKey = (fam: string, wt: number): string =>
+            weightSuffixRe.test(fam) ? `${fam}|*` : `${fam}|${wt}`;
+
+          /**
+           * Resolves "FilsonProBold" → "Filson Pro" + 700 for token lookup.
+           * Returns null if the family doesn't end in a recognised weight
+           * suffix or the compressed base isn't a known token family.
+           */
+          const aliasedKeyFor = (family: string): string | null => {
+            const m = family.match(weightSuffixRe);
+            if (!m) return null;
+            // Slice the suffix off the end — m[0] is the full matched suffix
+            // (e.g. "bold", "boldItalic").
+            const base = family.slice(0, family.length - m[0].length);
+            const canonical = fontAliasMap[base];
+            if (!canonical) return null;
+            const weight = weightWordMap[m[1].toLowerCase()] ?? 400;
+            return `${canonical}|${weight}`;
+          };
+          // ── Cookie/consent ancestor detector ─────────────────────────────
+          // Mirrors the same filter applied to text/links extraction so that
+          // OneTrust, Cookiebot, etc. don't pollute the token compliance check.
+          const isCookieBanner = (el: Element): boolean => {
+            let node: Element | null = el.parentElement;
+            while (node) {
+              const cls = (node.getAttribute('class') || '').toLowerCase();
+              const id  = (node.getAttribute('id')    || '').toLowerCase();
+              if (
+                cls.includes('cookie')    || id.includes('cookie')    ||
+                cls.includes('consent')   || id.includes('consent')   ||
+                cls.includes('gdpr')      || id.includes('gdpr')      ||
+                cls.includes('onetrust')  || id.includes('onetrust')  ||
+                cls.includes('cookiebot') || id.includes('cookiebot') ||
+                cls.includes('cky-')      || id.includes('cky-')      ||
+                cls.includes('osano')     || id.includes('osano')
+              ) return true;
+              node = node.parentElement;
+            }
+            return false;
+          };
+
+          /** Short selector-like description: tag#id, tag.class, or tag. */
+          const describeElement = (el: HTMLElement): string => {
+            let s = el.tagName.toLowerCase();
+            if (el.id) {
+              s += '#' + el.id;
+            } else if (typeof el.className === 'string' && el.className.trim()) {
+              const classes = el.className.trim().split(/\s+/).filter(Boolean).slice(0, 2);
+              if (classes.length) s += '.' + classes.join('.');
+            }
+            return s;
+          };
+
+          // ── Color extraction ─────────────────────────────────────────────
+          // Only `background-color` is compared. Text color is excluded
+          // because text-bearing elements (h1–h6, p, a, span, etc.) are in
+          // FONT_ONLY_TAGS, and border colors produced too much per-side noise
+          // to be useful.
+          const COLOR_PROPS = ['backgroundColor'] as const;
+
+          /** Convert rgb(r,g,b) / rgba(r,g,b,a) → lowercase hex, or null. */
+          const rgbToHex = (val: string): string | null => {
+            const m = val.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
+            if (!m) return null;
+            const alpha = m[4] !== undefined ? parseFloat(m[4]) : 1;
+            if (alpha < 0.05) return null; // fully transparent — skip
+            return '#' + [m[1], m[2], m[3]]
+              .map((n) => parseInt(n, 10).toString(16).padStart(2, '0'))
+              .join('');
+          };
+
+          const colorMap: Record<string, { count: number; properties: string[]; samples: string[] }> = {};
+          const fontMap:  Record<string, { fontFamily: string; fontWeight: number; count: number; samples: string[] }> = {};
+
+          /**
+           * Strict "actually shown to the user" check. The default
+           * offsetWidth/Height test misses several common hide patterns:
+           *   - visibility: hidden / collapse  (preserves layout space)
+           *   - opacity: 0                     (preserves layout space)
+           *   - sr-only positioning            (1x1 clipped, or left: -9999px)
+           *   - content-visibility: hidden     (skipped rendering)
+           *   - off-screen via transforms      (display flex on desktop nav
+           *                                     can be translated off-screen
+           *                                     on mobile and vice-versa)
+           */
+          const isUserVisible = (el: HTMLElement): boolean => {
+            // 1. Display/zero-size check (also catches display:none ancestors).
+            if (el.offsetWidth === 0 || el.offsetHeight === 0) return false;
+
+            // 2. Modern combined check — handles visibility, opacity,
+            //    content-visibility:auto, and ancestor chains in one call.
+            //    Chromium-based (Playwright's bundled browser) supports this
+            //    since 105; the typeof guard preserves the offset-only path
+            //    as a fallback if it's ever missing.
+            type CheckVisibility = (opts?: {
+              checkOpacity?: boolean;
+              checkVisibilityCSS?: boolean;
+              contentVisibilityAuto?: boolean;
+            }) => boolean;
+            const cv = (el as unknown as { checkVisibility?: CheckVisibility }).checkVisibility;
+            if (typeof cv === 'function') {
+              if (!cv.call(el, {
+                checkOpacity:          true,
+                checkVisibilityCSS:    true,
+                contentVisibilityAuto: true,
+              })) return false;
+            }
+
+            // 3. Sr-only / off-screen positioning. getBoundingClientRect
+            //    reflects transforms and absolute positioning, so an element
+            //    pulled left: -9999px or transform: translateX(-100%) reports
+            //    a negative right edge.
+            const rect = el.getBoundingClientRect();
+            if (rect.right <= 0 || rect.bottom <= 0) return false;
+
+            // 4. Tiny clipped elements (Tailwind sr-only is 1x1 with clip).
+            if (rect.width <= 1 && rect.height <= 1) return false;
+
+            return true;
+          };
+
+          // Body-scoped, cookie-banner descendants excluded.
+          // <div>, <nav>, <main>, <svg>, <g>, <path>, <canvas>, <figure>, and
+          // <img> elements are excluded — layout/graphics/media primitives
+          // whose styles don't represent token-bearing text. Their children
+          // are sampled individually (when they have any), so the element
+          // itself is skipped to avoid noise from styles that aren't
+          // independently meaningful for token compliance.
+          // Tag names are compared in lower case because SVG elements return
+          // lowercase from `tagName` in HTML documents while HTML elements
+          // return uppercase.
+          // The Algolia autocomplete and universal-nav-btn subtrees are
+          // excluded entirely (3rd-party / shared-nav widgets whose styles
+          // come from outside the design system).
+          // The ally-skip-button is a visually-hidden skip link.
+          const SKIPPED_TAGS = new Set([
+            'svg', 'g', 'path', 'main',
+            'canvas', 'figure', 'figcaption', 'img', 'hr',
+          ]);
+          // Text-only elements: paragraph/link/list/heading elements get
+          // checked for fonts but not colors. Their color is typically
+          // inherited from an HTML ancestor whose value is already covered by
+          // that ancestor's check; counting it again on every <p>/<a>/<li>/<h*>
+          // inflates the violation count without identifying a new source.
+          const FONT_ONLY_TAGS = new Set([
+            'a', 'li', 'ul', 'p', 'span', 'section',
+            'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+          ]);
+          const elements = Array.from(document.querySelectorAll<HTMLElement>('body *'))
+            .filter(isUserVisible)
+            .filter((el) => !SKIPPED_TAGS.has(el.tagName.toLowerCase()))
+            .filter((el) => el.getAttribute('data-testid') !== 'ally-skip-button')
+            .filter((el) => el.getAttribute('data-testid') !== 'image-shadow')
+            .filter((el) => el.getAttribute('data-testid') !== 'copyright-text')
+            .filter((el) => el.id !== 'clickable-atom')
+            .filter((el) => !el.closest('[data-testid="algolia-autocomplete"]'))
+            .filter((el) => !el.closest('[data-testid="open-universal-nav-btn"]'))
+            .filter((el) => !isCookieBanner(el))
+            .slice(0, 800);
+
+          for (const el of elements) {
+            const style = getComputedStyle(el);
+            const desc  = describeElement(el);
+            const tag   = el.tagName.toLowerCase();
+
+            // Colors — skipped for text-only elements (<a>, <li>, <ul>).
+            if (!FONT_ONLY_TAGS.has(tag)) for (const prop of COLOR_PROPS) {
+              const hex = rgbToHex(style[prop] ?? '');
+              if (!hex) continue;
+              if (!colorMap[hex]) colorMap[hex] = { count: 0, properties: [], samples: [] };
+              colorMap[hex].count++;
+              if (!colorMap[hex].properties.includes(prop)) {
+                colorMap[hex].properties.push(prop);
+              }
+              if (colorMap[hex].samples.length < 3 && !colorMap[hex].samples.includes(desc)) {
+                colorMap[hex].samples.push(desc);
+              }
+            }
+
+            // Font family + weight — only sampled on elements that directly
+            // render text. An element "shows text" if it has at least one
+            // direct child text node with non-whitespace content. Pure layout
+            // containers (whose visible text comes only from descendants) are
+            // skipped; their text-bearing descendants get iterated separately
+            // and contribute the meaningful typography signal.
+            let hasDirectText = false;
+            const childNodes = el.childNodes;
+            for (let i = 0; i < childNodes.length; i++) {
+              const node = childNodes[i];
+              if (node.nodeType === 3 /* Node.TEXT_NODE */ &&
+                  node.textContent && node.textContent.trim().length > 0) {
+                hasDirectText = true;
+                break;
+              }
+            }
+
+            // Use the first declared family (ignore fallbacks). getComputedStyle
+            // resolves fontWeight to a numeric string in modern browsers; fall
+            // back to keyword mapping for older quirks.
+            const family = style.fontFamily
+              .split(',')[0]
+              .trim()
+              .replace(/['"]/g, '')
+              .toLowerCase();
+            if (family && hasDirectText) {
+              const fwRaw  = (style.fontWeight ?? '').toString().toLowerCase();
+              const weight = parseInt(fwRaw, 10) || (fwRaw === 'bold' ? 700 : 400);
+              const key    = buildFontKey(family, weight);
+              // For weight-baked families the rendered weight is incidental —
+              // the font face dictates the visual weight. Store 0 as a sentinel
+              // so cross-environment diffs (which key on family+weight) agree.
+              const isWeightBaked = key.endsWith('|*');
+              const storedWeight  = isWeightBaked ? 0 : weight;
+              if (!fontMap[key]) {
+                fontMap[key] = { fontFamily: family, fontWeight: storedWeight, count: 0, samples: [] };
+              }
+              fontMap[key].count++;
+              if (fontMap[key].samples.length < 3 && !fontMap[key].samples.includes(desc)) {
+                fontMap[key].samples.push(desc);
+              }
+            }
+          }
+
+          // ── Compare against token sets ───────────────────────────────────
+          const tokenColorSet = new Set(validColorsArr);
+          const tokenFontSet  = new Set(validFontsArr);
+
+          const unknownColors = Object.entries(colorMap)
+            .filter(([hex]) => !tokenColorSet.has(hex))
+            .map(([color, data]) => ({
+              color,
+              count:      data.count,
+              properties: data.properties,
+              samples:    data.samples,
+            }))
+            .sort((a, b) => b.count - a.count)
+            .slice(0, 50); // cap to keep report readable
+
+          const compliantColorCount = Object.keys(colorMap)
+            .filter((hex) => tokenColorSet.has(hex)).length;
+
+          // A page-side font entry is compliant if EITHER its direct lookup
+          // key matches a token, OR aliasing it via the family-name map
+          // produces a key that matches a token (handles cases where the page
+          // ships "FilsonProBold" while Figma documents "Filson Pro" at 700).
+          const isCompliant = (key: string, family: string): boolean => {
+            if (tokenFontSet.has(key)) return true;
+            const aliased = aliasedKeyFor(family);
+            return aliased !== null && tokenFontSet.has(aliased);
+          };
+
+          const unknownFonts = Object.entries(fontMap)
+            .filter(([key, data]) => !isCompliant(key, data.fontFamily))
+            .map(([, data]) => ({
+              fontFamily: data.fontFamily,
+              fontWeight: data.fontWeight,
+              count:      data.count,
+              samples:    data.samples,
+            }))
+            .sort((a, b) => b.count - a.count);
+
+          const compliantFontCount = Object.entries(fontMap)
+            .filter(([key, data]) => isCompliant(key, data.fontFamily)).length;
+
+          return { unknownColors, compliantColorCount, unknownFonts, compliantFontCount };
+        },
+        {
+          validColorsArr:      validColors,
+          validFontsArr:       validFonts,
+          weightSuffixPattern: WEIGHT_SUFFIX_PATTERN,
+          fontAliasMap:        fontAliases,
+          weightWordMap:       WEIGHT_WORD_TO_NUMBER,
+        },
+      )
+      .catch(() => null);
   }
 
   return {
@@ -407,6 +893,7 @@ export async function analyzePage(
     stylesheetsCount,
     textBlocks,
     axeViolations,
+    designTokenViolations,
     timestamp: new Date().toISOString(),
   };
 }
