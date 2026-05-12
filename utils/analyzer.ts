@@ -71,9 +71,10 @@ export interface ColorViolation {
   samples:    string[]; // up to 3 example element descriptors (tag#id.class) that use this color
 }
 
-/** A font family found on the page that is not in the design token set. */
+/** A font family + weight combination found on the page that is not in the design token set. */
 export interface FontViolation {
   fontFamily: string;
+  fontWeight: number;   // numeric CSS weight (100–900); keywords normalised to numbers
   count:      number;
   samples:    string[]; // up to 3 example element descriptors that use this font
 }
@@ -169,14 +170,17 @@ function flattenTokenColors(obj: unknown, out: Set<string> = new Set()): Set<str
 }
 
 /**
- * Collect every distinct fontFamily value from a nested typography token object.
- * Works by looking for objects that have a `fontFamily` string property.
+ * Collect every distinct (fontFamily, fontWeight) tuple from a nested typography
+ * token object. Each entry is encoded as `"family|weight"` (lowercase family,
+ * numeric weight) so it can be looked up with a single Set.has() call.
  */
 function flattenTokenFonts(obj: unknown, out: Set<string> = new Set()): Set<string> {
   if (obj && typeof obj === 'object') {
     const rec = obj as Record<string, unknown>;
     if (typeof rec.fontFamily === 'string') {
-      out.add(rec.fontFamily.toLowerCase());
+      const family = rec.fontFamily.toLowerCase();
+      const weight = Number(rec.fontWeight) || 400;
+      out.add(`${family}|${weight}`);
     }
     for (const v of Object.values(rec)) flattenTokenFonts(v, out);
   }
@@ -240,20 +244,28 @@ export async function analyzePage(
     })
     .catch(() => EMPTY_METADATA);
 
+  // Carousel selector — applied across content extractors so rotating items
+  // don't show up as preview/production differences.
+  const CAROUSEL_SELECTOR = '[aria-label="Carousel" i], [aria-roledescription="carousel" i]';
+
   const headings = await page
-    .evaluate(() =>
+    .evaluate((carouselSel: string) =>
       Array.from(document.querySelectorAll('h1, h2, h3, h4, h5, h6'))
+        .filter((el) => !el.closest(carouselSel))
         .map((el) => ({
           level: parseInt(el.tagName[1], 10),
           text: (el as HTMLElement).innerText.trim().substring(0, 200),
         }))
         .filter((h) => h.text),
+      CAROUSEL_SELECTOR,
     )
     .catch(() => [] as HeadingInfo[]);
 
   const images = await page
-    .evaluate(() =>
+    .evaluate((carouselSel: string) =>
       Array.from(document.querySelectorAll('img'))
+        // Exclude carousel descendants — slide content rotates between runs.
+        .filter((el) => !el.closest(carouselSel))
         .map((img) => ({
           src: img.getAttribute('src') || '',
           alt: img.alt || '',
@@ -270,11 +282,12 @@ export async function analyzePage(
           try { pathname = new URL(img.src).pathname; } catch {}
           return !pathname.startsWith('/log/');
         }),
+      CAROUSEL_SELECTOR,
     )
     .catch(() => [] as ImageInfo[]);
 
   const links = await page
-    .evaluate((pageUrl: string) => {
+    .evaluate(({ pageUrl, carouselSel }: { pageUrl: string; carouselSel: string }) => {
       // Walk up the DOM; return true if the element lives inside a cookie consent container.
       const isCookieBanner = (el: Element): boolean => {
         let node: Element | null = el.parentElement;
@@ -300,6 +313,8 @@ export async function analyzePage(
         pageOrigin = new URL(pageUrl).origin;
       } catch {}
       return Array.from(document.querySelectorAll('a[href]'))
+        // Exclude carousel descendants — slide content rotates between runs.
+        .filter((a) => !a.closest(carouselSel))
         .filter((a) => !isCookieBanner(a))
         .slice(0, 300)
         .map((a) => {
@@ -324,7 +339,7 @@ export async function analyzePage(
           try { pathname = new URL(l.href).pathname; } catch {}
           return !pathname.startsWith('/wtb/');
         });
-    }, url)
+    }, { pageUrl: url, carouselSel: CAROUSEL_SELECTOR })
     .catch(() => [] as LinkInfo[]);
 
   const forms = await page
@@ -343,11 +358,13 @@ export async function analyzePage(
   // Only native <video> elements are collected — iframes are excluded to avoid false
   // positives from Recaptcha, cookie banners, analytics, and other embedded widgets.
   const videos = await page
-    .evaluate(() => {
+    .evaluate((carouselSel: string) => {
       const items: Array<{ platform: string; src: string; videoId: string; title: string }> = [];
 
       document.querySelectorAll('video').forEach((el) => {
         const v = el as HTMLVideoElement;
+        // Exclude carousel descendants — slide content rotates between runs.
+        if (v.closest(carouselSel)) return;
         // Prefer the resolved .src property; fall back to the first <source> child
         const src = v.src || (v.querySelector('source') as HTMLSourceElement | null)?.src || '';
         if (!src) return;
@@ -355,7 +372,7 @@ export async function analyzePage(
       });
 
       return items;
-    })
+    }, CAROUSEL_SELECTOR)
     .catch(() => [] as Array<{ platform: string; src: string; videoId: string; title: string }>);
 
   const performance = await page
@@ -381,7 +398,7 @@ export async function analyzePage(
   // Elements inside cookie consent containers are excluded to avoid environment differences
   // caused by banners that appear differently between Preview and Production.
   const textBlocks = await page
-    .evaluate(() => {
+    .evaluate((carouselSel: string) => {
       const isCookieBanner = (el: Element): boolean => {
         let node: Element | null = el.parentElement;
         while (node) {
@@ -408,6 +425,8 @@ export async function analyzePage(
       ));
       for (const el of elements) {
         if (isCookieBanner(el)) continue;
+        // Exclude carousel descendants — slide content rotates between runs.
+        if (el.closest(carouselSel)) continue;
         // Skip elements that themselves contain block children (avoids duplicating parent text)
         if (el.querySelector('p, li, blockquote, div')) continue;
         const text = (el as HTMLElement).innerText
@@ -420,7 +439,7 @@ export async function analyzePage(
         }
       }
       return blocks.slice(0, 500);
-    })
+    }, CAROUSEL_SELECTOR)
     .catch(() => [] as string[]);
 
   const { scriptsCount, stylesheetsCount } = await page
@@ -540,20 +559,91 @@ export async function analyzePage(
           };
 
           const colorMap: Record<string, { count: number; properties: string[]; samples: string[] }> = {};
-          const fontMap:  Record<string, { count: number; samples: string[] }> = {};
+          const fontMap:  Record<string, { fontFamily: string; fontWeight: number; count: number; samples: string[] }> = {};
+
+          /**
+           * Strict "actually shown to the user" check. The default
+           * offsetWidth/Height test misses several common hide patterns:
+           *   - visibility: hidden / collapse  (preserves layout space)
+           *   - opacity: 0                     (preserves layout space)
+           *   - sr-only positioning            (1x1 clipped, or left: -9999px)
+           *   - content-visibility: hidden     (skipped rendering)
+           *   - off-screen via transforms      (display flex on desktop nav
+           *                                     can be translated off-screen
+           *                                     on mobile and vice-versa)
+           */
+          const isUserVisible = (el: HTMLElement): boolean => {
+            // 1. Display/zero-size check (also catches display:none ancestors).
+            if (el.offsetWidth === 0 || el.offsetHeight === 0) return false;
+
+            // 2. Modern combined check — handles visibility, opacity,
+            //    content-visibility:auto, and ancestor chains in one call.
+            //    Chromium-based (Playwright's bundled browser) supports this
+            //    since 105; the typeof guard preserves the offset-only path
+            //    as a fallback if it's ever missing.
+            type CheckVisibility = (opts?: {
+              checkOpacity?: boolean;
+              checkVisibilityCSS?: boolean;
+              contentVisibilityAuto?: boolean;
+            }) => boolean;
+            const cv = (el as unknown as { checkVisibility?: CheckVisibility }).checkVisibility;
+            if (typeof cv === 'function') {
+              if (!cv.call(el, {
+                checkOpacity:          true,
+                checkVisibilityCSS:    true,
+                contentVisibilityAuto: true,
+              })) return false;
+            }
+
+            // 3. Sr-only / off-screen positioning. getBoundingClientRect
+            //    reflects transforms and absolute positioning, so an element
+            //    pulled left: -9999px or transform: translateX(-100%) reports
+            //    a negative right edge.
+            const rect = el.getBoundingClientRect();
+            if (rect.right <= 0 || rect.bottom <= 0) return false;
+
+            // 4. Tiny clipped elements (Tailwind sr-only is 1x1 with clip).
+            if (rect.width <= 1 && rect.height <= 1) return false;
+
+            return true;
+          };
 
           // Body-scoped, cookie-banner descendants excluded.
+          // <div>, <nav>, <main>, <svg>, <g>, and <path> elements are
+          // layout/graphics primitives — their children are sampled
+          // individually (when they have any), so the element itself is
+          // skipped to avoid noise from styles that aren't independently
+          // meaningful for token compliance.
+          // Tag names are compared in lower case because SVG elements return
+          // lowercase from `tagName` in HTML documents while HTML elements
+          // return uppercase.
+          // The Algolia autocomplete and universal-nav-btn subtrees are
+          // excluded entirely (3rd-party / shared-nav widgets whose styles
+          // come from outside the design system).
+          // The ally-skip-button is a visually-hidden skip link.
+          const SKIPPED_TAGS = new Set(['div', 'nav', 'svg', 'g', 'path', 'main']);
+          // Text-only elements: paragraph/link/list elements get checked for
+          // fonts but not colors. Their color is typically inherited from an
+          // HTML ancestor whose value is already covered by that ancestor's
+          // check; counting it again on every <p>/<a>/<li> inflates the
+          // violation count without identifying a new source.
+          const FONT_ONLY_TAGS = new Set(['a', 'li', 'ul', 'p']);
           const elements = Array.from(document.querySelectorAll<HTMLElement>('body *'))
-            .filter((el) => el.offsetWidth > 0 && el.offsetHeight > 0) // visible only
+            .filter(isUserVisible)
+            .filter((el) => !SKIPPED_TAGS.has(el.tagName.toLowerCase()))
+            .filter((el) => el.getAttribute('data-testid') !== 'ally-skip-button')
+            .filter((el) => !el.closest('[data-testid="algolia-autocomplete"]'))
+            .filter((el) => !el.closest('[data-testid="open-universal-nav-btn"]'))
             .filter((el) => !isCookieBanner(el))
             .slice(0, 800);
 
           for (const el of elements) {
             const style = getComputedStyle(el);
             const desc  = describeElement(el);
+            const tag   = el.tagName.toLowerCase();
 
-            // Colors
-            for (const prop of COLOR_PROPS) {
+            // Colors — skipped for text-only elements (<a>, <li>, <ul>).
+            if (!FONT_ONLY_TAGS.has(tag)) for (const prop of COLOR_PROPS) {
               const hex = rgbToHex(style[prop] ?? '');
               if (!hex) continue;
               if (!colorMap[hex]) colorMap[hex] = { count: 0, properties: [], samples: [] };
@@ -566,17 +656,24 @@ export async function analyzePage(
               }
             }
 
-            // Font family — use the first declared family (ignore fallbacks)
-            const ff = style.fontFamily
+            // Font family + weight — use the first declared family (ignore fallbacks).
+            // getComputedStyle resolves fontWeight to a numeric string in modern
+            // browsers; fall back to keyword mapping for older quirks.
+            const family = style.fontFamily
               .split(',')[0]
               .trim()
               .replace(/['"]/g, '')
               .toLowerCase();
-            if (ff) {
-              if (!fontMap[ff]) fontMap[ff] = { count: 0, samples: [] };
-              fontMap[ff].count++;
-              if (fontMap[ff].samples.length < 3 && !fontMap[ff].samples.includes(desc)) {
-                fontMap[ff].samples.push(desc);
+            if (family) {
+              const fwRaw  = (style.fontWeight ?? '').toString().toLowerCase();
+              const weight = parseInt(fwRaw, 10) || (fwRaw === 'bold' ? 700 : 400);
+              const key    = `${family}|${weight}`;
+              if (!fontMap[key]) {
+                fontMap[key] = { fontFamily: family, fontWeight: weight, count: 0, samples: [] };
+              }
+              fontMap[key].count++;
+              if (fontMap[key].samples.length < 3 && !fontMap[key].samples.includes(desc)) {
+                fontMap[key].samples.push(desc);
               }
             }
           }
@@ -600,16 +697,17 @@ export async function analyzePage(
             .filter((hex) => tokenColorSet.has(hex)).length;
 
           const unknownFonts = Object.entries(fontMap)
-            .filter(([ff]) => !tokenFontSet.has(ff))
-            .map(([fontFamily, data]) => ({
-              fontFamily,
-              count:   data.count,
-              samples: data.samples,
+            .filter(([key]) => !tokenFontSet.has(key))
+            .map(([, data]) => ({
+              fontFamily: data.fontFamily,
+              fontWeight: data.fontWeight,
+              count:      data.count,
+              samples:    data.samples,
             }))
             .sort((a, b) => b.count - a.count);
 
           const compliantFontCount = Object.keys(fontMap)
-            .filter((ff) => tokenFontSet.has(ff)).length;
+            .filter((key) => tokenFontSet.has(key)).length;
 
           return { unknownColors, compliantColorCount, unknownFonts, compliantFontCount };
         },

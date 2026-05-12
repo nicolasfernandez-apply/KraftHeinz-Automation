@@ -606,14 +606,15 @@ function designTokensSection(diff: PageDiff): string {
       return `<p class="no-errors">✓ All ${compliant} detected font${compliant !== 1 ? 's' : ''} match the design token set</p>`;
     }
     const rows = unknown.map((f) => {
-      const isUnique = onlyHere.includes(f.fontFamily);
-      const shared   = inBoth.includes(f.fontFamily);
+      const key      = `${f.fontFamily}|${f.fontWeight}`;
+      const isUnique = onlyHere.includes(key);
+      const shared   = inBoth.includes(key);
       const label    = isUnique ? 'only here' : shared ? 'both sides' : '';
       const samples  = (f.samples ?? []).slice(0, 3);
       return `
         <div style="padding:6px 0;border-bottom:1px solid #f5f5f5">
           <div style="display:flex;align-items:center;gap:8px">
-            <code style="font-size:12px;color:#444;flex:1">${escapeHtml(f.fontFamily)}</code>
+            <code style="font-size:12px;color:#444;flex:1">${escapeHtml(f.fontFamily)} <span style="color:#999;font-weight:normal">· weight ${f.fontWeight}</span></code>
             <span style="font-size:11px;color:#888">${f.count} element${f.count !== 1 ? 's' : ''}</span>
             ${label ? `<span class="heading-only-tag">${escapeHtml(label)}</span>` : ''}
           </div>
@@ -831,6 +832,14 @@ export function generateReport(
   const previewErrors = diff.consoleErrors.preview.length;
   const productionErrors = diff.consoleErrors.production.length;
   const axeTotal = diff.axe.preview.length + diff.axe.production.length;
+  // Design-token violation totals — sum unknown colors + fonts across both
+  // sides. null when no token check ran for this comparison.
+  const tokenTotal = diff.designTokens
+    ? (diff.designTokens.preview?.unknownColors.length    ?? 0) +
+      (diff.designTokens.preview?.unknownFonts.length     ?? 0) +
+      (diff.designTokens.production?.unknownColors.length ?? 0) +
+      (diff.designTokens.production?.unknownFonts.length  ?? 0)
+    : null;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -881,6 +890,11 @@ export function generateReport(
       <div class="number">${axeTotal}</div>
       <div class="label">A11y Violations</div>
     </div>
+    ${tokenTotal !== null ? `
+    <div class="summary-card ${tokenTotal > 0 ? 'warning' : 'success'}">
+      <div class="number">${tokenTotal}</div>
+      <div class="label">Design Token Violations</div>
+    </div>` : ''}
   </div>
 
   <!-- Screenshots -->

@@ -287,8 +287,8 @@ export function diffAnalyses(preview: PageAnalysis, production: PageAnalysis): P
   if (preview.designTokenViolations || production.designTokenViolations) {
     const previewColors   = new Set((preview.designTokenViolations?.unknownColors   ?? []).map((c) => c.color));
     const productionColors = new Set((production.designTokenViolations?.unknownColors ?? []).map((c) => c.color));
-    const previewFonts    = new Set((preview.designTokenViolations?.unknownFonts    ?? []).map((f) => f.fontFamily));
-    const productionFonts  = new Set((production.designTokenViolations?.unknownFonts  ?? []).map((f) => f.fontFamily));
+    const previewFonts    = new Set((preview.designTokenViolations?.unknownFonts    ?? []).map((f) => `${f.fontFamily}|${f.fontWeight}`));
+    const productionFonts  = new Set((production.designTokenViolations?.unknownFonts  ?? []).map((f) => `${f.fontFamily}|${f.fontWeight}`));
 
     designTokensDiff = {
       preview:    preview.designTokenViolations,
