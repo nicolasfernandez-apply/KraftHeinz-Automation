@@ -611,10 +611,14 @@ function designTokensSection(diff: PageDiff): string {
       const shared   = inBoth.includes(key);
       const label    = isUnique ? 'only here' : shared ? 'both sides' : '';
       const samples  = (f.samples ?? []).slice(0, 3);
+      // fontWeight === 0 is the sentinel for weight-baked families
+      // (FilsonProBlack et al.); their weight isn't a meaningful comparison
+      // axis, so show "any weight" instead of "weight 0".
+      const weightLabel = f.fontWeight === 0 ? 'any weight' : `weight ${f.fontWeight}`;
       return `
         <div style="padding:6px 0;border-bottom:1px solid #f5f5f5">
           <div style="display:flex;align-items:center;gap:8px">
-            <code style="font-size:12px;color:#444;flex:1">${escapeHtml(f.fontFamily)} <span style="color:#999;font-weight:normal">· weight ${f.fontWeight}</span></code>
+            <code style="font-size:12px;color:#444;flex:1">${escapeHtml(f.fontFamily)} <span style="color:#999;font-weight:normal">· ${weightLabel}</span></code>
             <span style="font-size:11px;color:#888">${f.count} element${f.count !== 1 ? 's' : ''}</span>
             ${label ? `<span class="heading-only-tag">${escapeHtml(label)}</span>` : ''}
           </div>

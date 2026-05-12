@@ -184,6 +184,76 @@ function normalizeFontFamily(raw: string): string {
 }
 
 /**
+ * Pattern (as a string so it can be re-built inside page.evaluate) that
+ * matches fonts whose weight is baked into the family name — e.g.
+ * "FilsonProBlack", "OpenSansBold", "InterSemiBoldItalic". For these fonts
+ * the CSS `font-weight` value is unreliable: the visual weight is
+ * determined by which font face the browser loaded, and UA stylesheets
+ * (`h1`–`h6`, `<strong>`, `<th>`, `<dt>` etc.) force `font-weight: bold` on
+ * top, producing apparent weight mismatches that don't reflect a real
+ * design-system violation.
+ *
+ * When a family matches this pattern, we drop the weight from the lookup
+ * key and compare by family alone.
+ */
+const WEIGHT_SUFFIX_PATTERN =
+  '(thin|extralight|ultralight|light|regular|medium|semibold|demibold|bold|extrabold|ultrabold|black|heavy|book)(italic)?$';
+
+/**
+ * Builds the canonical lookup key for a (family, weight) pair. Used by both
+ * the token side and the page side so they produce identical keys for the
+ * same logical font.
+ */
+function fontLookupKey(family: string, weight: number): string {
+  return new RegExp(WEIGHT_SUFFIX_PATTERN).test(family)
+    ? `${family}|*`
+    : `${family}|${weight}`;
+}
+
+/**
+ * Maps weight-suffix words (lowercase) to their canonical CSS weight number.
+ * Used by the page-side alias resolver to translate things like
+ * "FilsonProBold" → ("Filson Pro", 700).
+ */
+const WEIGHT_WORD_TO_NUMBER: Record<string, number> = {
+  thin:       100,
+  extralight: 200, ultralight: 200,
+  light:      300,
+  book:       425, regular: 400, normal: 400,
+  medium:     500,
+  semibold:   600, demibold: 600,
+  bold:       700,
+  extrabold:  800, ultrabold: 800,
+  black:      900, heavy: 900,
+};
+
+/**
+ * Builds a "compressed → canonical" alias map from the token typography tree.
+ * For every token family that contains non-alphanumeric characters (spaces,
+ * hyphens, underscores), we register `compressed → canonical` so the page side
+ * can resolve a CSS font name like "FilsonProBold" back to the design-system's
+ * canonical family "Filson Pro" by stripping the weight suffix and looking up
+ * the remaining base in this map.
+ */
+function buildFontAliasMap(
+  obj: unknown,
+  out: Record<string, string> = {},
+): Record<string, string> {
+  if (obj && typeof obj === 'object') {
+    const rec = obj as Record<string, unknown>;
+    if (typeof rec.fontFamily === 'string') {
+      const canonical  = normalizeFontFamily(rec.fontFamily);
+      const compressed = canonical.replace(/[^a-z0-9]/g, '');
+      if (compressed !== canonical && !(compressed in out)) {
+        out[compressed] = canonical;
+      }
+    }
+    for (const v of Object.values(rec)) buildFontAliasMap(v, out);
+  }
+  return out;
+}
+
+/**
  * Collect every distinct (fontFamily, fontWeight) tuple from a nested typography
  * token object. Each entry is encoded as `"family|weight"` (normalised family,
  * numeric weight) so it can be looked up with a single Set.has() call.
@@ -194,7 +264,7 @@ function flattenTokenFonts(obj: unknown, out: Set<string> = new Set()): Set<stri
     if (typeof rec.fontFamily === 'string') {
       const family = normalizeFontFamily(rec.fontFamily);
       const weight = Number(rec.fontWeight) || 400;
-      out.add(`${family}|${weight}`);
+      out.add(fontLookupKey(family, weight));
     }
     for (const v of Object.values(rec)) flattenTokenFonts(v, out);
   }
@@ -443,10 +513,12 @@ export async function analyzePage(
         if (el.closest(carouselSel)) continue;
         // Skip elements that themselves contain block children (avoids duplicating parent text)
         if (el.querySelector('p, li, blockquote, div')) continue;
-        const text = (el as HTMLElement).innerText
-          ?.replace(/\s+/g, ' ')
-          .trim()
-          .substring(0, 400);
+        // Only consider elements that expose an innerText string. Pure Element
+        // / SVGElement instances don't, and the property is also undefined on
+        // disconnected or shadow-DOM nodes — we want concrete rendered text.
+        const innerText = (el as HTMLElement).innerText;
+        if (typeof innerText !== 'string') continue;
+        const text = innerText.replace(/\s+/g, ' ').trim().substring(0, 400);
         if (text && text.length >= 15 && !seen.has(text)) {
           seen.add(text);
           blocks.push(text);
@@ -520,10 +592,31 @@ export async function analyzePage(
   if (designTokens) {
     const validColors = [...flattenTokenColors(designTokens.colors)];
     const validFonts  = [...flattenTokenFonts(designTokens.typography)];
+    const fontAliases = buildFontAliasMap(designTokens.typography);
 
     designTokenViolations = await page
       .evaluate(
-        ({ validColorsArr, validFontsArr }) => {
+        ({ validColorsArr, validFontsArr, weightSuffixPattern, fontAliasMap, weightWordMap }) => {
+          const weightSuffixRe = new RegExp(weightSuffixPattern);
+          const buildFontKey = (fam: string, wt: number): string =>
+            weightSuffixRe.test(fam) ? `${fam}|*` : `${fam}|${wt}`;
+
+          /**
+           * Resolves "FilsonProBold" → "Filson Pro" + 700 for token lookup.
+           * Returns null if the family doesn't end in a recognised weight
+           * suffix or the compressed base isn't a known token family.
+           */
+          const aliasedKeyFor = (family: string): string | null => {
+            const m = family.match(weightSuffixRe);
+            if (!m) return null;
+            // Slice the suffix off the end — m[0] is the full matched suffix
+            // (e.g. "bold", "boldItalic").
+            const base = family.slice(0, family.length - m[0].length);
+            const canonical = fontAliasMap[base];
+            if (!canonical) return null;
+            const weight = weightWordMap[m[1].toLowerCase()] ?? 400;
+            return `${canonical}|${weight}`;
+          };
           // ── Cookie/consent ancestor detector ─────────────────────────────
           // Mirrors the same filter applied to text/links extraction so that
           // OneTrust, Cookiebot, etc. don't pollute the token compliance check.
@@ -658,6 +751,7 @@ export async function analyzePage(
             .filter((el) => !SKIPPED_TAGS.has(el.tagName.toLowerCase()))
             .filter((el) => el.getAttribute('data-testid') !== 'ally-skip-button')
             .filter((el) => el.getAttribute('data-testid') !== 'image-shadow')
+            .filter((el) => el.getAttribute('data-testid') !== 'copyright-text')
             .filter((el) => !el.closest('[data-testid="algolia-autocomplete"]'))
             .filter((el) => !el.closest('[data-testid="open-universal-nav-btn"]'))
             .filter((el) => !isCookieBanner(el))
@@ -682,20 +776,42 @@ export async function analyzePage(
               }
             }
 
-            // Font family + weight — use the first declared family (ignore fallbacks).
-            // getComputedStyle resolves fontWeight to a numeric string in modern
-            // browsers; fall back to keyword mapping for older quirks.
+            // Font family + weight — only sampled on elements that directly
+            // render text. An element "shows text" if it has at least one
+            // direct child text node with non-whitespace content. Pure layout
+            // containers (whose visible text comes only from descendants) are
+            // skipped; their text-bearing descendants get iterated separately
+            // and contribute the meaningful typography signal.
+            let hasDirectText = false;
+            const childNodes = el.childNodes;
+            for (let i = 0; i < childNodes.length; i++) {
+              const node = childNodes[i];
+              if (node.nodeType === 3 /* Node.TEXT_NODE */ &&
+                  node.textContent && node.textContent.trim().length > 0) {
+                hasDirectText = true;
+                break;
+              }
+            }
+
+            // Use the first declared family (ignore fallbacks). getComputedStyle
+            // resolves fontWeight to a numeric string in modern browsers; fall
+            // back to keyword mapping for older quirks.
             const family = style.fontFamily
               .split(',')[0]
               .trim()
               .replace(/['"]/g, '')
               .toLowerCase();
-            if (family) {
+            if (family && hasDirectText) {
               const fwRaw  = (style.fontWeight ?? '').toString().toLowerCase();
               const weight = parseInt(fwRaw, 10) || (fwRaw === 'bold' ? 700 : 400);
-              const key    = `${family}|${weight}`;
+              const key    = buildFontKey(family, weight);
+              // For weight-baked families the rendered weight is incidental —
+              // the font face dictates the visual weight. Store 0 as a sentinel
+              // so cross-environment diffs (which key on family+weight) agree.
+              const isWeightBaked = key.endsWith('|*');
+              const storedWeight  = isWeightBaked ? 0 : weight;
               if (!fontMap[key]) {
-                fontMap[key] = { fontFamily: family, fontWeight: weight, count: 0, samples: [] };
+                fontMap[key] = { fontFamily: family, fontWeight: storedWeight, count: 0, samples: [] };
               }
               fontMap[key].count++;
               if (fontMap[key].samples.length < 3 && !fontMap[key].samples.includes(desc)) {
@@ -722,8 +838,18 @@ export async function analyzePage(
           const compliantColorCount = Object.keys(colorMap)
             .filter((hex) => tokenColorSet.has(hex)).length;
 
+          // A page-side font entry is compliant if EITHER its direct lookup
+          // key matches a token, OR aliasing it via the family-name map
+          // produces a key that matches a token (handles cases where the page
+          // ships "FilsonProBold" while Figma documents "Filson Pro" at 700).
+          const isCompliant = (key: string, family: string): boolean => {
+            if (tokenFontSet.has(key)) return true;
+            const aliased = aliasedKeyFor(family);
+            return aliased !== null && tokenFontSet.has(aliased);
+          };
+
           const unknownFonts = Object.entries(fontMap)
-            .filter(([key]) => !tokenFontSet.has(key))
+            .filter(([key, data]) => !isCompliant(key, data.fontFamily))
             .map(([, data]) => ({
               fontFamily: data.fontFamily,
               fontWeight: data.fontWeight,
@@ -732,12 +858,18 @@ export async function analyzePage(
             }))
             .sort((a, b) => b.count - a.count);
 
-          const compliantFontCount = Object.keys(fontMap)
-            .filter((key) => tokenFontSet.has(key)).length;
+          const compliantFontCount = Object.entries(fontMap)
+            .filter(([key, data]) => isCompliant(key, data.fontFamily)).length;
 
           return { unknownColors, compliantColorCount, unknownFonts, compliantFontCount };
         },
-        { validColorsArr: validColors, validFontsArr: validFonts },
+        {
+          validColorsArr:      validColors,
+          validFontsArr:       validFonts,
+          weightSuffixPattern: WEIGHT_SUFFIX_PATTERN,
+          fontAliasMap:        fontAliases,
+          weightWordMap:       WEIGHT_WORD_TO_NUMBER,
+        },
       )
       .catch(() => null);
   }

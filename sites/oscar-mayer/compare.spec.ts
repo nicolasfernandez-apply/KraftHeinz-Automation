@@ -200,6 +200,34 @@ test.describe('Oscar Mayer — Preview vs Production', () => {
           );
         }
 
+        // Design token violations — fail the test only when Production has
+        // unknown colors or fonts left over after the design-system aliasing.
+        // Preview is allowed to carry violations (work-in-progress); the
+        // signal we care about is regressions reaching the live site.
+        const productionTokens = productionAnalysis.designTokenViolations;
+        const productionTokenCount =
+          (productionTokens?.unknownColors.length ?? 0) +
+          (productionTokens?.unknownFonts.length  ?? 0);
+
+        if (productionTokenCount > 0) {
+          testInfo.annotations.push({ type: 'tag', description: 'design-token-violations' });
+          testFailures.push(
+            `Design token violations in Production: ${productionTokenCount}`,
+          );
+        }
+
+        // Critical accessibility violations — same Production-only policy.
+        const productionCritical = productionAnalysis.axeViolations.filter((v) => v.impact === 'critical');
+
+        if (productionCritical.length > 0) {
+          testInfo.annotations.push({ type: 'tag', description: 'critical-a11y-violations' });
+          const ruleIds = Array.from(new Set(productionCritical.map((v) => v.id))).join(', ');
+          testFailures.push(
+            `Critical accessibility violations in Production: ${productionCritical.length}` +
+            (ruleIds ? ` — rules: ${ruleIds}` : ''),
+          );
+        }
+
         if (testFailures.length > 0) {
           throw new Error(testFailures.join('\n'));
         }
