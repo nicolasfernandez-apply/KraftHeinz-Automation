@@ -752,6 +752,7 @@ export async function analyzePage(
             .filter((el) => el.getAttribute('data-testid') !== 'ally-skip-button')
             .filter((el) => el.getAttribute('data-testid') !== 'image-shadow')
             .filter((el) => el.getAttribute('data-testid') !== 'copyright-text')
+            .filter((el) => el.id !== 'clickable-atom')
             .filter((el) => !el.closest('[data-testid="algolia-autocomplete"]'))
             .filter((el) => !el.closest('[data-testid="open-universal-nav-btn"]'))
             .filter((el) => !isCookieBanner(el))
