@@ -641,7 +641,7 @@ export async function analyzePage(
           // come from outside the design system).
           // The ally-skip-button is a visually-hidden skip link.
           const SKIPPED_TAGS = new Set([
-            'div', 'nav', 'svg', 'g', 'path', 'main',
+            'svg', 'g', 'path', 'main',
             'canvas', 'figure', 'figcaption', 'img', 'hr',
           ]);
           // Text-only elements: paragraph/link/list/heading elements get
@@ -657,6 +657,7 @@ export async function analyzePage(
             .filter(isUserVisible)
             .filter((el) => !SKIPPED_TAGS.has(el.tagName.toLowerCase()))
             .filter((el) => el.getAttribute('data-testid') !== 'ally-skip-button')
+            .filter((el) => el.getAttribute('data-testid') !== 'image-shadow')
             .filter((el) => !el.closest('[data-testid="algolia-autocomplete"]'))
             .filter((el) => !el.closest('[data-testid="open-universal-nav-btn"]'))
             .filter((el) => !isCookieBanner(el))
