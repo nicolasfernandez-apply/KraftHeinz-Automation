@@ -170,15 +170,29 @@ function flattenTokenColors(obj: unknown, out: Set<string> = new Set()): Set<str
 }
 
 /**
+ * Normalises a font-family string so comparisons are case-insensitive and
+ * robust to surrounding quotes/whitespace. Used by BOTH the token side and
+ * the page side so the two are guaranteed to produce the same key for the
+ * same logical font.
+ */
+function normalizeFontFamily(raw: string): string {
+  return raw
+    .split(',')[0]        // take first family if it's a CSS stack
+    .trim()
+    .replace(/['"]/g, '') // strip quote characters
+    .toLowerCase();
+}
+
+/**
  * Collect every distinct (fontFamily, fontWeight) tuple from a nested typography
- * token object. Each entry is encoded as `"family|weight"` (lowercase family,
+ * token object. Each entry is encoded as `"family|weight"` (normalised family,
  * numeric weight) so it can be looked up with a single Set.has() call.
  */
 function flattenTokenFonts(obj: unknown, out: Set<string> = new Set()): Set<string> {
   if (obj && typeof obj === 'object') {
     const rec = obj as Record<string, unknown>;
     if (typeof rec.fontFamily === 'string') {
-      const family = rec.fontFamily.toLowerCase();
+      const family = normalizeFontFamily(rec.fontFamily);
       const weight = Number(rec.fontWeight) || 400;
       out.add(`${family}|${weight}`);
     }
@@ -545,7 +559,11 @@ export async function analyzePage(
           };
 
           // ── Color extraction ─────────────────────────────────────────────
-          const COLOR_PROPS = ['backgroundColor', 'color', 'borderTopColor'] as const;
+          // Only `background-color` is compared. Text color is excluded
+          // because text-bearing elements (h1–h6, p, a, span, etc.) are in
+          // FONT_ONLY_TAGS, and border colors produced too much per-side noise
+          // to be useful.
+          const COLOR_PROPS = ['backgroundColor'] as const;
 
           /** Convert rgb(r,g,b) / rgba(r,g,b,a) → lowercase hex, or null. */
           const rgbToHex = (val: string): string | null => {
@@ -609,11 +627,12 @@ export async function analyzePage(
           };
 
           // Body-scoped, cookie-banner descendants excluded.
-          // <div>, <nav>, <main>, <svg>, <g>, and <path> elements are
-          // layout/graphics primitives — their children are sampled
-          // individually (when they have any), so the element itself is
-          // skipped to avoid noise from styles that aren't independently
-          // meaningful for token compliance.
+          // <div>, <nav>, <main>, <svg>, <g>, <path>, <canvas>, <figure>, and
+          // <img> elements are excluded — layout/graphics/media primitives
+          // whose styles don't represent token-bearing text. Their children
+          // are sampled individually (when they have any), so the element
+          // itself is skipped to avoid noise from styles that aren't
+          // independently meaningful for token compliance.
           // Tag names are compared in lower case because SVG elements return
           // lowercase from `tagName` in HTML documents while HTML elements
           // return uppercase.
@@ -621,13 +640,19 @@ export async function analyzePage(
           // excluded entirely (3rd-party / shared-nav widgets whose styles
           // come from outside the design system).
           // The ally-skip-button is a visually-hidden skip link.
-          const SKIPPED_TAGS = new Set(['div', 'nav', 'svg', 'g', 'path', 'main']);
-          // Text-only elements: paragraph/link/list elements get checked for
-          // fonts but not colors. Their color is typically inherited from an
-          // HTML ancestor whose value is already covered by that ancestor's
-          // check; counting it again on every <p>/<a>/<li> inflates the
-          // violation count without identifying a new source.
-          const FONT_ONLY_TAGS = new Set(['a', 'li', 'ul', 'p']);
+          const SKIPPED_TAGS = new Set([
+            'div', 'nav', 'svg', 'g', 'path', 'main',
+            'canvas', 'figure', 'figcaption', 'img', 'hr',
+          ]);
+          // Text-only elements: paragraph/link/list/heading elements get
+          // checked for fonts but not colors. Their color is typically
+          // inherited from an HTML ancestor whose value is already covered by
+          // that ancestor's check; counting it again on every <p>/<a>/<li>/<h*>
+          // inflates the violation count without identifying a new source.
+          const FONT_ONLY_TAGS = new Set([
+            'a', 'li', 'ul', 'p', 'span', 'section',
+            'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+          ]);
           const elements = Array.from(document.querySelectorAll<HTMLElement>('body *'))
             .filter(isUserVisible)
             .filter((el) => !SKIPPED_TAGS.has(el.tagName.toLowerCase()))
