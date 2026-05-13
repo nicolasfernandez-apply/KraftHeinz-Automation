@@ -14,7 +14,8 @@
     "site:oscar-mayer": "npm run crawl:oscar-mayer && npm run refresh:oscar-mayer && npm run compare:oscar-mayer",
     "nav:oscar-mayer": "TARGET_ENV=both playwright test sites/oscar-mayer/navigation.spec.ts",
     "nav:oscar-mayer:preview": "TARGET_ENV=preview playwright test sites/oscar-mayer/navigation.spec.ts",
-    "nav:oscar-mayer:production": "TARGET_ENV=production playwright test sites/oscar-mayer/navigation.spec.ts"
+    "nav:oscar-mayer:production": "TARGET_ENV=production playwright test sites/oscar-mayer/navigation.spec.ts",
+    "analyze": "playwright test tests/analyze-page.spec.ts --reporter=line"
   },
   "dependencies": {
     "dotenv": "^16.4.5"
