@@ -7,16 +7,11 @@
 # Dependencies
 node_modules/
 
-# Generated reports and screenshots — ignore contents, keep folders via .gitkeep
-reports/*
-!reports/.gitkeep
-!reports/screenshots/
-reports/screenshots/*
-!reports/screenshots/.gitkeep
-playwright-report/*
-!playwright-report/.gitkeep
-test-results/*
-!test-results/.gitkeep
+# Generated reports and screenshots — never committed; folders are recreated
+# by the test runners on demand.
+reports/
+playwright-report/
+test-results/
 
 # Allure — raw results, generated report, and history cache
 allure-results/

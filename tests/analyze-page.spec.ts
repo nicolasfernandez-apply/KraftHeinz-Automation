@@ -38,7 +38,10 @@ function slugify(s: string): string {
 
 test(`Analyze ${config.environment.toUpperCase()} — ${config.url}`, async ({ browser }, testInfo) => {
   // ── Resolve output paths ──────────────────────────────────────────────
+  // Wipe and recreate the analyse directory before each run so the folder
+  // only ever holds the latest report (avoids accumulating stale snapshots).
   const reportsDir = path.join(process.cwd(), 'reports', 'analyze');
+  fs.rmSync(reportsDir, { recursive: true, force: true });
   fs.mkdirSync(reportsDir, { recursive: true });
   const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
   const slug      = slugify(new URL(config.url).pathname || 'home') || 'page';

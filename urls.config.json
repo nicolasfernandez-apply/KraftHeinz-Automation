@@ -1,63 +1,24 @@
 {
   "comparisons": [
     {
-      "name": "Capri sun adults",
-      "previewUrl": "https://brands.prv.kraftheinz.com/capri-sun/adults",
-      "productionUrl": "https://www.kraftheinz.com/capri-sun/adults"
+      "name": "English site",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/igaqc-products",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/igaqc-products"
     },
-        {
-      "name": "Kraft Mac and Cheese Home",
-      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-mac-and-cheese",
-      "productionUrl": "https://www.kraftheinz.com/kraft-mac-and-cheese"
+     {
+      "name": "French site",
+      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/igaqc-products",
+      "productionUrl": "https://www.kraftheinz.com/fr-CA/igaqc-products"
     },
-        {
-      "name": "United Tastes of America",
-      "previewUrl": "https://brands.prv.kraftheinz.com/unitedtastesofamerica",
-      "productionUrl": "https://www.kraftheinz.com/unitedtastesofamerica"
+         {
+      "name": "Thank you site",
+      "previewUrl": "https://brands.prv.kraftheinz.com/thank-you",
+      "productionUrl": "https://www.kraftheinz.com/thank-you"
     },
-        {
-      "name": "Made by us",
-      "previewUrl": "https://brands.prv.kraftheinz.com/made-by-us",
-      "productionUrl": "https://www.kraftheinz.com/made-by-us"
-    }
-    ,
-        {
-      "name": "Queso Dip",
-      "previewUrl": "https://brands.prv.kraftheinz.com/velveeta/recipes/4eKETkKdqEU3v6R16JixQV-jalapeno-popper-queso-dip",
-      "productionUrl": "https://www.kraftheinz.com/velveeta/recipes/4eKETkKdqEU3v6R16JixQV-jalapeno-popper-queso-dip"
-    }
-        ,
-        {
-      "name": "Kraft Home",
-      "previewUrl": "https://brands.prv.kraftheinz.com",
-      "productionUrl": "https://www.kraftheinz.com"
-    }
-        ,
-        {
-      "name": "Oscar Mayer Home",
-      "previewUrl": "https://oscarmayer.prv.kraftheinz.com/",
-      "productionUrl": "https://www.oscarmayer.com/"
-    }
-        ,
-        {
-      "name": "Oscar Mayer Stuffed Dogs",
-      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/recipes/2iLayp19F3xNpfH2YLbM6O-star-spangled-layered-jell-o-parfait",
-      "productionUrl": "https://www.kraftheinz.com/jell-o/recipes/2iLayp19F3xNpfH2YLbM6O-star-spangled-layered-jell-o-parfait"
-    }     ,
-        {
-      "name": "Jet Puffed - Bunny Dirt Cups",
-      "previewUrl": "https://brands.prv.kraftheinz.com/jet-puffed/recipes/5FxYbTf7isYvjNm0T8KbNt-bunny-dirt-cups",
-      "productionUrl": "https://www.kraftheinz.com/jet-puffed/recipes/5FxYbTf7isYvjNm0T8KbNt-bunny-dirt-cups"
-    }     ,
-        {
-      "name": "Star Spangled Layered Jello",
-      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/recipes/2iLayp19F3xNpfH2YLbM6O-star-spangled-layered-jell-o-parfait",
-      "productionUrl": "https://www.kraftheinz.com/jell-o/recipes/2iLayp19F3xNpfH2YLbM6O-star-spangled-layered-jell-o-parfait"
-    }     ,
-        {
-      "name": "Pretzel Salad Flag",
-      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/recipes/4nBJH2nTFB9x0SIGqGBvbx-pretzel-salad-flag-squares",
-      "productionUrl": "https://www.kraftheinz.com/jell-o/recipes/4nBJH2nTFB9x0SIGqGBvbx-pretzel-salad-flag-squares"
+         {
+      "name": "Jello site",
+      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o",
+      "productionUrl": "https://www.kraftheinz.com/jell-o"
     }
   ]
 }
