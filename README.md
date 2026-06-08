@@ -190,6 +190,53 @@ The target environment is controlled by the `TARGET_ENV` env var (`both` | `prev
 | Footer — social media links | TikTok, Instagram, Facebook, YouTube — `href` attributes checked |
 | Brand menu (hamburger) | All 11 KraftHeinz brand links are present with correct absolute URLs |
 
+### Heinz
+
+**Configuration:** [`sites/heinz/site.config.json`](sites/heinz/site.config.json)
+
+**Running:**
+
+```bash
+# Step 1 — discover pages from the production sitemap → writes sites/heinz/pages.json
+npm run crawl:heinz
+
+# Step 2 — refresh design tokens (optional, for token-compliance checks)
+npm run refresh:heinz
+
+# Step 3 — run the comparison for every discovered page
+npm run compare:heinz
+
+# Or do all three in one command
+npm run site:heinz
+```
+
+Reports are saved to `sites/heinz/reports/` — one HTML file per page.
+
+#### Locales
+
+The Heinz site is split across many locales using the URL pattern `/xx-XX/` (e.g. `/es-MX/`, `/en-GB/`), plus a **default** locale with no prefix (e.g. `https://www.heinz.com/dippingsauces/`).
+
+List every locale discovered by the crawler along with the number of pages it contains:
+
+```bash
+npm run locales:heinz
+```
+
+By default `npm run compare:heinz` compares **every** page across **every** locale. To narrow the run, set the `LOCALE` env var:
+
+```bash
+# Only pages under a specific locale prefix
+LOCALE=es-MX npm run compare:heinz
+
+# Only the default locale (URLs without a /xx-XX/ prefix)
+LOCALE=default npm run compare:heinz
+
+# Every locale (explicit; same as omitting the variable)
+LOCALE=all npm run compare:heinz
+```
+
+If `LOCALE` doesn't match any discovered pages, the run aborts with a clear error — use `npm run locales:heinz` to see the valid options.
+
 ---
 
 ## Adding a new brand site

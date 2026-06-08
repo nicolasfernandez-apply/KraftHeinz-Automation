@@ -1,24 +1,55 @@
 {
   "comparisons": [
-    {
-      "name": "English site",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/igaqc-products",
-      "productionUrl": "https://www.kraftheinz.com/en-CA/igaqc-products"
-    },
-     {
-      "name": "French site",
-      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/igaqc-products",
-      "productionUrl": "https://www.kraftheinz.com/fr-CA/igaqc-products"
+        {
+      "name": "Heinz simply",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/simply",
+      "productionUrl": "https://www.heinz.com/simply"
+    } ,
+         {
+      "name": "Mio Ambassador",
+      "previewUrl": "https://brands.prv.kraftheinz.com/mio/ambassador",
+      "productionUrl": "https://www.kraftheinz.com/mio/ambassador"
     },
          {
-      "name": "Thank you site",
-      "previewUrl": "https://brands.prv.kraftheinz.com/thank-you",
-      "productionUrl": "https://www.kraftheinz.com/thank-you"
+      "name": "Mio form",
+      "previewUrl": "https://brands.prv.kraftheinz.com/mio/ambassador/form",
+      "productionUrl": "https://www.kraftheinz.com/mio/ambassador/form"
+    }
+,
+         {
+      "name": "Mio confirmation",
+      "previewUrl": "https://brands.prv.kraftheinz.com/mio/ambassador/form/confirmation",
+      "productionUrl": "https://www.kraftheinz.com/mio/ambassador/form/confirmation"
     },
          {
-      "name": "Jello site",
-      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o",
-      "productionUrl": "https://www.kraftheinz.com/jell-o"
+      "name": "Mio rules",
+      "previewUrl": "https://brands.prv.kraftheinz.com/mio/ambassador/rules",
+      "productionUrl": "https://www.kraftheinz.com/mio/ambassador/rules"
+    },
+         {
+      "name": "Charcutering",
+      "previewUrl": "https://lunchables.prv.kraftheinz.com/Charcutering",
+      "productionUrl": "https://www.lunchables.com/Charcutering"
+    },
+         {
+      "name": "Philadelphia Products page",
+      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/products",
+      "productionUrl": "https://www.kraftheinz.com/philadelphia/products"
+    },
+         {
+      "name": "KMC Plant Based",
+      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-mac-and-cheese/plant-based",
+      "productionUrl": "https://www.kraftheinz.com/kraft-mac-and-cheese/plant-based"
+    },
+         {
+      "name": "KD Plant Based en",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/kraft-dinner/plant-based",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/kraft-dinner/plant-based"
+    },
+         {
+      "name": "KD Plant Based fr",
+      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/kraft-dinner/plant-based",
+      "productionUrl": "https://www.kraftheinz.com/fr-CA/kraft-dinner/plant-based"
     }
   ]
 }
