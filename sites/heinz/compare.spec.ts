@@ -1,25 +1,35 @@
 import { test } from '@playwright/test';
 import * as fs from 'fs';
 import * as path from 'path';
-import { analyzePage, DesignTokens } from '../../utils/analyzer';
+import { analyzePage } from '../../utils/analyzer';
 import { diffAnalyses } from '../../utils/differ';
 import { generateReport } from '../../utils/report-builder';
 import { requireAuthConfig, loginToPreview } from '../../utils/auth';
+import { loadTokenSets } from '../../utils/token-loader';
 
 // ── Design tokens ─────────────────────────────────────────────────────────────
-// Loaded once at module initialisation.  refresh-tokens.mjs may have updated
-// the file before this spec runs; if the file is absent we proceed without
-// token checking rather than failing the whole suite.
+// Each *.tokens.json file in the configured tokensDir is one brand-theme
+// palette (Ketchup Red, Mayo Blue, etc.). analyzePage() will run the
+// compliance check against every set and report the violations from whichever
+// one matches the page most closely — so a Ketchup product page is graded
+// against Ketchup Red, not Mayo Blue.
+//
+// tokensDir is read from sites/heinz/site.config.json so the location can be
+// changed without touching this spec; the path is resolved relative to the
+// repo root (process.cwd() when Playwright runs).
 
-const designTokensPath = path.resolve(__dirname, 'design-tokens.json');
-const designTokens: DesignTokens | null = fs.existsSync(designTokensPath)
-  ? (JSON.parse(fs.readFileSync(designTokensPath, 'utf8')) as DesignTokens)
-  : null;
+const siteConfig = JSON.parse(
+  fs.readFileSync(path.resolve(__dirname, 'site.config.json'), 'utf8'),
+) as { tokensDir?: string };
+const tokensDir = siteConfig.tokensDir
+  ? path.resolve(process.cwd(), siteConfig.tokensDir)
+  : path.resolve(__dirname, 'Tokens');
+const tokenSets = loadTokenSets(tokensDir);
 
-if (designTokens) {
-  console.log('[compare] Design tokens loaded — token compliance will be checked for each page.');
+if (tokenSets.length > 0) {
+  console.log(`[compare] ${tokenSets.length} design-token set(s) loaded from ${tokensDir} — each page will be graded against its best match.`);
 } else {
-  console.warn('[compare] design-tokens.json not found — skipping token compliance check.');
+  console.warn(`[compare] No design-token files found in ${tokensDir} — skipping token compliance check.`);
 }
 
 // ── Load discovered pages ─────────────────────────────────────────────────────
@@ -123,14 +133,20 @@ test.describe('Heinz — Preview vs Production', () => {
         console.log(`Analyzing Production: ${pair.productionUrl}\n`);
 
         const [previewAnalysis, productionAnalysis] = await Promise.all([
-          analyzePage(previewPage, pair.previewUrl, previewScreenshot, designTokens),
-          analyzePage(productionPage, pair.productionUrl, productionScreenshot, designTokens),
+          analyzePage(previewPage, pair.previewUrl, previewScreenshot, tokenSets),
+          analyzePage(productionPage, pair.productionUrl, productionScreenshot, tokenSets),
         ]);
 
         if (previewAnalysis.loadError)
           console.warn(`⚠ Preview load error: ${previewAnalysis.loadError}`);
         if (productionAnalysis.loadError)
           console.warn(`⚠ Production load error: ${productionAnalysis.loadError}`);
+
+        if (previewAnalysis.matchedTokenSet || productionAnalysis.matchedTokenSet) {
+          console.log(
+            `[compare] Best-matching token set — preview: ${previewAnalysis.matchedTokenSet ?? '—'}, production: ${productionAnalysis.matchedTokenSet ?? '—'}`,
+          );
+        }
 
         const diff       = diffAnalyses(previewAnalysis, productionAnalysis);
         const reportPath = path.join(reportsDir, `${slug}-${timestamp}.html`);

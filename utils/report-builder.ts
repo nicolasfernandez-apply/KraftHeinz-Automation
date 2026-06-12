@@ -551,7 +551,11 @@ function accessibilitySection(diff: PageDiff): string {
   </div>`;
 }
 
-function designTokensSection(diff: PageDiff): string {
+function designTokensSection(
+  diff: PageDiff,
+  previewTokenSet: string | null,
+  productionTokenSet: string | null,
+): string {
   if (!diff.designTokens) return '';
 
   const { preview, production, colorsOnlyInPreview, colorsOnlyInProduction,
@@ -645,6 +649,20 @@ function designTokensSection(diff: PageDiff): string {
        </div>`
     : '';
 
+  // Show which token set graded each side. When both sides matched the same
+  // set we show it once; otherwise we show preview vs. production separately.
+  const matchedSummary = previewTokenSet || productionTokenSet
+    ? previewTokenSet === productionTokenSet
+      ? `<div style="padding:10px 20px;background:#f8f9fb;border-bottom:1px solid #f0f0f0;font-size:12px;color:#555">
+           Graded against design-token set: <strong>${escapeHtml(previewTokenSet ?? '')}</strong>
+         </div>`
+      : `<div style="padding:10px 20px;background:#f8f9fb;border-bottom:1px solid #f0f0f0;font-size:12px;color:#555">
+           Graded against design-token set —
+           Preview: <strong>${escapeHtml(previewTokenSet ?? '—')}</strong>,
+           Production: <strong>${escapeHtml(productionTokenSet ?? '—')}</strong>
+         </div>`
+    : '';
+
   return `
   <div class="section">
     <div class="section-header" onclick="toggleSection(this)">
@@ -653,6 +671,7 @@ function designTokensSection(diff: PageDiff): string {
       <span class="badge-count ${totalViolations === 0 ? 'zero' : ''}">${totalViolations} violation${totalViolations !== 1 ? 's' : ''}</span>
     </div>
     <div class="section-body">
+      ${matchedSummary}
       <!-- Colors -->
       <div style="border-bottom:2px solid #f0f0f0">
         <div style="padding:12px 20px;background:#fafafa;font-size:13px;font-weight:600;color:#555">
@@ -932,7 +951,7 @@ export function generateReport(
   ${imagesSection(diff, preview, production)}
   ${contentSection(diff)}
   ${accessibilitySection(diff)}
-  ${designTokensSection(diff)}
+  ${designTokensSection(diff, preview.matchedTokenSet, production.matchedTokenSet)}
   ${consoleSection(diff, preview, production)}
 
   <div class="footer">

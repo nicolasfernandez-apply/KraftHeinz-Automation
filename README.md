@@ -200,13 +200,12 @@ The target environment is controlled by the `TARGET_ENV` env var (`both` | `prev
 # Step 1 — discover pages from the production sitemap → writes sites/heinz/pages.json
 npm run crawl:heinz
 
-# Step 2 — refresh design tokens (optional, for token-compliance checks)
-npm run refresh:heinz
-
-# Step 3 — run the comparison for every discovered page
+# Step 2 — run the comparison for every discovered page
+# (design tokens are loaded from the folder specified by `tokensDir` in
+#  sites/heinz/site.config.json — typically tokens/Tokens-Heinz/)
 npm run compare:heinz
 
-# Or do all three in one command
+# Or do both in one command
 npm run site:heinz
 ```
 

@@ -2,16 +2,22 @@ import { test } from '@playwright/test';
 import * as fs   from 'fs';
 import * as path from 'path';
 import { analyzePage }            from '../utils/analyzer';
-import { fetchFigmaTokens }       from '../utils/figma-tokens';
+import { loadTokenFile }          from '../utils/token-loader';
 import { loginToPreview, requireAuthConfig } from '../utils/auth';
 import { generateSinglePageReport } from '../utils/single-page-report';
 
 interface AnalyzeConfig {
-  url:           string;
-  environment:   'preview' | 'production';
-  figmaFileKey?: string;
+  url:         string;
+  environment: 'preview' | 'production';
+  /**
+   * Optional. Path (relative to repo root) to a single *.tokens.json file
+   * from the central tokens/ folder — e.g.
+   * "tokens/Tokens-Heinz/Heinz - Ketchup Red.tokens.json".
+   * When omitted, the design-token compliance check is skipped.
+   */
+  tokensFile?: string;
   /** Optional. Defaults to reports/analyze/<slug>-<timestamp>.html */
-  outputPath?:   string;
+  outputPath?: string;
 }
 
 const configPath = process.env.ANALYZE_CONFIG;
@@ -49,24 +55,25 @@ test(`Analyze ${config.environment.toUpperCase()} — ${config.url}`, async ({ b
   const screenshotPath = path.join(reportsDir, `${slug}-${timestamp}.png`);
 
   // ── Design tokens (optional) ──────────────────────────────────────────
+  // Resolve `tokensFile` from the repo root so configs can use the same
+  // "tokens/Tokens-Heinz/…" paths that the site compare specs use.
   let designTokens = null;
-  if (config.figmaFileKey) {
-    const figmaToken = process.env.FIGMA_TOKEN?.trim();
-    if (!figmaToken) {
-      console.warn('[analyze] FIGMA_TOKEN env var not set — skipping design token check.');
+  let tokenSetName: string | null = null;
+  if (config.tokensFile) {
+    const tokenPath = path.isAbsolute(config.tokensFile)
+      ? config.tokensFile
+      : path.resolve(process.cwd(), config.tokensFile);
+    const set = loadTokenFile(tokenPath);
+    if (set) {
+      designTokens = set.tokens;
+      tokenSetName = set.name;
+      const colorCount = countLeafs(designTokens.colors);
+      console.log(`[analyze] Loaded ${colorCount} color tokens from "${set.name}".`);
     } else {
-      try {
-        console.log(`[analyze] Fetching Figma tokens for file ${config.figmaFileKey}…`);
-        designTokens = await fetchFigmaTokens(config.figmaFileKey, figmaToken);
-        const colorCount = countLeafs(designTokens.colors);
-        const typoCount  = countLeafs(designTokens.typography);
-        console.log(`[analyze] Loaded ${colorCount} color tokens + ${typoCount} typography tokens.`);
-      } catch (err) {
-        console.warn(`[analyze] Figma fetch failed (${(err as Error).message}) — proceeding without tokens.`);
-      }
+      console.warn(`[analyze] Could not load tokens from ${tokenPath} — proceeding without token check.`);
     }
   } else {
-    console.log('[analyze] No figmaFileKey in config — design token check skipped.');
+    console.log('[analyze] No tokensFile in config — design token check skipped.');
   }
 
   // ── Browser context with optional preview auth ────────────────────────
@@ -90,7 +97,7 @@ test(`Analyze ${config.environment.toUpperCase()} — ${config.url}`, async ({ b
     // ── Build report ────────────────────────────────────────────────────
     const html = generateSinglePageReport(analysis, {
       environment:  config.environment,
-      figmaFileKey: config.figmaFileKey,
+      tokenSetName: tokenSetName ?? undefined,
     });
     fs.writeFileSync(outputPath, html, 'utf8');
 

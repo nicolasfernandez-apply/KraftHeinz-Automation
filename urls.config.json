@@ -6,27 +6,6 @@
       "productionUrl": "https://www.heinz.com/simply"
     } ,
          {
-      "name": "Mio Ambassador",
-      "previewUrl": "https://brands.prv.kraftheinz.com/mio/ambassador",
-      "productionUrl": "https://www.kraftheinz.com/mio/ambassador"
-    },
-         {
-      "name": "Mio form",
-      "previewUrl": "https://brands.prv.kraftheinz.com/mio/ambassador/form",
-      "productionUrl": "https://www.kraftheinz.com/mio/ambassador/form"
-    }
-,
-         {
-      "name": "Mio confirmation",
-      "previewUrl": "https://brands.prv.kraftheinz.com/mio/ambassador/form/confirmation",
-      "productionUrl": "https://www.kraftheinz.com/mio/ambassador/form/confirmation"
-    },
-         {
-      "name": "Mio rules",
-      "previewUrl": "https://brands.prv.kraftheinz.com/mio/ambassador/rules",
-      "productionUrl": "https://www.kraftheinz.com/mio/ambassador/rules"
-    },
-         {
       "name": "Charcutering",
       "previewUrl": "https://lunchables.prv.kraftheinz.com/Charcutering",
       "productionUrl": "https://www.lunchables.com/Charcutering"
@@ -50,6 +29,35 @@
       "name": "KD Plant Based fr",
       "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/kraft-dinner/plant-based",
       "productionUrl": "https://www.kraftheinz.com/fr-CA/kraft-dinner/plant-based"
+    }
+    ,
+         {
+      "name": "Tradeshow Form",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/en-CA/tradeshow",
+      "productionUrl": "https://www.heinz.com/en-CA/tradeshow"
+    }
+    ,
+         {
+      "name": "Tradeshow success",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/en-CA/tradeshow-success",
+      "productionUrl": "https://www.heinz.com/en-CA/tradeshow-success"
+    }
+    ,
+         {
+      "name": "Tradeshow rules",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/en-CA/tradeshow-rules",
+      "productionUrl": "https://www.heinz.com/en-CA/tradeshow-rules"
+    }
+      ,
+         {
+      "name": "Jello simply rules",
+      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/simply",
+      "productionUrl": "https://www.kraftheinz.com/jell-o/simply"
+    },
+         {
+      "name": "Heinz seeds",
+      "previewUrl": "https://brands.prv.kraftheinz.com/heinzseed",
+      "productionUrl": "https://www.kraftheinz.com/heinzseed"
     }
   ]
 }
