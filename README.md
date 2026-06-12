@@ -238,6 +238,54 @@ If `LOCALE` doesn't match any discovered pages, the run aborts with a clear erro
 
 ---
 
+## Ad-hoc single-page analyses
+
+When you need to spot-check one or a handful of pages — without crawling a whole sitemap — use the analyze flow. It takes a small JSON config describing the page(s), runs the same `analyzePage` extraction used by the site comparisons, and produces a Playwright HTML report (same UI you already use for `npm run compare:*`).
+
+### 1. Configure the run
+
+Edit [`analyze.config.json`](analyze.config.json) in the repo root:
+
+```json
+{
+  "urls": [
+    "https://brands.prv.kraftheinz.com/en-CA/kraft-dinner",
+    "https://brands.prv.kraftheinz.com/fr-CA/kraft-dinner"
+  ],
+  "environment": "preview",
+  "tokensFile": "tokens/Tokens-Brands(K-L)/KD - Blue.tokens.json"
+}
+```
+
+| Field | Purpose |
+|---|---|
+| `urls` | List of pages to analyse — each gets its own test, screenshot, and per-page HTML report. (A single `"url": "..."` is also accepted for one-off runs.) |
+| `environment` | `"preview"` or `"production"`. Preview triggers the usual IAP login flow before navigating. |
+| `tokensFile` | *Optional.* Path (relative to repo root) to a single `*.tokens.json` palette in `tokens/`. Omit to skip the design-token compliance check. |
+
+A different config can be pointed at with the `ANALYZE_CONFIG` env var:
+
+```bash
+ANALYZE_CONFIG=./my-other-config.json npm run analyze
+```
+
+### 2. Run it
+
+```bash
+# Run the analyses — outputs HTML + screenshot per URL into reports/analyze/
+# and a Playwright HTML report into playwright-report/
+npm run analyze
+
+# Open the Playwright report in a browser
+npm run analyze:report
+```
+
+The Playwright report lists every URL in the config as its own test. Click into one to see the attached per-page report (axe violations, design-token violations, metadata, content, etc.) and the full-page screenshot.
+
+The `reports/analyze/` folder is wiped at the start of each run, so it always reflects the latest config — useful when iterating on a single URL/token combination.
+
+---
+
 ## Adding a new brand site
 
 1. Create a folder `sites/<brand-slug>/`

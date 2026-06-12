@@ -19,7 +19,8 @@
     "locales:heinz": "node sites/heinz/list-locales.mjs",
     "site:heinz": "npm run crawl:heinz && npm run compare:heinz",
     "audit:heinz-recettes": "node sites/heinz/recettes-audit.mjs",
-    "analyze": "playwright test tests/analyze-page.spec.ts --reporter=line"
+    "analyze": "playwright test tests/analyze-page.spec.ts",
+    "analyze:report": "playwright show-report"
   },
   "dependencies": {
     "dotenv": "^16.4.5"

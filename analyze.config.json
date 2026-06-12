@@ -1,0 +1,8 @@
+{
+  "urls": [
+    "https://brands.prv.kraftheinz.com/en-CA/kraft-dinner",
+    "https://brands.prv.kraftheinz.com/fr-CA/kraft-dinner"
+  ],
+  "environment": "preview",
+  "tokensFile": "tokens/Tokens-Brands(K-L)/KD - Blue.tokens.json"
+}
