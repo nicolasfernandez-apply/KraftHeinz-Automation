@@ -236,6 +236,37 @@ LOCALE=all npm run compare:heinz
 
 If `LOCALE` doesn't match any discovered pages, the run aborts with a clear error — use `npm run locales:heinz` to see the valid options.
 
+#### Navigation tests
+
+Verifies that all header links, footer links, social media links, and the KraftHeinz brand-switcher (hamburger) menu work correctly.
+
+```bash
+# Both environments (default)
+npm run nav:heinz
+
+# Preview only (IAP-protected — requires PREVIEW_USERNAME / PREVIEW_PASSWORD in .env)
+npm run nav:heinz:preview
+
+# Production only (no credentials required)
+npm run nav:heinz:production
+
+# Run with a visible browser window (useful for debugging)
+npx playwright test sites/heinz/navigation.spec.ts --headed
+```
+
+The target environment is controlled by the `TARGET_ENV` env var (`both` | `preview` | `production`). Base URLs are read from [`sites/heinz/site.config.json`](sites/heinz/site.config.json).
+
+**What is tested:**
+
+| Suite | Tests |
+|---|---|
+| Header — primary navigation links | Logo → `/`, Products → `/products`, Recipes → `/recipes`, Who We Are → `/who-we-are`, Grown Not Made → `/sustainability` |
+| Header — visible on all main pages | Nav renders on Home, Products, Recipes, Who We Are, Grown Not Made |
+| Footer — internal links | Each of the 4 footer links navigates correctly, verified from every header page |
+| Footer — external KraftHeinz links | TasteVIP, Corporate, Contact Us, Product Locator — `href` attributes checked |
+| Footer — social media links | TikTok, Instagram, YouTube, Facebook, Pinterest — `href` attributes checked |
+| Brand menu (hamburger) | All 16 KraftHeinz brand links are present with correct absolute URLs |
+
 ---
 
 ## Ad-hoc single-page analyses
