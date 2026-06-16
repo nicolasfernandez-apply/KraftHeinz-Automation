@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://brands.prv.kraftheinz.com/fr-CA/kraft-dinner/recipes/qDmVILOYziHrhJLj6UV2N-creamy-kale-caesar-with-air-fried-corn-and-sweet-potatoes
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://brands.prv.kraftheinz.com/fr-CA/kraft-dinner/recipes/qDmVILOYziHrhJLj6UV2N-creamy-kale-caesar-with-air-fried-corn-and-sweet-potatoes
+Analyzing Production: https://www.kraftheinz.com/fr-CA/kraft-dinner/recipes/qDmVILOYziHrhJLj6UV2N-creamy-kale-caesar-with-air-fried-corn-and-sweet-potatoes
+
+============================================================
+COMPARISON SUMMARY — Kale Caesar fr-CA
+============================================================
+Total differences:    5
+Critical differences: 1
+Preview issues:       7
+Production issues:    4
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/kale-caesar-fr-ca-2026-06-16T19-24-40-933Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

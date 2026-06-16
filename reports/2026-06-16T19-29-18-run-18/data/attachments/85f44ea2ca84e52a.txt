@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://brands.prv.kraftheinz.com/en-CA/kraft-dinner/plant-based
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://brands.prv.kraftheinz.com/en-CA/kraft-dinner/plant-based
+Analyzing Production: https://www.kraftheinz.com/en-CA/kraft-dinner/plant-based
+
+============================================================
+COMPARISON SUMMARY — KD Plant Based en
+============================================================
+Total differences:    8
+Critical differences: 1
+Preview issues:       6
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/kd-plant-based-en-2026-06-16T19-25-16-299Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

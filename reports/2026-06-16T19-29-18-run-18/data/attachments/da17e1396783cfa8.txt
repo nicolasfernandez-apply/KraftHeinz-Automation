@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://brands.prv.kraftheinz.com/heinzseed
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://brands.prv.kraftheinz.com/heinzseed
+Analyzing Production: https://www.kraftheinz.com/heinzseed
+
+============================================================
+COMPARISON SUMMARY — Heinz seeds
+============================================================
+Total differences:    11
+Critical differences: 3
+Preview issues:       5
+Production issues:    4
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/heinz-seeds-2026-06-16T19-28-19-526Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+  • Title: "Excellent Commercial Tomato Seeds | HeinzSeed | United States | Kraft Heinz” to "HeinzSeed | Processing Tomato Seeds – Kraft Heinz | United States | Kraft Heinz" vs "Excellent Commercial Tomato Seeds | HeinzSeed | United States | Kraft Heinz"
+

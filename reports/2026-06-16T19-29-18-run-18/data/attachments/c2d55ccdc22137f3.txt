@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://brands.prv.kraftheinz.com/fr-CA/kraft-dinner
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://brands.prv.kraftheinz.com/fr-CA/kraft-dinner
+Analyzing Production: https://www.kraftheinz.com/fr-CA/kraft-dinner
+
+============================================================
+COMPARISON SUMMARY — KD French
+============================================================
+Total differences:    8
+Critical differences: 1
+Preview issues:       6
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/kd-french-2026-06-16T19-24-40-979Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

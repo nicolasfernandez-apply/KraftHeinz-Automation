@@ -1,0 +1,2 @@
+axe-core analysis failed: page.evaluate: Test ended.
+ Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md

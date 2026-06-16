@@ -1,6 +1,28 @@
 {
   "runs": [
     {
+      "runStamp": "2026-06-16T19-29-18-run-18",
+      "date": "2026-06-16T19:29:18.553Z",
+      "runNumber": 18,
+      "runId": "27642339124",
+      "buildUrl": "https://github.com/nicolasfernandez-apply/KraftHeinz-Automation/actions/runs/27642339124",
+      "reportPath": "reports/2026-06-16T19-29-18-run-18/index.html",
+      "pages": [
+        "KD English",
+        "KD French",
+        "Kale Caesar en-CA",
+        "Kale Caesar fr-CA",
+        "KD Plant Based en",
+        "KD Plant Based fr",
+        "Tradeshow Form",
+        "Tradeshow success",
+        "Tradeshow rules",
+        "Jello simply rules",
+        "Heinz seeds"
+      ],
+      "sha": "7f35cbc"
+    },
+    {
       "runStamp": "2026-04-27T22-06-02-run-17",
       "date": "2026-04-27T22:06:02.183Z",
       "runNumber": 17,

@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://brands.prv.kraftheinz.com/jell-o/simply
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://brands.prv.kraftheinz.com/jell-o/simply
+Analyzing Production: https://www.kraftheinz.com/jell-o/simply
+
+============================================================
+COMPARISON SUMMARY — Jello simply rules
+============================================================
+Total differences:    8
+Critical differences: 2
+Preview issues:       6
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/jello-simply-rules-2026-06-16T19-27-32-238Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

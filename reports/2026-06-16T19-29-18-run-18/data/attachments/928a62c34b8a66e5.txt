@@ -1,0 +1,22 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/en-CA/tradeshow
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/en-CA/tradeshow
+Analyzing Production: https://www.heinz.com/en-CA/tradeshow
+
+============================================================
+COMPARISON SUMMARY — Tradeshow Form
+============================================================
+Total differences:    10
+Critical differences: 1
+Preview issues:       3
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/tradeshow-form-2026-06-16T19-27-01-417Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+
