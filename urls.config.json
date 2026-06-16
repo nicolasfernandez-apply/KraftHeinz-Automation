@@ -1,24 +1,63 @@
 {
   "comparisons": [
-    {
-      "name": "English site",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/igaqc-products",
-      "productionUrl": "https://www.kraftheinz.com/en-CA/igaqc-products"
-    },
-     {
-      "name": "French site",
-      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/igaqc-products",
-      "productionUrl": "https://www.kraftheinz.com/fr-CA/igaqc-products"
+        {
+      "name": "KD English",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/kraft-dinner",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/kraft-dinner"
+    } ,
+         {
+           "name": "KD French",
+      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/kraft-dinner",
+      "productionUrl": "https://www.kraftheinz.com/fr-CA/kraft-dinner"
     },
          {
-      "name": "Thank you site",
-      "previewUrl": "https://brands.prv.kraftheinz.com/thank-you",
-      "productionUrl": "https://www.kraftheinz.com/thank-you"
+      "name": "Kale Caesar en-CA",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/kraft-dinner/recipes/qDmVILOYziHrhJLj6UV2N-creamy-kale-caesar-with-air-fried-corn-and-sweet-potatoes",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/kraft-dinner/recipes/qDmVILOYziHrhJLj6UV2N-creamy-kale-caesar-with-air-fried-corn-and-sweet-potatoes"
     },
          {
-      "name": "Jello site",
-      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o",
-      "productionUrl": "https://www.kraftheinz.com/jell-o"
+      "name": "Kale Caesar fr-CA",
+      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/kraft-dinner/recipes/qDmVILOYziHrhJLj6UV2N-creamy-kale-caesar-with-air-fried-corn-and-sweet-potatoes",
+      "productionUrl": "https://www.kraftheinz.com/fr-CA/kraft-dinner/recipes/qDmVILOYziHrhJLj6UV2N-creamy-kale-caesar-with-air-fried-corn-and-sweet-potatoes"
+    },
+         {
+      "name": "KD Plant Based en",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/kraft-dinner/plant-based",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/kraft-dinner/plant-based"
+    },
+         {
+      "name": "KD Plant Based fr",
+      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/kraft-dinner/plant-based",
+      "productionUrl": "https://www.kraftheinz.com/fr-CA/kraft-dinner/plant-based"
+    }
+    ,
+         {
+      "name": "Tradeshow Form",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/en-CA/tradeshow",
+      "productionUrl": "https://www.heinz.com/en-CA/tradeshow"
+    }
+    ,
+         {
+      "name": "Tradeshow success",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/en-CA/tradeshow-success",
+      "productionUrl": "https://www.heinz.com/en-CA/tradeshow-success"
+    }
+    ,
+         {
+      "name": "Tradeshow rules",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/en-CA/tradeshow-rules",
+      "productionUrl": "https://www.heinz.com/en-CA/tradeshow-rules"
+    }
+      ,
+         {
+      "name": "Jello simply rules",
+      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/simply",
+      "productionUrl": "https://www.kraftheinz.com/jell-o/simply"
+    },
+         {
+      "name": "Heinz seeds",
+      "previewUrl": "https://brands.prv.kraftheinz.com/heinzseed",
+      "productionUrl": "https://www.kraftheinz.com/heinzseed"
     }
   ]
 }

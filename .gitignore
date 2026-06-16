@@ -1,3 +1,7 @@
+# macOS metadata files
+.DS_Store
+**/.DS_Store
+
 # Environment variables — contains credentials, never commit
 .env
 

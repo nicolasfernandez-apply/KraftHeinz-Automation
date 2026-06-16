@@ -3,12 +3,27 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { loginToPreview, requireAuthConfig } from '../utils/auth';
 
-const SITEMAP_URL = 'https://brands.prv.kraftheinz.com/sitemap.xml';
+const SITEMAP_URL = 'https://www.kraftheinz.com/sitemap.xml';
 
-// Match either the legacy whatscooking.com domain (any subdomain) or any
-// /whats-cooking* pathname on kraftheinz.com — covers absolute and relative
-// hrefs alike. Case-insensitive so we don't miss "/Whats-Cooking" etc.
-const BAD_LINK_RE = /(whatscooking\.com|\/whats[-_]?cooking)/i;
+/**
+ * Flags a link as a *legacy* "What's Cooking" reference. Only the standalone
+ * whatscooking.com website is legacy — kraftheinz.com/whats-cooking is the
+ * canonical destination (footer/nav link) and should NOT be flagged.
+ *
+ * Explicitly excluded:
+ *   • whatscooking.onelink.me   — mobile app deeplinks, separate lifecycle
+ *   • mailto:*@whatscooking.com — contact addresses, kept independently
+ *   • kraftheinz.com/whats-cooking — the new canonical section
+ */
+function isLegacyLink(href: string): boolean {
+  try {
+    const u = new URL(href);
+    const host = u.hostname.toLowerCase();
+    return host === 'whatscooking.com' || host === 'www.whatscooking.com';
+  } catch {
+    return false;
+  }
+}
 
 const PAGE_TIMEOUT_MS = 30_000;
 const CONCURRENCY     = 4;
@@ -61,7 +76,7 @@ test('Find pages still linking to What\'s Cooking', async ({ browser }) => {
           const resolved = hrefs
             .filter(Boolean)
             .map((h) => { try { return new URL(h, url).toString(); } catch { return h; } });
-          const matches = Array.from(new Set(resolved.filter((h) => BAD_LINK_RE.test(h))));
+          const matches = Array.from(new Set(resolved.filter(isLegacyLink)));
           if (matches.length > 0) {
             offenders.push({ url, links: matches });
             console.log(`${prefix} ⚠ ${url} — ${matches.length} match${matches.length !== 1 ? 'es' : ''}`);

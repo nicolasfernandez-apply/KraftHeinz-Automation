@@ -9,13 +9,22 @@
     "allure:generate": "node scripts/generate-allure-with-history.mjs",
     "test": "playwright test",
     "crawl:oscar-mayer": "node sites/oscar-mayer/crawler.mjs",
-    "refresh:oscar-mayer": "node sites/oscar-mayer/refresh-tokens.mjs",
     "compare:oscar-mayer": "playwright test sites/oscar-mayer/compare.spec.ts",
-    "site:oscar-mayer": "npm run crawl:oscar-mayer && npm run refresh:oscar-mayer && npm run compare:oscar-mayer",
+    "site:oscar-mayer": "npm run crawl:oscar-mayer && npm run compare:oscar-mayer",
     "nav:oscar-mayer": "TARGET_ENV=both playwright test sites/oscar-mayer/navigation.spec.ts",
     "nav:oscar-mayer:preview": "TARGET_ENV=preview playwright test sites/oscar-mayer/navigation.spec.ts",
     "nav:oscar-mayer:production": "TARGET_ENV=production playwright test sites/oscar-mayer/navigation.spec.ts",
-    "analyze": "playwright test tests/analyze-page.spec.ts --reporter=line"
+    "crawl:heinz": "node sites/heinz/crawler.mjs",
+    "compare:heinz": "playwright test sites/heinz/compare.spec.ts",
+    "locales:heinz": "node sites/heinz/list-locales.mjs",
+    "site:heinz": "npm run crawl:heinz && npm run compare:heinz",
+    "nav:heinz": "TARGET_ENV=both playwright test sites/heinz/navigation.spec.ts",
+    "nav:heinz:preview": "TARGET_ENV=preview playwright test sites/heinz/navigation.spec.ts",
+    "nav:heinz:production": "TARGET_ENV=production playwright test sites/heinz/navigation.spec.ts",
+    "audit:heinz-recettes": "node sites/heinz/recettes-audit.mjs",
+    "analyze": "playwright test tests/analyze-page.spec.ts",
+    "analyze:report": "playwright show-report",
+    "theme-match": "playwright test tests/theme-match.spec.ts"
   },
   "dependencies": {
     "dotenv": "^16.4.5"
