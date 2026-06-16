@@ -1,0 +1,8 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/8CF34806649CEB26:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ANEbHa-NqVk_MVZs0aofrlzamw-yE6OTJ0ru0xiNDgLOQVqMcfogpr9oapPM5tUhVlDLUOggPdFqGlAiUe6AcgpSwIQFJOqnn8G4gqFj8firrVQ_Q4KTRReRvL9nm7zqQLkhyVQk08ASHtI1-wQdEsVvPAu0nc5ivvbp7FAC3PH4OM3mBNtpYZ_UN3y8cWQYfvnZjFqVdy0DpjV9dHd7FhPYO3mor2DEzubu2AN_Aa-QQTc0moBaNyHLVah8T-XL1QIMFNSKpNQVFfqzNBpXhzycZgjXUjeQDsK_vi5PCRtsA-pRQoE0EE--j5RCPnCAS0tk8q1yKV9RpyHDAYlzevuxnhBADpD_Io2Hr4Yx7-DxyPaThQ1Xrrieisy6ZGI7xUGvrthVTy7zRjEZO2rr3mXDZlFohlZYTDolyPyRFQh8T3q9RRqAyrucpp8LR-Ms7Uq5E8bHiAScxQbn-4fysSByYgz9zBKlR-EYD9z0Y_AYkAExcYHtt2QE4lcsj8KlTZK9P6kY3O00xX_EgyrzxN977LZK9n93nsuqKKfGy8As4KPKuc_5QU7zTOXIo427X21TyDBL-5opaPPJrvcGBC-8BIEhI5BfqZDFL2vmo2OwzemjYBzBbEnytek7wT69-h-Axze4JuCfIY9tvdk4Niy-PBEnthFEJ6YUyp0Jgi7dRxrIGUtuJ6atZYXge3BfcoH-S2Uc_3hAmNy-Z6KVGj3qakcqOg6N.XXtztsUwQA1U9IJoqk-HYUQNei8JtZlXLjuVf7biZYUCtbJ9JnkTXZXOdKOXNME-ddNOKOtH8u-sNOQu_Sb8Zw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://heinz.prv.kraftheinz.com/
+

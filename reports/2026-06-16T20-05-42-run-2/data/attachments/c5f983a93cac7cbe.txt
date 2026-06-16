@@ -1,0 +1,8 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/recipes
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/8CF34806649CEB26:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mPCVC4FSqEqoBsGvgzvse423IhrDVwmQry_9hfrlzf5NBCWPjqYgOFR_rAsmugp9Mq1CzXXYOplh8rwW3ZxKHPngF0VMTFCySnN2nkGzIp3Ky_mSHTFpf9HE0dp4xN5O2wExozL6M23ZQ2wPmC0JeiD8FbZfXbRhBoS1yu2nev6Yb9XvPpOhlKSUrKVzm29BK_Qv9R3aym-s0I05NlCDvjnfR9HUAKvIaUwK6zs6GnZh3fovvj5cUgjqUf9W2_sNElxXW7Vpvoh_Cbe6qmcvdmgmvWO9wqYjRUsEN62VukMwVPgZ1LmpyHIGV5uB_QX5ofDWIIvhunvwhVAwT-HNRBV2VE5IrBwrybU9HRMEiahvjzYqTQ5Ygji1aobVFr84VD6nGghcHZBCguj3JJcEH6Z4ygyRibfjnqrV_5n7bdpDFcFV3lgGuUBD9Rgd2oiNjSo08yTwaOsp4WlwAuXZH7RHW2LPZM9FlTtdHa_Xi6Xsx6rU6l8r2B9Nv_pZe-Gg3R7WHRy_Ilne1bkRJYFHY_Re-ZI1yB1Vw4-cmC4SVX3G__COJWFVW1t7x8xAauuq4-XonYOydaD2hBi415ekpGiQHA1J9Xxg6S0hxWLNmcYoDanT4ibtXQKxzjILqb9jX-4SieHHXiEAXZp1QwJtEFpAOHIntQo0VPBZK3K8nbIV4tbW43L9px20nHbHvYDAuwclMW-Skv-Zwd4CfAkG4qfxjcYBX-D_BibKgXrYqVveeG2H0Apj1JW.WqnO4GLw0G_1Q8gN_rJagDmfLLisbze1VwL6uUP0lVfYbooyLFrKXMS2NKlnxt5f0GftQi1YQl4O_UOqH5gfFw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://heinz.prv.kraftheinz.com/recipes
+
