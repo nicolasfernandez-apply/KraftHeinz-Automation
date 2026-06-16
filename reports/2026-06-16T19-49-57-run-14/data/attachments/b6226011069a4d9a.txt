@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700011843-ham-cheese-meat-loaf-with-real-kraft-cheese/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700011843-ham-cheese-meat-loaf-with-real-kraft-cheese/
+Analyzing Production: https://www.oscarmayer.com/products/00044700011843-ham-cheese-meat-loaf-with-real-kraft-cheese/
+
+[compare] Best-matching token set — preview: Oscar Mayer - White, production: Oscar Mayer - White
+============================================================
+COMPARISON SUMMARY — Products › 00044700011843 Ham Cheese Meat Loaf With Real Kraft Cheese
+============================================================
+Total differences:    5
+Critical differences: 1
+Preview issues:       8
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700011843-ham-cheese-meat-loaf-with-real-kraft-cheese-2026-06-16T19-46-12-442Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

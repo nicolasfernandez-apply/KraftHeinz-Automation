@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700074299-portable-protein-snack-pack-with-chicken-cashews-monterey-jack-cheese/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700074299-portable-protein-snack-pack-with-chicken-cashews-monterey-jack-cheese/
+Analyzing Production: https://www.oscarmayer.com/products/00044700074299-portable-protein-snack-pack-with-chicken-cashews-monterey-jack-cheese/
+
+[compare] Best-matching token set — preview: Oscar Mayer - White, production: Oscar Mayer - White
+============================================================
+COMPARISON SUMMARY — Products › 00044700074299 Portable Protein Snack Pack With Chicken Cashews Monterey Jack Cheese
+============================================================
+Total differences:    7
+Critical differences: 1
+Preview issues:       10
+Production issues:    6
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700074299-portable-protein-snack-pack-with-chicken-cashews-monterey-jack-cheese-2026-06-16T19-34-22-598Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

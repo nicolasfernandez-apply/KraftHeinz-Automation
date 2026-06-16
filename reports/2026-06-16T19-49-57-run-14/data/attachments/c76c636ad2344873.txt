@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/recipes/sweet-potato-pie-with-candied-weave-bacon/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/recipes/sweet-potato-pie-with-candied-weave-bacon/
+Analyzing Production: https://www.oscarmayer.com/recipes/sweet-potato-pie-with-candied-weave-bacon/
+
+[compare] Best-matching token set — preview: Oscar Mayer - Cream, production: Oscar Mayer - Cream
+============================================================
+COMPARISON SUMMARY — Recipes › Sweet Potato Pie With Candied Weave Bacon
+============================================================
+Total differences:    7
+Critical differences: 1
+Preview issues:       5
+Production issues:    4
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/recipes-sweet-potato-pie-with-candied-weave-bacon-2026-06-16T19-47-26-608Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

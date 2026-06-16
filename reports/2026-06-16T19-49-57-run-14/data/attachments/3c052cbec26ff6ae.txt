@@ -1,0 +1,21 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/
+Analyzing Production: https://www.oscarmayer.com/
+
+[compare] Best-matching token set — preview: Oscar Mayer - Light Yellow, production: Oscar Mayer - Light Yellow
+============================================================
+COMPARISON SUMMARY — Oscar Mayer Home
+============================================================
+Total differences:    3
+Critical differences: 0
+Preview issues:       4
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/oscar-mayer-home-2026-06-16T19-24-35-910Z.html
+

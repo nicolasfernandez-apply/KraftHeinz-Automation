@@ -1,0 +1,21 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700019238-lean-honey-ham-sliced-lunch-meat-with-added-water/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700019238-lean-honey-ham-sliced-lunch-meat-with-added-water/
+Analyzing Production: https://www.oscarmayer.com/products/00044700019238-lean-honey-ham-sliced-lunch-meat-with-added-water/
+
+[compare] Best-matching token set — preview: Oscar Mayer - White, production: Oscar Mayer - White
+============================================================
+COMPARISON SUMMARY — Products › 00044700019238 Lean Honey Ham Sliced Lunch Meat With Added Water
+============================================================
+Total differences:    3
+Critical differences: 0
+Preview issues:       6
+Production issues:    4
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700019238-lean-honey-ham-sliced-lunch-meat-with-added-water-2026-06-16T19-33-31-650Z.html
+

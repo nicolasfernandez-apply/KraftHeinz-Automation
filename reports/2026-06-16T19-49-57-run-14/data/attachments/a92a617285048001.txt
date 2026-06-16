@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/wienermobile/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/wienermobile/
+Analyzing Production: https://www.oscarmayer.com/wienermobile/
+
+[compare] Best-matching token set — preview: Oscar Mayer - Yellow, production: Oscar Mayer - Yellow
+============================================================
+COMPARISON SUMMARY — Wienermobile
+============================================================
+Total differences:    8
+Critical differences: 2
+Preview issues:       5
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/wienermobile-2026-06-16T19-24-35-937Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

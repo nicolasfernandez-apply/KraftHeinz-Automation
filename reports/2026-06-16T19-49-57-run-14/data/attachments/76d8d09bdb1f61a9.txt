@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/our-story/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/our-story/
+Analyzing Production: https://www.oscarmayer.com/our-story/
+
+[compare] Best-matching token set — preview: Oscar Mayer - Cream, production: Oscar Mayer - Cream
+============================================================
+COMPARISON SUMMARY — Our Story
+============================================================
+Total differences:    8
+Critical differences: 2
+Preview issues:       3
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/our-story-2026-06-16T19-25-36-011Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

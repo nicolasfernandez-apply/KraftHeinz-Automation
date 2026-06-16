@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700105252-portable-protein-pack-hard-salami-cheddar-cheese-maple-flavored-nut-cluster/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700105252-portable-protein-pack-hard-salami-cheddar-cheese-maple-flavored-nut-cluster/
+Analyzing Production: https://www.oscarmayer.com/products/00044700105252-portable-protein-pack-hard-salami-cheddar-cheese-maple-flavored-nut-cluster/
+
+[compare] Best-matching token set — preview: Oscar Mayer - White, production: Oscar Mayer - White
+============================================================
+COMPARISON SUMMARY — Products › 00044700105252 Portable Protein Pack Hard Salami Cheddar Cheese Maple Flavored Nut Cluster
+============================================================
+Total differences:    5
+Critical differences: 1
+Preview issues:       4
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700105252-portable-protein-pack-hard-salami-cheddar-cheese-maple-flavored-nut-cluster-2026-06-16T19-34-20-803Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

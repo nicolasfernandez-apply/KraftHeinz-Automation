@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700104552-carving-board-buffalo-style-grilled-chicken-breast-strips/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700104552-carving-board-buffalo-style-grilled-chicken-breast-strips/
+Analyzing Production: https://www.oscarmayer.com/products/00044700104552-carving-board-buffalo-style-grilled-chicken-breast-strips/
+
+[compare] Best-matching token set — preview: Oscar Mayer - White, production: Oscar Mayer - White
+============================================================
+COMPARISON SUMMARY — Products › 00044700104552 Carving Board Buffalo Style Grilled Chicken Breast Strips
+============================================================
+Total differences:    5
+Critical differences: 1
+Preview issues:       6
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700104552-carving-board-buffalo-style-grilled-chicken-breast-strips-2026-06-16T19-41-44-780Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

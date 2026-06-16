@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700105412-bites-variety-pack/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700105412-bites-variety-pack/
+Analyzing Production: https://www.oscarmayer.com/products/00044700105412-bites-variety-pack/
+
+[compare] Best-matching token set — preview: Oscar Mayer - White, production: Oscar Mayer - White
+============================================================
+COMPARISON SUMMARY — Products › 00044700105412 Bites Variety Pack
+============================================================
+Total differences:    5
+Critical differences: 1
+Preview issues:       8
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700105412-bites-variety-pack-2026-06-16T19-41-46-499Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

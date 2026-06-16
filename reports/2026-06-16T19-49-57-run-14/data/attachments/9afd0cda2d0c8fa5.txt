@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700103869-oven-roasted-turkey-breast-and-white-turkey/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700103869-oven-roasted-turkey-breast-and-white-turkey/
+Analyzing Production: https://www.oscarmayer.com/products/00044700103869-oven-roasted-turkey-breast-and-white-turkey/
+
+[compare] Best-matching token set — preview: Oscar Mayer - White, production: Oscar Mayer - White
+============================================================
+COMPARISON SUMMARY — Products › 00044700103869 Oven Roasted Turkey Breast And White Turkey
+============================================================
+Total differences:    7
+Critical differences: 1
+Preview issues:       8
+Production issues:    4
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700103869-oven-roasted-turkey-breast-and-white-turkey-2026-06-16T19-42-57-821Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700019900-naturally-hardwood-smoked-thick-cut-bacon/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700019900-naturally-hardwood-smoked-thick-cut-bacon/
+Analyzing Production: https://www.oscarmayer.com/products/00044700019900-naturally-hardwood-smoked-thick-cut-bacon/
+
+[compare] Best-matching token set — preview: Oscar Mayer - White, production: Oscar Mayer - White
+============================================================
+COMPARISON SUMMARY — Products › 00044700019900 Naturally Hardwood Smoked Thick Cut Bacon
+============================================================
+Total differences:    7
+Critical differences: 1
+Preview issues:       8
+Production issues:    4
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700019900-naturally-hardwood-smoked-thick-cut-bacon-2026-06-16T19-37-00-164Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

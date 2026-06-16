@@ -1,0 +1,25 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/sign-up/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/sign-up/
+Analyzing Production: https://www.oscarmayer.com/sign-up/
+
+[compare] Best-matching token set — preview: Oscar Mayer - Light Yellow, production: Oscar Mayer - Light Yellow
+============================================================
+COMPARISON SUMMARY — Sign Up
+============================================================
+Total differences:    22
+Critical differences: 6
+Preview issues:       3
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/sign-up-2026-06-16T19-24-57-983Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+  • Title: "TasteVIP - Delve into a World of Deliciousness! | Oscar Mayer" vs "Oscar Mayer - Packaged Meats | Kraft Heinz | Oscar Mayer"
+  • Meta description differs
+

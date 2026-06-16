@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700072752-portable-protein-snack-pack-with-turkey-almonds-colby-jack-cheese/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700072752-portable-protein-snack-pack-with-turkey-almonds-colby-jack-cheese/
+Analyzing Production: https://www.oscarmayer.com/products/00044700072752-portable-protein-snack-pack-with-turkey-almonds-colby-jack-cheese/
+
+[compare] Best-matching token set — preview: Oscar Mayer - White, production: Oscar Mayer - White
+============================================================
+COMPARISON SUMMARY — Products › 00044700072752 Portable Protein Snack Pack With Turkey Almonds Colby Jack Cheese
+============================================================
+Total differences:    7
+Critical differences: 1
+Preview issues:       8
+Production issues:    4
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700072752-portable-protein-snack-pack-with-turkey-almonds-colby-jack-cheese-2026-06-16T19-34-44-215Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700103425-scramblers-bacon-velveeta/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700103425-scramblers-bacon-velveeta/
+Analyzing Production: https://www.oscarmayer.com/products/00044700103425-scramblers-bacon-velveeta/
+
+[compare] Best-matching token set — preview: Oscar Mayer - Cream, production: Oscar Mayer - Cream
+============================================================
+COMPARISON SUMMARY — Products › 00044700103425 Scramblers Bacon Velveeta
+============================================================
+Total differences:    7
+Critical differences: 1
+Preview issues:       8
+Production issues:    4
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700103425-scramblers-bacon-velveeta-2026-06-16T19-43-43-743Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

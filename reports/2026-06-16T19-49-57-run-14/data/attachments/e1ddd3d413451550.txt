@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/MeetMeAtTheWMB/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/MeetMeAtTheWMB/
+Analyzing Production: https://www.oscarmayer.com/MeetMeAtTheWMB/
+
+[compare] Best-matching token set — preview: Oscar Mayer - Cream, production: Oscar Mayer - Cream
+============================================================
+COMPARISON SUMMARY — MeetMeAtTheWMB
+============================================================
+Total differences:    8
+Critical differences: 2
+Preview issues:       3
+Production issues:    2
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/meetmeatthewmb-2026-06-16T19-25-07-327Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

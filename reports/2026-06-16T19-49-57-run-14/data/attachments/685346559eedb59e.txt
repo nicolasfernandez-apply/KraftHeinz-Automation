@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/products/00044700064412-lean-oven-roasted-white-turkey-sliced-lunch-meat/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://oscarmayer.prv.kraftheinz.com/products/00044700064412-lean-oven-roasted-white-turkey-sliced-lunch-meat/
+Analyzing Production: https://www.oscarmayer.com/products/00044700064412-lean-oven-roasted-white-turkey-sliced-lunch-meat/
+
+[compare] Best-matching token set — preview: Oscar Mayer - White, production: Oscar Mayer - White
+============================================================
+COMPARISON SUMMARY — Products › 00044700064412 Lean Oven Roasted White Turkey Sliced Lunch Meat
+============================================================
+Total differences:    7
+Critical differences: 1
+Preview issues:       10
+Production issues:    6
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/oscar-mayer/reports/products-00044700064412-lean-oven-roasted-white-turkey-sliced-lunch-meat-2026-06-16T19-31-32-534Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+
