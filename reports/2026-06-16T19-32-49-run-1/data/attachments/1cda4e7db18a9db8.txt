@@ -1,0 +1,15 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/8CF34806649CEB26:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mPO9xokVG81eLCSqk4Ctjn1dq1n0EwetEHYJM0ZfN5nc4Nft5ln10wEDJ0pe6H4-BpruC-VFKVBz6hMk-qJE-ox8d6QWxC68FTCTGygZ0AtxcGilpAe_SQr1-SJpgPuZk6Lz9PvRV6qOpTU-LRsbeLzkgErmL7FHlgL2hX8zA6-TaJKveql0wgULrdnwFa3w4Q-OWpiZTg8iBloUL-ELjKQDPB5xuNiLHDo_BN8aLLIpQ0i1oitQguc2ZZ-C4Ospp9noDJcU2WlXKYn-Wwm5ORVsRpp3D649vU28rFuAU8n4pp431UemonNelsOfviKhC81fOq8SR23Vl-UZryvKHbF8xcGr1wb7tJyou9yfsxhr0zcujC9oW30aMjzLAaLQ248syovthtFmJTZoBau23egcj1kvUvZh9Jr4XHqwbPe2HcnarmLqDFVsaPbtG8fYmgif8y4RrzIySDasgwwMSiQHMzh2-iHv2Z8D_fumStX_KoDMPB498JRBkYNkSBflpnS1WvrvOXDlfESjR69NHRXJuQOaZIYoKTUlNsWs53rKVuKY2_c4AqlICvrEIUVeYQ6tNpkCVQg8Tl9RjByCMOMGn5aUkwOwUrj9cGrLXdgH_HHAQrwT7wPmLLmJGk3BzUVCQoMFMrpWZ5B-AXRHnkpwgKl0NiQ0ewtSK7kwjiQrdCjIKdgyCK6a8tpCyrtQfurGXEgf-vzueHOUbebHTzylT2-.AhlcnHNt_-BZHC99Seyx2mMn-33AB14lMLGlBaYlU3_iz83KFD6KJ_V1UnQxmgOrsDQiFx4JjPuBC2s-IFg1qw
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Debug screenshot saved: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/reports/screenshots/auth-sign-in-result.png
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/8CF34806649CEB26:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mM8gK814KlddzmA84J3sV0BZw9U1uv1K0J8n68okUJiNm-kR7jgb8bNEh_gHUijhrRRgZz7U8dc-acpGlpV7C8JQg2MzFt26iLRGb5a7H1olwiPVdVFF4tOSjKlG5cwxVR8ImTuDRA5rRVoTGibza1JXrBBJC8NIDAqQflPOnZsc5t3piItUd6QtIiNek0xe4JBF80gDzD5O_vjeqqNBny9GixPpxX21JQO-qXsxnsyclBWDh82ShjyN-QZ54zWjXGKSzPt_KanQ9TbKNuqYYBDRO2i1L_9nOLbq6VdhblCqFqrN6TFDFza_JMuOmH9xU35Z9iTux9o0IrhBCWd2_bZxyVlvMyZaBfN6nGQayIhC2RrVPdl-EXnO7HWf2KT2BZut74eydJNZSO1jxPy8rc3yOkH1g_JSONivVN3gf-DD507Z69K4W3iJNyo-VHKMxj4oYv4nqyosdRiFnnALtgX6q2wpCZrDGrnEYg4_SUwRTHrn0419zInqefsfnwERxQHsh2IOdveaAUKEX_HBOh7MbvWLf_SQHBPIUXyuOfr8FuhT4efWW7o1SWo3IzOWjdrrfj9z6hRjnKm30n2rE_tyZLCIZL_vR1CpkmRxpHU6kCQaE76UavL_dVWmxGLjvZIpj4xygIHCWUm7Wg0S6umTYFwEiySC9cTjiHVYCzcRLbMuNvtKL2hDFBTYBpv1fBjhCQVWPLzsVcDiffSQ0Gom1Kp._g0TLwShnzFo8YN63tSIak6AkMWGcgjldTLLMf-Z7wbiHLdqKEmOZ5e43cugaUHL_jk31OzItXGSHZzxZpNkFQ
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://heinz.prv.kraftheinz.com/
+
