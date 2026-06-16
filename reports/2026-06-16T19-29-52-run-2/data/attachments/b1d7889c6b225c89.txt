@@ -1,0 +1,8 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://oscarmayer.prv.kraftheinz.com/wienermobile
+  [Auth] Login page loaded: https://iap-gcip-hosted-ui-oscarmayer-prv-cloudrun-bes-ex-znavqvfkgq-uk.a.run.app/?apiKey=AIzaSyBbW26rMRY4F6i7mOIhRsVnlIZXCz6rTW4&mode=login&tid=_785562255299&redirect_uri=https://iap.googleapis.com/v1beta1/gcip/resources/A49DB6475CDBBB86:handleRedirect&state=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkkzZGw0QSJ9.ADfE0mPm0Xz57s6WmfCIE-wMYJm0BP2vswP3Rp5F802ZgQMazZ3ctsl9n0ftgBGozeesHaFMYPy5VGa-nj6Y6Ry1d2A1oQ36Y5e9EEBAmnPEbjCr1Fi2aGqYz8O9jYbUbhOio1Py1TQM0koi2CKdKWvjIvp3P4qVQWC5nbA3HaGJ81CR0arN6uVJBRS85DaAICpZogcDFPAQsuXdhzv8W5NxT9ud2u-LAkdIpsRvWf9QQzQWvqR1vNAmyTn7qeIgPgIMeMLvFF10gc0qgnmAATX57l5hbGPr5l9i-K5G0-JhtBXFaEyAzxVdTchMiXrB0qBW_WDnMMag-9bXVRiJ5uqrkL9iFoiNe2dDUVWtiMCqHBEp-01vocDVW-8h84f7USU0wFGXgzRRFORNad24nCGr8KyJDSM_hkrrs-Vkq-pHelTa0_eCmErhwTc4_KKBdWkF6wNuyz5Zz6CGOASwFGCdVGOeXMiCf7SOl37AQ1_U_g9VRulerseV7tGV_ktasZH3lHHFEmyY0bbOMnUazJwv0nGFMRGwXTn5l7lRUdJF1_E8dSE09Mvugpj-NGildcPSfCXqTzWzsC7TcNKidmY-UTz0YU66wieFEYBto0IRtg-a5UoVsnz9KyCDMZTqVWoGR78-ZMm2udA1w7gRhBGO19QAwNQD2AZsLlTBS-GKqvAX46i7YQGTHXVtTJLULmc6V8YG4zCJObZyv3p6V6ntY7Zhgj9X9CW4b4J0fTHk6-0A9tDyLfzD8kjO2dgpit3d6tKBzSzh7gxiDhlowLmWjW8Pc7dwxL7m.jI7_hGrBCeO2j8flps09H2d9gHz8ZvBrgV6-uTFUeyFERcPyPWcmdNw2JsYW_aeo00NNggS3Hl2FRyGZm3z0Kg
+  [Auth] Email entered — clicking Next
+  [Auth] Password entered — clicking Sign In
+  [Auth] Login complete — now at: https://oscarmayer.prv.kraftheinz.com/wienermobile
+
