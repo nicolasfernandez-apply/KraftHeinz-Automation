@@ -1,24 +1,24 @@
 {
   "comparisons": [
         {
-      "name": "Heinz simply",
-      "previewUrl": "https://heinz.prv.kraftheinz.com/simply",
-      "productionUrl": "https://www.heinz.com/simply"
+      "name": "KD English",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/kraft-dinner",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/kraft-dinner"
     } ,
          {
-      "name": "Charcutering",
-      "previewUrl": "https://lunchables.prv.kraftheinz.com/Charcutering",
-      "productionUrl": "https://www.lunchables.com/Charcutering"
+           "name": "KD French",
+      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/kraft-dinner",
+      "productionUrl": "https://www.kraftheinz.com/fr-CA/kraft-dinner"
     },
          {
-      "name": "Philadelphia Products page",
-      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/products",
-      "productionUrl": "https://www.kraftheinz.com/philadelphia/products"
+      "name": "Kale Caesar en-CA",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/kraft-dinner/recipes/qDmVILOYziHrhJLj6UV2N-creamy-kale-caesar-with-air-fried-corn-and-sweet-potatoes",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/kraft-dinner/recipes/qDmVILOYziHrhJLj6UV2N-creamy-kale-caesar-with-air-fried-corn-and-sweet-potatoes"
     },
          {
-      "name": "KMC Plant Based",
-      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-mac-and-cheese/plant-based",
-      "productionUrl": "https://www.kraftheinz.com/kraft-mac-and-cheese/plant-based"
+      "name": "Kale Caesar fr-CA",
+      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/kraft-dinner/recipes/qDmVILOYziHrhJLj6UV2N-creamy-kale-caesar-with-air-fried-corn-and-sweet-potatoes",
+      "productionUrl": "https://www.kraftheinz.com/fr-CA/kraft-dinner/recipes/qDmVILOYziHrhJLj6UV2N-creamy-kale-caesar-with-air-fried-corn-and-sweet-potatoes"
     },
          {
       "name": "KD Plant Based en",

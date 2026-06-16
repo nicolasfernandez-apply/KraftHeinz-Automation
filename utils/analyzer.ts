@@ -162,6 +162,12 @@ export interface PageAnalysis {
    * passed, or when token analysis failed.
    */
   matchedTokenSet: string | null;
+  /**
+   * All token set names that achieved a perfect score (0 element violations).
+   * Contains only `matchedTokenSet` when only one theme hits zero, or is empty
+   * when the best score is non-zero.
+   */
+  matchedTokenSets: string[];
   timestamp: string;
 }
 
@@ -678,6 +684,7 @@ export async function analyzePage(
 
   let designTokenViolations: DesignTokenViolations | null = null;
   let matchedTokenSet: string | null = null;
+  let matchedTokenSets: string[] = [];
 
   // Normalise the tokens argument into a list of candidate sets so the
   // analysis branch is the same whether the caller passed null, a single
@@ -912,23 +919,30 @@ export async function analyzePage(
       .catch(() => null);
 
     if (rawStyles) {
-      // Pick the candidate set with the fewest total violations (unknown
-      // colors + unknown fonts). Ties go to the first candidate, which keeps
-      // the result deterministic when the page's palette matches multiple
-      // brand themes equally well.
-      let best: { name: string; violations: DesignTokenViolations } | null = null;
+      // Pick the candidate set with the fewest element-level violations
+      // (sum of element counts across unknown colors + unknown fonts).
+      // Ties go to the first candidate, which keeps the result deterministic
+      // when the page's palette matches multiple brand themes equally well.
+      const elementScore = (v: DesignTokenViolations): number =>
+        v.unknownColors.reduce((s, c) => s + c.count, 0) +
+        v.unknownFonts.reduce((s, f) => s + f.count, 0);
+
+      let best: { name: string; violations: DesignTokenViolations; score: number } | null = null;
+      const scored: { name: string; violations: DesignTokenViolations; score: number }[] = [];
 
       for (const candidate of tokenCandidates) {
         const v = computeTokenViolations(rawStyles.colorMap, rawStyles.fontMap, candidate.tokens);
-        const total = v.unknownColors.length + v.unknownFonts.length;
-        if (!best || total < (best.violations.unknownColors.length + best.violations.unknownFonts.length)) {
-          best = { name: candidate.name, violations: v };
+        const score = elementScore(v);
+        scored.push({ name: candidate.name, violations: v, score });
+        if (!best || score < best.score) {
+          best = { name: candidate.name, violations: v, score };
         }
       }
 
       if (best) {
         designTokenViolations = best.violations;
         matchedTokenSet       = best.name || null;
+        matchedTokenSets      = scored.filter(s => s.score === 0).map(s => s.name);
       }
     }
   }
@@ -953,6 +967,7 @@ export async function analyzePage(
     axeViolations,
     designTokenViolations,
     matchedTokenSet,
+    matchedTokenSets,
     timestamp: new Date().toISOString(),
   };
 }
