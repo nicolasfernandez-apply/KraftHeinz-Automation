@@ -1,0 +1,21 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/fr-CA/produits/00057000039844-ensemble-de-condiments/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/fr-CA/produits/00057000039844-ensemble-de-condiments/
+Analyzing Production: https://www.heinz.com/fr-CA/produits/00057000039844-ensemble-de-condiments/
+
+[compare] Best-matching token set — preview: Heinz - Black, production: Heinz - Black
+============================================================
+COMPARISON SUMMARY — Fr CA › Produits › 00057000039844 Ensemble De Condiments
+============================================================
+Total differences:    9
+Critical differences: 0
+Preview issues:       8
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/heinz/reports/fr-ca-produits-00057000039844-ensemble-de-condiments-2026-06-16T19-33-22-299Z.html
+

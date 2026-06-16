@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/fr-CA/qui-nous-sommes/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/fr-CA/qui-nous-sommes/
+Analyzing Production: https://www.heinz.com/fr-CA/qui-nous-sommes/
+
+[compare] Best-matching token set — preview: Heinz - Black, production: Heinz - Black
+============================================================
+COMPARISON SUMMARY — Fr CA › Qui Nous Sommes
+============================================================
+Total differences:    9
+Critical differences: 1
+Preview issues:       6
+Production issues:    4
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/heinz/reports/fr-ca-qui-nous-sommes-2026-06-16T19-25-40-824Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

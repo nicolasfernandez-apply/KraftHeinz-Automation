@@ -1,0 +1,21 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/fr-CA/produits/00057000038557-ketchup-aux-tomates-a-faible-teneur-en-sodium/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/fr-CA/produits/00057000038557-ketchup-aux-tomates-a-faible-teneur-en-sodium/
+Analyzing Production: https://www.heinz.com/fr-CA/produits/00057000038557-ketchup-aux-tomates-a-faible-teneur-en-sodium/
+
+[compare] Best-matching token set — preview: Heinz - Black, production: Heinz - Black
+============================================================
+COMPARISON SUMMARY — Fr CA › Produits › 00057000038557 Ketchup Aux Tomates A Faible Teneur En Sodium
+============================================================
+Total differences:    8
+Critical differences: 0
+Preview issues:       5
+Production issues:    4
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/heinz/reports/fr-ca-produits-00057000038557-ketchup-aux-tomates-a-faible-teneur-en-sodium-2026-06-16T19-30-47-523Z.html
+

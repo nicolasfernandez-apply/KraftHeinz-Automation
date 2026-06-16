@@ -1,0 +1,21 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/fr-CA/produits/00068100004144-sauce-style-mayonnaise-aux-cornichons/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/fr-CA/produits/00068100004144-sauce-style-mayonnaise-aux-cornichons/
+Analyzing Production: https://www.heinz.com/fr-CA/produits/00068100004144-sauce-style-mayonnaise-aux-cornichons/
+
+[compare] Best-matching token set — preview: Heinz - Black, production: Heinz - Black
+============================================================
+COMPARISON SUMMARY — Fr CA › Produits › 00068100004144 Sauce Style Mayonnaise Aux Cornichons
+============================================================
+Total differences:    5
+Critical differences: 0
+Preview issues:       8
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/heinz/reports/fr-ca-produits-00068100004144-sauce-style-mayonnaise-aux-cornichons-2026-06-16T19-29-33-995Z.html
+

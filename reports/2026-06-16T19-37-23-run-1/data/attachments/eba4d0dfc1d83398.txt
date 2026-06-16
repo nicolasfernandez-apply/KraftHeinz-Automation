@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/fr-CA/mayo/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/fr-CA/mayo/
+Analyzing Production: https://www.heinz.com/fr-CA/mayo/
+
+[compare] Best-matching token set — preview: Heinz - Mayo Blue, production: Heinz - Mayo Blue
+============================================================
+COMPARISON SUMMARY — Fr CA › Mayo
+============================================================
+Total differences:    10
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/heinz/reports/fr-ca-mayo-2026-06-16T19-24-24-660Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

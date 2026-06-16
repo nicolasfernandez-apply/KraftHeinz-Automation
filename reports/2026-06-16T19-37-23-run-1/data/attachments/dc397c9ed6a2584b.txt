@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/fr-CA/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/fr-CA/
+Analyzing Production: https://www.heinz.com/fr-CA/
+
+[compare] Best-matching token set — preview: Heinz - Black, production: Heinz - Black
+============================================================
+COMPARISON SUMMARY — Fr CA
+============================================================
+Total differences:    10
+Critical differences: 2
+Preview issues:       119
+Production issues:    97
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/heinz/reports/fr-ca-2026-06-16T19-22-52-758Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

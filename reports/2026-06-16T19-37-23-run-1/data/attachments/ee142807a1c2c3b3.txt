@@ -1,0 +1,21 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/fr-CA/recettes/sauce-a-trempette-a-l-orange-piquante/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/fr-CA/recettes/sauce-a-trempette-a-l-orange-piquante/
+Analyzing Production: https://www.heinz.com/fr-CA/recettes/sauce-a-trempette-a-l-orange-piquante/
+
+[compare] Best-matching token set — preview: Heinz - Black, production: Heinz - Black
+============================================================
+COMPARISON SUMMARY — Fr CA › Recettes › Sauce A Trempette A L Orange Piquante
+============================================================
+Total differences:    8
+Critical differences: 0
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/heinz/reports/fr-ca-recettes-sauce-a-trempette-a-l-orange-piquante-2026-06-16T19-35-53-036Z.html
+

@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/fr-CA/sinscrire/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/fr-CA/sinscrire/
+Analyzing Production: https://www.heinz.com/fr-CA/sinscrire/
+
+[compare] Best-matching token set — preview: Heinz - Black, production: Heinz - Black
+============================================================
+COMPARISON SUMMARY — Fr CA › Sinscrire
+============================================================
+Total differences:    11
+Critical differences: 3
+Preview issues:       107
+Production issues:    106
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/heinz/reports/fr-ca-sinscrire-2026-06-16T19-26-32-142Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

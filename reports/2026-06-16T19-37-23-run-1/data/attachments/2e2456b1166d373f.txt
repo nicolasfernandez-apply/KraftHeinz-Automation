@@ -1,0 +1,21 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/fr-CA/produits/00057000086107-haricots-pinto-et-haricots-rouges-facon-chili/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/fr-CA/produits/00057000086107-haricots-pinto-et-haricots-rouges-facon-chili/
+Analyzing Production: https://www.heinz.com/fr-CA/produits/00057000086107-haricots-pinto-et-haricots-rouges-facon-chili/
+
+[compare] Best-matching token set — preview: Heinz - Black, production: Heinz - Black
+============================================================
+COMPARISON SUMMARY — Fr CA › Produits › 00057000086107 Haricots Pinto Et Haricots Rouges Facon Chili
+============================================================
+Total differences:    8
+Critical differences: 0
+Preview issues:       8
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/heinz/reports/fr-ca-produits-00057000086107-haricots-pinto-et-haricots-rouges-facon-chili-2026-06-16T19-32-46-499Z.html
+

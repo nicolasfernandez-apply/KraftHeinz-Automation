@@ -1,0 +1,21 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/fr-CA/produits/00057000131845-feves-facon-barbecue-chipotles-dans-une-sauce-barbecue-fumee/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/fr-CA/produits/00057000131845-feves-facon-barbecue-chipotles-dans-une-sauce-barbecue-fumee/
+Analyzing Production: https://www.heinz.com/fr-CA/produits/00057000131845-feves-facon-barbecue-chipotles-dans-une-sauce-barbecue-fumee/
+
+[compare] Best-matching token set — preview: Heinz - Black, production: Heinz - Black
+============================================================
+COMPARISON SUMMARY — Fr CA › Produits › 00057000131845 Feves Facon Barbecue Chipotles Dans Une Sauce Barbecue Fumee
+============================================================
+Total differences:    5
+Critical differences: 0
+Preview issues:       8
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/heinz/reports/fr-ca-produits-00057000131845-feves-facon-barbecue-chipotles-dans-une-sauce-barbecue-fumee-2026-06-16T19-32-19-614Z.html
+

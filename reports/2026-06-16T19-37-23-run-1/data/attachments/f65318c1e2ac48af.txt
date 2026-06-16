@@ -1,0 +1,21 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/fr-CA/produits/00068100003130-sauce-pour-burger/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/fr-CA/produits/00068100003130-sauce-pour-burger/
+Analyzing Production: https://www.heinz.com/fr-CA/produits/00068100003130-sauce-pour-burger/
+
+[compare] Best-matching token set — preview: Heinz - Black, production: Heinz - Black
+============================================================
+COMPARISON SUMMARY — Fr CA › Produits › 00068100003130 Sauce Pour Burger
+============================================================
+Total differences:    9
+Critical differences: 0
+Preview issues:       6
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/heinz/reports/fr-ca-produits-00068100003130-sauce-pour-burger-2026-06-16T19-30-48-016Z.html
+

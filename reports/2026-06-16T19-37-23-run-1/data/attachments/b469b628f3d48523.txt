@@ -1,0 +1,21 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/fr-CA/produits/00057000009380-sauce-57-originale/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/fr-CA/produits/00057000009380-sauce-57-originale/
+Analyzing Production: https://www.heinz.com/fr-CA/produits/00057000009380-sauce-57-originale/
+
+[compare] Best-matching token set — preview: Heinz - Black, production: Heinz - Black
+============================================================
+COMPARISON SUMMARY — Fr CA › Produits › 00057000009380 Sauce 57 Originale
+============================================================
+Total differences:    9
+Critical differences: 0
+Preview issues:       8
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/heinz/reports/fr-ca-produits-00057000009380-sauce-57-originale-2026-06-16T19-34-04-732Z.html
+

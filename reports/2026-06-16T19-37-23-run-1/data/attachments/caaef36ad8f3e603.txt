@@ -1,0 +1,21 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/fr-CA/produits/00057000007034-feves-originales-sauce-tomate/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/fr-CA/produits/00057000007034-feves-originales-sauce-tomate/
+Analyzing Production: https://www.heinz.com/fr-CA/produits/00057000007034-feves-originales-sauce-tomate/
+
+[compare] Best-matching token set — preview: Heinz - Black, production: Heinz - Black
+============================================================
+COMPARISON SUMMARY — Fr CA › Produits › 00057000007034 Feves Originales Sauce Tomate
+============================================================
+Total differences:    9
+Critical differences: 0
+Preview issues:       8
+Production issues:    7
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/heinz/reports/fr-ca-produits-00057000007034-feves-originales-sauce-tomate-2026-06-16T19-34-33-212Z.html
+

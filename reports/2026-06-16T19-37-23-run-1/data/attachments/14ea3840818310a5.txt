@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/fr-CA/57bbq/rules/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/fr-CA/57bbq/rules/
+Analyzing Production: https://www.heinz.com/fr-CA/57bbq/rules/
+
+[compare] Best-matching token set — preview: Heinz - Black, production: Heinz - Black
+============================================================
+COMPARISON SUMMARY — Fr CA › 57bbq › Rules
+============================================================
+Total differences:    10
+Critical differences: 1
+Preview issues:       5
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/heinz/reports/fr-ca-57bbq-rules-2026-06-16T19-26-54-453Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

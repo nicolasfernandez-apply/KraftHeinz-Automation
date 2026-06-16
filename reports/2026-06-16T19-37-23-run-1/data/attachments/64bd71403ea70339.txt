@@ -1,0 +1,23 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/fr-CA/privacy-policy/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/fr-CA/privacy-policy/
+Analyzing Production: https://www.heinz.com/fr-CA/privacy-policy/
+
+[compare] Best-matching token set — preview: Heinz - Black, production: Heinz - 57 collection (Black)
+============================================================
+COMPARISON SUMMARY — Fr CA › Privacy Policy
+============================================================
+Total differences:    11
+Critical differences: 2
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/heinz/reports/fr-ca-privacy-policy-2026-06-16T19-22-52-850Z.html
+
+⚠ CRITICAL DIFFERENCES FOUND:
+

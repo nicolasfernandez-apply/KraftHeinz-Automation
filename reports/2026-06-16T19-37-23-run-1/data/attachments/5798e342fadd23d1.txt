@@ -1,0 +1,21 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/fr-CA/produits/00057000000608-sauce-tartare/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/fr-CA/produits/00057000000608-sauce-tartare/
+Analyzing Production: https://www.heinz.com/fr-CA/produits/00057000000608-sauce-tartare/
+
+[compare] Best-matching token set — preview: Heinz - Black, production: Heinz - Black
+============================================================
+COMPARISON SUMMARY — Fr CA › Produits › 00057000000608 Sauce Tartare
+============================================================
+Total differences:    9
+Critical differences: 0
+Preview issues:       6
+Production issues:    6
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/heinz/reports/fr-ca-produits-00057000000608-sauce-tartare-2026-06-16T19-35-10-108Z.html
+

@@ -1,0 +1,21 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/fr-CA/produits/00057000036034-sauce-de-cocktail-a-fruits-de-mer/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/fr-CA/produits/00057000036034-sauce-de-cocktail-a-fruits-de-mer/
+Analyzing Production: https://www.heinz.com/fr-CA/produits/00057000036034-sauce-de-cocktail-a-fruits-de-mer/
+
+[compare] Best-matching token set — preview: Heinz - Black, production: Heinz - Black
+============================================================
+COMPARISON SUMMARY — Fr CA › Produits › 00057000036034 Sauce De Cocktail A Fruits De Mer
+============================================================
+Total differences:    9
+Critical differences: 0
+Preview issues:       8
+Production issues:    7
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/heinz/reports/fr-ca-produits-00057000036034-sauce-de-cocktail-a-fruits-de-mer-2026-06-16T19-33-56-948Z.html
+

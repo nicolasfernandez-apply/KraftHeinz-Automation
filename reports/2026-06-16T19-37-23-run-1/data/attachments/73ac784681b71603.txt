@@ -1,0 +1,21 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/fr-CA/produits/00057000036355-moutarde-jaune/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/fr-CA/produits/00057000036355-moutarde-jaune/
+Analyzing Production: https://www.heinz.com/fr-CA/produits/00057000036355-moutarde-jaune/
+
+[compare] Best-matching token set — preview: Heinz - Black, production: Heinz - Black
+============================================================
+COMPARISON SUMMARY — Fr CA › Produits › 00057000036355 Moutarde Jaune
+============================================================
+Total differences:    9
+Critical differences: 0
+Preview issues:       10
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/heinz/reports/fr-ca-produits-00057000036355-moutarde-jaune-2026-06-16T19-33-23-964Z.html
+

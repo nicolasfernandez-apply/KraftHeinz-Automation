@@ -1,0 +1,21 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/fr-CA/produits/00057000712532-ketchup-aux-tomates-biologique/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/fr-CA/produits/00057000712532-ketchup-aux-tomates-biologique/
+Analyzing Production: https://www.heinz.com/fr-CA/produits/00057000712532-ketchup-aux-tomates-biologique/
+
+[compare] Best-matching token set — preview: Heinz - Black, production: Heinz - Black
+============================================================
+COMPARISON SUMMARY — Fr CA › Produits › 00057000712532 Ketchup Aux Tomates Biologique
+============================================================
+Total differences:    8
+Critical differences: 0
+Preview issues:       5
+Production issues:    4
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/heinz/reports/fr-ca-produits-00057000712532-ketchup-aux-tomates-biologique-2026-06-16T19-32-02-882Z.html
+

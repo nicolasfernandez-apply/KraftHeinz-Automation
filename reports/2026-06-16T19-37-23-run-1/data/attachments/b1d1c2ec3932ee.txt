@@ -1,0 +1,21 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/fr-CA/produits/00068100004151-sauce-style-mayonnaise-a-la-saveur-mangue-et-habanero/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/fr-CA/produits/00068100004151-sauce-style-mayonnaise-a-la-saveur-mangue-et-habanero/
+Analyzing Production: https://www.heinz.com/fr-CA/produits/00068100004151-sauce-style-mayonnaise-a-la-saveur-mangue-et-habanero/
+
+[compare] Best-matching token set — preview: Heinz - Black, production: Heinz - Black
+============================================================
+COMPARISON SUMMARY — Fr CA › Produits › 00068100004151 Sauce Style Mayonnaise A La Saveur Mangue Et Habanero
+============================================================
+Total differences:    9
+Critical differences: 0
+Preview issues:       6
+Production issues:    5
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/heinz/reports/fr-ca-produits-00068100004151-sauce-style-mayonnaise-a-la-saveur-mangue-et-habanero-2026-06-16T19-28-16-523Z.html
+

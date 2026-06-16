@@ -1,0 +1,21 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/fr-CA/produits/00068100004083-sauce-style-mayonnaise-mayochup/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/fr-CA/produits/00068100004083-sauce-style-mayonnaise-mayochup/
+Analyzing Production: https://www.heinz.com/fr-CA/produits/00068100004083-sauce-style-mayonnaise-mayochup/
+
+[compare] Best-matching token set — preview: Heinz - Black, production: Heinz - Black
+============================================================
+COMPARISON SUMMARY — Fr CA › Produits › 00068100004083 Sauce Style Mayonnaise Mayochup
+============================================================
+Total differences:    9
+Critical differences: 0
+Preview issues:       8
+Production issues:    7
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/heinz/reports/fr-ca-produits-00068100004083-sauce-style-mayonnaise-mayochup-2026-06-16T19-29-44-796Z.html
+

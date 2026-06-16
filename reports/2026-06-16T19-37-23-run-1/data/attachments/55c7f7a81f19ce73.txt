@@ -1,0 +1,21 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/fr-CA/recettes/brochettes-de-crevettes-marinees-au-citron-et-a-l-ail/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/fr-CA/recettes/brochettes-de-crevettes-marinees-au-citron-et-a-l-ail/
+Analyzing Production: https://www.heinz.com/fr-CA/recettes/brochettes-de-crevettes-marinees-au-citron-et-a-l-ail/
+
+[compare] Best-matching token set — preview: Heinz - Black, production: Heinz - Black
+============================================================
+COMPARISON SUMMARY — Fr CA › Recettes › Brochettes De Crevettes Marinees Au Citron Et A L Ail
+============================================================
+Total differences:    9
+Critical differences: 0
+Preview issues:       4
+Production issues:    3
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/heinz/reports/fr-ca-recettes-brochettes-de-crevettes-marinees-au-citron-et-a-l-ail-2026-06-16T19-35-38-639Z.html
+

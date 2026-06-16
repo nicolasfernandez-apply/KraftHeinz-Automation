@@ -1,0 +1,21 @@
+
+  [Auth] Navigating to PRV environment → IAP will redirect to login
+  [Auth] Target: https://heinz.prv.kraftheinz.com/fr-CA/produits/00057000034627-feves-a-la-britannique-sauce-tomate/
+  [Auth] Session already valid — skipping login
+
+
+Analyzing Preview:    https://heinz.prv.kraftheinz.com/fr-CA/produits/00057000034627-feves-a-la-britannique-sauce-tomate/
+Analyzing Production: https://www.heinz.com/fr-CA/produits/00057000034627-feves-a-la-britannique-sauce-tomate/
+
+[compare] Best-matching token set — preview: Heinz - Black, production: Heinz - Black
+============================================================
+COMPARISON SUMMARY — Fr CA › Produits › 00057000034627 Feves A La Britannique Sauce Tomate
+============================================================
+Total differences:    9
+Critical differences: 0
+Preview issues:       8
+Production issues:    9
+============================================================
+
+Report saved to: /home/runner/work/KraftHeinz-Automation/KraftHeinz-Automation/sites/heinz/reports/fr-ca-produits-00057000034627-feves-a-la-britannique-sauce-tomate-2026-06-16T19-33-57-193Z.html
+
