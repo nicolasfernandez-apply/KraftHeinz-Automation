@@ -1,24 +1,9 @@
 {
   "comparisons": [
     {
-      "name": "English site",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/igaqc-products",
-      "productionUrl": "https://www.kraftheinz.com/en-CA/igaqc-products"
-    },
-     {
-      "name": "French site",
-      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/igaqc-products",
-      "productionUrl": "https://www.kraftheinz.com/fr-CA/igaqc-products"
-    },
-         {
-      "name": "Thank you site",
-      "previewUrl": "https://brands.prv.kraftheinz.com/thank-you",
-      "productionUrl": "https://www.kraftheinz.com/thank-you"
-    },
-         {
-      "name": "Jello site",
-      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o",
-      "productionUrl": "https://www.kraftheinz.com/jell-o"
+      "name": "Philly Whipped LP",
+      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/flavors",
+      "productionUrl": "https://www.kraftheinz.com/philadelphia/flavors"
     }
   ]
 }

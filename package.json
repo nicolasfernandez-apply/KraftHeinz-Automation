@@ -15,7 +15,9 @@
     "nav:oscar-mayer": "TARGET_ENV=both playwright test sites/oscar-mayer/navigation.spec.ts",
     "nav:oscar-mayer:preview": "TARGET_ENV=preview playwright test sites/oscar-mayer/navigation.spec.ts",
     "nav:oscar-mayer:production": "TARGET_ENV=production playwright test sites/oscar-mayer/navigation.spec.ts",
-    "analyze": "playwright test tests/analyze-page.spec.ts --reporter=line"
+    "analyze": "playwright test tests/analyze-page.spec.ts --reporter=line",
+    "test:forms": "playwright test tests/test-forms.spec.ts",
+    "test:forms:headed": "playwright test tests/test-forms.spec.ts --headed"
   },
   "dependencies": {
     "dotenv": "^16.4.5"
