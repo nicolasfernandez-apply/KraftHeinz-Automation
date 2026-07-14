@@ -1,0 +1,191 @@
+name: Heinz — Crawl & Compare
+
+on:
+  workflow_dispatch:
+    inputs:
+      locale:
+        description: >
+          Locale to compare. Use "all" for every page, "default" for pages
+          without a locale prefix, or a specific locale code (e.g. en-GB,
+          es-MX, fr-FR). Run `npm run locales:heinz` to see all available
+          locales.
+        required: false
+        default: "all"
+        type: string
+  # Uncomment to run automatically on a schedule (e.g. every weekday at 10 AM UTC)
+  # schedule:
+  #   - cron: '0 10 * * 1-5'
+
+# Write access for history branch; Pages deployment is handled by deploy-pages.yml
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  crawl-and-compare:
+    name: Crawl & Compare Heinz (${{ inputs.locale || 'all' }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      # ── Setup ────────────────────────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      # ── Restore Allure history cache ─────────────────────────────────────────
+      # Cache is keyed by locale so trend history stays meaningful per locale.
+      - name: Restore Allure history cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .allure-history-cache
+          key: allure-history-heinz-${{ inputs.locale || 'all' }}-${{ github.ref_name }}-${{ github.run_id }}
+          restore-keys: allure-history-heinz-${{ inputs.locale || 'all' }}-${{ github.ref_name }}-
+
+      # ── Crawl Heinz sitemap ───────────────────────────────────────────────────
+      - name: Crawl Heinz sitemap
+        run: npm run crawl:heinz
+
+      - name: Show discovered pages
+        run: |
+          COUNT=$(node -e "const p = require('./sites/heinz/pages.json'); console.log(p.comparisons.length);")
+          echo "Total pages discovered: ${COUNT}"
+          if [ "$COUNT" -le 1 ]; then
+            echo "::warning::Only ${COUNT} page(s) discovered. The sitemap may be unreachable from GitHub Actions runners (many sites block CI IP ranges). Check the 'Crawl Heinz sitemap' step logs for errors."
+          fi
+
+      # ── Run comparison tests ──────────────────────────────────────────────────
+      # continue-on-error so the Allure report is always generated even on failure.
+      - name: Run Heinz comparison
+        id: run_comparison
+        continue-on-error: true
+        env:
+          LOCALE: ${{ inputs.locale || 'all' }}
+          PREVIEW_USERNAME: ${{ secrets.PREVIEW_USERNAME }}
+          PREVIEW_PASSWORD: ${{ secrets.PREVIEW_PASSWORD }}
+        run: npm run compare:heinz
+
+      - name: Show allure result count
+        if: always()
+        run: |
+          COUNT=$(find allure-results -maxdepth 1 -name "*-result.json" 2>/dev/null | wc -l | tr -d ' ')
+          echo "Test result files generated: ${COUNT}"
+          if [ "$COUNT" -eq 0 ]; then
+            echo "::warning::No allure result files found. The tests may have failed before producing results."
+          fi
+
+      # ── Inject previous Allure history ────────────────────────────────────────
+      - name: Inject previous Allure history
+        if: always() && hashFiles('.allure-history-cache/history') != ''
+        run: |
+          mkdir -p allure-results
+          cp -r .allure-history-cache/history allure-results/history
+
+      # ── Generate Allure report ────────────────────────────────────────────────
+      - name: Generate Allure report
+        if: always()
+        env:
+          URLS_CONFIG:       sites/heinz/pages.json
+          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+          GITHUB_RUN_ID:     ${{ github.run_id }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_SERVER_URL: ${{ github.server_url }}
+        run: npm run allure:generate
+
+      # ── Persist updated history in cache ─────────────────────────────────────
+      - name: Update Allure history cache payload
+        if: always()
+        run: |
+          mkdir -p .allure-history-cache
+          cp -r allure-report/history .allure-history-cache/history
+
+      - name: Save Allure history cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .allure-history-cache
+          key: allure-history-heinz-${{ inputs.locale || 'all' }}-${{ github.ref_name }}-${{ github.run_id }}
+
+      # ── Upload artifacts ──────────────────────────────────────────────────────
+      - name: Upload comparison reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: heinz-reports-${{ inputs.locale || 'all' }}-${{ github.run_number }}
+          path: sites/heinz/reports/
+          retention-days: 30
+
+      - name: Upload Allure report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: heinz-allure-run-${{ inputs.locale || 'all' }}-${{ github.run_number }}
+          path: allure-report/
+          retention-days: 90
+
+      # ── Publish Heinz history to heinz-history branch ─────────────────────────
+      # The deploy-pages.yml workflow picks this up and publishes it to /heinz/
+      # on the shared GitHub Pages site.
+
+      - name: Configure Git identity
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git config --global user.name  "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Clone or initialise heinz-history branch
+        if: github.ref == 'refs/heads/main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          REPO_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
+
+          if git ls-remote --exit-code --heads "$REPO_URL" heinz-history; then
+            git clone --branch heinz-history --single-branch "$REPO_URL" .pages-site
+            echo "Cloned heinz-history branch — $(git -C .pages-site rev-list --count HEAD) commit(s)"
+          else
+            echo "Branch heinz-history does not exist yet — creating orphan branch"
+            mkdir -p .pages-site
+            cd .pages-site
+            git init
+            git remote add origin "$REPO_URL"
+            git checkout --orphan heinz-history
+            git commit --allow-empty -m "chore: initialise heinz-history branch [skip ci]"
+          fi
+
+      - name: Update Heinz history dashboard
+        if: github.ref == 'refs/heads/main'
+        env:
+          PAGES_SITE_DIR:    .pages-site
+          SOURCE_REPORT_DIR: allure-report
+          URLS_CONFIG:       sites/heinz/pages.json
+          SITE_TITLE:        "Heinz — Preview vs Production (${{ inputs.locale || 'all' }})"
+          GITHUB_RUN_NUMBER: ${{ github.run_number }}
+          GITHUB_RUN_ID:     ${{ github.run_id }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_SERVER_URL: ${{ github.server_url }}
+          GITHUB_SHA:        ${{ github.sha }}
+        run: node scripts/update-pages-history-site.mjs
+
+      - name: Push heinz-history branch
+        if: github.ref == 'refs/heads/main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd .pages-site
+          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git" \
+            HEAD:heinz-history
+
+      # Pages deployment is handled by deploy-pages.yml, which is triggered
+      # automatically when this workflow finishes.

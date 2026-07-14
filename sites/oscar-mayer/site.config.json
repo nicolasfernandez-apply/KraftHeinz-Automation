@@ -4,6 +4,7 @@
   "previewBaseUrl": "https://oscarmayer.prv.kraftheinz.com/",
   "productionBaseUrl": "https://www.oscarmayer.com/",
   "sitemapPath": "/sitemap.xml",
+  "tokensDir": "tokens/Tokens-OscarMayer",
   "excludePatterns": [],
   "maxPages": 0
 }

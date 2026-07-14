@@ -77,8 +77,8 @@ function renderFontRow(f: { fontFamily: string; fontWeight: number; count: numbe
 export interface SinglePageReportContext {
   /** Logical environment label shown in the header — e.g. "production", "preview". */
   environment?: string;
-  /** Figma file key used to source the design tokens (or empty if none). */
-  figmaFileKey?: string;
+  /** Name of the design-token set used for the compliance check (or empty if none). */
+  tokenSetName?: string;
 }
 
 export function generateSinglePageReport(
@@ -87,7 +87,7 @@ export function generateSinglePageReport(
 ): string {
   const ts = new Date(analysis.timestamp).toLocaleString();
   const env = context.environment ?? '—';
-  const figma = context.figmaFileKey ?? '—';
+  const tokenSet = context.tokenSetName ?? analysis.matchedTokenSet ?? '—';
 
   // ── Accessibility summary ─────────────────────────────────────────────
   const axe = [...analysis.axeViolations].sort(
@@ -145,7 +145,7 @@ export function generateSinglePageReport(
     <div class="meta">
       <span>Environment: <strong>${escapeHtml(env)}</strong></span>
       <span>HTTP status: <strong>${analysis.statusCode || '—'}</strong></span>
-      <span>Figma file: <strong>${escapeHtml(figma)}</strong></span>
+      <span>Token set: <strong>${escapeHtml(tokenSet)}</strong></span>
       <span>Generated: <strong>${escapeHtml(ts)}</strong></span>
     </div>
   </div>
@@ -199,7 +199,7 @@ export function generateSinglePageReport(
       <span class="badge ${totalTokens === 0 ? 'ok' : ''}">${tokens === null ? 'not checked' : `${totalTokens} violation${totalTokens !== 1 ? 's' : ''}`}</span>
     </div>
     <div class="section-body">
-      ${tokens === null ? '<p class="empty">Design token check skipped — Figma tokens were not provided.</p>' : `
+      ${tokens === null ? '<p class="empty">Design token check skipped — no token file was provided.</p>' : `
       <h3 style="font-size:13px;color:#555;margin:0 0 6px 0">Colors</h3>
       <p style="font-size:12px;color:#777;margin:0 0 8px 0">
         ✓ ${tokens.compliantColorCount} compliant &nbsp;·&nbsp;

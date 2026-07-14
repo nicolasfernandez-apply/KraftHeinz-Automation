@@ -1,9 +1,23 @@
 {
   "comparisons": [
-    {
-      "name": "Philly Whipped LP",
-      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/flavors",
-      "productionUrl": "https://www.kraftheinz.com/philadelphia/flavors"
+
+     
+         {
+      "name": "Tradeshow rules",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/en-CA/tradeshow-rules",
+      "productionUrl": "https://www.heinz.com/en-CA/tradeshow-rules"
+    }
+      ,
+         {
+      "name": "Jello simply rules",
+      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/simply",
+      "productionUrl": "https://www.kraftheinz.com/jell-o/simply"
+    },
+         {
+      "name": "Heinz seeds",
+      "previewUrl": "https://brands.prv.kraftheinz.com/heinzseed",
+      "productionUrl": "https://www.kraftheinz.com/heinzseed"
+
     }
   ]
 }

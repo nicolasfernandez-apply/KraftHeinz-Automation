@@ -2,130 +2,146 @@ import { test } from '@playwright/test';
 import * as fs   from 'fs';
 import * as path from 'path';
 import { analyzePage }            from '../utils/analyzer';
-import { fetchFigmaTokens }       from '../utils/figma-tokens';
+import { loadTokenFile }          from '../utils/token-loader';
 import { loginToPreview, requireAuthConfig } from '../utils/auth';
 import { generateSinglePageReport } from '../utils/single-page-report';
 
 interface AnalyzeConfig {
-  url:           string;
-  environment:   'preview' | 'production';
-  figmaFileKey?: string;
-  /** Optional. Defaults to reports/analyze/<slug>-<timestamp>.html */
-  outputPath?:   string;
+  /** A single URL to analyse. Mutually exclusive with `urls`. */
+  url?:        string;
+  /** A list of URLs to analyse in one run. Mutually exclusive with `url`. */
+  urls?:       string[];
+  environment: 'preview' | 'production';
+  /**
+   * Optional. Path (relative to repo root) to a single *.tokens.json file
+   * from the central tokens/ folder — e.g.
+   * "tokens/Tokens-Heinz/Heinz - Ketchup Red.tokens.json".
+   * When omitted, the design-token compliance check is skipped.
+   */
+  tokensFile?: string;
 }
 
-const configPath = process.env.ANALYZE_CONFIG;
-if (!configPath) {
-  throw new Error(
-    '\n  ANALYZE_CONFIG env var not set.\n' +
-    '  Point it at a JSON file describing the page to analyse, e.g.\n' +
-    '    ANALYZE_CONFIG=./analyze.config.json npm run analyze\n',
-  );
-}
+// Default to ./analyze.config.json so `npm run analyze` works with no env var;
+// ANALYZE_CONFIG can still override it for one-off configs.
+const configPath = process.env.ANALYZE_CONFIG ?? path.resolve(process.cwd(), 'analyze.config.json');
 if (!fs.existsSync(configPath)) {
-  throw new Error(`\n  ANALYZE_CONFIG points to a file that does not exist: ${configPath}\n`);
+  throw new Error(
+    `\n  Analyze config file not found: ${configPath}\n` +
+    '  Either create analyze.config.json in the repo root, or point ANALYZE_CONFIG at a different file.\n',
+  );
 }
 
 const config: AnalyzeConfig = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 
-if (!config.url || !config.environment) {
-  throw new Error('Config must include `url` and `environment` ("preview" | "production").');
+if (!config.environment) {
+  throw new Error('Config must include `environment` ("preview" | "production").');
 }
+
+// Normalise to a list so the rest of the spec doesn't need to branch.
+const urls: string[] = config.urls && config.urls.length > 0
+  ? config.urls
+  : config.url
+    ? [config.url]
+    : [];
+
+if (urls.length === 0) {
+  throw new Error('Config must include `url` (string) or `urls` (string[]).');
+}
+
+// ── Design tokens (loaded once, shared across every URL) ────────────────────
+// Tokens are resolved from the repo root so configs can use the same
+// "tokens/Tokens-Heinz/…" paths that the site compare specs use.
+let designTokens = null;
+let tokenSetName: string | null = null;
+if (config.tokensFile) {
+  const tokenPath = path.isAbsolute(config.tokensFile)
+    ? config.tokensFile
+    : path.resolve(process.cwd(), config.tokensFile);
+  const set = loadTokenFile(tokenPath);
+  if (set) {
+    designTokens = set.tokens;
+    tokenSetName = set.name;
+    const colorCount = countLeafs(designTokens.colors);
+    console.log(`[analyze] Loaded ${colorCount} color tokens from "${set.name}".`);
+  } else {
+    console.warn(`[analyze] Could not load tokens from ${tokenPath} — proceeding without token check.`);
+  }
+} else {
+  console.log('[analyze] No tokensFile in config — design token check skipped.');
+}
+
+// ── Reports directory (wiped once per run, not once per URL) ───────────────
+// We do this at module load so that when the config lists multiple URLs,
+// every report from this run ends up side-by-side in reports/analyze/.
+const reportsDir = path.join(process.cwd(), 'reports', 'analyze');
+fs.rmSync(reportsDir, { recursive: true, force: true });
+fs.mkdirSync(reportsDir, { recursive: true });
 
 function slugify(s: string): string {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60);
 }
 
-test(`Analyze ${config.environment.toUpperCase()} — ${config.url}`, async ({ browser }, testInfo) => {
-  // ── Resolve output paths ──────────────────────────────────────────────
-  // Wipe and recreate the analyse directory before each run so the folder
-  // only ever holds the latest report (avoids accumulating stale snapshots).
-  const reportsDir = path.join(process.cwd(), 'reports', 'analyze');
-  fs.rmSync(reportsDir, { recursive: true, force: true });
-  fs.mkdirSync(reportsDir, { recursive: true });
-  const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-  const slug      = slugify(new URL(config.url).pathname || 'home') || 'page';
-  const outputPath     = config.outputPath || path.join(reportsDir, `${slug}-${timestamp}.html`);
-  const screenshotPath = path.join(reportsDir, `${slug}-${timestamp}.png`);
+for (const url of urls) {
+  test(`Analyze ${config.environment.toUpperCase()} — ${url}`, async ({ browser }, testInfo) => {
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const slug      = slugify(new URL(url).pathname || 'home') || 'page';
+    const outputPath     = path.join(reportsDir, `${slug}-${timestamp}.html`);
+    const screenshotPath = path.join(reportsDir, `${slug}-${timestamp}.png`);
 
-  // ── Design tokens (optional) ──────────────────────────────────────────
-  let designTokens = null;
-  if (config.figmaFileKey) {
-    const figmaToken = process.env.FIGMA_TOKEN?.trim();
-    if (!figmaToken) {
-      console.warn('[analyze] FIGMA_TOKEN env var not set — skipping design token check.');
-    } else {
-      try {
-        console.log(`[analyze] Fetching Figma tokens for file ${config.figmaFileKey}…`);
-        designTokens = await fetchFigmaTokens(config.figmaFileKey, figmaToken);
-        const colorCount = countLeafs(designTokens.colors);
-        const typoCount  = countLeafs(designTokens.typography);
-        console.log(`[analyze] Loaded ${colorCount} color tokens + ${typoCount} typography tokens.`);
-      } catch (err) {
-        console.warn(`[analyze] Figma fetch failed (${(err as Error).message}) — proceeding without tokens.`);
+    const ctx  = await browser.newContext({ ignoreHTTPSErrors: true });
+    const page = await ctx.newPage();
+
+    try {
+      if (config.environment === 'preview') {
+        const auth = requireAuthConfig();
+        await loginToPreview(page, auth, url);
       }
-    }
-  } else {
-    console.log('[analyze] No figmaFileKey in config — design token check skipped.');
-  }
 
-  // ── Browser context with optional preview auth ────────────────────────
-  const ctx  = await browser.newContext({ ignoreHTTPSErrors: true });
-  const page = await ctx.newPage();
+      console.log(`[analyze] Analysing ${url}…`);
+      const analysis = await analyzePage(page, url, screenshotPath, designTokens);
 
-  try {
-    if (config.environment === 'preview') {
-      const auth = requireAuthConfig();
-      await loginToPreview(page, auth, config.url);
-    }
+      if (analysis.loadError) {
+        console.warn(`[analyze] ⚠ Page load reported an error: ${analysis.loadError}`);
+      }
 
-    // ── Analyse ─────────────────────────────────────────────────────────
-    console.log(`[analyze] Analysing ${config.url}…`);
-    const analysis = await analyzePage(page, config.url, screenshotPath, designTokens);
-
-    if (analysis.loadError) {
-      console.warn(`[analyze] ⚠ Page load reported an error: ${analysis.loadError}`);
-    }
-
-    // ── Build report ────────────────────────────────────────────────────
-    const html = generateSinglePageReport(analysis, {
-      environment:  config.environment,
-      figmaFileKey: config.figmaFileKey,
-    });
-    fs.writeFileSync(outputPath, html, 'utf8');
-
-    await testInfo.attach('Analysis Report (HTML)', {
-      path: outputPath, contentType: 'text/html',
-    });
-    if (fs.existsSync(screenshotPath)) {
-      await testInfo.attach('Page Screenshot', {
-        path: screenshotPath, contentType: 'image/png',
+      const html = generateSinglePageReport(analysis, {
+        environment:  config.environment,
+        tokenSetName: tokenSetName ?? undefined,
       });
-    }
+      fs.writeFileSync(outputPath, html, 'utf8');
 
-    // ── Summary ─────────────────────────────────────────────────────────
-    const axeTotal       = analysis.axeViolations.length;
-    const axeCritical    = analysis.axeViolations.filter((v) => v.impact === 'critical').length;
-    const tokenColors    = analysis.designTokenViolations?.unknownColors.length ?? 0;
-    const tokenFonts     = analysis.designTokenViolations?.unknownFonts.length  ?? 0;
+      await testInfo.attach('Analysis Report (HTML)', {
+        path: outputPath, contentType: 'text/html',
+      });
+      if (fs.existsSync(screenshotPath)) {
+        await testInfo.attach('Page Screenshot', {
+          path: screenshotPath, contentType: 'image/png',
+        });
+      }
 
-    console.log('\n' + '='.repeat(60));
-    console.log(`ANALYSIS SUMMARY — ${config.environment}: ${config.url}`);
-    console.log('='.repeat(60));
-    console.log(`HTTP status:                    ${analysis.statusCode}`);
-    console.log(`Axe violations (total / crit):  ${axeTotal} / ${axeCritical}`);
-    if (analysis.designTokenViolations) {
-      console.log(`Token color violations:         ${tokenColors}`);
-      console.log(`Token font violations:          ${tokenFonts}`);
-    } else {
-      console.log('Token check:                    not run');
+      const axeTotal       = analysis.axeViolations.length;
+      const axeCritical    = analysis.axeViolations.filter((v) => v.impact === 'critical').length;
+      const tokenColors    = analysis.designTokenViolations?.unknownColors.length ?? 0;
+      const tokenFonts     = analysis.designTokenViolations?.unknownFonts.length  ?? 0;
+
+      console.log('\n' + '='.repeat(60));
+      console.log(`ANALYSIS SUMMARY — ${config.environment}: ${url}`);
+      console.log('='.repeat(60));
+      console.log(`HTTP status:                    ${analysis.statusCode}`);
+      console.log(`Axe violations (total / crit):  ${axeTotal} / ${axeCritical}`);
+      if (analysis.designTokenViolations) {
+        console.log(`Token color violations:         ${tokenColors}`);
+        console.log(`Token font violations:          ${tokenFonts}`);
+      } else {
+        console.log('Token check:                    not run');
+      }
+      console.log('='.repeat(60));
+      console.log(`Report saved to: ${outputPath}\n`);
+    } finally {
+      await ctx.close();
     }
-    console.log('='.repeat(60));
-    console.log(`Report saved to: ${outputPath}\n`);
-  } finally {
-    await ctx.close();
-  }
-});
+  });
+}
 
 /** Counts the leaf entries (color hex strings, typography objects) in a nested token tree. */
 function countLeafs(obj: unknown): number {

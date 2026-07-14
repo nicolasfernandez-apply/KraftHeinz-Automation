@@ -1,0 +1,10 @@
+{
+  "name": "Heinz",
+  "slug": "heinz",
+  "previewBaseUrl": "https://heinz.prv.kraftheinz.com/",
+  "productionBaseUrl": "https://www.heinz.com/",
+  "sitemapPath": "/sitemap.xml",
+  "tokensDir": "tokens/Tokens-Heinz",
+  "excludePatterns": [],
+  "maxPages": 0
+}

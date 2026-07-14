@@ -57,10 +57,6 @@ function generateIndexHtml(runs) {
   const lastDate = lastRun ? fmtDate(lastRun.date) : 'N/A';
 
   const rows = runs.map((run, i) => {
-    const tagHtml = (run.pages ?? [])
-      .map(p => `<span class="tag">${escHtml(p)}</span>`)
-      .join('');
-
     const shaHtml = run.sha && repo
       ? `<a class="sha-link" href="${serverUrl}/${repo}/commit/${run.sha}" target="_blank">${escHtml(run.sha)}</a>`
       : escHtml(run.sha ?? '—');
@@ -75,7 +71,6 @@ function generateIndexHtml(runs) {
       <tr${isLatest ? ' class="latest"' : ''}>
         <td class="c-run">${runHtml}${isLatest ? ' <span class="latest-badge">latest</span>' : ''}</td>
         <td class="c-date">${fmtDate(run.date)}</td>
-        <td class="c-pages">${tagHtml || '<em class="none">—</em>'}</td>
         <td class="c-sha">${shaHtml}</td>
         <td class="c-action">
           <a class="btn-report" href="${escHtml(run.reportPath)}" target="_blank">View Report →</a>
@@ -138,12 +133,6 @@ function generateIndexHtml(runs) {
 
     .c-date { color: #555; font-size: 13px; white-space: nowrap; }
 
-    .tag {
-      display: inline-block; background: #eef2ff; color: #3730a3;
-      font-size: 11px; font-weight: 600; padding: 3px 8px;
-      border-radius: 4px; margin: 2px 3px 2px 0;
-    }
-
     .sha-link { font-family: monospace; font-size: 12px; color: #888; text-decoration: none; }
     .sha-link:hover { color: #333; text-decoration: underline; }
 
@@ -153,8 +142,6 @@ function generateIndexHtml(runs) {
       font-weight: 600; text-decoration: none; white-space: nowrap;
     }
     .btn-report:hover { background: #16213e; }
-
-    em.none { color: #bbb; font-size: 13px; }
 
     footer { text-align: center; color: #bbb; font-size: 12px; padding: 24px; }
   </style>
@@ -182,13 +169,12 @@ function generateIndexHtml(runs) {
           <tr>
             <th>Run</th>
             <th>Date (UTC)</th>
-            <th>Pages Compared</th>
             <th>Commit</th>
             <th>Report</th>
           </tr>
         </thead>
         <tbody>
-          ${rows || '<tr><td colspan="5" style="color:#bbb;font-style:italic;padding:32px;text-align:center">No runs yet</td></tr>'}
+          ${rows || '<tr><td colspan="4" style="color:#bbb;font-style:italic;padding:32px;text-align:center">No runs yet</td></tr>'}
         </tbody>
       </table>
     </div>

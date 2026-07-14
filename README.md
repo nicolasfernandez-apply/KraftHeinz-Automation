@@ -190,6 +190,131 @@ The target environment is controlled by the `TARGET_ENV` env var (`both` | `prev
 | Footer — social media links | TikTok, Instagram, Facebook, YouTube — `href` attributes checked |
 | Brand menu (hamburger) | All 11 KraftHeinz brand links are present with correct absolute URLs |
 
+### Heinz
+
+**Configuration:** [`sites/heinz/site.config.json`](sites/heinz/site.config.json)
+
+**Running:**
+
+```bash
+# Step 1 — discover pages from the production sitemap → writes sites/heinz/pages.json
+npm run crawl:heinz
+
+# Step 2 — run the comparison for every discovered page
+# (design tokens are loaded from the folder specified by `tokensDir` in
+#  sites/heinz/site.config.json — typically tokens/Tokens-Heinz/)
+npm run compare:heinz
+
+# Or do both in one command
+npm run site:heinz
+```
+
+Reports are saved to `sites/heinz/reports/` — one HTML file per page.
+
+#### Locales
+
+The Heinz site is split across many locales using the URL pattern `/xx-XX/` (e.g. `/es-MX/`, `/en-GB/`), plus a **default** locale with no prefix (e.g. `https://www.heinz.com/dippingsauces/`).
+
+List every locale discovered by the crawler along with the number of pages it contains:
+
+```bash
+npm run locales:heinz
+```
+
+By default `npm run compare:heinz` compares **every** page across **every** locale. To narrow the run, set the `LOCALE` env var:
+
+```bash
+# Only pages under a specific locale prefix
+LOCALE=es-MX npm run compare:heinz
+
+# Only the default locale (URLs without a /xx-XX/ prefix)
+LOCALE=default npm run compare:heinz
+
+# Every locale (explicit; same as omitting the variable)
+LOCALE=all npm run compare:heinz
+```
+
+If `LOCALE` doesn't match any discovered pages, the run aborts with a clear error — use `npm run locales:heinz` to see the valid options.
+
+#### Navigation tests
+
+Verifies that all header links, footer links, social media links, and the KraftHeinz brand-switcher (hamburger) menu work correctly.
+
+```bash
+# Both environments (default)
+npm run nav:heinz
+
+# Preview only (IAP-protected — requires PREVIEW_USERNAME / PREVIEW_PASSWORD in .env)
+npm run nav:heinz:preview
+
+# Production only (no credentials required)
+npm run nav:heinz:production
+
+# Run with a visible browser window (useful for debugging)
+npx playwright test sites/heinz/navigation.spec.ts --headed
+```
+
+The target environment is controlled by the `TARGET_ENV` env var (`both` | `preview` | `production`). Base URLs are read from [`sites/heinz/site.config.json`](sites/heinz/site.config.json).
+
+**What is tested:**
+
+| Suite | Tests |
+|---|---|
+| Header — primary navigation links | Logo → `/`, Products → `/products`, Recipes → `/recipes`, Who We Are → `/who-we-are`, Grown Not Made → `/sustainability` |
+| Header — visible on all main pages | Nav renders on Home, Products, Recipes, Who We Are, Grown Not Made |
+| Footer — internal links | Each of the 4 footer links navigates correctly, verified from every header page |
+| Footer — external KraftHeinz links | TasteVIP, Corporate, Contact Us, Product Locator — `href` attributes checked |
+| Footer — social media links | TikTok, Instagram, YouTube, Facebook, Pinterest — `href` attributes checked |
+| Brand menu (hamburger) | All 16 KraftHeinz brand links are present with correct absolute URLs |
+
+---
+
+## Ad-hoc single-page analyses
+
+When you need to spot-check one or a handful of pages — without crawling a whole sitemap — use the analyze flow. It takes a small JSON config describing the page(s), runs the same `analyzePage` extraction used by the site comparisons, and produces a Playwright HTML report (same UI you already use for `npm run compare:*`).
+
+### 1. Configure the run
+
+Edit [`analyze.config.json`](analyze.config.json) in the repo root:
+
+```json
+{
+  "urls": [
+    "https://brands.prv.kraftheinz.com/en-CA/kraft-dinner",
+    "https://brands.prv.kraftheinz.com/fr-CA/kraft-dinner"
+  ],
+  "environment": "preview",
+  "tokensFile": "tokens/Tokens-Brands(K-L)/KD - Blue.tokens.json"
+}
+```
+
+| Field | Purpose |
+|---|---|
+| `urls` | List of pages to analyse — each gets its own test, screenshot, and per-page HTML report. (A single `"url": "..."` is also accepted for one-off runs.) |
+| `environment` | `"preview"` or `"production"`. Preview triggers the usual IAP login flow before navigating. |
+| `tokensFile` | *Optional.* Path (relative to repo root) to a single `*.tokens.json` palette in `tokens/`. Omit to skip the design-token compliance check. |
+
+A different config can be pointed at with the `ANALYZE_CONFIG` env var:
+
+```bash
+ANALYZE_CONFIG=./my-other-config.json npm run analyze
+```
+
+### 2. Run it
+
+```bash
+# Run the analyses — outputs HTML + screenshot per URL into reports/analyze/
+# and a Playwright HTML report into playwright-report/
+npm run analyze
+
+# Open the Playwright report in a browser
+npm run analyze:report
+```
+
+The Playwright report lists every URL in the config as its own test. Click into one to see the attached per-page report (axe violations, design-token violations, metadata, content, etc.) and the full-page screenshot.
+
+The `reports/analyze/` folder is wiped at the start of each run, so it always reflects the latest config — useful when iterating on a single URL/token combination.
+
 ---
 
 ## Adding a new brand site

@@ -57,10 +57,21 @@ export interface ConsoleEntry {
 
 // ── Design token types ────────────────────────────────────────────────────────
 
-/** Nested color/typography token structure as produced by refresh-tokens.mjs */
+/** Nested color/typography token structure consumed by analyzePage(). */
 export interface DesignTokens {
   colors:     Record<string, unknown>;
   typography: Record<string, unknown>;
+}
+
+/**
+ * A named design-token set. When an array of these is passed to analyzePage(),
+ * the analyzer runs the compliance check against each set independently and
+ * returns the violations from the set with the fewest total mismatches (along
+ * with that set's name in `PageAnalysis.matchedTokenSet`).
+ */
+export interface NamedTokenSet {
+  name:   string;
+  tokens: DesignTokens;
 }
 
 /** A color found on the page that is not present in the design token palette. */
@@ -141,8 +152,22 @@ export interface PageAnalysis {
   /**
    * Design-token compliance check results.
    * null when no design tokens were provided to analyzePage().
+   * When multiple token sets are passed, this holds the result for the
+   * best-matching set (the one with the fewest total violations).
    */
   designTokenViolations: DesignTokenViolations | null;
+  /**
+   * Name of the token set whose comparison produced `designTokenViolations`.
+   * null when no tokens were provided, when a single (un-named) set was
+   * passed, or when token analysis failed.
+   */
+  matchedTokenSet: string | null;
+  /**
+   * All token set names that achieved a perfect score (0 element violations).
+   * Contains only `matchedTokenSet` when only one theme hits zero, or is empty
+   * when the best score is non-zero.
+   */
+  matchedTokenSets: string[];
   timestamp: string;
 }
 
@@ -271,11 +296,81 @@ function flattenTokenFonts(obj: unknown, out: Set<string> = new Set()): Set<stri
   return out;
 }
 
+// ── Node-side token comparison ────────────────────────────────────────────────
+// `analyzePage` extracts raw color/font maps inside `page.evaluate` once, then
+// calls this helper against each candidate token set. Keeping the comparison
+// off the page makes multi-set scoring cheap (no extra page evaluations).
+
+interface RawColorEntry { count: number; properties: string[]; samples: string[]; }
+interface RawFontEntry  { fontFamily: string; fontWeight: number; count: number; samples: string[]; }
+
+function computeTokenViolations(
+  colorMap: Record<string, RawColorEntry>,
+  fontMap:  Record<string, RawFontEntry>,
+  tokens:   DesignTokens,
+): DesignTokenViolations {
+  const tokenColorSet = flattenTokenColors(tokens.colors);
+  const tokenFontSet  = flattenTokenFonts(tokens.typography);
+  const fontAliases   = buildFontAliasMap(tokens.typography);
+  const weightSuffixRe = new RegExp(WEIGHT_SUFFIX_PATTERN);
+
+  // When the token set defines no typography (e.g. DTCG color-only tokens),
+  // every font on the page would otherwise be flagged. Treat font compliance
+  // as a no-op in that case.
+  const fontsAreTokenised = tokenFontSet.size > 0;
+
+  const aliasedKeyFor = (family: string): string | null => {
+    const m = family.match(weightSuffixRe);
+    if (!m) return null;
+    const base = family.slice(0, family.length - m[0].length);
+    const canonical = fontAliases[base];
+    if (!canonical) return null;
+    const weight = WEIGHT_WORD_TO_NUMBER[m[1].toLowerCase()] ?? 400;
+    return `${canonical}|${weight}`;
+  };
+
+  const isFontCompliant = (key: string, family: string): boolean => {
+    if (!fontsAreTokenised) return true;
+    if (tokenFontSet.has(key)) return true;
+    const aliased = aliasedKeyFor(family);
+    return aliased !== null && tokenFontSet.has(aliased);
+  };
+
+  const unknownColors = Object.entries(colorMap)
+    .filter(([hex]) => !tokenColorSet.has(hex))
+    .map(([color, data]) => ({
+      color,
+      count:      data.count,
+      properties: data.properties,
+      samples:    data.samples,
+    }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 50);
+
+  const compliantColorCount = Object.keys(colorMap)
+    .filter((hex) => tokenColorSet.has(hex)).length;
+
+  const unknownFonts = Object.entries(fontMap)
+    .filter(([key, data]) => !isFontCompliant(key, data.fontFamily))
+    .map(([, data]) => ({
+      fontFamily: data.fontFamily,
+      fontWeight: data.fontWeight,
+      count:      data.count,
+      samples:    data.samples,
+    }))
+    .sort((a, b) => b.count - a.count);
+
+  const compliantFontCount = Object.entries(fontMap)
+    .filter(([key, data]) => isFontCompliant(key, data.fontFamily)).length;
+
+  return { unknownColors, compliantColorCount, unknownFonts, compliantFontCount };
+}
+
 export async function analyzePage(
   page: Page,
   url: string,
   screenshotPath: string,
-  designTokens?: DesignTokens | null,
+  designTokens?: DesignTokens | NamedTokenSet[] | null,
 ): Promise<PageAnalysis> {
   const consoleEntries: ConsoleEntry[] = [];
 
@@ -588,35 +683,29 @@ export async function analyzePage(
   // compares them against the flat set of values defined in the token file.
 
   let designTokenViolations: DesignTokenViolations | null = null;
+  let matchedTokenSet: string | null = null;
+  let matchedTokenSets: string[] = [];
 
-  if (designTokens) {
-    const validColors = [...flattenTokenColors(designTokens.colors)];
-    const validFonts  = [...flattenTokenFonts(designTokens.typography)];
-    const fontAliases = buildFontAliasMap(designTokens.typography);
+  // Normalise the tokens argument into a list of candidate sets so the
+  // analysis branch is the same whether the caller passed null, a single
+  // (un-named) DesignTokens object, or a list of named sets.
+  const tokenCandidates: NamedTokenSet[] = !designTokens
+    ? []
+    : Array.isArray(designTokens)
+      ? designTokens
+      : [{ name: '', tokens: designTokens }];
 
-    designTokenViolations = await page
+  if (tokenCandidates.length > 0) {
+    // ── Page-side raw style sampling ──────────────────────────────────────
+    // Extract raw colorMap and fontMap once; comparison against each token
+    // set happens Node-side below so a multi-set selection doesn't re-load
+    // the page.
+    const rawStyles = await page
       .evaluate(
-        ({ validColorsArr, validFontsArr, weightSuffixPattern, fontAliasMap, weightWordMap }) => {
+        ({ weightSuffixPattern }) => {
           const weightSuffixRe = new RegExp(weightSuffixPattern);
           const buildFontKey = (fam: string, wt: number): string =>
             weightSuffixRe.test(fam) ? `${fam}|*` : `${fam}|${wt}`;
-
-          /**
-           * Resolves "FilsonProBold" → "Filson Pro" + 700 for token lookup.
-           * Returns null if the family doesn't end in a recognised weight
-           * suffix or the compressed base isn't a known token family.
-           */
-          const aliasedKeyFor = (family: string): string | null => {
-            const m = family.match(weightSuffixRe);
-            if (!m) return null;
-            // Slice the suffix off the end — m[0] is the full matched suffix
-            // (e.g. "bold", "boldItalic").
-            const base = family.slice(0, family.length - m[0].length);
-            const canonical = fontAliasMap[base];
-            if (!canonical) return null;
-            const weight = weightWordMap[m[1].toLowerCase()] ?? 400;
-            return `${canonical}|${weight}`;
-          };
           // ── Cookie/consent ancestor detector ─────────────────────────────
           // Mirrors the same filter applied to text/links extraction so that
           // OneTrust, Cookiebot, etc. don't pollute the token compliance check.
@@ -821,58 +910,41 @@ export async function analyzePage(
             }
           }
 
-          // ── Compare against token sets ───────────────────────────────────
-          const tokenColorSet = new Set(validColorsArr);
-          const tokenFontSet  = new Set(validFontsArr);
-
-          const unknownColors = Object.entries(colorMap)
-            .filter(([hex]) => !tokenColorSet.has(hex))
-            .map(([color, data]) => ({
-              color,
-              count:      data.count,
-              properties: data.properties,
-              samples:    data.samples,
-            }))
-            .sort((a, b) => b.count - a.count)
-            .slice(0, 50); // cap to keep report readable
-
-          const compliantColorCount = Object.keys(colorMap)
-            .filter((hex) => tokenColorSet.has(hex)).length;
-
-          // A page-side font entry is compliant if EITHER its direct lookup
-          // key matches a token, OR aliasing it via the family-name map
-          // produces a key that matches a token (handles cases where the page
-          // ships "FilsonProBold" while Figma documents "Filson Pro" at 700).
-          const isCompliant = (key: string, family: string): boolean => {
-            if (tokenFontSet.has(key)) return true;
-            const aliased = aliasedKeyFor(family);
-            return aliased !== null && tokenFontSet.has(aliased);
-          };
-
-          const unknownFonts = Object.entries(fontMap)
-            .filter(([key, data]) => !isCompliant(key, data.fontFamily))
-            .map(([, data]) => ({
-              fontFamily: data.fontFamily,
-              fontWeight: data.fontWeight,
-              count:      data.count,
-              samples:    data.samples,
-            }))
-            .sort((a, b) => b.count - a.count);
-
-          const compliantFontCount = Object.entries(fontMap)
-            .filter(([key, data]) => isCompliant(key, data.fontFamily)).length;
-
-          return { unknownColors, compliantColorCount, unknownFonts, compliantFontCount };
+          // Comparison against token sets happens Node-side (below) so a
+          // single page evaluation can be re-used against multiple sets.
+          return { colorMap, fontMap };
         },
-        {
-          validColorsArr:      validColors,
-          validFontsArr:       validFonts,
-          weightSuffixPattern: WEIGHT_SUFFIX_PATTERN,
-          fontAliasMap:        fontAliases,
-          weightWordMap:       WEIGHT_WORD_TO_NUMBER,
-        },
+        { weightSuffixPattern: WEIGHT_SUFFIX_PATTERN },
       )
       .catch(() => null);
+
+    if (rawStyles) {
+      // Pick the candidate set with the fewest element-level violations
+      // (sum of element counts across unknown colors + unknown fonts).
+      // Ties go to the first candidate, which keeps the result deterministic
+      // when the page's palette matches multiple brand themes equally well.
+      const elementScore = (v: DesignTokenViolations): number =>
+        v.unknownColors.reduce((s, c) => s + c.count, 0) +
+        v.unknownFonts.reduce((s, f) => s + f.count, 0);
+
+      let best: { name: string; violations: DesignTokenViolations; score: number } | null = null;
+      const scored: { name: string; violations: DesignTokenViolations; score: number }[] = [];
+
+      for (const candidate of tokenCandidates) {
+        const v = computeTokenViolations(rawStyles.colorMap, rawStyles.fontMap, candidate.tokens);
+        const score = elementScore(v);
+        scored.push({ name: candidate.name, violations: v, score });
+        if (!best || score < best.score) {
+          best = { name: candidate.name, violations: v, score };
+        }
+      }
+
+      if (best) {
+        designTokenViolations = best.violations;
+        matchedTokenSet       = best.name || null;
+        matchedTokenSets      = scored.filter(s => s.score === 0).map(s => s.name);
+      }
+    }
   }
 
   return {
@@ -894,6 +966,8 @@ export async function analyzePage(
     textBlocks,
     axeViolations,
     designTokenViolations,
+    matchedTokenSet,
+    matchedTokenSets,
     timestamp: new Date().toISOString(),
   };
 }

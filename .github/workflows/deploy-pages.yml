@@ -11,6 +11,8 @@ on:
       - "URL Comparison — Preview vs Production"
       - "Oscar Mayer — Crawl & Compare"
       - "Oscar Mayer — Navigation Tests"
+      - "Heinz — Crawl & Compare"
+      - "Heinz — Navigation Tests"
     types: [completed]
     branches: [main]
 
@@ -78,6 +80,28 @@ jobs:
             echo "Oscar Mayer navigation dashboard included at /oscar-mayer/navigation/"
           else
             echo "oscar-mayer-nav-history branch not found — skipping /oscar-mayer/navigation/"
+          fi
+
+          # ── /heinz/: Heinz dashboard ─────────────────────────────────────────
+          if git ls-remote --exit-code --heads "$REPO_URL" heinz-history 2>/dev/null; then
+            git clone --branch heinz-history --single-branch "$REPO_URL" .heinz-site
+            mkdir -p .pages-artifact/heinz
+            cp -r .heinz-site/. .pages-artifact/heinz/
+            rm -rf .pages-artifact/heinz/.git
+            echo "Heinz dashboard included at /heinz/"
+          else
+            echo "heinz-history branch not found — skipping /heinz/"
+          fi
+
+          # ── /heinz/navigation/: Heinz navigation tests dashboard ─────────────
+          if git ls-remote --exit-code --heads "$REPO_URL" heinz-nav-history 2>/dev/null; then
+            git clone --branch heinz-nav-history --single-branch "$REPO_URL" .heinz-nav-site
+            mkdir -p .pages-artifact/heinz/navigation
+            cp -r .heinz-nav-site/. .pages-artifact/heinz/navigation/
+            rm -rf .pages-artifact/heinz/navigation/.git
+            echo "Heinz navigation dashboard included at /heinz/navigation/"
+          else
+            echo "heinz-nav-history branch not found — skipping /heinz/navigation/"
           fi
 
           # ── Fallback root index if neither branch exists yet ──────────────────
