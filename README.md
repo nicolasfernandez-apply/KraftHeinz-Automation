@@ -269,6 +269,54 @@ The target environment is controlled by the `TARGET_ENV` env var (`both` | `prev
 
 ---
 
+## AI-powered form testing
+
+Tests all forms on a given URL using Claude AI to scan each form, identify all fields (including required fields marked with `*`), and generate valid and invalid test data tailored to each field's purpose.
+
+### 1. Configure the forms to test
+
+Edit [`forms.config.json`](forms.config.json) in the repo root:
+
+```json
+{
+  "forms": [
+    {
+      "name": "Ambassador Form",
+      "url": "https://brands.prv.kraftheinz.com/mio/ambassador/form",
+      "environment": "preview"
+    }
+  ]
+}
+```
+
+| Field | Purpose |
+|---|---|
+| `name` | Display name shown in the report |
+| `url` | Full URL of the page containing the form |
+| `environment` | `"preview"` or `"production"`. Preview triggers the usual IAP login before navigating. |
+
+### 2. Prerequisites
+
+The form analyzer uses the Claude CLI to interpret form fields and generate test data. It must be installed globally:
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+### 3. Run the form tests
+
+```bash
+# Headless (CI-friendly)
+npm run test:forms
+
+# Headed — browser window stays visible (useful for debugging)
+npm run test:forms:headed
+```
+
+Reports are saved to `reports/forms/` — one self-contained HTML file per form URL. Each report includes the discovered form structure, valid submission results, required-field validation, and per-field invalid-data results.
+
+---
+
 ## Ad-hoc single-page analyses
 
 When you need to spot-check one or a handful of pages — without crawling a whole sitemap — use the analyze flow. It takes a small JSON config describing the page(s), runs the same `analyzePage` extraction used by the site comparisons, and produces a Playwright HTML report (same UI you already use for `npm run compare:*`).

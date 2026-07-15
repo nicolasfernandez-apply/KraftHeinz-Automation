@@ -232,6 +232,7 @@ function interpretWithClaude(rawForms: RawForm[], url: string, pageTitle: string
    - For email fields add a malformed email.
    - For phone fields add non-numeric text.
    - For select/radio/checkbox, an invalid value is "" (no selection) if the field is required.
+   -Forms should at least have 1 checkbox, with a maximum of 2
 4. For checkboxes use a valid value of "true" (checked) and invalid of "" (unchecked if required).
 5. Return ONLY a valid JSON array - no markdown fences, no explanation, nothing else.
 

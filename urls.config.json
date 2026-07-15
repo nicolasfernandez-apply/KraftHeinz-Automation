@@ -3,20 +3,51 @@
 
      
          {
-      "name": "Tradeshow rules",
-      "previewUrl": "https://heinz.prv.kraftheinz.com/en-CA/tradeshow-rules",
-      "productionUrl": "https://www.heinz.com/en-CA/tradeshow-rules"
+      "name": "Walmart Dipping sauces",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/walmartdippingsauces",
+      "productionUrl": "https://www.heinz.com/walmartdippingsauces"
     }
       ,
          {
-      "name": "Jello simply rules",
-      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/simply",
-      "productionUrl": "https://www.kraftheinz.com/jell-o/simply"
+      "name": "Dipping sauces",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/dippingsauces",
+      "productionUrl": "https://www.heinz.com/dippingsauces"
     },
          {
-      "name": "Heinz seeds",
-      "previewUrl": "https://brands.prv.kraftheinz.com/heinzseed",
-      "productionUrl": "https://www.kraftheinz.com/heinzseed"
+      "name": "Kraft Mac and Cheese",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-US/kraft-mac-and-cheese/tasteofhomepack",
+      "productionUrl": "https://www.kraftheinz.com/en-US/kraft-mac-and-cheese/tasteofhomepack"
+
+    },
+         {
+      "name": "Guest Wifi Agreement",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-US/guest-wifi-user-agreement",
+      "productionUrl": "https://www.kraftheinz.com/en-US/guest-wifi-user-agreement"
+
+    },
+         {
+      "name": "Seed dealer",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-US/heinzseed/dealers",
+      "productionUrl": "https://www.kraftheinz.com/en-US/heinzseed/dealers"
+
+    }
+    ,
+         {
+      "name": "KH Brands",
+      "previewUrl": "https://brands.prv.kraftheinz.com/brands",
+      "productionUrl": "https://www.kraftheinz.com/brands"
+
+    } ,
+         {
+      "name": "United tastes of America",
+      "previewUrl": "https://brands.prv.kraftheinz.com/unitedtastesofamerica",
+      "productionUrl": "https://www.kraftheinz.com/unitedtastesofamerica"
+
+    },
+         {
+      "name": "Capri Sun LP",
+      "previewUrl": "https://brands.prv.kraftheinz.com/capri-sun/caprisunsicles",
+      "productionUrl": "https://www.kraftheinz.com/capri-sun/caprisunsicles"
 
     }
   ]

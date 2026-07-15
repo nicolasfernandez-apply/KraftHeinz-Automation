@@ -24,7 +24,9 @@
     "audit:heinz-recettes": "node sites/heinz/recettes-audit.mjs",
     "analyze": "playwright test tests/analyze-page.spec.ts",
     "analyze:report": "playwright show-report",
-    "theme-match": "playwright test tests/theme-match.spec.ts"
+    "theme-match": "playwright test tests/theme-match.spec.ts",
+    "test:forms": "playwright test tests/test-forms.spec.ts",
+    "test:forms:headed": "playwright test tests/test-forms.spec.ts --headed"
   },
   "dependencies": {
     "dotenv": "^16.4.5"
