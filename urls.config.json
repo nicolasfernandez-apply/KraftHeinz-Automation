@@ -3,15 +3,15 @@
 
      
          {
-      "name": "Walmart Dipping sauces",
-      "previewUrl": "https://heinz.prv.kraftheinz.com/walmartdippingsauces",
-      "productionUrl": "https://www.heinz.com/walmartdippingsauces"
+      "name": "KH en-ca",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA",
+      "productionUrl": "https://www.kraftheinz.com/en-CA"
     }
       ,
          {
-      "name": "Dipping sauces",
-      "previewUrl": "https://heinz.prv.kraftheinz.com/dippingsauces",
-      "productionUrl": "https://www.heinz.com/dippingsauces"
+      "name": "KH fr-ca",
+      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA",
+      "productionUrl": "https://www.kraftheinz.com/fr-CA"
     },
          {
       "name": "Kraft Mac and Cheese",
@@ -39,15 +39,34 @@
 
     } ,
          {
-      "name": "United tastes of America",
-      "previewUrl": "https://brands.prv.kraftheinz.com/unitedtastesofamerica",
-      "productionUrl": "https://www.kraftheinz.com/unitedtastesofamerica"
+      "name": "Kraft Mac and Cheese Products",
+      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-mac-and-cheese/products",
+      "productionUrl": "https://www.kraftheinz.com/kraft-mac-and-cheese/products"
 
     },
          {
-      "name": "Capri Sun LP",
-      "previewUrl": "https://brands.prv.kraftheinz.com/capri-sun/caprisunsicles",
-      "productionUrl": "https://www.kraftheinz.com/capri-sun/caprisunsicles"
+      "name": "Kraft Sauces Products",
+      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-sauces/products",
+      "productionUrl": "https://www.kraftheinz.com/kraft-sauces/products"
+
+    },
+         {
+      "name": "Lunchables Products",
+      "previewUrl": "https://lunchables.prv.kraftheinz.com/parents/products",
+      "productionUrl": "https://www.lunchables.com/parents/products"
+
+    }
+    ,
+         {
+      "name": "Oscar Mayer Products",
+      "previewUrl": "https://oscarmayer.prv.kraftheinz.com/products",
+      "productionUrl": "https://www.oscarmayer.com/products"
+
+    } ,
+         {
+      "name": "Capri Sun",
+      "previewUrl": "https://brands.prv.kraftheinz.com/capri-sun/adults/hydrate",
+      "productionUrl": "https://www.kraftheinz.com/capri-sun/adults/hydrate"
 
     }
   ]

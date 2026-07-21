@@ -87,6 +87,15 @@ async function extractRawForms(page: Page): Promise<RawForm[]> {
         if (prev.tagName === 'LABEL') return prev.textContent?.trim() ?? '';
         prev = prev.previousElementSibling;
       }
+      // aria-labelledby → concatenate referenced elements' text
+      const labelledBy = el.getAttribute('aria-labelledby');
+      if (labelledBy) {
+        const parts = labelledBy.split(/\s+/).map((refId) => {
+          const refEl = document.getElementById(refId);
+          return refEl?.textContent?.trim() ?? '';
+        }).filter(Boolean);
+        if (parts.length) return parts.join(' ');
+      }
       // aria-label attribute
       const ariaLabel = el.getAttribute('aria-label');
       if (ariaLabel) return ariaLabel.trim();
@@ -115,17 +124,45 @@ async function extractRawForms(page: Page): Promise<RawForm[]> {
       return false;
     }
 
-    function buildSelector(el: Element, formIndex: number, fieldIndex: number): string {
+    // NOTE ON SELECTORS: we deliberately use Playwright's chained ">> nth="
+    // engine (0-indexed, page-wide) rather than CSS ":nth-of-type". ":nth-of-type"
+    // counts siblings *within each element's own parent*, so when a page has two
+    // <form> elements under different parents, BOTH are "form:nth-of-type(1)" and
+    // "form:nth-of-type(2)" matches nothing. "form >> nth=N" reliably selects the
+    // (N+1)-th form on the whole page. `domFormIndex` is that page-wide index.
+    function buildSelector(el: Element, domFormIndex: number): string {
       const input = el as HTMLInputElement;
       if (input.id) return `#${CSS.escape(input.id)}`;
-      if (input.name) return `[name="${input.name}"]`;
-      return `form:nth-of-type(${formIndex + 1}) ${el.tagName.toLowerCase()}:nth-of-type(${fieldIndex + 1})`;
+      if (input.name) return `[name="${CSS.escape(input.name)}"]`;
+      const parentForm = el.closest('form');
+      const tag = el.tagName.toLowerCase();
+      const sameTag = parentForm ? Array.from(parentForm.querySelectorAll(tag)) : [];
+      const idx = Math.max(0, sameTag.indexOf(el));
+      return `form >> nth=${domFormIndex} >> css=${tag} >> nth=${idx}`;
+    }
+
+    function isSearchForm(form: HTMLFormElement): boolean {
+      if (form.getAttribute('role') === 'search') return true;
+      const searchTokens = /search|query|autocomplete/i;
+      if (searchTokens.test(form.id) || searchTokens.test(form.className)) return true;
+      if (searchTokens.test(form.action)) return true;
+      // A form whose only inputs are search/text fields named q/s/query/search
+      const controls = Array.from(form.querySelectorAll('input, select, textarea'));
+      if (controls.length === 0) return false;
+      const searchNames = /^(q|s|query|search|keyword|term)$/i;
+      return controls.every((el) => {
+        const input = el as HTMLInputElement;
+        return input.type === 'search' || searchNames.test(input.name ?? '');
+      });
     }
 
     const seen = new Set<string>();
-    const forms = Array.from(document.querySelectorAll('form'));
+    const allForms = Array.from(document.querySelectorAll('form'));
+    const forms = allForms.filter((f) => !isSearchForm(f));
 
     return forms.map((form, formIndex) => {
+      // Page-wide index used for ">> nth=" selectors (survives search-form filtering)
+      const domFormIndex = allForms.indexOf(form);
       const allControls = Array.from(
         form.querySelectorAll(
           'input:not([type="hidden"]):not([type="submit"]):not([type="button"]):not([type="reset"]):not([type="image"]),' +
@@ -139,20 +176,23 @@ async function extractRawForms(page: Page): Promise<RawForm[]> {
         form.querySelector('button:not([type="button"]):not([type="reset"])')
       ) as HTMLElement | null;
 
-      let submitSelector = `form:nth-of-type(${formIndex + 1}) [type="submit"]`;
+      let submitSelector = `form >> nth=${domFormIndex} >> css=[type="submit"]`;
       if (submitBtn) {
         if (submitBtn.id) submitSelector = `#${CSS.escape(submitBtn.id)}`;
         else if (submitBtn.getAttribute('name'))
-          submitSelector = `[name="${submitBtn.getAttribute('name')}"]`;
+          submitSelector = `[name="${CSS.escape(submitBtn.getAttribute('name')!)}"]`;
+        else if (submitBtn.getAttribute('type') === 'submit')
+          submitSelector = `form >> nth=${domFormIndex} >> css=button[type="submit"]`;
         else
-          submitSelector = `form:nth-of-type(${formIndex + 1}) button[type="submit"]`;
+          // Last-resort submit button had no id/name/type — target it by its text.
+          submitSelector = `form >> nth=${domFormIndex} >> css=button >> text=${(submitBtn.textContent ?? '').trim()}`;
       }
 
       // Deduplicate radio groups — keep only the first radio per name
       const seenRadioNames = new Set<string>();
       const fields: RawField[] = [];
 
-      allControls.forEach((el, i) => {
+      allControls.forEach((el) => {
         const input = el as HTMLInputElement;
         const isRadio = el.tagName === 'INPUT' && input.type === 'radio';
         if (isRadio) {
@@ -160,7 +200,7 @@ async function extractRawForms(page: Page): Promise<RawForm[]> {
           seenRadioNames.add(input.name);
         }
 
-        const selector = buildSelector(el, formIndex, i);
+        const selector = buildSelector(el, domFormIndex);
         if (seen.has(selector)) return;
         seen.add(selector);
 
@@ -189,6 +229,105 @@ async function extractRawForms(page: Page): Promise<RawForm[]> {
           type,
           required: isRequired(el, formIndex),
           placeholder: input.placeholder ?? '',
+          selector,
+          options,
+        });
+      });
+
+      // ── Custom / ARIA dropdown detection ───────────────────────────────────
+      // Modern forms often render dropdowns as:
+      //   (a) ARIA combobox/listbox elements, or
+      //   (b) plain <button> elements with aria-expanded / aria-haspopup, or
+      //   (c) icon-only <button> elements with NO ARIA attributes at all —
+      //       identified only by having exclusively image/SVG children and being
+      //       inside a labelled form-field container.
+      // All three are invisible to the standard querySelectorAll above.
+
+      const comboboxCandidates = Array.from(
+        form.querySelectorAll<HTMLElement>(
+          '[role="combobox"]:not(input):not(select), ' +
+          '[aria-haspopup="listbox"]:not(input):not(select), ' +
+          'button[aria-expanded]:not([type="submit"]):not([type="reset"]), ' +
+          'button[aria-haspopup]:not([type="submit"]):not([type="reset"]), ' +
+          // Icon-only buttons: no ARIA attributes — matched by content heuristic below
+          'button:not([type="submit"]):not([type="reset"])',
+        ),
+      ).filter((el) => {
+        // Disabled controls (e.g. a pre-filled, locked "Country" dropdown) can
+        // never be interacted with — exclude them regardless of ARIA.
+        if ((el as HTMLButtonElement).disabled) return false;
+
+        // For plain <button> elements (no ARIA attributes), include as a
+        // potential dropdown trigger when they have at least one img/svg child.
+        // This covers both icon-only triggers AND labeled triggers like
+        //   <button>Select a state <img …></button>
+        if (el.tagName !== 'BUTTON') return true; // keep ARIA-based elements unconditionally
+        if (el.hasAttribute('aria-expanded') || el.hasAttribute('aria-haspopup') || el.hasAttribute('role')) return true;
+
+        const children = Array.from(el.children);
+        return children.some(
+          (c) =>
+            c.tagName === 'IMG' ||
+            c.tagName === 'SVG' ||
+            c.getAttribute('aria-hidden') === 'true',
+        );
+      });
+
+      // Pre-compute the index of each combobox button among all non-submit/reset
+      // buttons in the form so we can build a reliable Playwright nth= selector.
+      const allNonSubmitButtons = Array.from(
+        form.querySelectorAll<HTMLElement>('button:not([type="submit"]):not([type="reset"])'),
+      );
+      const allComboRoles = Array.from(form.querySelectorAll<HTMLElement>('[role="combobox"]'));
+
+      comboboxCandidates.forEach((el) => {
+        const btnNth = allNonSubmitButtons.indexOf(el); // 0-based, -1 if not a button
+
+        const selector = el.id
+          ? `#${CSS.escape(el.id)}`
+          : el.tagName === 'BUTTON' && btnNth >= 0
+            // Playwright's page-wide nth= engine gives a unique, reliable match.
+            // (CSS :nth-of-type is relative to the parent, so it breaks when the
+            // page has multiple <form>s under different parents.)
+            ? `form >> nth=${domFormIndex} >> css=button:not([type="submit"]):not([type="reset"]) >> nth=${btnNth}`
+            : `form >> nth=${domFormIndex} >> css=[role="combobox"] >> nth=${Math.max(0, allComboRoles.indexOf(el))}`;
+
+        if (seen.has(selector)) return;
+        seen.add(selector);
+
+        // Collect options from an associated listbox (via aria-controls, a sibling,
+        // or a descendant element with role="listbox" / role="option").
+        const controlsId = el.getAttribute('aria-controls') ?? el.getAttribute('aria-owns');
+        const listbox = controlsId
+          ? document.getElementById(controlsId)
+          : (el.querySelector('[role="listbox"]') ??
+             el.parentElement?.querySelector('[role="listbox"], ul, [class*="option"]'));
+
+        const options = listbox
+          ? Array.from(listbox.querySelectorAll('[role="option"], li'))
+              .map((o) => o.textContent?.trim() ?? '')
+              .filter(Boolean)
+          : [];
+
+        // Resolve the label: check the element, then its parent container.
+        // For custom dropdowns where the label is in a sibling <div> (not <label>),
+        // also scan the first non-empty text child of the parent container.
+        let label = getLabelText(el) || (el.parentElement ? getLabelText(el.parentElement) : '');
+        if (!label && el.parentElement) {
+          // Pick up "State*" / "How did you first hear…" from a sibling div label
+          const firstTextChild = Array.from(el.parentElement.children).find(
+            (c) => c !== el && (c.textContent?.trim().length ?? 0) > 0,
+          );
+          label = firstTextChild?.textContent?.trim() ?? '';
+        }
+
+        fields.push({
+          label,
+          name: el.getAttribute('name') ?? '',
+          id: el.id ?? '',
+          type: 'combobox',
+          required: isRequired(el, formIndex),
+          placeholder: el.getAttribute('placeholder') ?? '',
           selector,
           options,
         });
@@ -231,10 +370,23 @@ function interpretWithClaude(rawForms: RawForm[], url: string, pageTitle: string
    - Always include an empty string ("") as an invalid value for required fields (reason: "required field cannot be empty").
    - For email fields add a malformed email.
    - For phone fields add non-numeric text.
-   - For select/radio/checkbox, an invalid value is "" (no selection) if the field is required.
-   -Forms should at least have 1 checkbox, with a maximum of 2
+   - For select/radio/checkbox/combobox, an invalid value is "" (no selection) if the field is required.
+   - Forms should at least have 1 checkbox, with a maximum of 2
+   - For dropdown (select or combobox) fields, the valid value must be one of the available option
+     texts or values listed in the field's "options" array. Pick a realistic non-empty option.
+     Invalid: "" (empty selection if required).
 4. For checkboxes use a valid value of "true" (checked) and invalid of "" (unchecked if required).
-5. Return ONLY a valid JSON array - no markdown fences, no explanation, nothing else.
+   For combobox (ARIA custom dropdown) fields, use an exact option text from the "options" array
+   as the valid value so the test can match it against the visible option elements.
+5. Be aware of the following form behaviour that the automated tests rely on:
+   - When a required field is left blank and the form is submitted, a validation error message
+     appears directly below that field (or within its nearest container). The tests detect this
+     message to confirm that validation is working.
+   - When the form is submitted with all valid data, a success or confirmation message is shown
+     on the page (or the user is redirected). The tests look for this to confirm the submission
+     succeeded. Make sure the valid test values you generate are realistic enough to actually
+     pass any server-side validation (e.g. use a real-looking email, not "test@test.com").
+6. Return ONLY a valid JSON array - no markdown fences, no explanation, nothing else.
 
 The JSON must follow this exact schema:
 [{"formIndex":0,"action":"","method":"","submitSelector":"","fields":[{"label":"","name":"","id":"","type":"","required":false,"placeholder":"","selector":"","options":[],"testData":{"valid":"","invalid":[{"value":"","reason":""}]}}]}]
@@ -304,6 +456,39 @@ export async function scanForm(page: Page): Promise<FormScanResult> {
   } else {
     const totalFields = rawForms.reduce((s, f) => s + f.fields.length, 0);
     console.log(`  [FormScanner] Found ${rawForms.length} form(s) with ${totalFields} field(s) total`);
+  }
+
+  // Dynamic option discovery: for combobox fields whose options couldn't be
+  // read from the static DOM (e.g. the listbox only appears after clicking),
+  // temporarily click the trigger, capture the revealed options, then close.
+  // Some custom multiselects keep the panel open after interaction (Escape does
+  // not close them), so we toggle the trigger again to close and prevent the
+  // open panel from overlapping — and intercepting clicks on — the next field.
+  for (const rawForm of rawForms) {
+    for (const field of rawForm.fields) {
+      if (field.type !== 'combobox' || field.options.length > 0) continue;
+      try {
+        const loc = page.locator(field.selector).first();
+        await loc.scrollIntoViewIfNeeded({ timeout: 3_000 }).catch(() => {});
+        const isOpen = async () => (await loc.getAttribute('aria-expanded').catch(() => null)) === 'true';
+        if (!(await isOpen())) await loc.click({ timeout: 3_000 });
+        await page.waitForTimeout(500);
+        const opts = await page
+          .locator('[role="option"], [role="listbox"] li, [class*="option"]:visible, [class*="dropdown"]:visible li')
+          .allInnerTexts()
+          .catch(() => [] as string[]);
+        field.options = opts.map((t) => t.trim()).filter(Boolean);
+        if (field.options.length > 0) {
+          console.log(`  [FormScanner] Discovered ${field.options.length} options for "${field.label}" via click`);
+        }
+        // Close: toggle the trigger if still open, then Escape as a backstop.
+        if (await isOpen()) await loc.click({ timeout: 3_000 }).catch(() => {});
+        await page.keyboard.press('Escape').catch(() => {});
+        await page.waitForTimeout(200);
+      } catch {
+        // Non-fatal — leave options empty; Claude will infer a plausible value
+      }
+    }
   }
 
   const screenshotBuffer = await page.screenshot({ fullPage: true });
