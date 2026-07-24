@@ -3,15 +3,15 @@
 
      
          {
-      "name": "KH en-ca",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA",
-      "productionUrl": "https://www.kraftheinz.com/en-CA"
+      "name": "Walmart Dipping Sauces",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/walmartdippingsauces",
+      "productionUrl": "https://www.heinz.com/walmartdippingsauces"
     }
       ,
          {
-      "name": "KH fr-ca",
-      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA",
-      "productionUrl": "https://www.kraftheinz.com/fr-CA"
+      "name": "Dipping Sauces",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/dippingsauces",
+      "productionUrl": "https://www.heinz.com/dippingsauces"
     },
          {
       "name": "Kraft Mac and Cheese",
@@ -64,9 +64,15 @@
 
     } ,
          {
-      "name": "Capri Sun",
-      "previewUrl": "https://brands.prv.kraftheinz.com/capri-sun/adults/hydrate",
-      "productionUrl": "https://www.kraftheinz.com/capri-sun/adults/hydrate"
+      "name": "Golden Circle",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-AU/golden-circle",
+      "productionUrl": "https://www.kraftheinz.com/en-AU/golden-circle"
+
+    },
+         {
+      "name": "Philly Our Story",
+      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/our-story",
+      "productionUrl": "https://www.kraftheinz.com/philadelphia/our-story"
 
     }
   ]

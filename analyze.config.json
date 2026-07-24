@@ -1,9 +1,7 @@
 {
   "urls": [
-    "https://brands.prv.kraftheinz.com/kool-aid/hydration",
-    "https://heinz.prv.kraftheinz.com/",
-    "https://oscarmayer.prv.kraftheinz.com/"
+    "https://brands.prv.kraftheinz.com/en-AU/golden-circle"
   ],
   "environment": "preview",
-  "tokensFile": "tokens/Tokens-Brands(K-L)/Kool Aid - Blue.tokens.json"
+  "tokensFile": "tokens/Tokens-KH/KH - Yellow.tokens.json"
 }

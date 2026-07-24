@@ -433,6 +433,38 @@ Return the complete JSON array with testData populated for every field.`;
   return parsed;
 }
 
+/**
+ * Normalises checkbox requiredness to match the known KraftHeinz form behaviour:
+ *   • A form with a SINGLE checkbox → that checkbox is always required
+ *     (e.g. the mandatory terms/consent acceptance).
+ *   • A form with TWO checkboxes → exactly one is required and one is optional
+ *     (e.g. required consent + optional marketing opt-in). When field detection
+ *     is ambiguous (both marked required, or both optional) we keep the first as
+ *     required and force the second to optional so the "mandatory only" valid
+ *     scenario has a well-defined target.
+ * DOM-detected requiredness is trusted when it already produces exactly one
+ * required checkbox out of two.
+ */
+function normalizeCheckboxRequiredness(forms: FormInfo[]): void {
+  for (const form of forms) {
+    const checkboxes = form.fields.filter((f) => f.type === 'checkbox');
+
+    if (checkboxes.length === 1) {
+      checkboxes[0].required = true;
+      continue;
+    }
+
+    if (checkboxes.length === 2) {
+      const requiredCount = checkboxes.filter((c) => c.required).length;
+      if (requiredCount !== 1) {
+        // Ambiguous detection — pin the first as mandatory, the second as optional.
+        checkboxes[0].required = true;
+        checkboxes[1].required = false;
+      }
+    }
+  }
+}
+
 // ── Public API ────────────────────────────────────────────────────────────────
 
 /**
@@ -497,6 +529,8 @@ export async function scanForm(page: Page): Promise<FormScanResult> {
   const forms = rawForms.length > 0
     ? interpretWithClaude(rawForms, url, pageTitle)
     : [];
+
+  normalizeCheckboxRequiredness(forms);
 
   console.log(`  [FormScanner] Scan complete.\n`);
 

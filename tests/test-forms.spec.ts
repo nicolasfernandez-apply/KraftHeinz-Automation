@@ -27,6 +27,8 @@ import {
   FormReportData,
   FormScenarioResult,
   FieldValidationResult,
+  SubmittedFieldValue,
+  BackendRequestInfo,
 } from '../utils/form-report';
 
 // ── Config types & loader ─────────────────────────────────────────────────────
@@ -240,11 +242,48 @@ async function fillField(page: Page, field: FormField, value: string): Promise<v
   }
 }
 
-/** Fills all given fields with their valid test values. */
-async function fillValidData(page: Page, form: FormInfo): Promise<void> {
-  for (const field of form.fields) {
-    await fillField(page, field, field.testData?.valid ?? '');
+/**
+ * Resolves the value to apply to a field for a valid submission.
+ *
+ * Checkboxes are special: a required checkbox (mandatory consent) is always
+ * checked; an optional checkbox is only checked in the "both checkboxes"
+ * variant and left unchecked in the "mandatory only" variant.
+ */
+function validValueForField(field: FormField, includeOptionalCheckboxes: boolean): string {
+  if (field.type === 'checkbox') {
+    if (field.required) return 'true';
+    return includeOptionalCheckboxes ? 'true' : '';
   }
+  return field.testData?.valid ?? '';
+}
+
+/** Human-readable rendering of an applied value for the report. */
+function displayValue(field: FormField, value: string): string {
+  if (field.type === 'checkbox') return value === 'true' ? 'checked' : 'unchecked';
+  return value === '' ? '(empty)' : value;
+}
+
+/**
+ * Fills all given fields with their valid test values and returns the data that
+ * was loaded, for inclusion in the report. When `includeOptionalCheckboxes` is
+ * false, optional checkboxes are left unchecked (the "mandatory only" variant).
+ */
+async function fillValidData(
+  page: Page,
+  form: FormInfo,
+  includeOptionalCheckboxes: boolean,
+): Promise<SubmittedFieldValue[]> {
+  const submitted: SubmittedFieldValue[] = [];
+  for (const field of form.fields) {
+    const value = validValueForField(field, includeOptionalCheckboxes);
+    await fillField(page, field, value);
+    submitted.push({
+      field: field.label || field.name || field.id || '—',
+      type: field.type,
+      value: displayValue(field, value),
+    });
+  }
+  return submitted;
 }
 
 // ── Validation error detection ────────────────────────────────────────────────
@@ -472,6 +511,115 @@ async function detectSuccessState(
   };
 }
 
+// ── Backend request capture ─────────────────────────────────────────────────
+
+/**
+ * Recursively searches a parsed object for a key whose name contains "campaign"
+ * and returns its stringified value. Handles nested objects/arrays.
+ */
+function findCampaignValue(node: unknown): string | undefined {
+  if (node === null || node === undefined) return undefined;
+  if (Array.isArray(node)) {
+    for (const item of node) {
+      const found = findCampaignValue(item);
+      if (found) return found;
+    }
+    return undefined;
+  }
+  if (typeof node === 'object') {
+    for (const [key, value] of Object.entries(node as Record<string, unknown>)) {
+      if (/campaign/i.test(key)) {
+        if (value !== null && value !== undefined && typeof value !== 'object') return String(value);
+        if (typeof value === 'object') {
+          // e.g. { campaign: { name: "..." } } — prefer a name-ish leaf.
+          const leaf = findCampaignValue(value);
+          if (leaf) return leaf;
+        }
+      }
+    }
+    // Not found at this level — descend into nested objects.
+    for (const value of Object.values(node as Record<string, unknown>)) {
+      if (value && typeof value === 'object') {
+        const found = findCampaignValue(value);
+        if (found) return found;
+      }
+    }
+  }
+  return undefined;
+}
+
+/**
+ * Extracts a campaign name from a request body given its content type.
+ * Supports JSON and URL-encoded / form payloads; falls back to a regex scan.
+ */
+function extractCampaignName(payload: string, contentType: string): string | undefined {
+  const ct = contentType.toLowerCase();
+
+  if (ct.includes('json') || /^\s*[{[]/.test(payload)) {
+    try {
+      return findCampaignValue(JSON.parse(payload));
+    } catch {
+      // fall through to other strategies
+    }
+  }
+
+  if (ct.includes('urlencoded') || (payload.includes('=') && payload.includes('&'))) {
+    try {
+      const params = new URLSearchParams(payload);
+      for (const [key, value] of params.entries()) {
+        if (/campaign/i.test(key) && value) return value;
+      }
+    } catch {
+      // fall through
+    }
+  }
+
+  // Last resort: look for a "campaign...": "value" style pair anywhere in the body.
+  const match = payload.match(/"[^"]*campaign[^"]*"\s*:\s*"([^"]+)"/i);
+  return match?.[1];
+}
+
+/** Pretty-prints a payload as JSON when possible, otherwise returns it trimmed. */
+function formatPayload(payload: string): string {
+  try {
+    return JSON.stringify(JSON.parse(payload), null, 2);
+  } catch {
+    return payload.trim();
+  }
+}
+
+/**
+ * Installs a request listener that records POST/PUT/PATCH requests carrying a
+ * body. Returns the collected list plus a detach function to remove the
+ * listener. Used to capture the backend submission (and its campaign name)
+ * during a valid form submit.
+ */
+function captureBackendRequests(page: Page): { requests: BackendRequestInfo[]; detach: () => void } {
+  const requests: BackendRequestInfo[] = [];
+  const MAX_PAYLOAD = 20_000;
+
+  const listener = (request: import('@playwright/test').Request) => {
+    const method = request.method().toUpperCase();
+    if (!['POST', 'PUT', 'PATCH'].includes(method)) return;
+    const postData = request.postData();
+    if (!postData) return;
+
+    const contentType = request.headers()['content-type'] ?? '';
+    const raw = postData.length > MAX_PAYLOAD ? postData.slice(0, MAX_PAYLOAD) + '\n…(truncated)' : postData;
+
+    requests.push({
+      url: request.url(),
+      method,
+      contentType,
+      payload: formatPayload(raw),
+      campaignName: extractCampaignName(postData, contentType),
+    });
+  };
+
+  page.on('request', listener);
+  return { requests, detach: () => page.off('request', listener) };
+}
+
 // ── Report helpers ────────────────────────────────────────────────────────────
 
 function reportsDir(): string {
@@ -561,72 +709,109 @@ for (const entry of formEntries) {
     // first load, so give this test more headroom than the global 120 s.
     test('Valid: all fields filled correctly', async ({ browser }, testInfo) => {
       testInfo.setTimeout(300_000);
-      const { ctx, page } = await getPage(browser, entry);
 
-      try {
-        await page.goto(entry.url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
-        await dismissCookieBanner(page);
+      let anyFailed = false;
 
-        for (const form of scanResult.forms) {
-          await test.step(`Fill form ${form.formIndex + 1} with valid data`, async () => {
-            await fillValidData(page, form);
-          });
+      for (const form of scanResult.forms) {
+        // Decide which valid variants to run. Forms with two checkboxes where
+        // one is optional get two scenarios: (a) both checked, (b) only the
+        // mandatory one checked. Otherwise a single "all valid" scenario.
+        const checkboxes = form.fields.filter((f) => f.type === 'checkbox');
+        const hasOptionalCheckbox = checkboxes.some((c) => !c.required);
+        const runMandatoryOnly = checkboxes.length >= 2 && hasOptionalCheckbox;
 
-          const screenshotBefore = await page.screenshot({ fullPage: false }).catch(() => null);
-          if (screenshotBefore) await testInfo.attach(`Before submit — form ${form.formIndex + 1}`, {
-            body: screenshotBefore,
-            contentType: 'image/png',
-          });
+        const variants: { key: string; label: string; includeOptional: boolean }[] = runMandatoryOnly
+          ? [
+              { key: 'both-checkboxes', label: 'both checkboxes checked', includeOptional: true },
+              { key: 'mandatory-only', label: 'only mandatory checkbox checked', includeOptional: false },
+            ]
+          : [{ key: 'all-valid', label: 'all fields valid', includeOptional: true }];
 
-          const originalUrl = page.url();
-          const beforeBodyText = (await page.locator('body').innerText().catch(() => '')).toLowerCase();
+        for (const variant of variants) {
+          // Each variant needs a fresh page/context because a prior submit
+          // mutates page state (success message, redirect, or filled form).
+          const { ctx, page } = await getPage(browser, entry);
+          try {
+            await page.goto(entry.url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+            await dismissCookieBanner(page);
 
-          // Close any custom dropdown left open by fillValidData — an open
-          // listbox overlay can sit on top of the submit button and make the
-          // click wait until the test times out.
-          await page.keyboard.press('Escape').catch(() => {});
-          await page.mouse.click(5, 5).catch(() => {});
+            let submittedData: SubmittedFieldValue[] = [];
+            await test.step(`Form ${form.formIndex + 1} — fill (${variant.label})`, async () => {
+              submittedData = await fillValidData(page, form, variant.includeOptional);
+            });
 
-          let submitError: string | null = null;
-          await test.step('Submit the form', async () => {
-            try {
-              const submitLoc = page.locator(form.submitSelector).first();
-              await submitLoc.scrollIntoViewIfNeeded({ timeout: 5_000 }).catch(() => {});
-              await submitLoc.waitFor({ state: 'visible', timeout: 10_000 });
-              await submitLoc.click();
-              await page.waitForLoadState('networkidle', { timeout: 15_000 }).catch(() => {});
-            } catch (e) {
-              // Capture but don't rethrow — we still want the diagnostic
-              // screenshot and success check below to run.
-              submitError = (e as Error).message;
-              console.warn(`  [Forms] Submit click failed on form ${form.formIndex + 1}: ${submitError}`);
-            }
-          });
+            const screenshotBefore = await page.screenshot({ fullPage: false }).catch(() => null);
+            if (screenshotBefore) await testInfo.attach(`Before submit — form ${form.formIndex + 1} (${variant.label})`, {
+              body: screenshotBefore,
+              contentType: 'image/png',
+            });
 
-          const screenshotAfter = await page.screenshot({ fullPage: false }).catch(() => null);
-          if (screenshotAfter) await testInfo.attach(`After submit — form ${form.formIndex + 1}`, {
-            body: screenshotAfter,
-            contentType: 'image/png',
-          });
+            const originalUrl = page.url();
+            const beforeBodyText = (await page.locator('body').innerText().catch(() => '')).toLowerCase();
 
-          const { success, detail } = submitError
-            ? { success: false, detail: `Submit action failed: ${submitError}` }
-            : await detectSuccessState(page, originalUrl, beforeBodyText);
+            // Close any custom dropdown left open by fillValidData — an open
+            // listbox overlay can sit on top of the submit button and make the
+            // click wait until the test times out.
+            await page.keyboard.press('Escape').catch(() => {});
+            await page.mouse.click(5, 5).catch(() => {});
 
-          const scenario: FormScenarioResult = {
-            scenario: 'valid-submission',
-            label: `Valid submission — form ${form.formIndex + 1}`,
-            passed: success,
-            message: detail,
-            screenshotBase64: screenshotAfter?.toString('base64'),
-          };
-          scenarios.push(scenario);
+            // Start capturing the backend submission just before we click submit.
+            const capture = captureBackendRequests(page);
 
-          expect(success, `Valid submission should succeed. Detail: ${detail}`).toBe(true);
+            let submitError: string | null = null;
+            await test.step(`Form ${form.formIndex + 1} — submit (${variant.label})`, async () => {
+              try {
+                const submitLoc = page.locator(form.submitSelector).first();
+                await submitLoc.scrollIntoViewIfNeeded({ timeout: 5_000 }).catch(() => {});
+                await submitLoc.waitFor({ state: 'visible', timeout: 10_000 });
+                await submitLoc.click();
+                await page.waitForLoadState('networkidle', { timeout: 15_000 }).catch(() => {});
+              } catch (e) {
+                // Capture but don't rethrow — we still want the diagnostic
+                // screenshot and success check below to run.
+                submitError = (e as Error).message;
+                console.warn(`  [Forms] Submit click failed on form ${form.formIndex + 1}: ${submitError}`);
+              }
+            });
+            // Give any late XHR a brief moment to fire before detaching.
+            await page.waitForTimeout(500);
+            capture.detach();
+            const backendRequests = capture.requests;
+
+            const screenshotAfter = await page.screenshot({ fullPage: false }).catch(() => null);
+            if (screenshotAfter) await testInfo.attach(`After submit — form ${form.formIndex + 1} (${variant.label})`, {
+              body: screenshotAfter,
+              contentType: 'image/png',
+            });
+
+            const { success, detail } = submitError
+              ? { success: false, detail: `Submit action failed: ${submitError}` }
+              : await detectSuccessState(page, originalUrl, beforeBodyText);
+
+            const campaign = backendRequests.map((r) => r.campaignName).find(Boolean);
+            const message = campaign
+              ? `${detail} · Campaign: "${campaign}"`
+              : detail;
+
+            const scenario: FormScenarioResult = {
+              scenario: 'valid-submission',
+              label: `Valid submission — form ${form.formIndex + 1} (${variant.label})`,
+              passed: success,
+              message,
+              screenshotBase64: screenshotAfter?.toString('base64'),
+              submittedData,
+              backendRequests,
+            };
+            scenarios.push(scenario);
+
+            if (!success) anyFailed = true;
+          } finally {
+            await ctx.close();
+          }
         }
-      } finally {
-        await ctx.close();
       }
+
+      expect(anyFailed, 'One or more valid submission scenarios failed — see report for details').toBe(false);
     });
 
     // ── Test 3: Required fields — submit empty ────────────────────────────────

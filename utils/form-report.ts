@@ -11,6 +11,25 @@ export interface FieldValidationResult {
   errorText: string;
 }
 
+/** A single value that was loaded into the form for a valid submission. */
+export interface SubmittedFieldValue {
+  field: string;
+  type: string;
+  /** Human-readable value applied to the field (e.g. "checked", "jane@doe.com"). */
+  value: string;
+}
+
+/** A backend request captured during a valid submission (for manual validation). */
+export interface BackendRequestInfo {
+  url: string;
+  method: string;
+  contentType: string;
+  /** Formatted request body (pretty-printed JSON when possible, else raw). */
+  payload: string;
+  /** Campaign name extracted from the payload, if one was found. */
+  campaignName?: string;
+}
+
 export interface FormScenarioResult {
   scenario: 'valid-submission' | 'required-empty' | 'invalid-data';
   label: string;
@@ -18,6 +37,10 @@ export interface FormScenarioResult {
   message: string;
   screenshotBase64?: string;
   fieldResults?: FieldValidationResult[];
+  /** Data loaded into the form for this valid scenario. */
+  submittedData?: SubmittedFieldValue[];
+  /** POST/PUT/PATCH requests captured when this valid scenario was submitted. */
+  backendRequests?: BackendRequestInfo[];
 }
 
 export interface FormReportData {
@@ -109,11 +132,50 @@ function renderScenario(s: FormScenarioResult): string {
         </table>`
       : '';
 
+  // Data loaded into the form for a valid submission — lets a reviewer
+  // reproduce the exact input on another platform.
+  const submittedTable =
+    s.submittedData && s.submittedData.length > 0
+      ? `<h4 class="sub-head">Data loaded in the form</h4>
+         <table class="submitted-data">
+          <thead><tr><th>Field</th><th>Type</th><th>Value</th></tr></thead>
+          <tbody>
+            ${s.submittedData.map((d) => `
+              <tr>
+                <td>${esc(d.field || '—')}</td>
+                <td><code>${esc(fieldTypeLabel(d.type))}</code></td>
+                <td><code>${esc(d.value || '(empty)')}</code></td>
+              </tr>`).join('')}
+          </tbody>
+        </table>`
+      : '';
+
+  // Backend request(s) — campaign name is highlighted for manual validation.
+  const backendBlock =
+    s.backendRequests && s.backendRequests.length > 0
+      ? `<h4 class="sub-head">Backend request${s.backendRequests.length > 1 ? 's' : ''}</h4>
+         ${s.backendRequests.map((r) => `
+          <div class="backend-req">
+            <div class="backend-meta">
+              <span class="method">${esc(r.method)}</span>
+              <code class="req-url">${esc(r.url)}</code>
+            </div>
+            ${r.campaignName
+              ? `<p class="campaign"><span class="campaign-lbl">Campaign name:</span> <strong>${esc(r.campaignName)}</strong></p>`
+              : '<p class="campaign muted">No campaign field found in this request.</p>'}
+            <pre class="payload">${esc(r.payload)}</pre>
+          </div>`).join('')}`
+      : (s.scenario === 'valid-submission'
+          ? '<h4 class="sub-head">Backend request</h4><p class="muted">No POST/PUT/PATCH request was captured on submit (the form may submit via a full page navigation or was blocked by bot protection).</p>'
+          : '');
+
   return `
     <details class="scenario ${statusClass}" open>
       <summary>${statusIcon} ${esc(s.label)}</summary>
       <div class="scenario-body">
         ${s.message ? `<p class="scenario-msg">${esc(s.message)}</p>` : ''}
+        ${submittedTable}
+        ${backendBlock}
         ${fieldTable}
         ${screenshot}
       </div>
@@ -191,6 +253,16 @@ export function generateFormReport(data: FormReportData): string {
     .scenario-msg { color: #555; margin-bottom: 12px; font-size: 13px; }
     .field-results .row-pass td { background: #f0fdf4; }
     .field-results .row-fail td { background: #fef2f2; }
+    .sub-head { font-size: 13px; font-weight: 700; color: #333; margin: 16px 0 8px; }
+    .submitted-data code { font-size: 12px; }
+    .backend-req { border: 1px solid #e0e0e0; border-radius: 6px; padding: 12px 14px; margin-bottom: 12px; background: #fbfbfb; }
+    .backend-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+    .backend-meta .method { display: inline-block; background: #2563eb; color: #fff; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; letter-spacing: .03em; }
+    .backend-meta .req-url { font-size: 12px; word-break: break-all; }
+    .campaign { font-size: 13px; margin-bottom: 8px; }
+    .campaign .campaign-lbl { color: #555; }
+    .campaign strong { background: #fef9c3; padding: 1px 6px; border-radius: 3px; color: #713f12; }
+    pre.payload { background: #1a1a1a; color: #e5e5e5; border-radius: 6px; padding: 12px 14px; font-size: 12px; font-family: 'SF Mono', 'Fira Code', monospace; overflow-x: auto; white-space: pre-wrap; word-break: break-word; max-height: 360px; overflow-y: auto; }
     .screenshot-wrap { margin-top: 12px; border: 1px solid #e0e0e0; border-radius: 6px; overflow: hidden; }
     .screenshot-wrap img { width: 100%; display: block; }
     .form-section { margin-bottom: 16px; }
