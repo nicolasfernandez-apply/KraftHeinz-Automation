@@ -136,7 +136,13 @@ async function extractRawForms(page: Page): Promise<RawForm[]> {
       if (input.name) return `[name="${CSS.escape(input.name)}"]`;
       const parentForm = el.closest('form');
       const tag = el.tagName.toLowerCase();
-      const sameTag = parentForm ? Array.from(parentForm.querySelectorAll(tag)) : [];
+      if (!parentForm) {
+        // Orphan element (e.g. file input portalled outside <form>) — use a page-wide nth= selector.
+        const pageAll = Array.from(document.querySelectorAll(tag));
+        const idx = Math.max(0, pageAll.indexOf(el));
+        return `${tag} >> nth=${idx}`;
+      }
+      const sameTag = Array.from(parentForm.querySelectorAll(tag));
       const idx = Math.max(0, sameTag.indexOf(el));
       return `form >> nth=${domFormIndex} >> css=${tag} >> nth=${idx}`;
     }
@@ -169,6 +175,18 @@ async function extractRawForms(page: Page): Promise<RawForm[]> {
           'select, textarea',
         ),
       );
+
+      // Custom file-upload widgets often render <input type="file"> outside the
+      // <form> tag (e.g. portalled to <body> for stacking-context reasons).
+      // On the first non-search form, include any such orphan file inputs so
+      // they are still detected, filled, and validated by the test suite.
+      if (formIndex === 0) {
+        const orphanFileInputs = Array.from(document.querySelectorAll<HTMLInputElement>('input[type="file"]'))
+          .filter((inp) => !inp.closest('form'));
+        for (const inp of orphanFileInputs) {
+          allControls.push(inp);
+        }
+      }
 
       const submitBtn = (
         form.querySelector('button[type="submit"]') ??
@@ -378,6 +396,8 @@ function interpretWithClaude(rawForms: RawForm[], url: string, pageTitle: string
 4. For checkboxes use a valid value of "true" (checked) and invalid of "" (unchecked if required).
    For combobox (ARIA custom dropdown) fields, use an exact option text from the "options" array
    as the valid value so the test can match it against the visible option elements.
+   For file upload fields (type="file"), use the file "forms.image.jpeg" as the valid value and "" as the
+   invalid value (no file selected) if the field is required.
 5. Be aware of the following form behaviour that the automated tests rely on:
    - When a required field is left blank and the form is submitted, a validation error message
      appears directly below that field (or within its nearest container). The tests detect this
@@ -402,35 +422,44 @@ Return the complete JSON array with testData populated for every field.`;
   const claudePath = findClaudePath();
   console.log(`  [FormScanner] Calling Claude CLI (${claudePath})…`);
 
-  // Write prompt to a temp file and use shell redirection — avoids the stdin/TTY
-  // hang that occurs when spawnSync pipes input to claude in a Playwright worker process.
-  const tmpFile = path.join(os.tmpdir(), `kh-form-scan-${process.pid}.txt`);
-  let text: string;
-  try {
-    fs.writeFileSync(tmpFile, prompt, 'utf8');
-    text = execSync(`"${claudePath}" --print < "${tmpFile}"`, {
-      encoding: 'utf8',
-      timeout: 120_000,
-      maxBuffer: 10 * 1024 * 1024,
-      env: process.env,
-      shell: '/bin/sh',
-    });
-  } finally {
-    try { fs.unlinkSync(tmpFile); } catch { /* ignore */ }
+  const MAX_ATTEMPTS = 3;
+  let lastError: Error | undefined;
+
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+    if (attempt > 1) {
+      console.warn(`  [FormScanner] Retrying Claude call (attempt ${attempt}/${MAX_ATTEMPTS})…`);
+    }
+
+    // Write prompt to a temp file and use shell redirection — avoids the stdin/TTY
+    // hang that occurs when spawnSync pipes input to claude in a Playwright worker process.
+    const tmpFile = path.join(os.tmpdir(), `kh-form-scan-${process.pid}-${attempt}.txt`);
+    let text: string;
+    try {
+      fs.writeFileSync(tmpFile, prompt, 'utf8');
+      text = execSync(`"${claudePath}" --print < "${tmpFile}"`, {
+        encoding: 'utf8',
+        timeout: 90_000,
+        maxBuffer: 10 * 1024 * 1024,
+        env: process.env,
+        shell: '/bin/sh',
+      });
+    } finally {
+      try { fs.unlinkSync(tmpFile); } catch { /* ignore */ }
+    }
+
+    const clean = text.trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/i, '').trim();
+
+    try {
+      return JSON.parse(clean) as FormInfo[];
+    } catch (e) {
+      lastError = new Error(
+        `Claude returned unparseable JSON (attempt ${attempt}/${MAX_ATTEMPTS}).\nError: ${(e as Error).message}\nResponse:\n${text.slice(0, 500)}`,
+      );
+      console.warn(`  [FormScanner] ${lastError.message}`);
+    }
   }
 
-  const clean = text.trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/i, '').trim();
-
-  let parsed: FormInfo[];
-  try {
-    parsed = JSON.parse(clean);
-  } catch (e) {
-    throw new Error(
-      `Claude returned unparseable JSON.\nError: ${(e as Error).message}\nResponse:\n${text.slice(0, 500)}`,
-    );
-  }
-
-  return parsed;
+  throw lastError;
 }
 
 /**
@@ -465,6 +494,53 @@ function normalizeCheckboxRequiredness(forms: FormInfo[]): void {
   }
 }
 
+export function isEmailField(field: FormField): boolean {
+  if (field.type === 'email') return true;
+  const emailPattern = /email/i;
+  return emailPattern.test(field.label) || emailPattern.test(field.name) || emailPattern.test(field.id);
+}
+
+const EMAIL_COUNTER_PATH = path.join(__dirname, '..', '.email-counter');
+
+function nextEmailCounter(): number {
+  let counter = 0;
+  try {
+    counter = parseInt(fs.readFileSync(EMAIL_COUNTER_PATH, 'utf8').trim(), 10) || 0;
+  } catch { /* file doesn't exist yet — start at 0 */ }
+  fs.writeFileSync(EMAIL_COUNTER_PATH, String(counter + 1), 'utf8');
+  return counter;
+}
+
+/**
+ * Generates a unique email address for a form submission.
+ * Called once per actual submission so every test scenario gets a distinct address.
+ */
+export function generateUniqueEmail(formName: string): string {
+  const slug = formName.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const ts = new Date().toISOString().replace(/[-:T.Z]/g, '').slice(0, 14); // YYYYMMDDHHmmss
+  const n = nextEmailCounter();
+  return `${slug}${ts}${n}@applydigital.com`;
+}
+
+function applyUniqueEmailAddresses(forms: FormInfo[], formName: string, _scenarioNumber: number): void {
+  const slug = formName.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const ts = new Date().toISOString().replace(/[-:T.Z]/g, '').slice(0, 14); // YYYYMMDDHHmmss
+  for (const form of forms) {
+    for (const field of form.fields) {
+      if (isEmailField(field)) {
+        const n = nextEmailCounter();
+        // Rewrite non-empty invalid values to an identifiable-but-invalid format
+        // (no @ means it's still rejected by email validation, but traceable if it slips through)
+        for (const inv of field.testData.invalid) {
+          if (inv.value !== '') {
+            inv.value = `${slug}${ts}${n}`;
+          }
+        }
+      }
+    }
+  }
+}
+
 // ── Public API ────────────────────────────────────────────────────────────────
 
 /**
@@ -475,7 +551,7 @@ function normalizeCheckboxRequiredness(forms: FormInfo[]): void {
  * The caller must have already navigated to the target URL (and authenticated
  * for preview environments) before calling this function.
  */
-export async function scanForm(page: Page): Promise<FormScanResult> {
+export async function scanForm(page: Page, formName: string, scenarioNumber: number): Promise<FormScanResult> {
   const url = page.url();
   const pageTitle = await page.title();
 
@@ -531,6 +607,7 @@ export async function scanForm(page: Page): Promise<FormScanResult> {
     : [];
 
   normalizeCheckboxRequiredness(forms);
+  applyUniqueEmailAddresses(forms, formName, scenarioNumber);
 
   console.log(`  [FormScanner] Scan complete.\n`);
 

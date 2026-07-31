@@ -1,6 +1,7 @@
 {
   "urls": [
-    "https://brands.prv.kraftheinz.com/en-AU/golden-circle"
+    "https://brands.prv.kraftheinz.com/en-CA/KHeasydinners",
+    "https://brands.prv.kraftheinz.com/fr-CA/KHeasydinners"
   ],
   "environment": "preview",
   "tokensFile": "tokens/Tokens-KH/KH - Yellow.tokens.json"

@@ -21,7 +21,7 @@ import { test, expect, Browser, BrowserContext, Page } from '@playwright/test';
 import * as fs from 'fs';
 import * as path from 'path';
 import { requireAuthConfig, loginToPreview } from '../utils/auth';
-import { scanForm, FormScanResult, FormField, FormInfo } from '../utils/form-analyzer';
+import { scanForm, FormScanResult, FormField, FormInfo, isEmailField, generateUniqueEmail } from '../utils/form-analyzer';
 import {
   generateFormReport,
   FormReportData,
@@ -148,9 +148,10 @@ async function fillField(page: Page, field: FormField, value: string): Promise<v
   try {
     const loc = page.locator(field.selector).first();
     const isToggle = field.type === 'checkbox' || field.type === 'radio';
+    const isHiddenInput = isToggle || field.type === 'file';
 
-    // Checkboxes/radios may be visually hidden. Wait for DOM attachment only.
-    await loc.waitFor({ state: isToggle ? 'attached' : 'visible', timeout: 5_000 });
+    // Checkboxes, radios, and file inputs may be visually hidden. Wait for DOM attachment only.
+    await loc.waitFor({ state: isHiddenInput ? 'attached' : 'visible', timeout: 5_000 });
 
     if (field.type === 'select') {
       if (value) {
@@ -233,6 +234,11 @@ async function fillField(page: Page, field: FormField, value: string): Promise<v
         const radio = page.locator(`[name="${field.name}"][value="${value}"]`).first();
         await radio.check({ force: true });
       }
+    } else if (field.type === 'file') {
+      if (value) {
+        const filePath = path.resolve(process.cwd(), value);
+        await loc.setInputFiles(filePath);
+      }
     } else {
       await loc.fill(value);
     }
@@ -260,6 +266,7 @@ function validValueForField(field: FormField, includeOptionalCheckboxes: boolean
 /** Human-readable rendering of an applied value for the report. */
 function displayValue(field: FormField, value: string): string {
   if (field.type === 'checkbox') return value === 'true' ? 'checked' : 'unchecked';
+  if (field.type === 'file') return value === '' ? '(no file)' : value;
   return value === '' ? '(empty)' : value;
 }
 
@@ -267,15 +274,21 @@ function displayValue(field: FormField, value: string): string {
  * Fills all given fields with their valid test values and returns the data that
  * was loaded, for inclusion in the report. When `includeOptionalCheckboxes` is
  * false, optional checkboxes are left unchecked (the "mandatory only" variant).
+ *
+ * Email fields get a fresh unique address per call so repeated valid-submission
+ * scenarios don't reuse the same email address across test variants.
  */
 async function fillValidData(
   page: Page,
   form: FormInfo,
   includeOptionalCheckboxes: boolean,
+  formName: string,
 ): Promise<SubmittedFieldValue[]> {
   const submitted: SubmittedFieldValue[] = [];
   for (const field of form.fields) {
-    const value = validValueForField(field, includeOptionalCheckboxes);
+    const value = isEmailField(field) && field.type !== 'checkbox'
+      ? generateUniqueEmail(formName)
+      : validValueForField(field, includeOptionalCheckboxes);
     await fillField(page, field, value);
     submitted.push({
       field: field.label || field.name || field.id || '—',
@@ -632,7 +645,7 @@ function reportsDir(): string {
 
 const formEntries = loadFormsConfig();
 
-for (const entry of formEntries) {
+for (const [scenarioIndex, entry] of formEntries.entries()) {
   test.describe(`Form Tests: ${entry.name}`, () => {
     // Serial mode: scan runs first; subsequent tests depend on scanResult
     test.describe.configure({ mode: 'serial' });
@@ -642,11 +655,13 @@ for (const entry of formEntries) {
 
     // ── beforeAll: authenticate + scan ──────────────────────────────────────
     test.beforeAll(async ({ browser }) => {
+      // Allow up to 5 min: page load (60 s) + up to 3 Claude retries × ~90 s each
+      test.setTimeout(420_000);
       const { ctx, page } = await getPage(browser, entry);
       try {
         await page.goto(entry.url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
         await dismissCookieBanner(page);
-        scanResult = await scanForm(page);
+        scanResult = await scanForm(page, entry.name, scenarioIndex + 1);
       } finally {
         await ctx.close();
       }
@@ -737,7 +752,7 @@ for (const entry of formEntries) {
 
             let submittedData: SubmittedFieldValue[] = [];
             await test.step(`Form ${form.formIndex + 1} — fill (${variant.label})`, async () => {
-              submittedData = await fillValidData(page, form, variant.includeOptional);
+              submittedData = await fillValidData(page, form, variant.includeOptional, entry.name);
             });
 
             const screenshotBefore = await page.screenshot({ fullPage: false }).catch(() => null);
@@ -925,7 +940,10 @@ for (const entry of formEntries) {
                 // Fill all OTHER required fields with valid data so only this field is invalid
                 for (const other of form.fields) {
                   if (other.selector !== field.selector && other.required) {
-                    await fillField(page, other, other.testData?.valid ?? '');
+                    const otherValue = isEmailField(other) && other.type !== 'checkbox'
+                      ? generateUniqueEmail(entry.name)
+                      : other.testData?.valid ?? '';
+                    await fillField(page, other, otherValue);
                   }
                 }
 

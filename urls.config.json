@@ -3,15 +3,15 @@
 
      
          {
-      "name": "Walmart Dipping Sauces",
-      "previewUrl": "https://heinz.prv.kraftheinz.com/walmartdippingsauces",
-      "productionUrl": "https://www.heinz.com/walmartdippingsauces"
+      "name": "SureJell Tips & Tricks",
+      "previewUrl": "https://brands.prv.kraftheinz.com/sure-jell/tips-tricks",
+      "productionUrl": "https://www.kraftheinz.com/sure-jell/tips-tricks"
     }
       ,
          {
-      "name": "Dipping Sauces",
-      "previewUrl": "https://heinz.prv.kraftheinz.com/dippingsauces",
-      "productionUrl": "https://www.heinz.com/dippingsauces"
+      "name": "Heinz Bourbon Chicken",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/recipes/bourbon-chicken",
+      "productionUrl": "https://www.heinz.com/recipes/bourbon-chicken"
     },
          {
       "name": "Kraft Mac and Cheese",
@@ -51,28 +51,34 @@
 
     },
          {
-      "name": "Lunchables Products",
-      "previewUrl": "https://lunchables.prv.kraftheinz.com/parents/products",
-      "productionUrl": "https://www.lunchables.com/parents/products"
+      "name": "Heinz en-CA",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/en-CA",
+      "productionUrl": "https://www.heinz.com/en-CA"
 
     }
     ,
          {
-      "name": "Oscar Mayer Products",
-      "previewUrl": "https://oscarmayer.prv.kraftheinz.com/products",
-      "productionUrl": "https://www.oscarmayer.com/products"
+      "name": "Heinz fr-CA",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/fr-CA",
+      "productionUrl": "https://www.heinz.com/fr-CA"
 
     } ,
          {
-      "name": "Golden Circle",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-AU/golden-circle",
-      "productionUrl": "https://www.kraftheinz.com/en-AU/golden-circle"
+      "name": "KH en-CA",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/"
 
     },
          {
-      "name": "Philly Our Story",
-      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/our-story",
-      "productionUrl": "https://www.kraftheinz.com/philadelphia/our-story"
+      "name": "KH fr-CA",
+      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/",
+      "productionUrl": "https://www.kraftheinz.com/fr-CA/"
+
+    },
+         {
+      "name": "Meals made Easy",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/FCLMealsMadeEasy",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/FCLMealsMadeEasy"
 
     }
   ]
