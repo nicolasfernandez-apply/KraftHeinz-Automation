@@ -25,6 +25,12 @@ export default defineConfig({
     video: 'off',
     ignoreHTTPSErrors: true,
     viewport: { width: 1440, height: 900 },
+    // Bound every individual action (click/fill/selectOption). Without this,
+    // actions default to NO timeout and a click on an element obscured by an
+    // open dropdown overlay will hang until the whole test times out, tearing
+    // down the page before any diagnostic screenshot can be taken.
+    actionTimeout: 20_000,
+    navigationTimeout: 60_000,
   },
   projects: [
     {

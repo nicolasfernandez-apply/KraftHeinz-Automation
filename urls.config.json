@@ -1,63 +1,54 @@
 {
   "comparisons": [
-        {
-      "name": "KD English",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/kraft-dinner",
-      "productionUrl": "https://www.kraftheinz.com/en-CA/kraft-dinner"
-    } ,
+
+     
          {
-           "name": "KD French",
-      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/kraft-dinner",
-      "productionUrl": "https://www.kraftheinz.com/fr-CA/kraft-dinner"
-    },
-         {
-      "name": "Kale Caesar en-CA",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/kraft-dinner/recipes/qDmVILOYziHrhJLj6UV2N-creamy-kale-caesar-with-air-fried-corn-and-sweet-potatoes",
-      "productionUrl": "https://www.kraftheinz.com/en-CA/kraft-dinner/recipes/qDmVILOYziHrhJLj6UV2N-creamy-kale-caesar-with-air-fried-corn-and-sweet-potatoes"
-    },
-         {
-      "name": "Kale Caesar fr-CA",
-      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/kraft-dinner/recipes/qDmVILOYziHrhJLj6UV2N-creamy-kale-caesar-with-air-fried-corn-and-sweet-potatoes",
-      "productionUrl": "https://www.kraftheinz.com/fr-CA/kraft-dinner/recipes/qDmVILOYziHrhJLj6UV2N-creamy-kale-caesar-with-air-fried-corn-and-sweet-potatoes"
-    },
-         {
-      "name": "KD Plant Based en",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/kraft-dinner/plant-based",
-      "productionUrl": "https://www.kraftheinz.com/en-CA/kraft-dinner/plant-based"
-    },
-         {
-      "name": "KD Plant Based fr",
-      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/kraft-dinner/plant-based",
-      "productionUrl": "https://www.kraftheinz.com/fr-CA/kraft-dinner/plant-based"
-    }
-    ,
-         {
-      "name": "Tradeshow Form",
-      "previewUrl": "https://heinz.prv.kraftheinz.com/en-CA/tradeshow",
-      "productionUrl": "https://www.heinz.com/en-CA/tradeshow"
-    }
-    ,
-         {
-      "name": "Tradeshow success",
-      "previewUrl": "https://heinz.prv.kraftheinz.com/en-CA/tradeshow-success",
-      "productionUrl": "https://www.heinz.com/en-CA/tradeshow-success"
-    }
-    ,
-         {
-      "name": "Tradeshow rules",
-      "previewUrl": "https://heinz.prv.kraftheinz.com/en-CA/tradeshow-rules",
-      "productionUrl": "https://www.heinz.com/en-CA/tradeshow-rules"
+      "name": "Butter chicken en-CA",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/classico/recipes/3I3cLB3ICYguDco1JZTI1V-20-minute-creamy-butter-chicken",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/classico/recipes/3I3cLB3ICYguDco1JZTI1V-20-minute-creamy-butter-chicken"
     }
       ,
          {
-      "name": "Jello simply rules",
-      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/simply",
-      "productionUrl": "https://www.kraftheinz.com/jell-o/simply"
+      "name": "Butter chicken fr-CA",
+      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/classico/recettes/3I3cLB3ICYguDco1JZTI1V-20-minute-creamy-butter-chicken",
+      "productionUrl": "https://www.kraftheinz.com/fr-CA/classico/recettes/3I3cLB3ICYguDco1JZTI1V-20-minute-creamy-butter-chicken"
     },
          {
-      "name": "Heinz seeds",
-      "previewUrl": "https://brands.prv.kraftheinz.com/heinzseed",
-      "productionUrl": "https://www.kraftheinz.com/heinzseed"
+      "name": "Meatloaf en-CA",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/kraft-salad-dressing/recipes/555990-favourite-meatloaf",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/kraft-salad-dressing/recipes/555990-favourite-meatloaf"
+
+    },
+         {
+      "name": "Meatloaf fr-CA",
+      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/kraft-salad-dressing/recettes/555990-favourite-meatloaf",
+      "productionUrl": "https://www.kraftheinz.com/fr-CA/kraft-salad-dressing/recettes/555990-favourite-meatloaf"
+
+    },
+         {
+      "name": "Chicken Pie en-CA",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/kraft-salad-dressing/recipes/584465-country-chicken-pie",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/kraft-salad-dressing/recipes/584465-country-chicken-pie"
+
+    }
+    ,
+         {
+      "name": "Chicken Pie fr-CA",
+      "previewUrl": "https://brands.prv.kraftheinz.com/fr-ca/kraft-salad-dressing/recettes/584465-country-chicken-pie",
+      "productionUrl": "https://www.kraftheinz.com/fr-ca/kraft-salad-dressing/recettes/584465-country-chicken-pie"
+
+    } ,
+         {
+      "name": "Kraft Mac and Cheese Products",
+      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-mac-and-cheese/products",
+      "productionUrl": "https://www.kraftheinz.com/kraft-mac-and-cheese/products"
+
+    },
+         {
+      "name": "Kraft Sauces Products",
+      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-sauces/products",
+      "productionUrl": "https://www.kraftheinz.com/kraft-sauces/products"
+
     }
   ]
 }
