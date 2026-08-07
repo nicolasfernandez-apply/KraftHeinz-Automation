@@ -1,8 +1,7 @@
 {
   "urls": [
-    "https://brands.prv.kraftheinz.com/en-CA/KHeasydinners",
-    "https://brands.prv.kraftheinz.com/fr-CA/KHeasydinners"
+    "https://lunchables.prv.kraftheinz.com/yesdaysweepstakes"
   ],
   "environment": "preview",
-  "tokensFile": "tokens/Tokens-KH/KH - Yellow.tokens.json"
+  "tokensFile": "tokens/Tokens-Lunchables/Lunchables - Yellow.tokens.json"
 }

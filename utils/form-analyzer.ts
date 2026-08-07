@@ -351,6 +351,47 @@ async function extractRawForms(page: Page): Promise<RawForm[]> {
         });
       });
 
+      // Shadow-DOM file input detection: custom upload widgets (e.g. Web Components)
+      // often render <input type="file"> inside a shadow root, invisible to the
+      // form.querySelectorAll above. Walk the form's shadow roots and collect any
+      // file inputs not yet in `seen`. The Playwright selector we produce uses the
+      // `>> css=` chaining syntax which pierces shadow roots at interaction time.
+      (function findShadowFileInputs(root: Element | ShadowRoot) {
+        const children = Array.from(root.querySelectorAll('*'));
+        for (const child of children) {
+          const shadow = (child as Element & { shadowRoot?: ShadowRoot | null }).shadowRoot;
+          if (!shadow) continue;
+          for (const inp of Array.from(shadow.querySelectorAll<HTMLInputElement>('input[type="file"]'))) {
+            const hostSel = child.id ? `#${CSS.escape(child.id)}` : child.tagName.toLowerCase();
+            // Playwright ">> css=" pierces shadow roots
+            const selector = `${hostSel} >> css=input[type="file"]`;
+            if (seen.has(selector)) continue;
+            seen.add(selector);
+            // Label: from aria-label, a <label for="id"> in the shadow root, or host text
+            let label = inp.getAttribute('aria-label')?.trim() ?? '';
+            if (!label && inp.id) {
+              const lbl = shadow.querySelector<HTMLLabelElement>(`label[for="${CSS.escape(inp.id)}"]`);
+              label = lbl?.textContent?.trim() ?? '';
+            }
+            if (!label) {
+              label = child.textContent?.replace(/\s+/g, ' ').trim().slice(0, 80) ?? '';
+            }
+            fields.push({
+              label: label || 'Upload File',
+              name: inp.name || '',
+              id: inp.id || '',
+              type: 'file',
+              required: inp.required || inp.getAttribute('aria-required') === 'true',
+              placeholder: '',
+              selector,
+              options: [],
+            });
+          }
+          // Recurse into nested shadow roots
+          findShadowFileInputs(shadow);
+        }
+      })(form);
+
       return {
         formIndex,
         action: form.action,
@@ -397,7 +438,8 @@ function interpretWithClaude(rawForms: RawForm[], url: string, pageTitle: string
    For combobox (ARIA custom dropdown) fields, use an exact option text from the "options" array
    as the valid value so the test can match it against the visible option elements.
    For file upload fields (type="file"), use the file "forms.image.jpeg" as the valid value and "" as the
-   invalid value (no file selected) if the field is required.
+   invalid value (no file selected) if the field is required.IMPORTANT: preserve type="file" exactly in
+   the output JSON — the test runner calls setInputFiles() which requires this exact type string.
 5. Be aware of the following form behaviour that the automated tests rely on:
    - When a required field is left blank and the form is submitted, a validation error message
      appears directly below that field (or within its nearest container). The tests detect this
@@ -564,6 +606,93 @@ export async function scanForm(page: Page, formName: string, scenarioNumber: num
   } else {
     const totalFields = rawForms.reduce((s, f) => s + f.fields.length, 0);
     console.log(`  [FormScanner] Found ${rawForms.length} form(s) with ${totalFields} field(s) total`);
+  }
+
+  // Post-extraction sweep: find any file inputs the DOM evaluate missed.
+  // The in-browser evaluate above handles shadow DOM, but we run a complementary
+  // Playwright-level check here to also catch: inputs portalled outside <form>
+  // that appear in other forms, and inputs not yet mounted (lazy JS rendering).
+  // Uses page.evaluate with a deep shadow-walk so we cover all roots.
+  if (rawForms.length > 0) {
+    const targetForm = rawForms[0];
+    const detectedSelectors = new Set(targetForm.fields.map((f) => f.selector));
+
+    const shadowFileInputs = await page.evaluate((): Array<{
+      hostSel: string; id: string; name: string; label: string; required: boolean;
+    }> => {
+      const results: Array<{ hostSel: string; id: string; name: string; label: string; required: boolean }> = [];
+
+      function walk(root: Document | ShadowRoot | Element) {
+        const elements = 'querySelectorAll' in root
+          ? Array.from((root as Document | Element).querySelectorAll('*'))
+          : [];
+
+        for (const el of elements) {
+          const shadow = (el as Element & { shadowRoot?: ShadowRoot | null }).shadowRoot;
+          if (!shadow) continue;
+
+          for (const inp of Array.from(shadow.querySelectorAll<HTMLInputElement>('input[type="file"]'))) {
+            const hostSel = el.id ? `#${CSS.escape(el.id)}` : el.tagName.toLowerCase();
+            let label = inp.getAttribute('aria-label')?.trim() ?? '';
+            if (!label && inp.id) {
+              const lbl = shadow.querySelector<HTMLLabelElement>(`label[for="${CSS.escape(inp.id)}"]`);
+              label = lbl?.textContent?.trim() ?? '';
+            }
+            if (!label) label = el.textContent?.replace(/\s+/g, ' ').trim().slice(0, 80) ?? '';
+            results.push({
+              hostSel,
+              id: inp.id || '',
+              name: inp.name || '',
+              label: label || 'Upload File',
+              required: inp.required || inp.getAttribute('aria-required') === 'true',
+            });
+          }
+          walk(shadow);
+        }
+      }
+
+      walk(document);
+
+      // Also include orphan file inputs (outside any <form>) not found by the evaluate
+      for (const inp of Array.from(document.querySelectorAll<HTMLInputElement>('input[type="file"]'))) {
+        if (!inp.closest('form')) {
+          let label = inp.getAttribute('aria-label')?.trim() ?? '';
+          if (!label && inp.id) {
+            const lbl = document.querySelector<HTMLLabelElement>(`label[for="${CSS.escape(inp.id)}"]`);
+            label = lbl?.textContent?.trim() ?? '';
+          }
+          if (!label) {
+            const container = inp.closest('[class*="upload"], [class*="file"], div') ?? inp.parentElement;
+            label = container?.textContent?.replace(/\s+/g, ' ').trim().slice(0, 80) ?? '';
+          }
+          results.push({
+            hostSel: '',
+            id: inp.id || '',
+            name: inp.name || '',
+            label: label || 'Upload File',
+            required: inp.required || inp.getAttribute('aria-required') === 'true',
+          });
+        }
+      }
+
+      return results;
+    }).catch(() => [] as Array<{ hostSel: string; id: string; name: string; label: string; required: boolean }>);
+
+    for (const { hostSel, id, name, label, required } of shadowFileInputs) {
+      const escId   = id.replace(/[!"#$%&'()*+,./:;<=>?@[\\\]^`{|}~]/g, '\\$&');
+      const escName = name.replace(/["\\]/g, '\\$&');
+      const selector = hostSel
+        ? `${hostSel} >> css=input[type="file"]`
+        : id   ? `#${escId}`
+        : name ? `[name="${escName}"]`
+               : `input[type="file"]`;
+
+      if (detectedSelectors.has(selector)) continue;
+
+      targetForm.fields.push({ label, name, id, type: 'file', required, placeholder: '', selector, options: [] });
+      detectedSelectors.add(selector);
+      console.log(`  [FormScanner] Injected shadow/orphan file input: "${label}" (${selector})`);
+    }
   }
 
   // Dynamic option discovery: for combobox fields whose options couldn't be

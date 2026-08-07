@@ -3,39 +3,39 @@
 
      
          {
-      "name": "SureJell Tips & Tricks",
-      "previewUrl": "https://brands.prv.kraftheinz.com/sure-jell/tips-tricks",
-      "productionUrl": "https://www.kraftheinz.com/sure-jell/tips-tricks"
+      "name": "Butter chicken en-CA",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/classico/recipes/3I3cLB3ICYguDco1JZTI1V-20-minute-creamy-butter-chicken",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/classico/recipes/3I3cLB3ICYguDco1JZTI1V-20-minute-creamy-butter-chicken"
     }
       ,
          {
-      "name": "Heinz Bourbon Chicken",
-      "previewUrl": "https://heinz.prv.kraftheinz.com/recipes/bourbon-chicken",
-      "productionUrl": "https://www.heinz.com/recipes/bourbon-chicken"
+      "name": "Butter chicken fr-CA",
+      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/classico/recettes/3I3cLB3ICYguDco1JZTI1V-20-minute-creamy-butter-chicken",
+      "productionUrl": "https://www.kraftheinz.com/fr-CA/classico/recettes/3I3cLB3ICYguDco1JZTI1V-20-minute-creamy-butter-chicken"
     },
          {
-      "name": "Kraft Mac and Cheese",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-US/kraft-mac-and-cheese/tasteofhomepack",
-      "productionUrl": "https://www.kraftheinz.com/en-US/kraft-mac-and-cheese/tasteofhomepack"
+      "name": "Meatloaf en-CA",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/kraft-salad-dressing/recipes/555990-favourite-meatloaf",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/kraft-salad-dressing/recipes/555990-favourite-meatloaf"
 
     },
          {
-      "name": "Guest Wifi Agreement",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-US/guest-wifi-user-agreement",
-      "productionUrl": "https://www.kraftheinz.com/en-US/guest-wifi-user-agreement"
+      "name": "Meatloaf fr-CA",
+      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/kraft-salad-dressing/recettes/555990-favourite-meatloaf",
+      "productionUrl": "https://www.kraftheinz.com/fr-CA/kraft-salad-dressing/recettes/555990-favourite-meatloaf"
 
     },
          {
-      "name": "Seed dealer",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-US/heinzseed/dealers",
-      "productionUrl": "https://www.kraftheinz.com/en-US/heinzseed/dealers"
+      "name": "Chicken Pie en-CA",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/kraft-salad-dressing/recipes/584465-country-chicken-pie",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/kraft-salad-dressing/recipes/584465-country-chicken-pie"
 
     }
     ,
          {
-      "name": "KH Brands",
-      "previewUrl": "https://brands.prv.kraftheinz.com/brands",
-      "productionUrl": "https://www.kraftheinz.com/brands"
+      "name": "Chicken Pie fr-CA",
+      "previewUrl": "https://brands.prv.kraftheinz.com/fr-ca/kraft-salad-dressing/recettes/584465-country-chicken-pie",
+      "productionUrl": "https://www.kraftheinz.com/fr-ca/kraft-salad-dressing/recettes/584465-country-chicken-pie"
 
     } ,
          {
@@ -48,37 +48,6 @@
       "name": "Kraft Sauces Products",
       "previewUrl": "https://brands.prv.kraftheinz.com/kraft-sauces/products",
       "productionUrl": "https://www.kraftheinz.com/kraft-sauces/products"
-
-    },
-         {
-      "name": "Heinz en-CA",
-      "previewUrl": "https://heinz.prv.kraftheinz.com/en-CA",
-      "productionUrl": "https://www.heinz.com/en-CA"
-
-    }
-    ,
-         {
-      "name": "Heinz fr-CA",
-      "previewUrl": "https://heinz.prv.kraftheinz.com/fr-CA",
-      "productionUrl": "https://www.heinz.com/fr-CA"
-
-    } ,
-         {
-      "name": "KH en-CA",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/",
-      "productionUrl": "https://www.kraftheinz.com/en-CA/"
-
-    },
-         {
-      "name": "KH fr-CA",
-      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/",
-      "productionUrl": "https://www.kraftheinz.com/fr-CA/"
-
-    },
-         {
-      "name": "Meals made Easy",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/FCLMealsMadeEasy",
-      "productionUrl": "https://www.kraftheinz.com/en-CA/FCLMealsMadeEasy"
 
     }
   ]

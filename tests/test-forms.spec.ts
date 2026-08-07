@@ -148,10 +148,13 @@ async function fillField(page: Page, field: FormField, value: string): Promise<v
   try {
     const loc = page.locator(field.selector).first();
     const isToggle = field.type === 'checkbox' || field.type === 'radio';
-    const isHiddenInput = isToggle || field.type === 'file';
 
-    // Checkboxes, radios, and file inputs may be visually hidden. Wait for DOM attachment only.
-    await loc.waitFor({ state: isHiddenInput ? 'attached' : 'visible', timeout: 5_000 });
+    // File upload widgets often live in Shadow DOM or are lazily rendered — their
+    // selectors may not resolve to an attached element at this point. Skip the
+    // top-level wait; the file-handling branch below does its own resilient check.
+    if (field.type !== 'file') {
+      await loc.waitFor({ state: isToggle ? 'attached' : 'visible', timeout: 5_000 });
+    }
 
     if (field.type === 'select') {
       if (value) {
@@ -202,32 +205,53 @@ async function fillField(page: Page, field: FormField, value: string): Promise<v
       }
     } else if (field.type === 'checkbox') {
       const shouldCheck = value === 'true' || value === '1';
-      const isChecked = await loc.isChecked().catch(() => false);
-      if (shouldCheck === isChecked) return;
+      await loc.scrollIntoViewIfNeeded({ timeout: 5_000 }).catch(() => {});
+      let nowChecked = await loc.isChecked().catch(() => false);
+      if (shouldCheck === nowChecked) return;
 
-      // Prefer clicking the visible <label> so that React/Vue synthetic-event
-      // handlers fire correctly. force:true on a hidden input only sets the DOM
-      // property and can be overwritten by the framework on its next render.
-      const inputId = await loc.getAttribute('id').catch(() => null);
-      let clicked = false;
+      // Strategy 1: click the input itself when it's visible. This is the most
+      // reliable approach for native checkboxes and fires React synthetic events.
+      if (await loc.isVisible({ timeout: 1_000 }).catch(() => false)) {
+        await loc.click({ timeout: 3_000 }).catch(() => {});
+        nowChecked = await loc.isChecked().catch(() => false);
+      }
 
-      if (inputId) {
-        const labelLoc = page.locator(`label[for="${inputId}"]`).first();
-        if (await labelLoc.isVisible({ timeout: 1_000 }).catch(() => false)) {
-          await labelLoc.click();
-          clicked = true;
+      // Strategy 2: label[for] click — but click at the LEFT edge of the label
+      // (x+8) to target the visual indicator and avoid any hyperlinks embedded in
+      // the label text (e.g. "rules and regulations" link), which would silently
+      // absorb the click without toggling the checkbox.
+      if (nowChecked !== shouldCheck) {
+        const inputId = await loc.getAttribute('id').catch(() => null);
+        if (inputId) {
+          const labelLoc = page.locator(`label[for="${inputId}"]`).first();
+          const bbox = await labelLoc.boundingBox().catch(() => null);
+          if (bbox) {
+            await page.mouse.click(bbox.x + 8, bbox.y + bbox.height / 2);
+            nowChecked = await loc.isChecked().catch(() => false);
+          }
         }
       }
-      if (!clicked) {
+
+      // Strategy 3: wrapping label — also click at the left edge for the same reason.
+      if (nowChecked !== shouldCheck) {
         const wrappingLabel = page.locator('label').filter({ has: loc }).first();
-        if (await wrappingLabel.isVisible({ timeout: 1_000 }).catch(() => false)) {
-          await wrappingLabel.click();
-          clicked = true;
+        const bbox = await wrappingLabel.boundingBox().catch(() => null);
+        if (bbox) {
+          await page.mouse.click(bbox.x + 8, bbox.y + bbox.height / 2);
+          nowChecked = await loc.isChecked().catch(() => false);
         }
       }
-      if (!clicked) {
-        if (shouldCheck) await loc.check({ force: true });
-        else await loc.uncheck({ force: true });
+
+      // Strategy 4: native DOM .click() — fires browser events even on hidden inputs.
+      if (nowChecked !== shouldCheck) {
+        await loc.evaluate((el) => (el as HTMLElement).click()).catch(() => {});
+        nowChecked = await loc.isChecked().catch(() => false);
+      }
+
+      // Last resort: Playwright force check/uncheck.
+      if (nowChecked !== shouldCheck) {
+        if (shouldCheck) await loc.check({ force: true }).catch(() => {});
+        else await loc.uncheck({ force: true }).catch(() => {});
       }
     } else if (field.type === 'radio') {
       if (value) {
@@ -237,7 +261,64 @@ async function fillField(page: Page, field: FormField, value: string): Promise<v
     } else if (field.type === 'file') {
       if (value) {
         const filePath = path.resolve(process.cwd(), value);
-        await loc.setInputFiles(filePath);
+
+        // Primary strategy: find a visible "Upload" button inside the form and click
+        // it to trigger the native file chooser. Custom upload widgets (drag-and-drop
+        // zones, React dropzones, etc.) typically expose a labelled button rather
+        // than a clickable <input type="file">, so this handles the common case first.
+        const uploadButton = page.locator(
+          'button:has-text("Upload"), button:has-text("upload"), ' +
+          'button:has-text("Choose File"), button:has-text("Browse"), ' +
+          'button:has-text("Add file"), button:has-text("Select file")',
+        ).first();
+
+        const uploadButtonVisible = await uploadButton.isVisible({ timeout: 2_000 }).catch(() => false);
+
+        if (uploadButtonVisible) {
+          // Use .catch(() => null) so the promise always settles. Without this,
+          // if the click succeeds but the React component never opens a native OS
+          // dialog, the promise becomes a dangling rejected promise that Playwright
+          // converts into an unhandled-rejection test failure 8 s later.
+          const chooserPromise = page.waitForEvent('filechooser', { timeout: 3_000 }).catch(() => null);
+          await uploadButton.click({ timeout: 5_000 });
+          const chooser = await chooserPromise;
+          if (chooser) {
+            await chooser.setFiles(filePath);
+          } else {
+            // No native dialog opened — React may have injected a hidden file input.
+            await page.waitForTimeout(600);
+            const dynInput = page.locator('input[type="file"]').first();
+            if (await dynInput.count().then((n) => n > 0).catch(() => false)) {
+              await dynInput.setInputFiles(filePath, { timeout: 5_000 }).catch(() => {});
+            }
+          }
+        } else {
+          // Fallback: try setInputFiles directly on the <input type="file"> element.
+          // Works for standard (possibly hidden) file inputs; falls back to a
+          // click-triggered chooser for Shadow DOM or lazily rendered inputs.
+          const attached = await loc.waitFor({ state: 'attached', timeout: 5_000 }).then(() => true).catch(() => false);
+          if (attached) {
+            try {
+              await loc.setInputFiles(filePath, { timeout: 8_000 });
+            } catch {
+              const chooserPromise = page.waitForEvent('filechooser', { timeout: 3_000 }).catch(() => null);
+              await loc.click({ force: true, timeout: 5_000 });
+              const chooser = await chooserPromise;
+              if (chooser) await chooser.setFiles(filePath);
+            }
+          } else {
+            // Last resort: look for any other visible upload trigger on the page
+            const chooserPromise = page.waitForEvent('filechooser', { timeout: 3_000 }).catch(() => null);
+            const uploadTrigger = page.locator([
+              field.id ? `label[for="${field.id}"]` : null,
+              '[class*="upload"]:visible',
+              '[class*="dropzone"]:visible',
+            ].filter(Boolean).join(', ')).first();
+            await uploadTrigger.click({ timeout: 5_000 });
+            const chooser = await chooserPromise;
+            if (chooser) await chooser.setFiles(filePath);
+          }
+        }
       }
     } else {
       await loc.fill(value);
@@ -246,6 +327,291 @@ async function fillField(page: Page, field: FormField, value: string): Promise<v
     // Non-fatal: some fields may be conditionally visible or dynamic
     console.warn(`  [Forms] Could not fill field "${field.label}" (${field.selector}) — skipping`);
   }
+}
+
+// ── Upload trigger helpers ────────────────────────────────────────────────────
+
+/**
+ * Scrolls a locator into view, waits for a filechooser event triggered by
+ * clicking it, and sets the given file path. Returns true on success.
+ */
+async function attemptFileUpload(page: Page, loc: import('@playwright/test').Locator, filePath: string): Promise<boolean> {
+  // Use an image file for Cloudinary (accepts .jpg/.jpeg/.png only)
+  const imageFilePath = (() => {
+    const imgPath = path.resolve(process.cwd(), 'forms.image.jpeg');
+    return fs.existsSync(imgPath) ? imgPath : filePath;
+  })();
+
+  try {
+    await loc.scrollIntoViewIfNeeded({ timeout: 3_000 }).catch(() => {});
+
+    // Strategy 1 — native OS file-chooser dialog (short wait — most custom upload
+    // components don't fire this event, so we check quickly and move on).
+    const chooserPromise = page.waitForEvent('filechooser', { timeout: 800 }).catch(() => null);
+    await loc.click({ timeout: 5_000 });
+    const chooser = await chooserPromise;
+    if (chooser) {
+      await chooser.setFiles(filePath);
+      await page.waitForTimeout(500);
+      return true;
+    }
+
+    // Strategy 2 — Cloudinary Upload Widget
+    // Clicking the upload button mounts the Cloudinary widget in a cross-origin
+    // iframe (data-test="uw-iframe", src=upload-widget.cloudinary.com). There are
+    // usually TWO such iframes — one hidden pre-loader and one visible active
+    // widget — so we must target the VISIBLE one to avoid a strict-mode match on
+    // both. The file <input> lives inside that iframe.
+    const cwIframeSel = 'iframe[data-test="uw-iframe"], iframe[src*="upload-widget.cloudinary.com"], iframe[src*="cloudinary"]';
+
+    // Wait until at least one Cloudinary iframe has mounted.
+    const iframeMounted = await page.locator(cwIframeSel).first()
+      .waitFor({ state: 'attached', timeout: 12_000 })
+      .then(() => true).catch(() => false);
+
+    if (iframeMounted) {
+      console.log('  [UploadHandler] Cloudinary widget iframe mounted — locating file input');
+
+      // Pick the visible iframe element (the active widget), falling back to the
+      // last one if none report visible yet.
+      const iframeEls = await page.locator(cwIframeSel).all();
+      let cwFrame: import('@playwright/test').FrameLocator | null = null;
+      for (const el of iframeEls) {
+        if (await el.isVisible({ timeout: 500 }).catch(() => false)) {
+          cwFrame = el.contentFrame();
+          break;
+        }
+      }
+      if (!cwFrame && iframeEls.length > 0) {
+        cwFrame = iframeEls[iframeEls.length - 1].contentFrame();
+      }
+
+      if (cwFrame) {
+        // The widget exposes <input type="file" class="cloudinary_fileupload">.
+        // setInputFiles works even if the input is visually hidden, so we don't
+        // need to navigate the widget's "My Files" tab first.
+        const cwInput = cwFrame.locator('input[type="file"].cloudinary_fileupload, input[type="file"]').first();
+        const cwInputReady = await cwInput.waitFor({ state: 'attached', timeout: 10_000 })
+          .then(() => true).catch(() => false);
+
+        if (cwInputReady) {
+          console.log('  [UploadHandler] Setting file on Cloudinary input');
+          await cwInput.setInputFiles(imageFilePath, { timeout: 10_000 });
+
+          // Cloudinary auto-uploads the file then shows a "Done" / "Terminé" button.
+          const doneBtn = cwFrame.locator(
+            'button:has-text("Done"), button:has-text("Terminé"), [data-test="done-button"], .done_button',
+          ).first();
+          const uploadDone = await doneBtn.waitFor({ state: 'visible', timeout: 45_000 })
+            .then(() => true).catch(() => false);
+          if (uploadDone) {
+            await doneBtn.click({ timeout: 5_000 }).catch(() => {});
+            await page.waitForTimeout(1_500); // widget closes and the form field populates
+            console.log('  [UploadHandler] Upload complete — clicked "Done"');
+          } else {
+            console.warn('  [UploadHandler] Cloudinary "Done" button did not appear — upload may still be in progress');
+          }
+          return true;
+        }
+
+        console.warn('  [UploadHandler] Cloudinary iframe present but file input not found inside it');
+      }
+    }
+
+    // Fallback — a direct <input type="file"> somewhere on the page
+    const directInput = page.locator('input[type="file"]').first();
+    const directReady = await directInput.waitFor({ state: 'attached', timeout: 2_000 })
+      .then(() => true).catch(() => false);
+    if (directReady) {
+      console.log('  [UploadHandler] Direct file input found — uploading');
+      await directInput.setInputFiles(imageFilePath, { timeout: 8_000 });
+      await page.waitForTimeout(1_000);
+      return true;
+    }
+
+    return false;
+  } catch {
+    return false;
+  }
+}
+
+// ── Claude-assisted upload button handler ─────────────────────────────────────
+
+/**
+ * Uses Claude to scan the current page HTML for any file-upload trigger in any
+ * language, then clicks the found element and sets forms.config.json as the
+ * uploaded file. Silently no-ops when no upload button is detected.
+ *
+ * Covers buttons whose text may be in French (Téléchargez), Spanish (Subir),
+ * German (Hochladen), Italian (Carica), Portuguese (Carregar), etc., as well
+ * as ARIA-labelled triggers, CSS-class-based widgets, and <label> wrappers
+ * that proxy a hidden <input type="file">.
+ */
+async function handleUploadButtonWithClaude(page: Page): Promise<void> {
+  const filePath = path.resolve(process.cwd(), 'forms.config.json');
+  if (!fs.existsSync(filePath)) {
+    console.warn('  [UploadHandler] forms.config.json not found — skipping upload step');
+    return;
+  }
+
+  // ── Fast-path: try well-known upload-trigger patterns directly with Playwright ──
+  // This covers the most common cases (including custom React upload components
+  // that have no <input type="file">) without needing a Claude round-trip.
+  const fastPathSelectors = [
+    '[data-testid="image-upload-molecule"] button',
+    '[data-testid="clickable-cta-atom"]',
+    'button:has-text("Upload image")',
+    'button:has-text("Upload")',
+    'button:has-text("upload")',
+    'button:has-text("Choose File")',
+    'button:has-text("Browse")',
+    'button:has-text("Télécharger")',
+    'button:has-text("Téléchargez")',
+    'button:has-text("Subir")',
+    'button:has-text("Hochladen")',
+    'button:has-text("Carica")',
+    '[aria-label*="upload" i]',
+    '[aria-label*="télécharger" i]',
+    '[aria-label*="subir" i]',
+    'label[for]:has(~ input[type="file"])',
+    'label:has(input[type="file"])',
+  ];
+
+  for (const sel of fastPathSelectors) {
+    try {
+      const loc = page.locator(sel).first();
+      if (await loc.isVisible({ timeout: 1_000 }).catch(() => false)) {
+        console.log(`  [UploadHandler] Fast-path found upload trigger: ${sel}`);
+        const uploaded = await attemptFileUpload(page, loc, filePath);
+        if (uploaded) return;
+      }
+    } catch {
+      // selector may be invalid in some browsers — continue
+    }
+  }
+
+  // ── Claude fallback: extract focused form HTML and ask Claude to find the trigger ──
+  // Use the innermost <form> or main content area to avoid nav/header/cookie-banner
+  // content bloating the prompt and causing truncation before the upload widget.
+  const focusedHtml = await page.evaluate(() => {
+    // Prefer the form element; otherwise the first <main>; otherwise <body>.
+    const form = document.querySelector('form[data-testid], form')
+      ?? document.querySelector('main')
+      ?? document.body;
+    return (form?.innerHTML ?? document.body.innerHTML).slice(0, 25_000);
+  }).catch(() => '');
+
+  const prompt = `You are a QA automation expert. Your job is to detect file-upload triggers on a web page.
+
+Examine the HTML below and find EVERY element that a user would click to open a file-picker dialog.
+These triggers appear in many forms:
+  • <button> or <a> whose visible text (or aria-label / title / data-* attributes) contains any
+    language variant of "upload", "choose file", "browse", "attach", "select file", or "add file":
+      – English    : Upload, Upload image, Upload Receipt, Choose File, Browse, Select File, Add File, Attach
+      – French     : Télécharger, Téléchargez, Choisir un fichier, Parcourir, Joindre, Importer
+      – Spanish    : Subir, Subir archivo, Cargar, Seleccionar archivo, Examinar, Adjuntar
+      – German     : Hochladen, Datei wählen, Durchsuchen, Anhängen, Datei hochladen
+      – Italian    : Carica, Sfoglia, Scegli file, Carica file, Allega
+      – Portuguese : Carregar, Escolher ficheiro, Enviar ficheiro, Anexar, Fazer upload
+      – Dutch      : Uploaden, Bestand kiezen, Bladeren, Bijvoegen
+      – Any other language translation of the same concepts
+  • Custom React / Vue upload components (look for data-testid="image-upload-molecule",
+    data-testid="clickable-cta-atom", or similar patterns wrapping an upload button)
+  • <label for="..."> elements whose paired <input> has type="file"
+  • Any element (div, span, section) with class names containing: upload, file-btn, dropzone, attach, browse
+  • Elements with aria-label or title attributes containing any upload-related words
+  • Custom drag-and-drop zones that trigger file selection on click
+
+STRICT rules:
+  1. Exclude <input type="file"> elements themselves — only return the VISIBLE trigger the user clicks.
+  2. Prefer the most specific, stable selector: [data-testid] > id > class > tag + text content.
+  3. If two selectors point to the same visual button, include only the more specific one.
+  4. Return ONLY valid JSON — no markdown fences, no explanation, nothing else.
+
+Return this exact schema:
+{
+  "found": true,
+  "uploadTriggers": [
+    {
+      "selector": "<CSS selector for the clickable trigger>",
+      "text": "<visible label on the element>",
+      "language": "<detected language of the label>",
+      "confidence": "high | medium | low"
+    }
+  ]
+}
+
+If no upload trigger exists anywhere on the page return exactly:
+{"found":false,"uploadTriggers":[]}
+
+HTML:
+${focusedHtml}`;
+
+  let claudeResult: { found: boolean; uploadTriggers: { selector: string; text: string; language: string; confidence: string }[] };
+
+  try {
+    // Reuse the same Claude CLI invocation pattern used by the form-scanner.
+    const claudePathResult = (() => {
+      const { spawnSync: sp } = require('child_process') as typeof import('child_process');
+      const which = sp('which', ['claude'], { encoding: 'utf8', timeout: 5_000 });
+      if (!which.error && which.status === 0) return which.stdout.trim();
+      for (const p of ['/opt/homebrew/bin/claude', '/usr/local/bin/claude', `${process.env.HOME}/.npm-global/bin/claude`]) {
+        if (fs.existsSync(p)) return p;
+      }
+      throw new Error('claude CLI not found');
+    })();
+
+    const tmpFile = path.join(require('os').tmpdir(), `kh-upload-check-${process.pid}.txt`);
+    let raw: string;
+    try {
+      fs.writeFileSync(tmpFile, prompt, 'utf8');
+      const { execSync: ex } = require('child_process') as typeof import('child_process');
+      raw = ex(`"${claudePathResult}" --print < "${tmpFile}"`, {
+        encoding: 'utf8',
+        timeout: 60_000,
+        maxBuffer: 5 * 1024 * 1024,
+        env: process.env,
+        shell: '/bin/sh',
+      }) as string;
+    } finally {
+      try { fs.unlinkSync(tmpFile); } catch { /* ignore */ }
+    }
+
+    const clean = raw.trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/i, '').trim();
+    claudeResult = JSON.parse(clean);
+  } catch (e) {
+    console.warn(`  [UploadHandler] Claude call failed — skipping upload step: ${(e as Error).message}`);
+    return;
+  }
+
+  if (!claudeResult.found || claudeResult.uploadTriggers.length === 0) {
+    console.log('  [UploadHandler] No upload button detected on this page — skipping');
+    return;
+  }
+
+  // Try each trigger in descending confidence order (high → medium → low).
+  const ordered = [...claudeResult.uploadTriggers].sort((a, b) => {
+    const rank = { high: 0, medium: 1, low: 2 };
+    return (rank[a.confidence as keyof typeof rank] ?? 3) - (rank[b.confidence as keyof typeof rank] ?? 3);
+  });
+
+  for (const trigger of ordered) {
+    console.log(`  [UploadHandler] Trying upload trigger: "${trigger.text}" (${trigger.language}, ${trigger.confidence}) → ${trigger.selector}`);
+    const loc = page.locator(trigger.selector).first();
+    const visible = await loc.isVisible({ timeout: 3_000 }).catch(() => false);
+    if (!visible) {
+      console.warn(`  [UploadHandler] Trigger not visible — trying next`);
+      continue;
+    }
+    const uploaded = await attemptFileUpload(page, loc, filePath);
+    if (uploaded) {
+      console.log(`  [UploadHandler] File uploaded successfully via "${trigger.text}"`);
+      return;
+    }
+    console.warn(`  [UploadHandler] Trigger "${trigger.selector}" failed — trying next`);
+  }
+
+  console.warn('  [UploadHandler] All detected upload triggers failed — continuing without upload');
 }
 
 /**
@@ -285,17 +651,38 @@ async function fillValidData(
   formName: string,
 ): Promise<SubmittedFieldValue[]> {
   const submitted: SubmittedFieldValue[] = [];
-  for (const field of form.fields) {
-    const value = isEmailField(field) && field.type !== 'checkbox'
+
+  // Compute values for all fields upfront (maintains deterministic email generation order).
+  const fieldValues = form.fields.map((field) => ({
+    field,
+    value: isEmailField(field) && field.type !== 'checkbox'
       ? generateUniqueEmail(formName)
-      : validValueForField(field, includeOptionalCheckboxes);
+      : validValueForField(field, includeOptionalCheckboxes),
+  }));
+
+  // Fill non-checkbox fields first (including file uploads).
+  // Cloudinary and other upload widgets can trigger a React re-render that
+  // resets checkboxes that were filled earlier, so we defer them.
+  for (const { field, value } of fieldValues) {
+    if (field.type === 'checkbox') continue;
     await fillField(page, field, value);
+  }
+
+  // Fill checkboxes last — after all upload interactions have settled.
+  for (const { field, value } of fieldValues) {
+    if (field.type !== 'checkbox') continue;
+    await fillField(page, field, value);
+  }
+
+  // Build the submitted-data report in the original field order.
+  for (const { field, value } of fieldValues) {
     submitted.push({
       field: field.label || field.name || field.id || '—',
       type: field.type,
       value: displayValue(field, value),
     });
   }
+
   return submitted;
 }
 
@@ -753,6 +1140,20 @@ for (const [scenarioIndex, entry] of formEntries.entries()) {
             let submittedData: SubmittedFieldValue[] = [];
             await test.step(`Form ${form.formIndex + 1} — fill (${variant.label})`, async () => {
               submittedData = await fillValidData(page, form, variant.includeOptional, entry.name);
+            });
+
+            await test.step(`Form ${form.formIndex + 1} — handle upload button if present`, async () => {
+              await handleUploadButtonWithClaude(page);
+            });
+
+            // Re-fill checkboxes after the upload handler — Cloudinary interactions
+            // can trigger a React re-render that resets any checkbox state set earlier.
+            await test.step(`Form ${form.formIndex + 1} — re-check checkboxes after upload`, async () => {
+              for (const field of form.fields) {
+                if (field.type !== 'checkbox') continue;
+                const value = validValueForField(field, variant.includeOptional);
+                if (value) await fillField(page, field, value);
+              }
             });
 
             const screenshotBefore = await page.screenshot({ fullPage: false }).catch(() => null);
