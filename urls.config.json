@@ -3,51 +3,154 @@
 
      
          {
-      "name": "Butter chicken en-CA",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/classico/recipes/3I3cLB3ICYguDco1JZTI1V-20-minute-creamy-butter-chicken",
-      "productionUrl": "https://www.kraftheinz.com/en-CA/classico/recipes/3I3cLB3ICYguDco1JZTI1V-20-minute-creamy-butter-chicken"
+      "name": "Capri Sun Adults",
+      "previewUrl": "https://brands.prv.kraftheinz.com/capri-sun/adults",
+      "productionUrl": "https://www.kraftheinz.com/capri-sun/adults"
     }
       ,
          {
-      "name": "Butter chicken fr-CA",
+      "name": "Capri Sun Products",
+      "previewUrl": "https://brands.prv.kraftheinz.com/capri-sun/products",
+      "productionUrl": "https://www.kraftheinz.com/capri-sun/products"
+    },
+         {
+      "name": "Jello Vanilla",
+      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/products/00043000097052-simply-vanilla-flavored-instant-pudding-pie-filling-mix",
+      "productionUrl": "https://www.kraftheinz.com/jell-o/products/00043000097052-simply-vanilla-flavored-instant-pudding-pie-filling-mix"
+
+    },
+         {
+      "name": "Jello Banana",
+      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/products/00043000097069-simply-banana-flavored-instant-pudding-pie-filling-mix",
+      "productionUrl": "https://www.kraftheinz.com/jell-o/products/00043000097069-simply-banana-flavored-instant-pudding-pie-filling-mix"
+
+    },
+         {
+      "name": "Jello Strawberry",
+      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/products/00043000097076-simply-strawberry-gelatin-dessert-mix",
+      "productionUrl": "https://www.kraftheinz.com/jell-o/products/00043000097076-simply-strawberry-gelatin-dessert-mix"
+
+    }, {
+      "name": "Jello Raspberry",
+      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/products/00043000097120-simply-raspberry-lemonade-gelatin-snack-cups",
+      "productionUrl": "https://www.kraftheinz.com/jell-o/products/00043000097120-simply-raspberry-lemonade-gelatin-snack-cups"
+
+    },{
+      "name": "Jello Blueberry",
+      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/products/00043000097113-simply-blueberry-gelatin-snack-cups",
+      "productionUrl": "https://www.kraftheinz.com/jell-o/products/00043000097113-simply-blueberry-gelatin-snack-cups"
+
+    },{
+      "name": "Jello Chocolate",
+      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/products/00043000097083-simply-chocolate-flavored-instant-pudding-pie-filling-mix",
+      "productionUrl": "https://www.kraftheinz.com/jell-o/products/00043000097083-simply-chocolate-flavored-instant-pudding-pie-filling-mix"
+
+    },{
+      "name": "Jello Orange",
+      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/products/00043000097106-simply-orange-gelatin-snack-cups",
+      "productionUrl": "https://www.kraftheinz.com/jell-o/products/00043000097106-simply-orange-gelatin-snack-cups"
+
+    },
+         {
+      "name": "Back to Football Coming soon",
+      "previewUrl": "https://brands.prv.kraftheinz.com/backtofootball",
+      "productionUrl": "https://www.kraftheinz.com/backtofootball"
+
+    },
+         {
+      "name": "Back to Football Rules",
+      "previewUrl": "https://brands.prv.kraftheinz.com/backtofootball/rules",
+      "productionUrl": "https://www.kraftheinz.com/backtofootball/rules"
+
+    },
+         {
+      "name": "Brinta Over Ons",
+      "previewUrl": "https://brands.prv.kraftheinz.com/nl-NL/brinta/over-ons",
+      "productionUrl": "https://www.kraftheinz.com/nl-NL/brinta/over-ons"
+
+    },
+         {
+      "name": "BTS en-CA landing",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/KHeasydinners",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/KHeasydinners"
+
+    },
+         {
+      "name": "BTS fr-CA landing",
+      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/KHeasydinners",
+      "productionUrl": "https://www.kraftheinz.com/fr-CA/KHeasydinners"
+
+    },
+         {
+      "name": "BTS en-CA confirmation",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/KHeasydinners-confirmation",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/KHeasydinners-confirmation"
+
+    },
+         {
+      "name": "BTS fr-CA confirmation",
+      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/KHeasydinners-confirmation",
+      "productionUrl": "https://www.kraftheinz.com/fr-CA/KHeasydinners-confirmation"
+
+    },
+         {
+      "name": "BTS en-CA rules",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/KHeasydinners-rules",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/KHeasydinners-rules"
+
+    },
+         {
+      "name": "BTS fr-CA rules",
+      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/KHeasydinners-rules",
+      "productionUrl": "https://www.kraftheinz.com/fr-CA/KHeasydinners-rules"
+
+    },
+         {
+      "name": "Kale Caesar",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/kraft-salad-dressing/recipes/qDmVILOYziHrhJLj6UV2N-creamy-kale-caesar-with-air-fried-corn-sweet-potatoes",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/kraft-salad-dressing/recipes/qDmVILOYziHrhJLj6UV2N-creamy-kale-caesar-with-air-fried-corn-sweet-potatoes"
+
+    },
+         {
+      "name": "Mac and Cheese Bacon Chives",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/kraft-dinner/recipes/28qeb7xD7zfuzhOXUs7fQr-mac-cheese-with-bacon-chives",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/kraft-dinner/recipes/28qeb7xD7zfuzhOXUs7fQr-mac-cheese-with-bacon-chives"
+
+    },
+         {
+      "name": "Butter Chicken",
       "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/classico/recettes/3I3cLB3ICYguDco1JZTI1V-20-minute-creamy-butter-chicken",
       "productionUrl": "https://www.kraftheinz.com/fr-CA/classico/recettes/3I3cLB3ICYguDco1JZTI1V-20-minute-creamy-butter-chicken"
-    },
-         {
-      "name": "Meatloaf en-CA",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/kraft-salad-dressing/recipes/555990-favourite-meatloaf",
-      "productionUrl": "https://www.kraftheinz.com/en-CA/kraft-salad-dressing/recipes/555990-favourite-meatloaf"
 
     },
          {
-      "name": "Meatloaf fr-CA",
-      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/kraft-salad-dressing/recettes/555990-favourite-meatloaf",
-      "productionUrl": "https://www.kraftheinz.com/fr-CA/kraft-salad-dressing/recettes/555990-favourite-meatloaf"
+      "name": "Back to School",
+      "previewUrl": "https://brands.prv.kraftheinz.com/countdowntoschool",
+      "productionUrl": "https://www.kraftheinz.com/countdowntoschool"
 
     },
          {
-      "name": "Chicken Pie en-CA",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/kraft-salad-dressing/recipes/584465-country-chicken-pie",
-      "productionUrl": "https://www.kraftheinz.com/en-CA/kraft-salad-dressing/recipes/584465-country-chicken-pie"
-
-    }
-    ,
-         {
-      "name": "Chicken Pie fr-CA",
-      "previewUrl": "https://brands.prv.kraftheinz.com/fr-ca/kraft-salad-dressing/recettes/584465-country-chicken-pie",
-      "productionUrl": "https://www.kraftheinz.com/fr-ca/kraft-salad-dressing/recettes/584465-country-chicken-pie"
-
-    } ,
-         {
-      "name": "Kraft Mac and Cheese Products",
-      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-mac-and-cheese/products",
-      "productionUrl": "https://www.kraftheinz.com/kraft-mac-and-cheese/products"
+      "name": "Lunchables Sweepstakes",
+      "previewUrl": "https://lunchables.prv.kraftheinz.com/yesdaysweepstakes",
+      "productionUrl": "https://www.lunchables.com/yesdaysweepstakes"
 
     },
          {
-      "name": "Kraft Sauces Products",
-      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-sauces/products",
-      "productionUrl": "https://www.kraftheinz.com/kraft-sauces/products"
+      "name": "Oscar Mayer Deli Roasted Turkey",
+      "previewUrl": "https://oscarmayer.prv.kraftheinz.com/products/00044700031285-deli-fresh-oven-roasted-turkey-breast",
+      "productionUrl": "https://www.oscarmayer.com/products/00044700031285-deli-fresh-oven-roasted-turkey-breast"
+
+    },
+         {
+      "name": "Maxwell Landing",
+      "previewUrl": "https://brands.prv.kraftheinz.com/maxwell-house",
+      "productionUrl": "https://www.kraftheinz.com/maxwell-house"
+
+    },
+         {
+      "name": "Gevalia Landing",
+      "previewUrl": "https://brands.prv.kraftheinz.com/gevalia",
+      "productionUrl": "https://www.kraftheinz.com/gevalia"
 
     }
   ]

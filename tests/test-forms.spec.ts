@@ -566,7 +566,7 @@ ${focusedHtml}`;
     try {
       fs.writeFileSync(tmpFile, prompt, 'utf8');
       const { execSync: ex } = require('child_process') as typeof import('child_process');
-      raw = ex(`"${claudePathResult}" --print < "${tmpFile}"`, {
+      raw = ex(`"${claudePathResult}" --print --max-tokens 8096 < "${tmpFile}"`, {
         encoding: 'utf8',
         timeout: 60_000,
         maxBuffer: 5 * 1024 * 1024,

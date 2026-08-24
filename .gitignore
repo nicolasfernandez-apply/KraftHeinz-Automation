@@ -32,3 +32,4 @@ dist/
 # Site-generated files (created by crawler scripts, not committed)
 sites/*/pages.json
 sites/*/reports/
+docs/.gitkeep
