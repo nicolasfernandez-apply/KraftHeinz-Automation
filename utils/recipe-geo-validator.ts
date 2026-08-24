@@ -87,6 +87,10 @@ export async function runHardChecks(page: Page): Promise<HardCheckResult[]> {
       }
     }
 
+    // Prep time from DOM
+    const prepTimeEl = document.querySelector('[data-testid="or-recipe-header-prep-time"]');
+    const prepTimeText = prepTimeEl?.textContent?.trim() ?? '';
+
     // Author in DOM
     const authorEl = document.querySelector('[class*="author"], [data-testid*="author"], [rel="author"]');
     const authorDomText = authorEl?.textContent?.trim() ?? '';
@@ -94,7 +98,7 @@ export async function runHardChecks(page: Page): Promise<HardCheckResult[]> {
     // Full page text for soft checks
     const bodyText = document.body.innerText ?? '';
 
-    return { recipe, quickFactsText, methodSteps, accordionStates, authorDomText, bodyText };
+    return { recipe, quickFactsText, prepTimeText, methodSteps, accordionStates, authorDomText, bodyText };
   });
 
   const recipe = pageData.recipe;
@@ -109,8 +113,8 @@ export async function runHardChecks(page: Page): Promise<HardCheckResult[]> {
 
   if (!recipe) return results;
 
-  // 1.1 Required JSON-LD fields
-  const requiredDurations = ['prepTime', 'cookTime', 'totalTime'] as const;
+  // 1.1 Required JSON-LD fields (cookTime and totalTime only — prepTime is DOM-rendered)
+  const requiredDurations = ['cookTime', 'totalTime'] as const;
   for (const field of requiredDurations) {
     const val = recipe[field];
     const present = typeof val === 'string' && val.length > 0;
@@ -122,6 +126,17 @@ export async function runHardChecks(page: Page): Promise<HardCheckResult[]> {
       detail: valid ? `${field}: ${val}` : present ? `${field} "${val}" is not valid ISO 8601 duration` : `${field} is missing or empty`,
     });
   }
+
+  // 1.1 Prep time — rendered in DOM (not in JSON-LD)
+  const prepTimeText = pageData.prepTimeText;
+  results.push({
+    id: 'dom-prep-time',
+    label: 'Prep time rendered in DOM',
+    passed: prepTimeText.length > 0,
+    detail: prepTimeText.length > 0
+      ? `Prep time found: "${prepTimeText}"`
+      : 'No element found for [data-testid="or-recipe-header-prep-time"]',
+  });
 
   const yield_ = recipe.recipeYield;
   const yieldPresent = (typeof yield_ === 'string' && yield_.length > 0) || typeof yield_ === 'number';

@@ -269,6 +269,19 @@ The target environment is controlled by the `TARGET_ENV` env var (`both` | `prev
 
 ---
 
+## Recipe GEO Guidelines
+
+Audits recipe pages against GEO (Generative Engine Optimization) guidelines.
+
+```bash
+npm run recipe-geo
+
+# Run with a visible browser window (useful for debugging)
+npm run recipe-geo -- --headed
+```
+
+---
+
 ## AI-powered form testing
 
 Tests all forms on a given URL using Claude AI to scan each form, identify all fields (including required fields marked with `*`), and generate valid and invalid test data tailored to each field's purpose.

@@ -1,57 +1,13 @@
 {
   "comparisons": [
+              {
+      "name": "Back to Football v2",
+      "previewUrl": "https://brands.prv.kraftheinz.com/backtofootball",
+      "productionUrl": "https://brands.prv.kraftheinz.com/backtofootball/v2"
 
+    },
      
-         {
-      "name": "Capri Sun Adults",
-      "previewUrl": "https://brands.prv.kraftheinz.com/capri-sun/adults",
-      "productionUrl": "https://www.kraftheinz.com/capri-sun/adults"
-    }
-      ,
-         {
-      "name": "Capri Sun Products",
-      "previewUrl": "https://brands.prv.kraftheinz.com/capri-sun/products",
-      "productionUrl": "https://www.kraftheinz.com/capri-sun/products"
-    },
-         {
-      "name": "Jello Vanilla",
-      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/products/00043000097052-simply-vanilla-flavored-instant-pudding-pie-filling-mix",
-      "productionUrl": "https://www.kraftheinz.com/jell-o/products/00043000097052-simply-vanilla-flavored-instant-pudding-pie-filling-mix"
-
-    },
-         {
-      "name": "Jello Banana",
-      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/products/00043000097069-simply-banana-flavored-instant-pudding-pie-filling-mix",
-      "productionUrl": "https://www.kraftheinz.com/jell-o/products/00043000097069-simply-banana-flavored-instant-pudding-pie-filling-mix"
-
-    },
-         {
-      "name": "Jello Strawberry",
-      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/products/00043000097076-simply-strawberry-gelatin-dessert-mix",
-      "productionUrl": "https://www.kraftheinz.com/jell-o/products/00043000097076-simply-strawberry-gelatin-dessert-mix"
-
-    }, {
-      "name": "Jello Raspberry",
-      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/products/00043000097120-simply-raspberry-lemonade-gelatin-snack-cups",
-      "productionUrl": "https://www.kraftheinz.com/jell-o/products/00043000097120-simply-raspberry-lemonade-gelatin-snack-cups"
-
-    },{
-      "name": "Jello Blueberry",
-      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/products/00043000097113-simply-blueberry-gelatin-snack-cups",
-      "productionUrl": "https://www.kraftheinz.com/jell-o/products/00043000097113-simply-blueberry-gelatin-snack-cups"
-
-    },{
-      "name": "Jello Chocolate",
-      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/products/00043000097083-simply-chocolate-flavored-instant-pudding-pie-filling-mix",
-      "productionUrl": "https://www.kraftheinz.com/jell-o/products/00043000097083-simply-chocolate-flavored-instant-pudding-pie-filling-mix"
-
-    },{
-      "name": "Jello Orange",
-      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/products/00043000097106-simply-orange-gelatin-snack-cups",
-      "productionUrl": "https://www.kraftheinz.com/jell-o/products/00043000097106-simply-orange-gelatin-snack-cups"
-
-    },
-         {
+                {
       "name": "Back to Football Coming soon",
       "previewUrl": "https://brands.prv.kraftheinz.com/backtofootball",
       "productionUrl": "https://www.kraftheinz.com/backtofootball"
@@ -127,18 +83,6 @@
       "name": "Back to School",
       "previewUrl": "https://brands.prv.kraftheinz.com/countdowntoschool",
       "productionUrl": "https://www.kraftheinz.com/countdowntoschool"
-
-    },
-         {
-      "name": "Lunchables Sweepstakes",
-      "previewUrl": "https://lunchables.prv.kraftheinz.com/yesdaysweepstakes",
-      "productionUrl": "https://www.lunchables.com/yesdaysweepstakes"
-
-    },
-         {
-      "name": "Oscar Mayer Deli Roasted Turkey",
-      "previewUrl": "https://oscarmayer.prv.kraftheinz.com/products/00044700031285-deli-fresh-oven-roasted-turkey-breast",
-      "productionUrl": "https://www.oscarmayer.com/products/00044700031285-deli-fresh-oven-roasted-turkey-breast"
 
     },
          {

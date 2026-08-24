@@ -13,6 +13,10 @@ interface UrlPair {
   name: string;
   previewUrl: string;
   productionUrl: string;
+  /** Override the "Preview" column label in the report (e.g. "Preview A") */
+  labelA?: string;
+  /** Override the "Production" column label in the report (e.g. "Preview B") */
+  labelB?: string;
 }
 
 /**
@@ -93,13 +97,21 @@ test.describe('URL Comparison: Preview vs Production', () => {
 
       // Restore the IAP session written by globalSetup — loginToPreview will
       // detect the valid session and skip the Firebase email-lookup entirely.
-      const hostname = new URL(pair.previewUrl).hostname;
-      const stateFile = path.join(process.cwd(), '.auth', `${hostname}.json`);
+      const hostnameA = new URL(pair.previewUrl).hostname;
+      const stateFileA = path.join(process.cwd(), '.auth', `${hostnameA}.json`);
       const previewCtx = await browser.newContext({
         ignoreHTTPSErrors: true,
-        ...(fs.existsSync(stateFile) ? { storageState: stateFile } : {}),
+        ...(fs.existsSync(stateFileA) ? { storageState: stateFileA } : {}),
       });
-      const productionCtx = await browser.newContext({ ignoreHTTPSErrors: true });
+
+      // If the second URL is also a preview host, load its IAP session too.
+      const hostnameB = new URL(pair.productionUrl).hostname;
+      const stateFileB = path.join(process.cwd(), '.auth', `${hostnameB}.json`);
+      const isSecondUrlPreview = fs.existsSync(stateFileB);
+      const productionCtx = await browser.newContext({
+        ignoreHTTPSErrors: true,
+        ...(isSecondUrlPreview ? { storageState: stateFileB } : {}),
+      });
 
       const previewPage = await previewCtx.newPage();
       const productionPage = await productionCtx.newPage();
@@ -108,6 +120,9 @@ test.describe('URL Comparison: Preview vs Production', () => {
         // loginToPreview returns immediately when the session is already valid;
         // it only performs a full login if the IAP session has expired.
         await loginToPreview(previewPage, auth, pair.previewUrl);
+        if (isSecondUrlPreview) {
+          await loginToPreview(productionPage, auth, pair.productionUrl);
+        }
 
         // Analyze both URLs (sequentially — login must finish first, then parallel is fine)
         console.log(`\nAnalyzing Preview:    ${pair.previewUrl}`);
@@ -130,7 +145,10 @@ test.describe('URL Comparison: Preview vs Production', () => {
 
         // Generate HTML report — one file per URL pair
         const reportPath = path.join(reportsDir, `${slug}-${timestamp}.html`);
-        const html = generateReport(previewAnalysis, productionAnalysis, diff);
+        const html = generateReport(previewAnalysis, productionAnalysis, diff, {
+          labelA: pair.labelA,
+          labelB: pair.labelB,
+        });
         fs.writeFileSync(reportPath, html, 'utf8');
 
         // Attach to Playwright test report for easy access in CI

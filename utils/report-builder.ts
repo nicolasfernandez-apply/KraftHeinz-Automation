@@ -848,7 +848,10 @@ export function generateReport(
   preview: PageAnalysis,
   production: PageAnalysis,
   diff: PageDiff,
+  labels?: { labelA?: string; labelB?: string },
 ): string {
+  const labelA = labels?.labelA ?? 'Preview';
+  const labelB = labels?.labelB ?? 'Production';
   const timestamp = new Date().toLocaleString();
   const totalDiffs = diff.totalDifferences;
   const criticalDiffs = diff.criticalDifferences;
@@ -881,11 +884,11 @@ export function generateReport(
     <p class="subtitle">Generated on ${timestamp}</p>
     <div class="url-grid">
       <div class="url-card preview">
-        <div class="env-label">Preview</div>
+        <div class="env-label">${escapeHtml(labelA)}</div>
         <div class="env-url"><a href="${escapeHtml(preview.url)}" style="color:#4ecdc4" target="_blank">${escapeHtml(preview.url)}</a></div>
       </div>
       <div class="url-card production">
-        <div class="env-label">Production</div>
+        <div class="env-label">${escapeHtml(labelB)}</div>
         <div class="env-url"><a href="${escapeHtml(production.url)}" style="color:#ff6b6b" target="_blank">${escapeHtml(production.url)}</a></div>
       </div>
     </div>
