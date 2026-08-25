@@ -21,6 +21,7 @@ import { test, expect, Browser, BrowserContext, Page } from '@playwright/test';
 import * as fs from 'fs';
 import * as path from 'path';
 import { requireAuthConfig, loginToPreview } from '../utils/auth';
+import { runPreAction } from '../utils/pre-action';
 import { scanForm, FormScanResult, FormField, FormInfo, isEmailField, generateUniqueEmail } from '../utils/form-analyzer';
 import {
   generateFormReport,
@@ -38,6 +39,12 @@ interface FormEntry {
   url: string;
   /** Case-insensitive: "preview", "Preview", "PREVIEW" all trigger IAP auth */
   environment: string;
+  /**
+   * Optional name of a pre-action defined in pre-actions.config.json.
+   * When set, the action is executed after login but before the form scan and
+   * all test scenarios (e.g. dismiss an age gate, select a country).
+   */
+  preAction?: string;
 }
 
 interface FormsConfig {
@@ -1048,6 +1055,7 @@ for (const [scenarioIndex, entry] of formEntries.entries()) {
       try {
         await page.goto(entry.url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
         await dismissCookieBanner(page);
+        if (entry.preAction) await runPreAction(page, entry.preAction);
         scanResult = await scanForm(page, entry.name, scenarioIndex + 1);
       } finally {
         await ctx.close();
@@ -1136,6 +1144,7 @@ for (const [scenarioIndex, entry] of formEntries.entries()) {
           try {
             await page.goto(entry.url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
             await dismissCookieBanner(page);
+            if (entry.preAction) await runPreAction(page, entry.preAction);
 
             let submittedData: SubmittedFieldValue[] = [];
             await test.step(`Form ${form.formIndex + 1} — fill (${variant.label})`, async () => {
@@ -1238,6 +1247,7 @@ for (const [scenarioIndex, entry] of formEntries.entries()) {
       try {
         await page.goto(entry.url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
         await dismissCookieBanner(page);
+        if (entry.preAction) await runPreAction(page, entry.preAction);
 
         for (const form of scanResult.forms) {
           const requiredFields = form.fields.filter((f) => f.required);
@@ -1307,6 +1317,7 @@ for (const [scenarioIndex, entry] of formEntries.entries()) {
           if (scanResult.forms.indexOf(form) < scanResult.forms.length - 1) {
             await page.goto(entry.url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
             await dismissCookieBanner(page);
+            if (entry.preAction) await runPreAction(page, entry.preAction);
           }
         }
       } finally {
@@ -1337,6 +1348,7 @@ for (const [scenarioIndex, entry] of formEntries.entries()) {
                 // Fresh page state for each field test
                 await page.goto(entry.url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
                 await dismissCookieBanner(page);
+                if (entry.preAction) await runPreAction(page, entry.preAction);
 
                 // Fill all OTHER required fields with valid data so only this field is invalid
                 for (const other of form.fields) {

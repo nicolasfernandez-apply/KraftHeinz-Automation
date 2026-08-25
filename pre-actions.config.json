@@ -1,0 +1,16 @@
+{
+  "actions": {
+    "dismiss-age-gate": {
+      "description": "Dismiss an age verification gate by clicking the confirmation button",
+      "prompt": "You are a QA automation expert. Your task is to find the element a user would click to confirm their age and proceed past an age verification gate or age-check overlay on this web page.\n\nLook for:\n- Buttons or links with text like \"I am 18+\", \"I am of legal age\", \"Enter\", \"Yes, I am of age\", \"Confirm age\", \"I'm of legal drinking age\", or similar in any language\n- Any checkbox + confirm button combination for age verification\n- Modal dialogs or overlays asking the user to confirm their age\n\nReturn ONLY valid JSON with no markdown fences:\n{\n  \"found\": true,\n  \"steps\": [\n    { \"action\": \"click\", \"selector\": \"<CSS selector for the button to click>\", \"description\": \"<what the button says>\" }\n  ],\n  \"confidence\": \"high | medium | low\"\n}\n\nIf no age gate is present, return:\n{\"found\": false, \"steps\": [], \"confidence\": \"high\"}"
+    },
+    "fill-birth-date": {
+      "description": "Fill a date-of-birth field with 01/01/1991 and submit",
+      "prompt": "You are a QA automation expert. Your task is to fill a date-of-birth field on this page with the value that matches the field's expected format, then click the submit button.\n\nThe date to use is January 1st, 1991. Match the format shown by the field's placeholder:\n- If the placeholder is DD/MM/YYYY → use \"01/01/1991\"\n- If the placeholder is MM/DD/YYYY → use \"01/01/1991\"\n- If the placeholder is YYYY-MM-DD → use \"1991-01-01\"\n- For any other date input, use the most appropriate format.\n\nLook for:\n- An <input> with type=\"date\", type=\"text\", or a placeholder containing \"DD\", \"MM\", \"YYYY\", \"date\", or \"birth\"\n- A submit button (button[type=\"submit\"] or a button with text like \"Submit\", \"Continue\", \"Enter\", \"Verify\")\n\nReturn ONLY valid JSON with no markdown fences:\n{\n  \"found\": true,\n  \"steps\": [\n    { \"action\": \"fill\", \"selector\": \"<CSS selector for the date input>\", \"value\": \"<formatted date>\", \"description\": \"Date of birth field\" },\n    { \"action\": \"click\", \"selector\": \"<CSS selector for the submit button>\", \"description\": \"Submit button\" }\n  ],\n  \"confidence\": \"high | medium | low\"\n}\n\nIf no date-of-birth field is present, return:\n{\"found\": false, \"steps\": [], \"confidence\": \"high\"}"
+    },
+    "select-country": {
+      "description": "Select a country from a country selector dropdown or overlay",
+      "prompt": "You are a QA automation expert. Your task is to find a country selector or country picker on this page that must be interacted with before the main content is accessible.\n\nLook for:\n- Dropdown menus labeled 'Country', 'Select country', 'Choose your country', or similar in any language\n- Country picker overlays or modals\n- Region / locale selectors\n\nReturn ONLY valid JSON with no markdown fences:\n{\n  \"found\": true,\n  \"steps\": [\n    { \"action\": \"click\", \"selector\": \"<CSS selector for the country trigger>\", \"description\": \"<what it is>\" }\n  ],\n  \"confidence\": \"high | medium | low\"\n}\n\nIf no country selector is present, return:\n{\"found\": false, \"steps\": [], \"confidence\": \"high\"}"
+    }
+  }
+}

@@ -20,82 +20,33 @@
 
     },
          {
-      "name": "Brinta Over Ons",
-      "previewUrl": "https://brands.prv.kraftheinz.com/nl-NL/brinta/over-ons",
-      "productionUrl": "https://www.kraftheinz.com/nl-NL/brinta/over-ons"
-
-    },
-         {
-      "name": "BTS en-CA landing",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/KHeasydinners",
-      "productionUrl": "https://www.kraftheinz.com/en-CA/KHeasydinners"
-
-    },
-         {
-      "name": "BTS fr-CA landing",
-      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/KHeasydinners",
-      "productionUrl": "https://www.kraftheinz.com/fr-CA/KHeasydinners"
-
-    },
-         {
-      "name": "BTS en-CA confirmation",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/KHeasydinners-confirmation",
-      "productionUrl": "https://www.kraftheinz.com/en-CA/KHeasydinners-confirmation"
-
-    },
-         {
-      "name": "BTS fr-CA confirmation",
-      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/KHeasydinners-confirmation",
-      "productionUrl": "https://www.kraftheinz.com/fr-CA/KHeasydinners-confirmation"
-
-    },
-         {
-      "name": "BTS en-CA rules",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/KHeasydinners-rules",
-      "productionUrl": "https://www.kraftheinz.com/en-CA/KHeasydinners-rules"
-
-    },
-         {
-      "name": "BTS fr-CA rules",
-      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/KHeasydinners-rules",
-      "productionUrl": "https://www.kraftheinz.com/fr-CA/KHeasydinners-rules"
-
-    },
-         {
-      "name": "Kale Caesar",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/kraft-salad-dressing/recipes/qDmVILOYziHrhJLj6UV2N-creamy-kale-caesar-with-air-fried-corn-sweet-potatoes",
-      "productionUrl": "https://www.kraftheinz.com/en-CA/kraft-salad-dressing/recipes/qDmVILOYziHrhJLj6UV2N-creamy-kale-caesar-with-air-fried-corn-sweet-potatoes"
-
-    },
-         {
-      "name": "Mac and Cheese Bacon Chives",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/kraft-dinner/recipes/28qeb7xD7zfuzhOXUs7fQr-mac-cheese-with-bacon-chives",
-      "productionUrl": "https://www.kraftheinz.com/en-CA/kraft-dinner/recipes/28qeb7xD7zfuzhOXUs7fQr-mac-cheese-with-bacon-chives"
-
-    },
-         {
-      "name": "Butter Chicken",
-      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/classico/recettes/3I3cLB3ICYguDco1JZTI1V-20-minute-creamy-butter-chicken",
-      "productionUrl": "https://www.kraftheinz.com/fr-CA/classico/recettes/3I3cLB3ICYguDco1JZTI1V-20-minute-creamy-butter-chicken"
-
-    },
-         {
-      "name": "Back to School",
-      "previewUrl": "https://brands.prv.kraftheinz.com/countdowntoschool",
-      "productionUrl": "https://www.kraftheinz.com/countdowntoschool"
-
-    },
-         {
-      "name": "Maxwell Landing",
-      "previewUrl": "https://brands.prv.kraftheinz.com/maxwell-house",
-      "productionUrl": "https://www.kraftheinz.com/maxwell-house"
-
-    },
-         {
-      "name": "Gevalia Landing",
-      "previewUrl": "https://brands.prv.kraftheinz.com/gevalia",
-      "productionUrl": "https://www.kraftheinz.com/gevalia"
+      "name": "Crystal light refresher",
+      "previewUrl": "https://brands.prv.kraftheinz.com/crystal-light/refresher",
+      "productionUrl": "https://www.kraftheinz.com/crystal-light/refresher",
+       "preAction": "fill-birth-date"
 
     }
+    ,
+         {
+      "name": "Raspberry Cheesecake",
+      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/recipes/3RpETcfBhhu4bdowdnEw5l-guilt-free-raspberry-cheesecake-hack",
+      "productionUrl": "https://www.kraftheinz.com/jell-o/recipes/3RpETcfBhhu4bdowdnEw5l-guilt-free-raspberry-cheesecake-hack"
+
+    }
+    ,
+         {
+      "name": "Strawberry Jello",
+      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/recipes/1Z61RQMl5zmIoAiu0mvLwS-strawberry-fluffy-jell-o",
+      "productionUrl": "https://www.kraftheinz.com/jell-o/recipes/1Z61RQMl5zmIoAiu0mvLwS-strawberry-fluffy-jell-o"
+
+    }
+    ,
+         {
+      "name": "Gelatin Gummies",
+      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/recipes/2UZ2veIw4GbmQS0yX31vDJ-easy-homemade-gelatin-gummies",
+      "productionUrl": "https://www.kraftheinz.com/jell-o/recipes/2UZ2veIw4GbmQS0yX31vDJ-easy-homemade-gelatin-gummies"
+
+    }
+       
   ]
 }

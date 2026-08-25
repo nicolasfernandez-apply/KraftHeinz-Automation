@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import * as fs from 'fs';
 import * as path from 'path';
 import { loginToPreview, requireAuthConfig } from '../utils/auth';
+import { runPreAction } from '../utils/pre-action';
 import {
   runHardChecks,
   runSoftChecks,
@@ -15,6 +16,12 @@ interface RecipeGeoConfig {
   url?: string;
   urls?: string[];
   environment: 'preview' | 'production';
+  /**
+   * Optional name of a pre-action defined in pre-actions.config.json.
+   * When set, the action is executed after login but before hard/soft checks
+   * (e.g. dismiss an age gate, select a country).
+   */
+  preAction?: string;
 }
 
 const configPath = process.env.RECIPE_GEO_CONFIG ?? path.resolve(process.cwd(), 'recipe-geo.config.json');
@@ -68,8 +75,14 @@ for (const url of urls) {
         }
 
         console.log(`[RecipeGEO] Navigating to ${url}…`);
+        // Navigate first so the pre-action can inspect the live page.
         await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
         await page.waitForLoadState('networkidle', { timeout: 15_000 }).catch(() => {});
+
+        if (config.preAction) {
+          console.log(`[RecipeGEO] Running pre-action "${config.preAction}"…`);
+          await runPreAction(page, config.preAction);
+        }
 
         // Screenshot
         const screenshotBuf = await page.screenshot({ fullPage: true }).catch(() => null);

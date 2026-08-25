@@ -5,6 +5,7 @@ import { analyzePage } from '../utils/analyzer';
 import { diffAnalyses } from '../utils/differ';
 import { generateReport } from '../utils/report-builder';
 import { requireAuthConfig, loginToPreview } from '../utils/auth';
+import { runPreAction } from '../utils/pre-action';
 
 // ── URL pair config ───────────────────────────────────────────────────────────
 
@@ -17,6 +18,12 @@ interface UrlPair {
   labelA?: string;
   /** Override the "Production" column label in the report (e.g. "Preview B") */
   labelB?: string;
+  /**
+   * Optional name of a pre-action defined in pre-actions.config.json.
+   * Executed on both pages after login but before analysis
+   * (e.g. dismiss an age gate, select a country).
+   */
+  preAction?: string;
 }
 
 /**
@@ -122,6 +129,23 @@ test.describe('URL Comparison: Preview vs Production', () => {
         await loginToPreview(previewPage, auth, pair.previewUrl);
         if (isSecondUrlPreview) {
           await loginToPreview(productionPage, auth, pair.productionUrl);
+        }
+
+        // Run pre-action on both pages if configured (after login, before analysis).
+        if (pair.preAction) {
+          console.log(`[compare] Running pre-action "${pair.preAction}" on both pages…`);
+          await Promise.all([
+            (async () => {
+              await previewPage.goto(pair.previewUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+              await previewPage.waitForLoadState('networkidle', { timeout: 15_000 }).catch(() => {});
+              await runPreAction(previewPage, pair.preAction!);
+            })(),
+            (async () => {
+              await productionPage.goto(pair.productionUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+              await productionPage.waitForLoadState('networkidle', { timeout: 15_000 }).catch(() => {});
+              await runPreAction(productionPage, pair.preAction!);
+            })(),
+          ]);
         }
 
         // Analyze both URLs (sequentially — login must finish first, then parallel is fine)
