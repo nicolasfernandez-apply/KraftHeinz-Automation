@@ -5,6 +5,7 @@ import { analyzePage } from '../utils/analyzer';
 import { diffAnalyses } from '../utils/differ';
 import { generateReport } from '../utils/report-builder';
 import { requireAuthConfig, loginToPreview } from '../utils/auth';
+import { runPreAction } from '../utils/pre-action';
 
 // ── URL pair config ───────────────────────────────────────────────────────────
 
@@ -13,6 +14,16 @@ interface UrlPair {
   name: string;
   previewUrl: string;
   productionUrl: string;
+  /** Override the "Preview" column label in the report (e.g. "Preview A") */
+  labelA?: string;
+  /** Override the "Production" column label in the report (e.g. "Preview B") */
+  labelB?: string;
+  /**
+   * Optional name of a pre-action defined in pre-actions.config.json.
+   * Executed on both pages after login but before analysis
+   * (e.g. dismiss an age gate, select a country).
+   */
+  preAction?: string;
 }
 
 /**
@@ -93,13 +104,21 @@ test.describe('URL Comparison: Preview vs Production', () => {
 
       // Restore the IAP session written by globalSetup — loginToPreview will
       // detect the valid session and skip the Firebase email-lookup entirely.
-      const hostname = new URL(pair.previewUrl).hostname;
-      const stateFile = path.join(process.cwd(), '.auth', `${hostname}.json`);
+      const hostnameA = new URL(pair.previewUrl).hostname;
+      const stateFileA = path.join(process.cwd(), '.auth', `${hostnameA}.json`);
       const previewCtx = await browser.newContext({
         ignoreHTTPSErrors: true,
-        ...(fs.existsSync(stateFile) ? { storageState: stateFile } : {}),
+        ...(fs.existsSync(stateFileA) ? { storageState: stateFileA } : {}),
       });
-      const productionCtx = await browser.newContext({ ignoreHTTPSErrors: true });
+
+      // If the second URL is also a preview host, load its IAP session too.
+      const hostnameB = new URL(pair.productionUrl).hostname;
+      const stateFileB = path.join(process.cwd(), '.auth', `${hostnameB}.json`);
+      const isSecondUrlPreview = fs.existsSync(stateFileB);
+      const productionCtx = await browser.newContext({
+        ignoreHTTPSErrors: true,
+        ...(isSecondUrlPreview ? { storageState: stateFileB } : {}),
+      });
 
       const previewPage = await previewCtx.newPage();
       const productionPage = await productionCtx.newPage();
@@ -108,6 +127,26 @@ test.describe('URL Comparison: Preview vs Production', () => {
         // loginToPreview returns immediately when the session is already valid;
         // it only performs a full login if the IAP session has expired.
         await loginToPreview(previewPage, auth, pair.previewUrl);
+        if (isSecondUrlPreview) {
+          await loginToPreview(productionPage, auth, pair.productionUrl);
+        }
+
+        // Run pre-action on both pages if configured (after login, before analysis).
+        if (pair.preAction) {
+          console.log(`[compare] Running pre-action "${pair.preAction}" on both pages…`);
+          await Promise.all([
+            (async () => {
+              await previewPage.goto(pair.previewUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+              await previewPage.waitForLoadState('networkidle', { timeout: 15_000 }).catch(() => {});
+              await runPreAction(previewPage, pair.preAction!);
+            })(),
+            (async () => {
+              await productionPage.goto(pair.productionUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+              await productionPage.waitForLoadState('networkidle', { timeout: 15_000 }).catch(() => {});
+              await runPreAction(productionPage, pair.preAction!);
+            })(),
+          ]);
+        }
 
         // Analyze both URLs (sequentially — login must finish first, then parallel is fine)
         console.log(`\nAnalyzing Preview:    ${pair.previewUrl}`);
@@ -130,7 +169,10 @@ test.describe('URL Comparison: Preview vs Production', () => {
 
         // Generate HTML report — one file per URL pair
         const reportPath = path.join(reportsDir, `${slug}-${timestamp}.html`);
-        const html = generateReport(previewAnalysis, productionAnalysis, diff);
+        const html = generateReport(previewAnalysis, productionAnalysis, diff, {
+          labelA: pair.labelA,
+          labelB: pair.labelB,
+        });
         fs.writeFileSync(reportPath, html, 'utf8');
 
         // Attach to Playwright test report for easy access in CI

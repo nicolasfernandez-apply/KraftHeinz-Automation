@@ -1,54 +1,58 @@
 {
   "comparisons": [
+              {
+      "name": "Back to Football v2",
+      "previewUrl": "https://brands.prv.kraftheinz.com/backtofootball",
+      "productionUrl": "https://brands.prv.kraftheinz.com/backtofootball/v2"
 
+    },
      
-         {
-      "name": "Butter chicken en-CA",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/classico/recipes/3I3cLB3ICYguDco1JZTI1V-20-minute-creamy-butter-chicken",
-      "productionUrl": "https://www.kraftheinz.com/en-CA/classico/recipes/3I3cLB3ICYguDco1JZTI1V-20-minute-creamy-butter-chicken"
-    }
-      ,
-         {
-      "name": "Butter chicken fr-CA",
-      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/classico/recettes/3I3cLB3ICYguDco1JZTI1V-20-minute-creamy-butter-chicken",
-      "productionUrl": "https://www.kraftheinz.com/fr-CA/classico/recettes/3I3cLB3ICYguDco1JZTI1V-20-minute-creamy-butter-chicken"
-    },
-         {
-      "name": "Meatloaf en-CA",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/kraft-salad-dressing/recipes/555990-favourite-meatloaf",
-      "productionUrl": "https://www.kraftheinz.com/en-CA/kraft-salad-dressing/recipes/555990-favourite-meatloaf"
+                {
+      "name": "Back to Football Coming soon",
+      "previewUrl": "https://brands.prv.kraftheinz.com/backtofootball",
+      "productionUrl": "https://www.kraftheinz.com/backtofootball"
 
     },
          {
-      "name": "Meatloaf fr-CA",
-      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/kraft-salad-dressing/recettes/555990-favourite-meatloaf",
-      "productionUrl": "https://www.kraftheinz.com/fr-CA/kraft-salad-dressing/recettes/555990-favourite-meatloaf"
+      "name": "Back to Football Rules",
+      "previewUrl": "https://brands.prv.kraftheinz.com/backtofootball/rules",
+      "productionUrl": "https://www.kraftheinz.com/backtofootball/rules"
 
     },
          {
-      "name": "Chicken Pie en-CA",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/kraft-salad-dressing/recipes/584465-country-chicken-pie",
-      "productionUrl": "https://www.kraftheinz.com/en-CA/kraft-salad-dressing/recipes/584465-country-chicken-pie"
+      "name": "Crystal light refresher",
+      "previewUrl": "https://brands.prv.kraftheinz.com/crystal-light/refresher",
+      "productionUrl": "https://www.kraftheinz.com/crystal-light/refresher",
+       "preAction": "fill-birth-date"
 
     }
     ,
          {
-      "name": "Chicken Pie fr-CA",
-      "previewUrl": "https://brands.prv.kraftheinz.com/fr-ca/kraft-salad-dressing/recettes/584465-country-chicken-pie",
-      "productionUrl": "https://www.kraftheinz.com/fr-ca/kraft-salad-dressing/recettes/584465-country-chicken-pie"
-
-    } ,
-         {
-      "name": "Kraft Mac and Cheese Products",
-      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-mac-and-cheese/products",
-      "productionUrl": "https://www.kraftheinz.com/kraft-mac-and-cheese/products"
-
-    },
-         {
-      "name": "Kraft Sauces Products",
-      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-sauces/products",
-      "productionUrl": "https://www.kraftheinz.com/kraft-sauces/products"
+      "name": "Bacon CheeseBurger",
+      "previewUrl": "https://brands.prv.kraftheinz.com/oscar-mayer/recipes/509779-bacon-cheeseburger-roll-up",
+      "productionUrl": "https://www.kraftheinz.com/oscar-mayer/recipes/509779-bacon-cheeseburger-roll-up"
 
     }
+    ,
+         {
+      "name": "Ham Sliders",
+      "previewUrl": "https://brands.prv.kraftheinz.com/oscar-mayer/recipes/584263-sweet-hawaiian-ham-sliders",
+      "productionUrl": "https://www.kraftheinz.com/oscar-mayer/recipes/584263-sweet-hawaiian-ham-sliders"
+
+    }
+    ,
+         {
+      "name": "Hot Dog Skillet",
+      "previewUrl": "https://brands.prv.kraftheinz.com/oscar-mayer/recipes/552939-mac-cheese-hot-dog-skillet",
+      "productionUrl": "https://www.kraftheinz.com/oscar-mayer/recipes/552939-mac-cheese-hot-dog-skillet"
+
+    }    ,
+         {
+      "name": "Kegchup",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/kegchup",
+      "productionUrl": "https://www.heinz.com/kegchup"
+
+    }
+       
   ]
 }

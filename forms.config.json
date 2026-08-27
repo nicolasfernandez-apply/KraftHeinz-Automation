@@ -1,19 +1,10 @@
 {
   "forms": [
    
-     {
-      "name": "Back to Football Form",
-      "url": "https://brands.prv.kraftheinz.com/backtofootball/v2",
-      "environment": "preview"
-    },
+     
          {
       "name": "Back to School en-CA",
-      "url": "https://brands.prv.kraftheinz.com/en-CA/KHeasydinners",
-      "environment": "preview"
-    },
-         {
-      "name": "Back to School fr-CA",
-      "url": "https://brands.prv.kraftheinz.com/fr-CA/KHeasydinners",
+      "url": "https://brands.prv.kraftheinz.com/backtofootball",
       "environment": "preview"
     }
   ]

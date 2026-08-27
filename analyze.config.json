@@ -1,7 +1,8 @@
 {
   "urls": [
-    "https://lunchables.prv.kraftheinz.com/yesdaysweepstakes"
+    "https://www.kraftheinz.com/capri-sun/products",
+    "https://www.kraftheinz.com/capri-sun/adults"
   ],
-  "environment": "preview",
-  "tokensFile": "tokens/Tokens-Lunchables/Lunchables - Yellow.tokens.json"
+  "environment": "production",
+  "tokensFile": "tokens/Tokens-Brands(K-L)/Kool Aid - Blue.tokens.json"
 }

@@ -26,7 +26,8 @@
     "analyze:report": "playwright show-report",
     "theme-match": "playwright test tests/theme-match.spec.ts",
     "test:forms": "playwright test tests/test-forms.spec.ts",
-    "test:forms:headed": "playwright test tests/test-forms.spec.ts --headed"
+    "test:forms:headed": "playwright test tests/test-forms.spec.ts --headed",
+    "recipe-geo": "playwright test tests/recipe-geo-guidelines.spec.ts"
   },
   "dependencies": {
     "dotenv": "^16.4.5"

@@ -4,6 +4,7 @@ import * as path from 'path';
 import { analyzePage }            from '../utils/analyzer';
 import { loadTokenFile }          from '../utils/token-loader';
 import { loginToPreview, requireAuthConfig } from '../utils/auth';
+import { runPreAction } from '../utils/pre-action';
 import { generateSinglePageReport } from '../utils/single-page-report';
 
 interface AnalyzeConfig {
@@ -19,6 +20,12 @@ interface AnalyzeConfig {
    * When omitted, the design-token compliance check is skipped.
    */
   tokensFile?: string;
+  /**
+   * Optional name of a pre-action defined in pre-actions.config.json.
+   * Executed after login but before the page is analysed
+   * (e.g. dismiss an age gate, select a country).
+   */
+  preAction?: string;
 }
 
 // Default to ./analyze.config.json so `npm run analyze` works with no env var;
@@ -95,6 +102,13 @@ for (const url of urls) {
       if (config.environment === 'preview') {
         const auth = requireAuthConfig();
         await loginToPreview(page, auth, url);
+      }
+
+      if (config.preAction) {
+        console.log(`[analyze] Running pre-action "${config.preAction}"…`);
+        await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+        await page.waitForLoadState('networkidle', { timeout: 15_000 }).catch(() => {});
+        await runPreAction(page, config.preAction);
       }
 
       console.log(`[analyze] Analysing ${url}…`);
