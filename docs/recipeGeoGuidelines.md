@@ -16,9 +16,9 @@ These requirements can be validated directly through Playwright using CSS select
     - `prepTime` (ISO 8601 duration format, e.g., `"PT10M"`)
     - `cookTime` (ISO 8601 duration format, e.g., `"PT20M"`)
     - `totalTime` (ISO 8601 duration format, e.g., `"PT30M"`)
-- **Quick Facts Block (DOM)**:
-  - Structured fields for **Yield**, **Prep Time**, **Cook Time**, and **Total Time** MUST be rendered in the DOM (e.g., within the Quick Facts / `ml-text-block` component).
-  - None of these fields can be blank, `null`, or contain placeholder values (e.g., `N/A`, `TBD`).
+- **Recipe Tips Block (DOM)**:
+  - A recipe tips block MUST be rendered in the DOM (e.g., within a `[class*="recipe-tips"]`, `[data-testid*="tips"]`, or `ml-text-block` component).
+  - The block must contain meaningful tip content (e.g., tip, note, pro tip, variation) and must not contain placeholder values (e.g., `N/A`, `TBD`).
 
 ### 1.2. Method Steps Structure (Guideline 22)
 - **Numbered List Structure**:
@@ -31,10 +31,6 @@ These requirements can be validated directly through Playwright using CSS select
   - JSON-LD MUST include `datePublished` and/or `dateModified` in valid ISO 8601 date format.
 - **Author Attribution**:
   - `author` field MUST exist in JSON-LD schema or as an on-page DOM element (`ml-text-block`).
-
-### 1.4. FAQs & Interactive Components (NOW Roadmap)
-- **Accordion Component State**:
-  - FAQ sections using the `ml-accordion` component MUST have all content expanded by default in HTML/DOM to ensure search engine and AI crawler visibility.
 
 ---
 

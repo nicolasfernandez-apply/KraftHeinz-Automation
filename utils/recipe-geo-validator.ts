@@ -62,9 +62,9 @@ export async function runHardChecks(page: Page): Promise<HardCheckResult[]> {
       (b: any) => b['@type'] === 'Recipe' || (Array.isArray(b['@type']) && b['@type'].includes('Recipe')),
     );
 
-    // Quick Facts DOM check
-    const quickFactsEl = document.querySelector('ml-text-block, [class*="quick-facts"], [class*="quickfacts"], [class*="QuickFacts"], [data-testid*="quick-facts"]');
-    const quickFactsText = quickFactsEl?.textContent ?? '';
+    // Recipe Tips DOM check
+    const recipeTipsEl = document.querySelector('[class*="recipe-tips"], [class*="recipeTips"], [class*="RecipeTips"], [data-testid*="recipe-tips"], [data-testid*="tips"], [class*="tips-block"], [class*="TipsBlock"], ml-text-block');
+    const recipeTipsText = recipeTipsEl?.textContent ?? '';
 
     // Method steps
     const methodOl = document.querySelector('[class*="method"] ol, [class*="Method"] ol, [class*="instruction"] ol, [class*="Instruction"] ol, [class*="direction"] ol, [class*="Direction"] ol, [class*="steps"] ol, [class*="Steps"] ol, [data-testid*="method"] ol, [data-testid*="instruction"] ol, ol');
@@ -72,19 +72,6 @@ export async function runHardChecks(page: Page): Promise<HardCheckResult[]> {
     if (methodOl) {
       const lis = methodOl.querySelectorAll('li');
       lis.forEach((li) => methodSteps.push(li.textContent?.trim() ?? ''));
-    }
-
-    // FAQ accordion
-    const accordions = Array.from(document.querySelectorAll('ml-accordion, [class*="accordion"], [data-testid*="accordion"], [class*="faq"]'));
-    const accordionStates: { expanded: boolean; text: string }[] = [];
-    for (const acc of accordions) {
-      const details = acc.querySelectorAll('details');
-      if (details.length > 0) {
-        details.forEach((d) => accordionStates.push({ expanded: d.hasAttribute('open'), text: d.textContent?.trim().slice(0, 80) ?? '' }));
-      } else {
-        const panels = acc.querySelectorAll('[aria-expanded]');
-        panels.forEach((p) => accordionStates.push({ expanded: p.getAttribute('aria-expanded') === 'true', text: p.textContent?.trim().slice(0, 80) ?? '' }));
-      }
     }
 
     // Prep time from DOM
@@ -98,7 +85,7 @@ export async function runHardChecks(page: Page): Promise<HardCheckResult[]> {
     // Full page text for soft checks
     const bodyText = document.body.innerText ?? '';
 
-    return { recipe, quickFactsText, prepTimeText, methodSteps, accordionStates, authorDomText, bodyText };
+    return { recipe, recipeTipsText, prepTimeText, methodSteps, authorDomText, bodyText };
   });
 
   const recipe = pageData.recipe;
@@ -147,18 +134,18 @@ export async function runHardChecks(page: Page): Promise<HardCheckResult[]> {
     detail: yieldPresent ? `recipeYield: ${yield_}` : 'recipeYield is missing or empty',
   });
 
-  // 1.1 Quick Facts DOM
-  const qfText = pageData.quickFactsText;
-  const qfKeywords = ['yield', 'prep', 'cook', 'total', 'serves', 'servings', 'serving'];
-  const qfHasContent = qfKeywords.some((kw) => qfText.toLowerCase().includes(kw));
-  const qfHasPlaceholder = PLACEHOLDER_RE.test(qfText.trim());
+  // 1.1 Recipe Tips DOM
+  const tipsText = pageData.recipeTipsText;
+  const tipsKeywords = ['tip', 'note', 'pro tip', 'hint', 'suggestion', 'variation', 'try', 'make it'];
+  const tipsHasContent = tipsText.length > 0 && tipsKeywords.some((kw) => tipsText.toLowerCase().includes(kw));
+  const tipsHasPlaceholder = PLACEHOLDER_RE.test(tipsText.trim());
   results.push({
-    id: 'dom-quick-facts',
-    label: 'Quick Facts block rendered in DOM',
-    passed: qfHasContent && !qfHasPlaceholder,
-    detail: qfHasContent
-      ? qfHasPlaceholder ? 'Quick Facts found but contains placeholder values' : 'Quick Facts block found with content'
-      : 'No Quick Facts block found with yield/prep/cook/total fields',
+    id: 'dom-recipe-tips',
+    label: 'Recipe tips block rendered in DOM',
+    passed: tipsHasContent && !tipsHasPlaceholder,
+    detail: tipsHasContent
+      ? tipsHasPlaceholder ? 'Recipe tips block found but contains placeholder values' : 'Recipe tips block found with content'
+      : 'No recipe tips block found on page',
   });
 
   // 1.2 Method steps as ordered list
@@ -209,19 +196,6 @@ export async function runHardChecks(page: Page): Promise<HardCheckResult[]> {
       ? `Author: ${typeof authorJsonLd === 'object' ? authorJsonLd?.name ?? JSON.stringify(authorJsonLd) : authorJsonLd ?? pageData.authorDomText}`
       : 'No author found in JSON-LD or DOM',
   });
-
-  // 1.4 FAQ accordion expanded
-  if (pageData.accordionStates.length > 0) {
-    const collapsed = pageData.accordionStates.filter((a) => !a.expanded);
-    results.push({
-      id: 'dom-faq-expanded',
-      label: 'FAQ accordion items expanded by default',
-      passed: collapsed.length === 0,
-      detail: collapsed.length === 0
-        ? `All ${pageData.accordionStates.length} accordion item(s) expanded`
-        : `${collapsed.length} of ${pageData.accordionStates.length} accordion item(s) are collapsed`,
-    });
-  }
 
   return results;
 }
