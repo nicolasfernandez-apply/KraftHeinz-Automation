@@ -52,6 +52,60 @@
       "previewUrl": "https://heinz.prv.kraftheinz.com/kegchup",
       "productionUrl": "https://www.heinz.com/kegchup"
 
+    },
+         {
+      "name": "Philly Cream Cheese Spinach Dip",
+      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/501523-philadelphia-cream-cheese-spinach-dip",
+      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/501523-philadelphia-cream-cheese-spinach-dip"
+
+    },
+         {
+      "name": "Philly Buffalo Chicken Dip",
+      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/550217-buffalo-chicken-dip",
+      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/550217-buffalo-chicken-dip"
+
+    },
+         {
+      "name": "Philly Cheesy Hamburger Mac",
+      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-mac-and-cheese/recipes/500537-easy-cheesy-hamburger-mac",
+      "productionUrl": "https://www.kraftheinz.com/kraft-mac-and-cheese/recipes/500537-easy-cheesy-hamburger-mac"
+
+    },
+         {
+      "name": "Jello Pudding non dairy",
+      "previewUrl": "https://brands.prv.kraftheinz.com/jell-o/recipes/584783-jell-o-pudding-with-non-dairy-milk",
+      "productionUrl": "https://www.kraftheinz.com/jell-o/recipes/584783-jell-o-pudding-with-non-dairy-milk"
+
+    },
+         {
+      "name": "Philadelphia Cheesecake",
+      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/501761-philadelphia-classic-cheesecake",
+      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/501761-philadelphia-classic-cheesecake"
+
+    },
+         {
+      "name": "SureJell Strawberry Jam",
+      "previewUrl": "https://brands.prv.kraftheinz.com/sure-jell/recipes/500530-30-minutes-to-homemade-sure-jell-strawberry-freezer-jam",
+      "productionUrl": "https://www.kraftheinz.com/sure-jell/recipes/500530-30-minutes-to-homemade-sure-jell-strawberry-freezer-jam"
+
+    },
+         {
+      "name": "Velveeta Mac & Cheese",
+      "previewUrl": "https://brands.prv.kraftheinz.com/velveeta/recipes/502783-velveeta-down-home-macaroni-cheese",
+      "productionUrl": "https://www.kraftheinz.com/velveeta/recipes/502783-velveeta-down-home-macaroni-cheese"
+
+    },
+         {
+      "name": "Back to Routine en-CA",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/igaqc-backtoroutine-products",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/igaqc-backtoroutine-products"
+
+    },
+         {
+      "name": "Back to Routine fr-CA",
+      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/igaqc-retouralamaison-produits",
+      "productionUrl": "https://www.kraftheinz.com/fr-CA/igaqc-retouralamaison-produits"
+
     }
        
   ]

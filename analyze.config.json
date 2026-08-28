@@ -1,8 +1,8 @@
 {
   "urls": [
-    "https://www.kraftheinz.com/capri-sun/products",
-    "https://www.kraftheinz.com/capri-sun/adults"
+    "https://brands.prv.kraftheinz.com/en-CA/igaqc-backtoroutine-products",
+    "https://brands.prv.kraftheinz.com/fr-CA/igaqc-retouralamaison-produits"
   ],
-  "environment": "production",
-  "tokensFile": "tokens/Tokens-Brands(K-L)/Kool Aid - Blue.tokens.json"
+  "environment": "preview",
+  "tokensFile": "tokens/Tokens-KH/KH - Violet.tokens.json"
 }
