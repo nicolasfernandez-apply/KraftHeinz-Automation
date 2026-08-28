@@ -1,0 +1,15 @@
+{
+  "pages": [
+    {
+      "name": "BTS en-CA",
+      "url": "https://www.kraftheinz.com/en-CA/KHeasydinners-rules",
+      "environment": "production",
+      "language": "English (Canadian)"
+    }, {
+      "name": "BTS fr-CA",
+      "url": "https://www.kraftheinz.com/fr-CA/KHeasydinners-rules",
+      "environment": "production",
+      "language": "French (Canadian)"
+    }
+  ]
+}
