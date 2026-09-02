@@ -3,9 +3,9 @@
    
      
          {
-      "name": "Back to School en-CA",
-      "url": "https://brands.prv.kraftheinz.com/backtofootball",
-      "environment": "preview"
+      "name": "Back to Football",
+      "url": "https://www.kraftheinz.com/backtofootball",
+      "environment": "production"
     }
   ]
 }

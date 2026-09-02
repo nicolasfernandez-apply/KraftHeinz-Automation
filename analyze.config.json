@@ -1,8 +1,7 @@
 {
   "urls": [
-    "https://brands.prv.kraftheinz.com/en-CA/igaqc-backtoroutine-products",
-    "https://brands.prv.kraftheinz.com/fr-CA/igaqc-retouralamaison-produits"
+    "https://brands.prv.kraftheinz.com/classico/sundayfootballsauce"
   ],
   "environment": "preview",
-  "tokensFile": "tokens/Tokens-KH/KH - Violet.tokens.json"
+  "tokensFile": "tokens/Tokens-KH/KH - White-Green.tokens.json"
 }

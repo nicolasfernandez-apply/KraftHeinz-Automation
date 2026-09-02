@@ -50,8 +50,8 @@ function findClaudeCli(): string {
  * Extracts visible human-readable text from the page.
  * Ignores scripts, styles, and hidden elements.
  */
-async function extractPageText(page: Page): Promise<{ title: string; text: string }> {
-  return page.evaluate(() => {
+async function extractPageText(page: Page): Promise<{ title: string; text: string; raw: string }> {
+  return page.evaluate((): { title: string; text: string; raw: string } => {
     const skipTags = new Set(['SCRIPT', 'STYLE', 'NOSCRIPT', 'IFRAME', 'SVG', 'CODE', 'PRE']);
 
     function walk(node: Node, parts: string[]): void {
@@ -71,9 +71,33 @@ async function extractPageText(page: Page): Promise<{ title: string; text: strin
     const parts: string[] = [];
     walk(document.body, parts);
 
-    const text = parts.join(' ').replace(/\s+/g, ' ').trim().slice(0, 40_000);
-    return { title: document.title, text };
+    const raw = parts.join(' ').trim().slice(0, 40_000);
+    const text = raw.replace(/\s+/g, ' ').trim();
+    return { title: document.title, text, raw };
   });
+}
+
+// ── Double-space detection ────────────────────────────────────────────────────
+
+function detectDoubleSpaces(text: string): GrammarIssue[] {
+  const issues: GrammarIssue[] = [];
+  const regex = / {2,}/g;
+  let match: RegExpExecArray | null;
+
+  while ((match = regex.exec(text)) !== null) {
+    const start = Math.max(0, match.index - 40);
+    const end = Math.min(text.length, match.index + match[0].length + 40);
+    const excerpt = text.slice(start, end).replace(/\n/g, '↵');
+    issues.push({
+      issue: 'Double (or extra) space detected',
+      originalText: excerpt.slice(0, 120),
+      suggestion: excerpt.replace(/ {2,}/g, ' ').slice(0, 120),
+      severity: 'warning',
+      category: 'punctuation',
+    });
+  }
+
+  return issues;
 }
 
 // ── Claude invocation ─────────────────────────────────────────────────────────
@@ -86,11 +110,12 @@ export async function analyzeGrammar(
   url: string,
   language: string,
 ): Promise<GrammarAnalysisResult> {
-  const { title, text } = await extractPageText(page);
+  const { title, text, raw } = await extractPageText(page);
+  const doubleSpaceIssues = detectDoubleSpaces(raw);
 
   const prompt = `You are a professional copy editor analyzing the text contents of a web page written in ${language}.
 
-Your task is to review the text for grammar, spelling, punctuation, style, and clarity issues.
+Your task is to review the text for grammar, spelling, punctuation (including double spaces), style, and clarity issues.
 
 Instructions:
 - Focus only on the visible content text provided below.
@@ -134,15 +159,15 @@ ${text}`;
     throw new Error(proc.stderr?.toString().trim() || `claude exited with code ${proc.status}`);
   }
 
-  const raw = (proc.stdout as string) ?? '';
-  const clean = raw.trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/i, '').trim();
+  const claudeOutput = (proc.stdout as string) ?? '';
+  const clean = claudeOutput.trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/i, '').trim();
   const parsed = JSON.parse(clean) as { issues: GrammarIssue[]; summary: string };
 
   return {
     url,
     pageTitle: title,
     language,
-    issues: parsed.issues ?? [],
+    issues: [...doubleSpaceIssues, ...(parsed.issues ?? [])],
     summary: parsed.summary ?? '',
     analyzedAt: new Date().toISOString(),
   };

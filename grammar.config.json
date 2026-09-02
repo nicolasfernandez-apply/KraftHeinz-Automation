@@ -11,5 +11,11 @@
       "environment": "production",
       "language": "French (Canadian)"
     }
+    , {
+      "name": "Ore Ida Koromo JP",
+      "url": "https://brands.prv.kraftheinz.com/ja-JP/ore-ida/koromo",
+      "environment": "preview",
+      "language": "Japanese"
+    }
   ]
 }

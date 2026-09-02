@@ -82,7 +82,9 @@ for (const entry of entries) {
 
     if (isPreview) {
       const authCfg = requireAuthConfig();
-      context = await loginToPreview(browser, entry.url, authCfg);
+      const authPage = await context.newPage();
+      await loginToPreview(authPage, authCfg, entry.url);
+      await authPage.close();
     }
 
     const page = await context.newPage();
@@ -117,7 +119,7 @@ for (const entry of entries) {
     });
 
     // Optionally save report to disk alongside playwright-report
-    const outDir = path.resolve(process.cwd(), 'grammar-reports');
+    const outDir = path.resolve(process.cwd(), 'reports/grammar-reports');
     fs.mkdirSync(outDir, { recursive: true });
     const outPath = path.join(outDir, `${reportSlug}.html`);
     fs.writeFileSync(outPath, html, 'utf8');

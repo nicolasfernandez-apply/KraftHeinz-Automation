@@ -1,16 +1,16 @@
 {
   "comparisons": [
               {
-      "name": "Back to Football v2",
+      "name": "Back to Football ",
       "previewUrl": "https://brands.prv.kraftheinz.com/backtofootball",
-      "productionUrl": "https://brands.prv.kraftheinz.com/backtofootball/v2"
+      "productionUrl": "https://www.kraftheinz.com/backtofootball"
 
     },
      
                 {
-      "name": "Back to Football Coming soon",
-      "previewUrl": "https://brands.prv.kraftheinz.com/backtofootball",
-      "productionUrl": "https://www.kraftheinz.com/backtofootball"
+      "name": "Back to Football Confirmation",
+      "previewUrl": "https://brands.prv.kraftheinz.com/backtofootball/confirmation",
+      "productionUrl": "https://www.kraftheinz.com/backtofootball/confirmation"
 
     },
          {
@@ -105,6 +105,42 @@
       "name": "Back to Routine fr-CA",
       "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/igaqc-retouralamaison-produits",
       "productionUrl": "https://www.kraftheinz.com/fr-CA/igaqc-retouralamaison-produits"
+
+    },
+         {
+      "name": "Velveeta Nacho Bake",
+      "previewUrl": "https://brands.prv.kraftheinz.com/velveeta/recipes/523694-velveeta-nacho-bake",
+      "productionUrl": "https://www.kraftheinz.com/velveeta/recipes/523694-velveeta-nacho-bake"
+
+    },
+         {
+      "name": "Strawberry Jam",
+      "previewUrl": "https://brands.prv.kraftheinz.com/sure-jell/recipes/500467-sure-jell-strawberry-jam",
+      "productionUrl": "https://www.kraftheinz.com/sure-jell/recipes/500467-sure-jell-strawberry-jam"
+
+    },
+         {
+      "name": "Heinz en-CA",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/en-CA",
+      "productionUrl": "https://www.heinz.com/en-CA"
+
+    },
+         {
+      "name": "Classico Football sauce",
+      "previewUrl": "http://brands.prv.kraftheinz.com/classico/sundayfootballsauce",
+      "productionUrl": "http://www.kraftheinz.com/classico/sundayfootballsauce"
+
+    },
+         {
+      "name": "Maxwell house",
+      "previewUrl": "http://brands.prv.kraftheinz.com/maxwell-house",
+      "productionUrl": "https://www.kraftheinz.com/maxwell-house"
+
+    },
+         {
+      "name": "Gevalia",
+      "previewUrl": "http://brands.prv.kraftheinz.com/gevalia",
+      "productionUrl": "https://www.kraftheinz.com/gevalia"
 
     }
        
