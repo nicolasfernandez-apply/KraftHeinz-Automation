@@ -4,8 +4,8 @@
      
          {
       "name": "Back to Football",
-      "url": "https://www.kraftheinz.com/backtofootball",
-      "environment": "production"
+      "url": "https://brands.prv.kraftheinz.com/backtofootball",
+      "environment": "preview"
     }
   ]
 }

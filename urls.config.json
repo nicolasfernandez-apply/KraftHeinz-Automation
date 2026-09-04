@@ -132,15 +132,69 @@
 
     },
          {
-      "name": "Maxwell house",
-      "previewUrl": "http://brands.prv.kraftheinz.com/maxwell-house",
-      "productionUrl": "https://www.kraftheinz.com/maxwell-house"
+      "name": "MealsMadeEasy",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/FCLMealsMadeEasy",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/FCLMealsMadeEasy"
 
     },
          {
-      "name": "Gevalia",
-      "previewUrl": "http://brands.prv.kraftheinz.com/gevalia",
-      "productionUrl": "https://www.kraftheinz.com/gevalia"
+      "name": "KH en-CA",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA",
+      "productionUrl": "https://www.kraftheinz.com/en-CA"
+
+    },
+         {
+      "name": "Kool Aid Hydration",
+      "previewUrl": "https://brands.prv.kraftheinz.com/kool-aid/hydration",
+      "productionUrl": "https://www.kraftheinz.com/kool-aid/hydration"
+
+    },
+         {
+      "name": "Orange Blossom Cheesecake",
+      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/586411-orange-blossom-cheesecake-minis",
+      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/586411-orange-blossom-cheesecake-minis"
+
+    },
+         {
+      "name": "Raspberry Rose Cheesecake",
+      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/586425-raspberry-rose-cheesecake-minis",
+      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/586425-raspberry-rose-cheesecake-minis"
+
+    },
+         {
+      "name": "Our Best Cheesecake",
+      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/507406-our-best-cheesecake",
+      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/507406-our-best-cheesecake"
+
+    },
+         {
+      "name": "Philadelphia mini Cheesecake",
+      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/569866-philadelphia-mini-cheesecakes",
+      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/569866-philadelphia-mini-cheesecakes"
+
+    },
+         {
+      "name": "Creamy Stroganoff",
+      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/558498-ultimate-creamy-beef-stroganoff",
+      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/558498-ultimate-creamy-beef-stroganoff"
+
+    },
+         {
+      "name": "Baked Crab Ranggon",
+      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/555467-baked-crab-rangoon",
+      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/555467-baked-crab-rangoon"
+
+    },
+         {
+      "name": "Favorite Deviled Eggs",
+      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/556479-favorite-topped-deviled-eggs",
+      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/556479-favorite-topped-deviled-eggs"
+
+    },
+         {
+      "name": "Red Pepper Jelly Spread",
+      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/551145-easy-red-pepper-jelly-spread",
+      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/551145-easy-red-pepper-jelly-spread"
 
     }
        

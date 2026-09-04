@@ -1,7 +1,8 @@
 {
   "urls": [
-    "https://brands.prv.kraftheinz.com/classico/sundayfootballsauce"
+    "https://brands.prv.kraftheinz.com/en-CA/philadelphia/phillyholidays",
+    "https://brands.prv.kraftheinz.com/fr-CA/philadelphia/phillyholidays"
   ],
   "environment": "preview",
-  "tokensFile": "tokens/Tokens-KH/KH - White-Green.tokens.json"
+  "tokensFile": "tokens/Tokens-Philadelphia/Philadelphia - Blue.tokens.json"
 }
