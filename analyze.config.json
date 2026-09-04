@@ -1,8 +1,8 @@
 {
   "urls": [
-    "https://brands.prv.kraftheinz.com/en-CA/igaqc-backtoroutine-products",
-    "https://brands.prv.kraftheinz.com/fr-CA/igaqc-retouralamaison-produits"
+    "https://brands.prv.kraftheinz.com/en-CA/philadelphia/phillyholidays",
+    "https://brands.prv.kraftheinz.com/fr-CA/philadelphia/phillyholidays"
   ],
   "environment": "preview",
-  "tokensFile": "tokens/Tokens-KH/KH - Violet.tokens.json"
+  "tokensFile": "tokens/Tokens-Philadelphia/Philadelphia - Blue.tokens.json"
 }

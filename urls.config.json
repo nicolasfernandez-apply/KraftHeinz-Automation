@@ -1,16 +1,16 @@
 {
   "comparisons": [
               {
-      "name": "Back to Football v2",
+      "name": "Back to Football ",
       "previewUrl": "https://brands.prv.kraftheinz.com/backtofootball",
-      "productionUrl": "https://brands.prv.kraftheinz.com/backtofootball/v2"
+      "productionUrl": "https://www.kraftheinz.com/backtofootball"
 
     },
      
                 {
-      "name": "Back to Football Coming soon",
-      "previewUrl": "https://brands.prv.kraftheinz.com/backtofootball",
-      "productionUrl": "https://www.kraftheinz.com/backtofootball"
+      "name": "Back to Football Confirmation",
+      "previewUrl": "https://brands.prv.kraftheinz.com/backtofootball/confirmation",
+      "productionUrl": "https://www.kraftheinz.com/backtofootball/confirmation"
 
     },
          {
@@ -105,6 +105,96 @@
       "name": "Back to Routine fr-CA",
       "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/igaqc-retouralamaison-produits",
       "productionUrl": "https://www.kraftheinz.com/fr-CA/igaqc-retouralamaison-produits"
+
+    },
+         {
+      "name": "Velveeta Nacho Bake",
+      "previewUrl": "https://brands.prv.kraftheinz.com/velveeta/recipes/523694-velveeta-nacho-bake",
+      "productionUrl": "https://www.kraftheinz.com/velveeta/recipes/523694-velveeta-nacho-bake"
+
+    },
+         {
+      "name": "Strawberry Jam",
+      "previewUrl": "https://brands.prv.kraftheinz.com/sure-jell/recipes/500467-sure-jell-strawberry-jam",
+      "productionUrl": "https://www.kraftheinz.com/sure-jell/recipes/500467-sure-jell-strawberry-jam"
+
+    },
+         {
+      "name": "Heinz en-CA",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/en-CA",
+      "productionUrl": "https://www.heinz.com/en-CA"
+
+    },
+         {
+      "name": "Classico Football sauce",
+      "previewUrl": "http://brands.prv.kraftheinz.com/classico/sundayfootballsauce",
+      "productionUrl": "http://www.kraftheinz.com/classico/sundayfootballsauce"
+
+    },
+         {
+      "name": "MealsMadeEasy",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/FCLMealsMadeEasy",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/FCLMealsMadeEasy"
+
+    },
+         {
+      "name": "KH en-CA",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA",
+      "productionUrl": "https://www.kraftheinz.com/en-CA"
+
+    },
+         {
+      "name": "Kool Aid Hydration",
+      "previewUrl": "https://brands.prv.kraftheinz.com/kool-aid/hydration",
+      "productionUrl": "https://www.kraftheinz.com/kool-aid/hydration"
+
+    },
+         {
+      "name": "Orange Blossom Cheesecake",
+      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/586411-orange-blossom-cheesecake-minis",
+      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/586411-orange-blossom-cheesecake-minis"
+
+    },
+         {
+      "name": "Raspberry Rose Cheesecake",
+      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/586425-raspberry-rose-cheesecake-minis",
+      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/586425-raspberry-rose-cheesecake-minis"
+
+    },
+         {
+      "name": "Our Best Cheesecake",
+      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/507406-our-best-cheesecake",
+      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/507406-our-best-cheesecake"
+
+    },
+         {
+      "name": "Philadelphia mini Cheesecake",
+      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/569866-philadelphia-mini-cheesecakes",
+      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/569866-philadelphia-mini-cheesecakes"
+
+    },
+         {
+      "name": "Creamy Stroganoff",
+      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/558498-ultimate-creamy-beef-stroganoff",
+      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/558498-ultimate-creamy-beef-stroganoff"
+
+    },
+         {
+      "name": "Baked Crab Ranggon",
+      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/555467-baked-crab-rangoon",
+      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/555467-baked-crab-rangoon"
+
+    },
+         {
+      "name": "Favorite Deviled Eggs",
+      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/556479-favorite-topped-deviled-eggs",
+      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/556479-favorite-topped-deviled-eggs"
+
+    },
+         {
+      "name": "Red Pepper Jelly Spread",
+      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/551145-easy-red-pepper-jelly-spread",
+      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/551145-easy-red-pepper-jelly-spread"
 
     }
        
