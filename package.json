@@ -29,7 +29,9 @@
     "test:forms:headed": "playwright test tests/test-forms.spec.ts --headed",
     "recipe-geo": "playwright test tests/recipe-geo-guidelines.spec.ts",
     "grammar-check": "playwright test tests/grammar-check.spec.ts",
-    "grammar-check:headed": "playwright test tests/grammar-check.spec.ts --headed"
+    "grammar-check:headed": "playwright test tests/grammar-check.spec.ts --headed",
+    "audit:bundle-products": "playwright test tests/audits/bundle-products-audit.spec.ts",
+    "audit:recipe-linked-products": "playwright test tests/audits/recipe-linked-products-audit.spec.ts"
   },
   "dependencies": {
     "dotenv": "^16.4.5"
