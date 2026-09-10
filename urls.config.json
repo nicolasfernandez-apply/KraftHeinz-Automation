@@ -196,6 +196,12 @@
       "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/551145-easy-red-pepper-jelly-spread",
       "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/551145-easy-red-pepper-jelly-spread"
 
+    },
+         {
+      "name": "Heinz DE",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/de-DE",
+      "productionUrl": "https://www.heinz.com/de-DE"
+
     }
        
   ]
