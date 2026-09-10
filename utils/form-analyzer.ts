@@ -69,6 +69,7 @@ interface RawForm {
   submitSelector: string;
   fields: RawField[];
   outerHtml: string;
+  droppedHoneypots: string[];
 }
 
 async function extractRawForms(page: Page): Promise<RawForm[]> {
@@ -162,6 +163,34 @@ async function extractRawForms(page: Page): Promise<RawForm[]> {
       });
     }
 
+    // Honeypot fields are bot traps: rendered in the markup but hidden from real
+    // users, so a human never fills them and a filled value marks the submitter
+    // as a bot. They must be left untouched, and generating test data for them
+    // wastes prompt/response budget, so they are dropped at extraction time.
+    // type="hidden" is already excluded by the allControls selector — these are
+    // visible-typed inputs concealed via CSS.
+    function isHoneypot(el: Element, required: boolean): boolean {
+      const input = el as HTMLInputElement;
+      const namePattern = /(^|[_-])(honeypot|honey|hp[a-z]{0,6}|bot|trap|spam|nofill|leaveblank)([_-]|$)/i;
+      if (namePattern.test(input.name ?? '') || namePattern.test(input.id ?? '')) return true;
+
+      // A field the user can never see and is not required is either a trap or
+      // irrelevant to validation either way. Required-but-hidden fields are left
+      // alone: those are usually collapsed multi-step sections, not honeypots.
+      if (required) return false;
+
+      const style = getComputedStyle(el);
+      if (style.display === 'none' || style.visibility === 'hidden' || parseFloat(style.opacity) === 0) return true;
+      if (el.getAttribute('aria-hidden') === 'true') return true;
+
+      const rect = el.getBoundingClientRect();
+      if (rect.width === 0 || rect.height === 0) return true;
+      // Positioned off-screen (a classic honeypot concealment technique)
+      if (rect.right < 0 || rect.bottom < 0) return true;
+
+      return false;
+    }
+
     const seen = new Set<string>();
     const allForms = Array.from(document.querySelectorAll('form'));
     const forms = allForms.filter((f) => !isSearchForm(f));
@@ -209,6 +238,7 @@ async function extractRawForms(page: Page): Promise<RawForm[]> {
       // Deduplicate radio groups — keep only the first radio per name
       const seenRadioNames = new Set<string>();
       const fields: RawField[] = [];
+      const droppedHoneypots: string[] = [];
 
       allControls.forEach((el) => {
         const input = el as HTMLInputElement;
@@ -221,6 +251,12 @@ async function extractRawForms(page: Page): Promise<RawForm[]> {
         const selector = buildSelector(el, domFormIndex);
         if (seen.has(selector)) return;
         seen.add(selector);
+
+        const fieldRequired = isRequired(el, formIndex);
+        if (isHoneypot(el, fieldRequired)) {
+          droppedHoneypots.push(input.name || input.id || selector);
+          return;
+        }
 
         let options: string[] = [];
         if (el.tagName === 'SELECT') {
@@ -245,7 +281,7 @@ async function extractRawForms(page: Page): Promise<RawForm[]> {
           name: input.name,
           id: input.id,
           type,
-          required: isRequired(el, formIndex),
+          required: fieldRequired,
           placeholder: input.placeholder ?? '',
           selector,
           options,
@@ -399,6 +435,7 @@ async function extractRawForms(page: Page): Promise<RawForm[]> {
         submitSelector,
         outerHtml: form.outerHTML.slice(0, 8_000),
         fields,
+        droppedHoneypots,
       } as RawForm;
     });
   });
@@ -421,8 +458,10 @@ function findClaudePath(): string {
   throw new Error('claude CLI not found. Run: npm install -g @anthropic-ai/claude-code');
 }
 
-function interpretWithClaude(rawForms: RawForm[], url: string, pageTitle: string): FormInfo[] {
-  const prompt = `You are a QA automation expert. Given raw HTML form data extracted from a web page, you will:
+function buildPrompt(rawForms: RawForm[], url: string, pageTitle: string): string {
+  // droppedHoneypots is bookkeeping for our own logging — not input for Claude.
+  const payload = rawForms.map(({ droppedHoneypots: _drop, ...rest }) => rest);
+  return `You are a QA automation expert. Given raw HTML form data extracted from a web page, you will:
 1. Identify each field's purpose from its label, name, id, placeholder, and type.
 2. Generate one VALID test value per field that matches real-world data for that field type.
 3. Generate 2-3 INVALID test values per field with a short reason each.
@@ -457,24 +496,23 @@ Page title: "${pageTitle}"
 URL: ${url}
 
 Raw form data:
-${JSON.stringify(rawForms, null, 2)}
+${JSON.stringify(payload, null, 2)}
 
 Return the complete JSON array with testData populated for every field.`;
+}
 
-  const claudePath = findClaudePath();
-  console.log(`  [FormScanner] Calling Claude CLI (${claudePath})…`);
-
+function callClaude(prompt: string, claudePath: string, tag: string): FormInfo[] {
   const MAX_ATTEMPTS = 3;
   let lastError: Error | undefined;
 
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
     if (attempt > 1) {
-      console.warn(`  [FormScanner] Retrying Claude call (attempt ${attempt}/${MAX_ATTEMPTS})…`);
+      console.warn(`  [FormScanner] Retrying Claude call for ${tag} (attempt ${attempt}/${MAX_ATTEMPTS})…`);
     }
 
     // Write prompt to a temp file and use shell redirection — avoids the stdin/TTY
     // hang that occurs when spawnSync pipes input to claude in a Playwright worker process.
-    const tmpFile = path.join(os.tmpdir(), `kh-form-scan-${process.pid}-${attempt}.txt`);
+    const tmpFile = path.join(os.tmpdir(), `kh-form-scan-${process.pid}-${tag}-${attempt}.txt`);
     let text: string;
     try {
       fs.writeFileSync(tmpFile, prompt, 'utf8');
@@ -495,13 +533,42 @@ Return the complete JSON array with testData populated for every field.`;
       return JSON.parse(clean) as FormInfo[];
     } catch (e) {
       lastError = new Error(
-        `Claude returned unparseable JSON (attempt ${attempt}/${MAX_ATTEMPTS}).\nError: ${(e as Error).message}\nResponse:\n${text.slice(0, 500)}`,
+        `Claude returned unparseable JSON for ${tag} (attempt ${attempt}/${MAX_ATTEMPTS}).\n` +
+        `Error: ${(e as Error).message}\nResponse length: ${text.length}\nResponse:\n${text.slice(0, 500)}`,
       );
       console.warn(`  [FormScanner] ${lastError.message}`);
     }
   }
 
-  throw lastError;
+  throw lastError ?? new Error(`Claude call failed for ${tag}`);
+}
+
+/**
+ * Interprets each form in its own Claude call. Batching every form into a single
+ * request produced responses that exceeded the model's output limit and came back
+ * as truncated, unparseable JSON — the per-form split keeps each response well
+ * inside that ceiling. Claude sees one form at a time and numbers it formIndex 0,
+ * so the caller's original index is restored after parsing.
+ */
+function interpretWithClaude(rawForms: RawForm[], url: string, pageTitle: string): FormInfo[] {
+  const claudePath = findClaudePath();
+  console.log(`  [FormScanner] Calling Claude CLI (${claudePath}) for ${rawForms.length} form(s)…`);
+
+  const results: FormInfo[] = [];
+
+  for (const rawForm of rawForms) {
+    const tag = `form${rawForm.formIndex}`;
+    console.log(`  [FormScanner] Interpreting ${tag} (${rawForm.fields.length} field(s))…`);
+
+    const parsed = callClaude(buildPrompt([rawForm], url, pageTitle), claudePath, tag);
+    const forms = Array.isArray(parsed) ? parsed : [parsed as FormInfo];
+
+    for (const form of forms) {
+      results.push({ ...form, formIndex: rawForm.formIndex });
+    }
+  }
+
+  return results;
 }
 
 /**
@@ -606,6 +673,12 @@ export async function scanForm(page: Page, formName: string, scenarioNumber: num
   } else {
     const totalFields = rawForms.reduce((s, f) => s + f.fields.length, 0);
     console.log(`  [FormScanner] Found ${rawForms.length} form(s) with ${totalFields} field(s) total`);
+
+    for (const f of rawForms) {
+      if (f.droppedHoneypots.length > 0) {
+        console.log(`  [FormScanner] Skipped ${f.droppedHoneypots.length} honeypot field(s) on form ${f.formIndex}: ${f.droppedHoneypots.join(', ')}`);
+      }
+    }
   }
 
   // Post-extraction sweep: find any file inputs the DOM evaluate missed.
