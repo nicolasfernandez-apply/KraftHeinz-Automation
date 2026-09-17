@@ -282,6 +282,20 @@ npm run recipe-geo -- --headed
 
 ---
 
+## Grammar check
+
+Scans pages for spelling and grammar issues using the rules defined in [`grammar.config.json`](grammar.config.json).
+
+```bash
+# Headless
+npm run grammar-check
+
+# With a visible browser window (useful for debugging)
+npm run grammar-check:headed
+```
+
+---
+
 ## AI-powered form testing
 
 Tests all forms on a given URL using Claude AI to scan each form, identify all fields (including required fields marked with `*`), and generate valid and invalid test data tailored to each field's purpose.
