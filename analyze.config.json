@@ -1,8 +1,9 @@
 {
   "urls": [
-    "https://brands.prv.kraftheinz.com/taco-bell/GlobalTacoRemix",
-    "https://brands.prv.kraftheinz.com/taco-bell/GlobalTacoRemix-B"
+    "https://brands.prv.kraftheinz.com/kraft-singles/thesinglegreatestcall/results",
+    "https://brands.prv.kraftheinz.com/kraft-singles/thesinglegreatestcall/rules",
+    "https://brands.prv.kraftheinz.com/kraft-singles/thesinglegreatestcall"
   ],
   "environment": "preview",
-  "tokensFile": "tokens/Tokens-Brands(A-J)/Delimex - Purple.tokens.json"
+  "tokensFile": "tokens/Tokens-Brands(K-L)/Kraft Singles - Blue.tokens.json"
 }

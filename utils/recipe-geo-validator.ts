@@ -34,6 +34,55 @@ export interface RecipeGeoReport {
 const ISO_DURATION_RE = /^P(?:\d+Y)?(?:\d+M)?(?:\d+W)?(?:\d+D)?(?:T(?:\d+H)?(?:\d+M)?(?:\d+S)?)?$/;
 const ISO_DATE_RE = /^\d{4}-\d{2}-\d{2}/;
 const PLACEHOLDER_RE = /^(N\/A|TBD|null|undefined|—|-|\.{2,})$/i;
+const LOCALE_RE = /^\/([a-z]{2}-[A-Z]{2})(\/|$)/;
+const RECIPE_PATHS = new Set([
+  'recipes', 'receitas', 'recettes', 'recetas', 'rezepte', 'ricette',
+  'recepten', 'recepty', 'retsepti', 'recepti', 'receptury', 'oppskrifter',
+  'opskrifter', 'recept', 'resepti',
+]);
+
+function extractBrandFromUrl(url: string): string | null {
+  try {
+    const { hostname, pathname } = new URL(url);
+    if (hostname.includes('heinz.com') && !hostname.includes('kraftheinz')) return 'heinz';
+    const localeMatch = LOCALE_RE.exec(pathname);
+    const afterLocale = localeMatch ? pathname.slice(localeMatch[0].length) : pathname.slice(1);
+    const firstSegment = afterLocale.split('/')[0].toLowerCase();
+    if (!firstSegment || RECIPE_PATHS.has(firstSegment)) return null;
+    return firstSegment;
+  } catch {
+    return null;
+  }
+}
+
+function linkBelongsToBrand(href: string, brand: string): boolean {
+  try {
+    const parsed = new URL(href, 'https://placeholder.com');
+    if (brand === 'heinz') {
+      return parsed.hostname.includes('heinz.com') && !parsed.hostname.includes('kraftheinz');
+    }
+    return parsed.pathname.split('/').some((s) => s.toLowerCase() === brand);
+  } catch {
+    return href.split('/').some((s) => s.toLowerCase() === brand);
+  }
+}
+
+/** Minutes for an ISO 8601 duration like "PT1H30M". Returns null if unparseable. */
+function isoDurationToMinutes(value: unknown): number | null {
+  if (typeof value !== 'string' || !ISO_DURATION_RE.test(value)) return null;
+  const m = value.match(/^P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)W)?(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?$/);
+  if (!m) return null;
+  const [, , months, weeks, days, hours, minutes, seconds] = m.map((v) => (v ? Number(v) : 0)) as any;
+  return months * 43200 + weeks * 10080 + days * 1440 + hours * 60 + minutes + seconds / 60;
+}
+
+/** Minutes for DOM prep-time text like "Prep Time: 1 hr 30 min". Returns null if nothing found. */
+function prepTextToMinutes(text: string): number | null {
+  const hours = text.match(/(\d+)\s*(?:h|hr|hrs|hour|hours)\b/i);
+  const minutes = text.match(/(\d+)\s*(?:m|min|mins|minute|minutes)\b/i);
+  if (!hours && !minutes) return null;
+  return (hours ? Number(hours[1]) * 60 : 0) + (minutes ? Number(minutes[1]) : 0);
+}
 
 // ── Hard requirement checks ──────────────────────────────────────────────────
 
@@ -102,10 +151,28 @@ export async function runHardChecks(page: Page): Promise<HardCheckResult[]> {
 
   // 1.1 Required JSON-LD fields (cookTime and totalTime only — prepTime is DOM-rendered)
   const requiredDurations = ['cookTime', 'totalTime'] as const;
+
+  // When prep time equals total time, cook time is implicitly 0 and may be omitted
+  const totalMinutes = isoDurationToMinutes(recipe.totalTime);
+  const prepMinutes = isoDurationToMinutes(recipe.prepTime) ?? prepTextToMinutes(pageData.prepTimeText);
+  const cookTimeImplicitlyZero =
+    totalMinutes !== null && prepMinutes !== null && totalMinutes === prepMinutes;
+
   for (const field of requiredDurations) {
     const val = recipe[field];
     const present = typeof val === 'string' && val.length > 0;
     const valid = present && ISO_DURATION_RE.test(val);
+
+    if (field === 'cookTime' && !valid && cookTimeImplicitlyZero) {
+      results.push({
+        id: 'jsonld-cookTime',
+        label: 'JSON-LD cookTime',
+        passed: true,
+        detail: `cookTime inferred as 0 — prep time equals total time (${totalMinutes} min)`,
+      });
+      continue;
+    }
+
     results.push({
       id: `jsonld-${field}`,
       label: `JSON-LD ${field}`,
@@ -196,6 +263,35 @@ export async function runHardChecks(page: Page): Promise<HardCheckResult[]> {
       ? `Author: ${typeof authorJsonLd === 'object' ? authorJsonLd?.name ?? JSON.stringify(authorJsonLd) : authorJsonLd ?? pageData.authorDomText}`
       : 'No author found in JSON-LD or DOM',
   });
+
+  // Linked products in ingredients (reuses audit logic)
+  const ingredientHrefs: string[] = await page
+    .locator('[data-testid="ingredients-container"] a[href]')
+    .evaluateAll((anchors) =>
+      anchors.map((a) => (a as HTMLAnchorElement).href).filter(Boolean),
+    );
+
+  results.push({
+    id: 'ingredients-linked-products',
+    label: 'Ingredients — at least one linked product',
+    passed: ingredientHrefs.length > 0,
+    detail: ingredientHrefs.length > 0
+      ? `Found ${ingredientHrefs.length} linked product(s) in the ingredients container`
+      : 'No linked products found in the ingredients container',
+  });
+
+  const brand = extractBrandFromUrl(page.url());
+  if (brand !== null) {
+    const hasBrandLink = ingredientHrefs.some((href) => linkBelongsToBrand(href, brand));
+    results.push({
+      id: 'ingredients-brand-linked-product',
+      label: `Ingredients — at least one linked product for brand "${brand}"`,
+      passed: hasBrandLink,
+      detail: hasBrandLink
+        ? `Found at least one product link belonging to brand "${brand}"`
+        : `No product links belonging to brand "${brand}" found in the ingredients container`,
+    });
+  }
 
   return results;
 }
