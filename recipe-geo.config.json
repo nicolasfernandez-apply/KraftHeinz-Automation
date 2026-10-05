@@ -1,8 +1,7 @@
 {
   "urls": [
-    "https://www.kraftheinz.com/a1/recipes/543870-beef-pot-roast-and-winter-vegetables",
-    "https://www.kraftheinz.com/en-CA/a1/recipes/576746-the-ultimate-burger",
-    "https://www.kraftheinz.com/taco-bell/recipes/6vwplwx5vCq7RllRJx55xI-indian-paneer-tikka-masala-taco"
+     "https://brands.prv.kraftheinz.com/velveeta/recipes/4zolQjnYKoMdUnXom2djsA-buffalo-chicken-velveeta-shells-cheese",
+    "https://brands.prv.kraftheinz.com/velveeta/recipes/3tOCcADjFYFimVOxFiOweH-velveeta-cheesy-cowboy-sliders"
   ],
-  "environment": "production"
+  "environment": "preview"
 }

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs grep -l \"header\")",
+      "Bash(curl -s -L \"https://brands.prv.kraftheinz.com/velveeta/recipes/4zolQjnYKoMdUnXom2djsA-buffalo-chicken-velveeta-shells-cheese\" -m 15)",
+      "Bash(curl -s -o /tmp/page.html -w \"%{http_code}\\\\n\" -L \"https://brands.prv.kraftheinz.com/velveeta/recipes/4zolQjnYKoMdUnXom2djsA-buffalo-chicken-velveeta-shells-cheese\" -m 15)",
+      "Bash(python3 -c ' *)",
+      "Bash(RECIPE_GEO_DEBUG=1 npx playwright test tests/recipe-geo-guidelines.spec.ts -g \"buffalo-chicken\" --reporter=line)"
+    ]
+  }
+}

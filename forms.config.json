@@ -3,9 +3,16 @@
    
      
          {
-      "name": "Back to Football",
-      "url": "https://brands.prv.kraftheinz.com/backtofootball",
+      "name": "Easy Dinners en-CA",
+      "url": "https://brands.prv.kraftheinz.com/en-CA/KHeasydinners",
+      "environment": "preview"
+    },
+         
+         {
+      "name": "Easy Dinners fr-CA",
+      "url": "https://brands.prv.kraftheinz.com/fr-CA/KHeasydinners",
       "environment": "preview"
     }
+    
   ]
 }

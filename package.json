@@ -31,7 +31,9 @@
     "grammar-check": "playwright test tests/grammar-check.spec.ts",
     "grammar-check:headed": "playwright test tests/grammar-check.spec.ts --headed",
     "audit:bundle-products": "playwright test tests/audits/bundle-products-audit.spec.ts",
-    "audit:recipe-linked-products": "playwright test tests/audits/recipe-linked-products-audit.spec.ts"
+    "audit:recipe-linked-products": "playwright test tests/audits/recipe-linked-products-audit.spec.ts",
+    "audit:link-finder": "playwright test tests/audits/link-finder-audit.spec.ts",
+    "test:suite": "playwright test tests/compare-urls.spec.ts tests/analyze-page.spec.ts tests/grammar-check.spec.ts tests/recipe-geo-guidelines.spec.ts"
   },
   "dependencies": {
     "dotenv": "^16.4.5"
