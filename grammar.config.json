@@ -1,6 +1,11 @@
 {
   "pages": [
- {
+  {
+      "name": "Crave Rules en-ca",
+      "url": "https://brands.prv.kraftheinz.com/en-CA/crave/Cravethegame-rules",
+      "environment": "preview",
+      "language": "English"
+    },{
       "name": "KHEasyDinners Rules en-ca",
       "url": "https://brands.prv.kraftheinz.com/en-CA/KHeasydinners-rules",
       "environment": "preview",

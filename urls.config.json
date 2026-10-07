@@ -52,6 +52,16 @@
       "previewUrl": "https://brands.prv.kraftheinz.com/kraft-singles/thesinglegreatestcall/results",
       "productionUrl": "https://www.kraftheinz.com/kraft-singles/thesinglegreatestcall/results"
 
+    },{
+      "name": "Kraft singles ",
+      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-singles/thesinglegreatestcall",
+      "productionUrl": "https://www.kraftheinz.com/kraft-singles/thesinglegreatestcall"
+
+    },{
+      "name": "Kraft singles rules",
+      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-singles/thesinglegreatestcall/rules",
+      "productionUrl": "https://www.kraftheinz.com/kraft-singles/thesinglegreatestcall/rules"
+
     },
          {
       "name": "Surejell strawberry jam",
@@ -87,6 +97,30 @@
       "name": "2 Million plates en-CA ",
       "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/twomillionplates",
       "productionUrl": "https://www.kraftheinz.com/en-CA/twomillionplates"
+
+    },
+         {
+      "name": "TGI Fridays ",
+      "previewUrl": "https://brands.prv.kraftheinz.com/tgi-fridays/products ",
+      "productionUrl": "https://www.kraftheinz.com/tgi-fridays/products "
+
+    },
+         {
+      "name": "Heinz landing ",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/",
+      "productionUrl": "https://www.heinz.com/"
+
+    },
+         {
+      "name": "FreshCo Products",
+      "previewUrl": "https://www.kraftheinz.com/en-CA/FreshCoBuy5Save10",
+      "productionUrl": "https://brands.prv.kraftheinz.com/en-CA/FreshCoBuy5Save10"
+
+    },
+         {
+      "name": "Velveeta Shells & Cheese",
+      "previewUrl": "https://brands.prv.kraftheinz.com/velveeta/recipes/4zolQjnYKoMdUnXom2djsA-buffalo-chicken-velveeta-shells-cheese",
+      "productionUrl": "https://www.kraftheinz.com/velveeta/recipes/4zolQjnYKoMdUnXom2djsA-buffalo-chicken-velveeta-shells-cheese"
 
     }
     
