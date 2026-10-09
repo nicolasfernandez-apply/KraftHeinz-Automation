@@ -16,6 +16,24 @@
       "url": "https://brands.prv.kraftheinz.com/fr-CA/KHeasydinners-rules",
       "environment": "preview",
       "language": "French"
+    },
+         {
+      "name": "Japan Ore Ida",
+      "url": "https://www.kraftheinz.com/ja-JP/ore-ida/our-story",
+      "environment": "production",
+      "language": "Japanese"
+    },
+         {
+      "name": "Heinz Turkey Sustainability",
+      "url": "https://www.heinz.com/tr-TR/sustainability",
+      "environment": "production",
+      "language": "Turkish"
+    },
+     {
+      "name": "Crave Rules fr-ca",
+      "url": "https://brands.prv.kraftheinz.com/fr-CA/KHeasydinners-rules",
+      "environment": "preview",
+      "language": "French"
     }
   ]
 }
