@@ -179,6 +179,17 @@ async function extractRawForms(page: Page): Promise<RawForm[]> {
       // alone: those are usually collapsed multi-step sections, not honeypots.
       if (required) return false;
 
+      // Custom-styled checkboxes/radios commonly hide the native input (opacity:0,
+      // 0x0 box) and render a sibling element as the visual indicator, wiring
+      // accessibility via aria-labelledby/aria-label instead of a <label for>. A
+      // genuine honeypot has no reason to carry substantive accessible labelling
+      // (it exists to be invisible to everyone, assistive tech included), so this
+      // combination of CSS-invisible + explicitly labelled is a real field, not a trap.
+      const isToggleInput = el.tagName === 'INPUT' && (input.type === 'checkbox' || input.type === 'radio');
+      if (isToggleInput && (el.getAttribute('aria-labelledby') || el.getAttribute('aria-label'))) {
+        return false;
+      }
+
       const style = getComputedStyle(el);
       if (style.display === 'none' || style.visibility === 'hidden' || parseFloat(style.opacity) === 0) return true;
       if (el.getAttribute('aria-hidden') === 'true') return true;

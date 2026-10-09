@@ -1,30 +1,39 @@
 {
   "pages": [
-    {
-      "name": "Shrimp Volcano Roll",
-      "url": "https://brands.prv.kraftheinz.com/taco-bell/recipes/60VbZCCRQDFRccEJkAJpn9-shrimp-volcano-roll-taco",
+  {
+      "name": "Crave Rules en-ca",
+      "url": "https://brands.prv.kraftheinz.com/en-CA/crave/Cravethegame-rules",
       "environment": "preview",
       "language": "English"
-    }, {
-      "name": "Paneer Tikka Masala Taco",
-      "url": "https://brands.prv.kraftheinz.com/taco-bell/recipes/6vwplwx5vCq7RllRJx55xI-indian-paneer-tikka-masala-taco",
+    },{
+      "name": "KHEasyDinners Rules en-ca",
+      "url": "https://brands.prv.kraftheinz.com/en-CA/KHeasydinners-rules",
       "environment": "preview",
       "language": "English"
-    }, {
-      "name": "KBBQ Taco",
-      "url": "https://brands.prv.kraftheinz.com/taco-bell/recipes/1DSjdrpI5xOT6EAlfCRldC-kbbq-taco",
+    },
+     {
+      "name": "KHEasyDinners Rules fr-ca",
+      "url": "https://brands.prv.kraftheinz.com/fr-CA/KHeasydinners-rules",
       "environment": "preview",
-      "language": "English"
-    }, {
-      "name": "Gyro CrunchWrap",
-      "url": "https://brands.prv.kraftheinz.com/taco-bell/recipes/5QeeoRyKaPvfNqF8alk4c4-greek-style-gyro-crunchwraps",
+      "language": "French"
+    },
+         {
+      "name": "Japan Ore Ida",
+      "url": "https://www.kraftheinz.com/ja-JP/ore-ida/our-story",
+      "environment": "production",
+      "language": "Japanese"
+    },
+         {
+      "name": "Heinz Turkey Sustainability",
+      "url": "https://www.heinz.com/tr-TR/sustainability",
+      "environment": "production",
+      "language": "Turkish"
+    },
+     {
+      "name": "Crave Rules fr-ca",
+      "url": "https://brands.prv.kraftheinz.com/fr-CA/KHeasydinners-rules",
       "environment": "preview",
-      "language": "English"
-    }, {
-      "name": "Kraft Singles rules",
-      "url": "https://lunchables.prv.kraftheinz.com/parents/faq",
-      "environment": "preview",
-      "language": "English"
+      "language": "French"
     }
   ]
 }

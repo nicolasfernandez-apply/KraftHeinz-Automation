@@ -1,22 +1,22 @@
 {
   "comparisons": [
               {
-      "name": "National Taco Day ",
-      "previewUrl": "https://brands.prv.kraftheinz.com/taco-bell/GlobalTacoRemix",
-      "productionUrl": "https://www.kraftheinz.com/taco-bell/GlobalTacoRemix"
+      "name": "PowerMac 725 oz ",
+      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-mac-and-cheese/products/00021000087433-power-mac-original-flavor-mac-cheese-macaroni-and-cheese-dinner",
+      "productionUrl": "https://www.kraftheinz.com/kraft-mac-and-cheese/products/00021000087433-power-mac-original-flavor-mac-cheese-macaroni-and-cheese-dinner"
 
     },
      
                 {
-      "name": "Buffalo Chicken Mac & Cheese",
-      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-mac-and-cheese/recipes/2sEOy7V14F9Ume1XM0DSbI-buffalo-chicken-mac-and-cheese",
-      "productionUrl": "https://www.kraftheinz.com/kraft-mac-and-cheese/recipes/2sEOy7V14F9Ume1XM0DSbI-buffalo-chicken-mac-and-cheese"
+      "name": "PowerMac 326 lb",
+      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-mac-and-cheese/products/00021000086856-power-mac-original-flavor-mac-cheese-macaroni-and-cheese-dinner",
+      "productionUrl": "https://www.kraftheinz.com/kraft-mac-and-cheese/products/00021000086856-power-mac-original-flavor-mac-cheese-macaroni-and-cheese-dinner"
 
     },
          {
-      "name": "Lunchables FAQ",
-      "previewUrl": "https://lunchables.prv.kraftheinz.com/parents/faq",
-      "productionUrl": "https://www.lunchables.com/parents/faq"
+      "name": "PowerMac White Cheddar",
+      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-mac-and-cheese/products/00021000087402-power-mac-white-cheddar-mac-cheese-macaroni-and-cheese-dinner",
+      "productionUrl": "https://www.kraftheinz.com/kraft-mac-and-cheese/products/00021000087402-power-mac-white-cheddar-mac-cheese-macaroni-and-cheese-dinner"
 
     },
          {
@@ -28,23 +28,23 @@
     }
     ,
          {
-      "name": "Oscar Mayer Landing",
-      "previewUrl": "https://oscarmayer.prv.kraftheinz.com/",
-      "productionUrl": "https://www.oscarmayer.com/"
+      "name": "Philadelphia lactose free cheese",
+      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/products/00021000087266-lactose-free-original-cream-cheese",
+      "productionUrl": "https://www.kraftheinz.com/philadelphia/products/00021000087266-lactose-free-original-cream-cheese"
 
     }
     ,
          {
-      "name": "Kraft singles",
-      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-singles/thesinglegreatestcall",
-      "productionUrl": "https://www.kraftheinz.com/kraft-singles/thesinglegreatestcall"
+      "name": "Million point giveaway",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/Millionpointgiveaway",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/Millionpointgiveaway"
 
     }
     ,
          {
-      "name": "Kraft singles rules",
-      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-singles/thesinglegreatestcall/rules",
-      "productionUrl": "https://www.kraftheinz.com/kraft-singles/thesinglegreatestcall/rules"
+      "name": "Bet you a Cheeseburger",
+      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-singles/BetYouACheeseburger",
+      "productionUrl": "https://www.kraftheinz.com/kraft-singles/BetYouACheeseburger"
 
     }    ,
          {
@@ -52,157 +52,86 @@
       "previewUrl": "https://brands.prv.kraftheinz.com/kraft-singles/thesinglegreatestcall/results",
       "productionUrl": "https://www.kraftheinz.com/kraft-singles/thesinglegreatestcall/results"
 
-    },
-         {
-      "name": "Steak Frites Sliders",
-      "previewUrl": "https://heinz.prv.kraftheinz.com/recipes/steak-frites-sliders",
-      "productionUrl": "https://www.heinz.com/recipes/steak-frites-sliders"
+    },{
+      "name": "Kraft singles ",
+      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-singles/thesinglegreatestcall",
+      "productionUrl": "https://www.kraftheinz.com/kraft-singles/thesinglegreatestcall"
+
+    },{
+      "name": "Kraft singles rules",
+      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-singles/thesinglegreatestcall/rules",
+      "productionUrl": "https://www.kraftheinz.com/kraft-singles/thesinglegreatestcall/rules"
 
     },
          {
-      "name": "Air Fryer Hawaiian Chicken Taco",
-      "previewUrl": "https://heinz.prv.kraftheinz.com/recipes/air-fryer-hawaiian-chicken-tacos-with-pineapple-salsa",
-      "productionUrl": "https://www.heinz.com/recipes/air-fryer-hawaiian-chicken-tacos-with-pineapple-salsa"
-
-    },
-         {
-      "name": "kraft heinz landing ",
-      "previewUrl": "https://brands.prv.kraftheinz.com",
-      "productionUrl": "https://www.kraftheinz.com"
-
-    },
-         {
-      "name": "Lactose free chicken",
-      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/2yN1IcdrI3OHHniytVBWdH-chipotle-chicken-fettuccine",
-      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/2yN1IcdrI3OHHniytVBWdH-chipotle-chicken-fettuccine"
-
-    },
-         {
-      "name": "Lactose Free rangoon dip",
-      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/1m0Fa57IAi6xuDkLJcy1uD-crab-rangoon-dip",
-      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/1m0Fa57IAi6xuDkLJcy1uD-crab-rangoon-dip"
-
-    },
-         {
-      "name": "Lactose Free cheesecake",
-      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/1jAsrdCqIuJO6r35uVY3D0-philadelphia-lactose-free-cheesecake",
-      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/1jAsrdCqIuJO6r35uVY3D0-philadelphia-lactose-free-cheesecake"
-
-    },
-         {
-      "name": "Velveeta Mac & Cheese",
-      "previewUrl": "https://brands.prv.kraftheinz.com/velveeta/recipes/502783-velveeta-down-home-macaroni-cheese",
-      "productionUrl": "https://www.kraftheinz.com/velveeta/recipes/502783-velveeta-down-home-macaroni-cheese"
-
-    },
-         {
-      "name": "Back to Routine en-CA",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/igaqc-backtoroutine-products",
-      "productionUrl": "https://www.kraftheinz.com/en-CA/igaqc-backtoroutine-products"
-
-    },
-         {
-      "name": "Back to Routine fr-CA",
-      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/igaqc-retouralamaison-produits",
-      "productionUrl": "https://www.kraftheinz.com/fr-CA/igaqc-retouralamaison-produits"
-
-    },
-         {
-      "name": "Velveeta Nacho Bake",
-      "previewUrl": "https://brands.prv.kraftheinz.com/velveeta/recipes/523694-velveeta-nacho-bake",
-      "productionUrl": "https://www.kraftheinz.com/velveeta/recipes/523694-velveeta-nacho-bake"
-
-    },
-         {
-      "name": "Strawberry Jam",
+      "name": "Surejell strawberry jam",
       "previewUrl": "https://brands.prv.kraftheinz.com/sure-jell/recipes/500467-sure-jell-strawberry-jam",
       "productionUrl": "https://www.kraftheinz.com/sure-jell/recipes/500467-sure-jell-strawberry-jam"
 
     },
          {
-      "name": "Heinz en-CA",
-      "previewUrl": "https://heinz.prv.kraftheinz.com/en-CA",
-      "productionUrl": "https://www.heinz.com/en-CA"
-
-    },
-         {
-      "name": "Classico Football sauce",
-      "previewUrl": "http://brands.prv.kraftheinz.com/classico/sundayfootballsauce",
-      "productionUrl": "http://www.kraftheinz.com/classico/sundayfootballsauce"
-
-    },
-         {
-      "name": "MealsMadeEasy",
+      "name": "Meals Made Easy",
       "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/FCLMealsMadeEasy",
       "productionUrl": "https://www.kraftheinz.com/en-CA/FCLMealsMadeEasy"
 
     },
          {
-      "name": "KH en-CA",
+      "name": "kraft heinz en-CA  landing ",
       "previewUrl": "https://brands.prv.kraftheinz.com/en-CA",
       "productionUrl": "https://www.kraftheinz.com/en-CA"
 
     },
          {
-      "name": "Kool Aid Hydration",
-      "previewUrl": "https://brands.prv.kraftheinz.com/kool-aid/hydration",
-      "productionUrl": "https://www.kraftheinz.com/kool-aid/hydration"
+      "name": "Maxwell House Landing",
+      "previewUrl": "https://brands.prv.kraftheinz.com/maxwell-house",
+      "productionUrl": "https://www.kraftheinz.com/maxwell-house"
 
     },
          {
-      "name": "Orange Blossom Cheesecake",
-      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/586411-orange-blossom-cheesecake-minis",
-      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/586411-orange-blossom-cheesecake-minis"
+      "name": "2 Million plates fr-CA ",
+      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/2MILLIONSDASSIETTES",
+      "productionUrl": "https://www.kraftheinz.com/fr-CA/2MILLIONSDASSIETTES"
 
     },
          {
-      "name": "Raspberry Rose Cheesecake",
-      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/586425-raspberry-rose-cheesecake-minis",
-      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/586425-raspberry-rose-cheesecake-minis"
+      "name": "2 Million plates en-CA ",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/twomillionplates",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/twomillionplates"
 
     },
          {
-      "name": "Our Best Cheesecake",
-      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/507406-our-best-cheesecake",
-      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/507406-our-best-cheesecake"
+      "name": "TGI Fridays ",
+      "previewUrl": "https://brands.prv.kraftheinz.com/tgi-fridays/products ",
+      "productionUrl": "https://www.kraftheinz.com/tgi-fridays/products "
 
     },
          {
-      "name": "Philadelphia mini Cheesecake",
-      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/569866-philadelphia-mini-cheesecakes",
-      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/569866-philadelphia-mini-cheesecakes"
+      "name": "Heinz landing ",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/",
+      "productionUrl": "https://www.heinz.com/"
 
     },
          {
-      "name": "Creamy Stroganoff",
-      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/558498-ultimate-creamy-beef-stroganoff",
-      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/558498-ultimate-creamy-beef-stroganoff"
+      "name": "FreshCo Products",
+      "previewUrl": "https://www.kraftheinz.com/en-CA/FreshCoBuy5Save10",
+      "productionUrl": "https://brands.prv.kraftheinz.com/en-CA/FreshCoBuy5Save10"
 
     },
          {
-      "name": "Baked Crab Ranggon",
-      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/555467-baked-crab-rangoon",
-      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/555467-baked-crab-rangoon"
+      "name": "Velveeta Shells & Cheese",
+      "previewUrl": "https://brands.prv.kraftheinz.com/velveeta/recipes/4zolQjnYKoMdUnXom2djsA-buffalo-chicken-velveeta-shells-cheese",
+      "productionUrl": "https://www.kraftheinz.com/velveeta/recipes/4zolQjnYKoMdUnXom2djsA-buffalo-chicken-velveeta-shells-cheese"
 
     },
          {
-      "name": "Favorite Deviled Eggs",
-      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/556479-favorite-topped-deviled-eggs",
-      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/556479-favorite-topped-deviled-eggs"
-
-    },
-         {
-      "name": "Red Pepper Jelly Spread",
-      "previewUrl": "https://brands.prv.kraftheinz.com/philadelphia/recipes/551145-easy-red-pepper-jelly-spread",
-      "productionUrl": "https://www.kraftheinz.com/philadelphia/recipes/551145-easy-red-pepper-jelly-spread"
-
-    },
-         {
-      "name": "Heinz DE",
-      "previewUrl": "https://heinz.prv.kraftheinz.com/de-DE",
-      "productionUrl": "https://www.heinz.com/de-DE"
+      "name": "Kraft Heinz landing",
+      "previewUrl": "https://brands.prv.kraftheinz.com/",
+      "productionUrl": "https://www.kraftheinz.com"
 
     }
+    
+    
+    
        
   ]
 }

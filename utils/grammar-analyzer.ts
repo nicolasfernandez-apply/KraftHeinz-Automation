@@ -47,7 +47,11 @@ function findClaudeCli(): string {
 // ── Page text extraction ──────────────────────────────────────────────────────
 
 /**
- * Extracts visible human-readable text from the page.
+ * Extracts visible human-readable text from the page, approximating how the
+ * browser renders it: inline elements (<sup>, <strong>, <a>…) are concatenated
+ * without separators, block elements start a new line, and collapsible source
+ * whitespace (indentation, newlines, repeated spaces) is reduced to one space.
+ * Non-breaking spaces are preserved in `raw` because they do render visibly.
  * Ignores scripts, styles, and hidden elements.
  */
 async function extractPageText(page: Page): Promise<{ title: string; text: string; raw: string }> {
@@ -56,22 +60,39 @@ async function extractPageText(page: Page): Promise<{ title: string; text: strin
 
     function walk(node: Node, parts: string[]): void {
       if (node.nodeType === Node.TEXT_NODE) {
-        const t = (node.textContent ?? '').trim();
+        // Newlines in source text are collapsible whitespace, not line breaks
+        const t = (node.textContent ?? '').replace(/[\r\n]/g, ' ');
         if (t.length > 0) parts.push(t);
         return;
       }
       if (node.nodeType !== Node.ELEMENT_NODE) return;
       const el = node as HTMLElement;
       if (skipTags.has(el.tagName)) return;
+      if (el.tagName === 'BR') {
+        parts.push('\n');
+        return;
+      }
       const style = window.getComputedStyle(el);
       if (style.display === 'none' || style.visibility === 'hidden' || style.opacity === '0') return;
+      const isBlock = !style.display.startsWith('inline') && style.display !== 'contents';
+      if (isBlock) parts.push('\n');
       for (const child of Array.from(el.childNodes)) walk(child, parts);
+      if (isBlock) parts.push('\n');
     }
 
     const parts: string[] = [];
     walk(document.body, parts);
 
-    const raw = parts.join(' ').trim().slice(0, 40_000);
+    const raw = parts
+      .join('')
+      // New-tab link icon label; always followed by an extra space
+      .replace(/[ \u00A0]*\(opens in a new window\)[ \u00A0]*/gi, ' ')
+      .split('\n')
+      // Collapse ASCII whitespace like the browser does; keep \u00A0 (&nbsp;)
+      .map((line) => line.replace(/[ \t\r\f]+/g, ' ').replace(/^ +| +$/g, ''))
+      .filter((line) => line.replace(/\s/g, '').length > 0)
+      .join('\n')
+      .slice(0, 40_000);
     const text = raw.replace(/\s+/g, ' ').trim();
     return { title: document.title, text, raw };
   });
@@ -79,9 +100,13 @@ async function extractPageText(page: Page): Promise<{ title: string; text: strin
 
 // ── Double-space detection ────────────────────────────────────────────────────
 
+/**
+ * Expects text from extractPageText, where collapsible whitespace is already
+ * reduced to one space — any remaining run involves &nbsp; and is visible.
+ */
 function detectDoubleSpaces(text: string): GrammarIssue[] {
   const issues: GrammarIssue[] = [];
-  const regex = / {2,}/g;
+  const regex = /[ \u00A0]{2,}/g;
   let match: RegExpExecArray | null;
 
   while ((match = regex.exec(text)) !== null) {
@@ -91,7 +116,7 @@ function detectDoubleSpaces(text: string): GrammarIssue[] {
     issues.push({
       issue: 'Double (or extra) space detected',
       originalText: excerpt.slice(0, 120),
-      suggestion: excerpt.replace(/ {2,}/g, ' ').slice(0, 120),
+      suggestion: excerpt.replace(/[ \u00A0]{2,}/g, ' ').slice(0, 120),
       severity: 'warning',
       category: 'punctuation',
     });

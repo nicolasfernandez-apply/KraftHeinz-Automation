@@ -1,9 +1,8 @@
 {
   "urls": [
-    "https://brands.prv.kraftheinz.com/kraft-singles/thesinglegreatestcall/results",
-    "https://brands.prv.kraftheinz.com/kraft-singles/thesinglegreatestcall/rules",
-    "https://brands.prv.kraftheinz.com/kraft-singles/thesinglegreatestcall"
+    "https://brands.prv.kraftheinz.com/fr-CA/KHeasydinners-rules",
+    "https://brands.prv.kraftheinz.com/en-CA/KHeasydinners-rules"
   ],
   "environment": "preview",
-  "tokensFile": "tokens/Tokens-Brands(K-L)/Kraft Singles - Blue.tokens.json"
+  "tokensFile": "tokens/Tokens-Brands(A-J)/Delimex - White.tokens.json"
 }

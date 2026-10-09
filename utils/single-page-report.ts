@@ -1,4 +1,4 @@
-import { PageAnalysis, AxeViolation } from './analyzer';
+import { PageAnalysis, AxeViolation, HeadingInfo } from './analyzer';
 
 function escapeHtml(str: string): string {
   return String(str)
@@ -57,6 +57,22 @@ function renderColorRow(c: { color: string; count: number; samples: string[] }):
       </div>
       ${samples}
     </div>`;
+}
+
+function headingColor(level: number): string {
+  const colors = ['#e74c3c', '#e67e22', '#f1c40f', '#2ecc71', '#3498db', '#9b59b6'];
+  return colors[(level - 1) % colors.length];
+}
+
+function renderHeadings(headings: HeadingInfo[]): string {
+  if (headings.length === 0) {
+    return '<p class="empty">No headings found on this page.</p>';
+  }
+  return headings.map((h) => `
+    <div style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f5f5f5">
+      <span style="background:${headingColor(h.level)};color:white;border-radius:3px;padding:2px 7px;font-size:11px;font-weight:700;flex-shrink:0">H${h.level}</span>
+      <span style="font-size:13px;color:#333">${escapeHtml(h.text)}</span>
+    </div>`).join('');
 }
 
 function renderFontRow(f: { fontFamily: string; fontWeight: number; count: number; samples: string[] }): string {
@@ -151,6 +167,10 @@ export function generateSinglePageReport(
   </div>
 
   <div class="summary-grid">
+    <div class="summary-card ok">
+      <div class="number">${analysis.headings.length}</div>
+      <div class="label">Headings (H1–H6)</div>
+    </div>
     <div class="summary-card ${counts.critical > 0 ? 'danger' : 'ok'}">
       <div class="number">${counts.critical}</div>
       <div class="label">Critical A11y</div>
@@ -179,6 +199,16 @@ export function generateSinglePageReport(
       <h2>📸 Screenshot</h2>
     </div>
     <div class="section-body">${screenshot}</div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <h2>📑 Heading Structure</h2>
+      <span class="badge ok">${analysis.headings.length} heading${analysis.headings.length !== 1 ? 's' : ''}</span>
+    </div>
+    <div class="section-body">
+      ${renderHeadings(analysis.headings)}
+    </div>
   </div>
 
   <div class="section">
