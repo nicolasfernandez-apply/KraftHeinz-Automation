@@ -128,6 +128,24 @@
       "previewUrl": "https://brands.prv.kraftheinz.com/",
       "productionUrl": "https://www.kraftheinz.com"
 
+    },
+         {
+      "name": "Velveeta landing",
+      "previewUrl": "https://brands.prv.kraftheinz.com/velveeta",
+      "productionUrl": "https://www.kraftheinz.com/velveeta"
+
+    },
+         {
+      "name": "Velveeta Recipes",
+      "previewUrl": "https://brands.prv.kraftheinz.com/velveeta/recipes",
+      "productionUrl": "https://www.kraftheinz.com/velveeta/recipes"
+
+    },
+         {
+      "name": "Velveeta Products",
+      "previewUrl": "https://brands.prv.kraftheinz.com/velveeta/products",
+      "productionUrl": "https://www.kraftheinz.com/velveeta/products"
+
     }
     
     

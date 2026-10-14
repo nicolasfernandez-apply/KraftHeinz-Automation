@@ -1,8 +1,9 @@
 {
   "urls": [
-    "https://brands.prv.kraftheinz.com/fr-CA/KHeasydinners-rules",
-    "https://brands.prv.kraftheinz.com/en-CA/KHeasydinners-rules"
+    "https://brands.prv.kraftheinz.com/velveeta/products",
+    "https://brands.prv.kraftheinz.com/velveeta/recipes",
+    "https://brands.prv.kraftheinz.com/velveeta"
   ],
   "environment": "preview",
-  "tokensFile": "tokens/Tokens-Brands(A-J)/Delimex - White.tokens.json"
+  "tokensFile": "tokens/Tokens-Brands(M-V)/Velveeta - Red.tokens.json"
 }

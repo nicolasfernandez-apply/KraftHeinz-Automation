@@ -3,14 +3,8 @@
    
      
          {
-      "name": "Easy Dinners en-CA",
-      "url": "https://brands.prv.kraftheinz.com/en-CA/KHeasydinners",
-      "environment": "preview"
-    },
-         
-         {
-      "name": "Easy Dinners fr-CA",
-      "url": "https://brands.prv.kraftheinz.com/fr-CA/KHeasydinners",
+      "name": "KMC Ramen",
+      "url": "https://brands.prv.kraftheinz.com/ramen",
       "environment": "preview"
     }
     
