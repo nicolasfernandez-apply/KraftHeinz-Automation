@@ -1,0 +1,11 @@
+{
+  "targetUrl": ["cloudinary", "cdn.allotta.io"],
+  "ignore": ["onetrust.com", "cookielaw.org"],
+  "pages": [
+    {
+      "name": "Kraft Heinz landing",
+      "url": "https://www.kraftheinz.com/",
+      "environment": "production"
+    }
+  ]
+}
