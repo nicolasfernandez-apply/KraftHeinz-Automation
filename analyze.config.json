@@ -1,9 +1,7 @@
 {
   "urls": [
-    "https://brands.prv.kraftheinz.com/velveeta/products",
-    "https://brands.prv.kraftheinz.com/velveeta/recipes",
-    "https://brands.prv.kraftheinz.com/velveeta"
+    "https://brands.prv.kraftheinz.com/kraft-mac-and-cheese/creepypasta"
   ],
   "environment": "preview",
-  "tokensFile": "tokens/Tokens-Brands(M-V)/Velveeta - Red.tokens.json"
+  "tokensFile": "tokens/Tokens-KH/KH - Black.tokens.json"
 }
