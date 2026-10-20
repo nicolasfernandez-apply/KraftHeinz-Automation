@@ -565,7 +565,9 @@ function designTokensSection(
     (preview?.unknownColors.length  ?? 0) + (production?.unknownColors.length ?? 0);
   const totalUnknownFonts =
     (preview?.unknownFonts.length   ?? 0) + (production?.unknownFonts.length  ?? 0);
-  const totalViolations = totalUnknownColors + totalUnknownFonts;
+  const totalFontFallbacks =
+    (preview?.fontFallbacks.length  ?? 0) + (production?.fontFallbacks.length ?? 0);
+  const totalViolations = totalUnknownColors + totalUnknownFonts + totalFontFallbacks;
 
   /** Render one side's color violations as a swatch grid. */
   const renderColors = (violations: DesignTokenViolations | null, onlyHere: string[], inBoth: string[]): string => {
@@ -629,12 +631,30 @@ function designTokensSection(
           ${samples.length ? `<div style="font-size:11px;color:#888;margin-top:3px;font-family:monospace">e.g. ${samples.map((s) => escapeHtml(s)).join(', ')}</div>` : ''}
         </div>`;
     }).join('');
+    const fallbacks = violations.fontFallbacks ?? [];
+    const fallbackRows = fallbacks.length ? `
+      <p style="font-size:12px;color:#856404;margin:14px 0 8px 0">
+        ⚠ <strong>${fallbacks.length}</strong> font${fallbacks.length !== 1 ? 's' : ''} failed to load and rendered as a fallback
+      </p>
+      ${fallbacks.map((f) => {
+        const weightLabel = f.fontWeight === 0 ? 'any weight' : `weight ${f.fontWeight}`;
+        const samples = (f.samples ?? []).slice(0, 3);
+        return `
+        <div style="padding:6px 0;border-bottom:1px solid #f5f5f5">
+          <div style="display:flex;align-items:center;gap:8px">
+            <code style="font-size:12px;color:#444;flex:1">${escapeHtml(f.declaredFont)} → <strong>${escapeHtml(f.renderedFont)}</strong> <span style="color:#999;font-weight:normal">· ${weightLabel}</span></code>
+            <span style="font-size:11px;color:#888">${f.count} element${f.count !== 1 ? 's' : ''}</span>
+          </div>
+          ${samples.length ? `<div style="font-size:11px;color:#888;margin-top:3px;font-family:monospace">e.g. ${samples.map((s) => escapeHtml(s)).join(', ')}</div>` : ''}
+        </div>`;
+      }).join('')}` : '';
     return `
       <p style="font-size:12px;color:#555;margin-bottom:8px">
         ✓ <strong>${compliant}</strong> token-compliant font${compliant !== 1 ? 's' : ''} &nbsp;·&nbsp;
         <span style="color:#e74c3c"><strong>${unknown.length}</strong> not in token set</span>
       </p>
-      ${rows}`;
+      ${rows}
+      ${fallbackRows}`;
   };
 
   const crossEnvNote = (colorsOnlyInPreview.length + colorsOnlyInProduction.length +

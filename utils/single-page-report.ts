@@ -90,6 +90,21 @@ function renderFontRow(f: { fontFamily: string; fontWeight: number; count: numbe
     </div>`;
 }
 
+function renderFontFallbackRow(f: { declaredFont: string; renderedFont: string; fontWeight: number; count: number; samples: string[] }): string {
+  const weightLabel = f.fontWeight === 0 ? 'any weight' : `weight ${f.fontWeight}`;
+  const samples = f.samples.length
+    ? `<div style="font-size:11px;color:#888;font-family:monospace;margin-top:3px">e.g. ${f.samples.map(escapeHtml).join(', ')}</div>`
+    : '';
+  return `
+    <div style="padding:6px 0;border-bottom:1px solid #f5f5f5">
+      <div style="display:flex;align-items:center;gap:8px">
+        <code style="font-size:12px;color:#444;flex:1">${escapeHtml(f.declaredFont)} → <strong>${escapeHtml(f.renderedFont)}</strong> <span style="color:#999">· ${escapeHtml(weightLabel)}</span></code>
+        <span style="font-size:11px;color:#888">${f.count} element${f.count !== 1 ? 's' : ''}</span>
+      </div>
+      ${samples}
+    </div>`;
+}
+
 export interface SinglePageReportContext {
   /** Logical environment label shown in the header — e.g. "production", "preview". */
   environment?: string;
@@ -114,9 +129,10 @@ export function generateSinglePageReport(
 
   // ── Design token summary ──────────────────────────────────────────────
   const tokens = analysis.designTokenViolations;
-  const tokenColorCount = tokens?.unknownColors.length ?? 0;
-  const tokenFontCount  = tokens?.unknownFonts.length  ?? 0;
-  const totalTokens     = tokenColorCount + tokenFontCount;
+  const tokenColorCount    = tokens?.unknownColors.length  ?? 0;
+  const tokenFontCount     = tokens?.unknownFonts.length   ?? 0;
+  const fontFallbackCount  = tokens?.fontFallbacks.length  ?? 0;
+  const totalTokens        = tokenColorCount + tokenFontCount + fontFallbackCount;
 
   const screenshot = analysis.screenshotBase64
     ? `<img src="data:image/png;base64,${analysis.screenshotBase64}" alt="Page screenshot" style="max-width:100%;border:1px solid #eee;border-radius:6px">`
@@ -247,6 +263,14 @@ export function generateSinglePageReport(
       ${tokenFontCount === 0
         ? '<p class="empty">All detected fonts match the token set.</p>'
         : tokens.unknownFonts.map(renderFontRow).join('')}
+
+      ${fontFallbackCount > 0 ? `
+      <h3 style="font-size:13px;color:#856404;margin:18px 0 6px 0">⚠ Fonts Falling Back</h3>
+      <p style="font-size:12px;color:#777;margin:0 0 8px 0">
+        ${fontFallbackCount} declared font${fontFallbackCount !== 1 ? 's' : ''} failed to load and rendered as a fallback
+      </p>
+      ${tokens.fontFallbacks.map(renderFontFallbackRow).join('')}
+      ` : ''}
       `}
     </div>
   </div>

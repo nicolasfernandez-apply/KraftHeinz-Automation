@@ -90,11 +90,28 @@ export interface FontViolation {
   samples:    string[]; // up to 3 example element descriptors that use this font
 }
 
+/**
+ * An element whose declared (CSS-authored) font family did not actually
+ * render — the browser fell back to a later entry in the font-family stack
+ * (or a generic family), typically because the intended font failed to load.
+ * Reported separately from `FontViolation` because it's a rendering problem,
+ * independent of whether the font that *did* render happens to be token-compliant.
+ */
+export interface FontFallbackViolation {
+  declaredFont: string;  // first family named in the CSS font-family stack
+  renderedFont: string;  // family the browser actually used to paint the text
+  fontWeight:   number;  // numeric CSS weight (100–900); keywords normalised to numbers
+  count:        number;
+  samples:      string[]; // up to 3 example element descriptors affected
+}
+
 export interface DesignTokenViolations {
   /** Non-token colors found on the page, sorted by element count descending. */
   unknownColors: ColorViolation[];
-  /** Non-token font families found on the page. */
+  /** Non-token font families actually rendered on the page. */
   unknownFonts: FontViolation[];
+  /** Elements whose declared font failed to render and fell back to another family. */
+  fontFallbacks: FontFallbackViolation[];
   /** Number of distinct token-compliant colors actually used. */
   compliantColorCount: number;
   /** Number of distinct token-compliant font families actually used. */
@@ -302,7 +319,14 @@ function flattenTokenFonts(obj: unknown, out: Set<string> = new Set()): Set<stri
 // off the page makes multi-set scoring cheap (no extra page evaluations).
 
 interface RawColorEntry { count: number; properties: string[]; samples: string[]; }
-interface RawFontEntry  { fontFamily: string; fontWeight: number; count: number; samples: string[]; }
+interface RawFontEntry  {
+  fontFamily:     string;  // actually-rendered family (post-fallback)
+  declaredFamily: string;  // first family named in the CSS font-family stack
+  isFallback:     boolean; // true when the declared family failed to render
+  fontWeight:     number;
+  count:          number;
+  samples:        string[];
+}
 
 function computeTokenViolations(
   colorMap: Record<string, RawColorEntry>,
@@ -363,7 +387,18 @@ function computeTokenViolations(
   const compliantFontCount = Object.entries(fontMap)
     .filter(([key, data]) => isFontCompliant(key, data.fontFamily)).length;
 
-  return { unknownColors, compliantColorCount, unknownFonts, compliantFontCount };
+  const fontFallbacks = Object.values(fontMap)
+    .filter((data) => data.isFallback)
+    .map((data) => ({
+      declaredFont: data.declaredFamily,
+      renderedFont: data.fontFamily,
+      fontWeight:   data.fontWeight,
+      count:        data.count,
+      samples:      data.samples,
+    }))
+    .sort((a, b) => b.count - a.count);
+
+  return { unknownColors, compliantColorCount, unknownFonts, fontFallbacks, compliantFontCount };
 }
 
 export async function analyzePage(
@@ -702,10 +737,90 @@ export async function analyzePage(
     // the page.
     const rawStyles = await page
       .evaluate(
-        ({ weightSuffixPattern }) => {
+        async ({ weightSuffixPattern }) => {
+          // Make sure any @font-face fonts the page requested have finished
+          // loading (or failed) before we sample computed styles, so the
+          // fallback detection below reflects the final rendered state
+          // rather than a mid-load snapshot.
+          try { await document.fonts.ready; } catch { /* unsupported — proceed anyway */ }
+
           const weightSuffixRe = new RegExp(weightSuffixPattern);
           const buildFontKey = (fam: string, wt: number): string =>
             weightSuffixRe.test(fam) ? `${fam}|*` : `${fam}|${wt}`;
+
+          // CSS generic family keywords are always "available" — they resolve
+          // to a system default rather than naming a real font, so
+          // `document.fonts.check()` doesn't apply to them.
+          const GENERIC_FAMILIES = new Set([
+            'serif', 'sans-serif', 'monospace', 'cursive', 'fantasy',
+            'system-ui', 'ui-serif', 'ui-sans-serif', 'ui-monospace',
+            'ui-rounded', 'emoji', 'math', 'fangsong',
+          ]);
+
+          // `document.fonts.check()` is NOT reliable for this: Chromium
+          // returns `true` for a family name even when no matching
+          // @font-face is registered at all (it silently resolves to some
+          // default rather than reporting unavailability), so a font that's
+          // genuinely missing still reads as "available". Instead we render
+          // the element's actual text on an offscreen canvas and compare its
+          // measured width under the candidate family vs. two unrelated
+          // generic baselines — if the width matches a baseline, the
+          // candidate didn't actually paint and the browser fell through to
+          // that fallback. Using two different baselines (rather than one)
+          // guards against a coincidental width match with just one of them.
+          const probeCanvas = document.createElement('canvas');
+          const probeCtx    = probeCanvas.getContext('2d');
+          const PROBE_SIZE  = 72; // large size amplifies any metric difference
+          const BASELINE_A  = 'monospace';
+          const BASELINE_B  = 'serif';
+
+          const measuredWidth = (fontSpec: string, text: string): number | null => {
+            if (!probeCtx) return null;
+            probeCtx.font = fontSpec;
+            return probeCtx.measureText(text).width;
+          };
+
+          const familyActuallyRenders = (
+            family: string, text: string, weight: number, style: string,
+          ): boolean => {
+            const withA   = measuredWidth(`${style} ${weight} ${PROBE_SIZE}px "${family}", ${BASELINE_A}`, text);
+            const baseA   = measuredWidth(`${style} ${weight} ${PROBE_SIZE}px ${BASELINE_A}`, text);
+            const withB   = measuredWidth(`${style} ${weight} ${PROBE_SIZE}px "${family}", ${BASELINE_B}`, text);
+            const baseB   = measuredWidth(`${style} ${weight} ${PROBE_SIZE}px ${BASELINE_B}`, text);
+            if (withA === null || baseA === null || withB === null || baseB === null) return true; // canvas unsupported — assume OK
+            return withA !== baseA || withB !== baseB;
+          };
+
+          /**
+           * Walks the comma-separated font-family stack and returns the first
+           * family the browser actually rendered the given text with —
+           * mirroring the fallback resolution the rendering engine itself
+           * performs. Falls back to the first declared family if none of the
+           * candidates (including generics) can be confirmed to render.
+           */
+          const resolveRenderedFamily = (
+            familyStack: string, text: string, weight: number, style: string,
+          ): { declared: string; rendered: string; isFallback: boolean } => {
+            const families = familyStack
+              .split(',')
+              .map((f) => f.trim().replace(/['"]/g, ''))
+              .filter(Boolean);
+            const declared = (families[0] ?? '').toLowerCase();
+            if (families.length === 0) return { declared: '', rendered: '', isFallback: false };
+
+            for (const fam of families) {
+              const lower = fam.toLowerCase();
+              if (GENERIC_FAMILIES.has(lower)) {
+                return { declared, rendered: lower, isFallback: lower !== declared };
+              }
+              if (familyActuallyRenders(fam, text, weight, style)) {
+                return { declared, rendered: lower, isFallback: lower !== declared };
+              }
+            }
+            // Nothing in the stack could be confirmed; best guess is the
+            // declared family rendered as authored.
+            return { declared, rendered: declared, isFallback: false };
+          };
           // ── Cookie/consent ancestor detector ─────────────────────────────
           // Mirrors the same filter applied to text/links extraction so that
           // OneTrust, Cookiebot, etc. don't pollute the token compliance check.
@@ -759,7 +874,10 @@ export async function analyzePage(
           };
 
           const colorMap: Record<string, { count: number; properties: string[]; samples: string[] }> = {};
-          const fontMap:  Record<string, { fontFamily: string; fontWeight: number; count: number; samples: string[] }> = {};
+          const fontMap:  Record<string, {
+            fontFamily: string; declaredFamily: string; isFallback: boolean;
+            fontWeight: number; count: number; samples: string[];
+          }> = {};
 
           /**
            * Strict "actually shown to the user" check. The default
@@ -873,39 +991,47 @@ export async function analyzePage(
             // skipped; their text-bearing descendants get iterated separately
             // and contribute the meaningful typography signal.
             let hasDirectText = false;
+            let directText = '';
             const childNodes = el.childNodes;
             for (let i = 0; i < childNodes.length; i++) {
               const node = childNodes[i];
               if (node.nodeType === 3 /* Node.TEXT_NODE */ &&
                   node.textContent && node.textContent.trim().length > 0) {
                 hasDirectText = true;
+                directText = node.textContent.trim();
                 break;
               }
             }
 
-            // Use the first declared family (ignore fallbacks). getComputedStyle
-            // resolves fontWeight to a numeric string in modern browsers; fall
-            // back to keyword mapping for older quirks.
-            const family = style.fontFamily
-              .split(',')[0]
-              .trim()
-              .replace(/['"]/g, '')
-              .toLowerCase();
-            if (family && hasDirectText) {
+            // Resolve the family the browser actually rendered the text
+            // with (walking the fallback stack via canvas width probing),
+            // not just the first-declared name — a declared font that
+            // failed to load renders as its fallback, and compliance should
+            // be judged against what's visually on the page. getComputedStyle
+            // resolves fontWeight to a numeric string in modern browsers;
+            // fall back to keyword mapping for older quirks.
+            if (style.fontFamily && hasDirectText) {
               const fwRaw  = (style.fontWeight ?? '').toString().toLowerCase();
               const weight = parseInt(fwRaw, 10) || (fwRaw === 'bold' ? 700 : 400);
-              const key    = buildFontKey(family, weight);
-              // For weight-baked families the rendered weight is incidental —
-              // the font face dictates the visual weight. Store 0 as a sentinel
-              // so cross-environment diffs (which key on family+weight) agree.
-              const isWeightBaked = key.endsWith('|*');
-              const storedWeight  = isWeightBaked ? 0 : weight;
-              if (!fontMap[key]) {
-                fontMap[key] = { fontFamily: family, fontWeight: storedWeight, count: 0, samples: [] };
-              }
-              fontMap[key].count++;
-              if (fontMap[key].samples.length < 3 && !fontMap[key].samples.includes(desc)) {
-                fontMap[key].samples.push(desc);
+              const { declared, rendered: family, isFallback } =
+                resolveRenderedFamily(style.fontFamily, directText, weight, style.fontStyle || 'normal');
+              if (family) {
+                const key = buildFontKey(family, weight);
+                // For weight-baked families the rendered weight is incidental —
+                // the font face dictates the visual weight. Store 0 as a sentinel
+                // so cross-environment diffs (which key on family+weight) agree.
+                const isWeightBaked = key.endsWith('|*');
+                const storedWeight  = isWeightBaked ? 0 : weight;
+                if (!fontMap[key]) {
+                  fontMap[key] = {
+                    fontFamily: family, declaredFamily: declared, isFallback,
+                    fontWeight: storedWeight, count: 0, samples: [],
+                  };
+                }
+                fontMap[key].count++;
+                if (fontMap[key].samples.length < 3 && !fontMap[key].samples.includes(desc)) {
+                  fontMap[key].samples.push(desc);
+                }
               }
             }
           }
