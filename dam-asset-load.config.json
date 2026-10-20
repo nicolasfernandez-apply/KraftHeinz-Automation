@@ -1,0 +1,7 @@
+{
+  "environment": "production",
+  "singularUrls": [
+    "https://www.kraftheinz.com/"
+  ],
+  "sitemaps": ["https://www.kraftheinz.com/sitemap.xml"]
+}

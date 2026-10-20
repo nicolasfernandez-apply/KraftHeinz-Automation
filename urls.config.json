@@ -76,9 +76,9 @@
 
     },
          {
-      "name": "kraft heinz en-CA  landing ",
-      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA",
-      "productionUrl": "https://www.kraftheinz.com/en-CA"
+      "name": "kraft heinz landing ",
+      "previewUrl": "https://brands.prv.kraftheinz.com",
+      "productionUrl": "https://www.kraftheinz.com"
 
     },
          {
@@ -124,9 +124,69 @@
 
     },
          {
-      "name": "Kraft Heinz landing",
-      "previewUrl": "https://brands.prv.kraftheinz.com/",
-      "productionUrl": "https://www.kraftheinz.com"
+      "name": "Kraft Mac and Cheese Hunger",
+      "previewUrl": "https://brands.prv.kraftheinz.com/kraft-mac-and-cheese/creepypasta",
+      "productionUrl": "https://www.kraftheinz.com/kraft-mac-and-cheese/creepypasta"
+
+    },
+         {
+      "name": "en-CA soup",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/en-ca/soup",
+      "productionUrl": "https://www.heinz.com/en-ca/soup"
+
+    },
+         {
+      "name": "fr-CA soup",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/fr-CA/soup",
+      "productionUrl": "https://www.heinz.com/fr-CA/soup"
+
+    },
+         {
+      "name": "en-Ca Products",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/en-CA/products",
+      "productionUrl": "https://www.heinz.com/en-CA/products"
+
+    },
+         {
+      "name": "fr-CA Products",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/fr-CA/products",
+      "productionUrl": "https://www.heinz.com/fr-CA/products"
+
+    },
+         {
+      "name": "KH en-CA landing",
+      "previewUrl": "https://brands.prv.kraftheinz.com/en-CA/",
+      "productionUrl": "https://www.kraftheinz.com/en-CA/"
+
+    },
+         {
+      "name": "KH fr-CA landing",
+      "previewUrl": "https://brands.prv.kraftheinz.com/fr-CA/",
+      "productionUrl": "https://www.kraftheinz.com/fr-CA/"
+
+    },
+         {
+      "name": "Heinz en-CA landing",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/en-CA",
+      "productionUrl": "https://www.heinz.com/en-CA"
+
+    },
+         {
+      "name": "Heinz fr-CA landing",
+      "previewUrl": "https://heinz.prv.kraftheinz.com/fr-CA",
+      "productionUrl": "https://www.heinz.com/fr-CA"
+
+    },
+         {
+      "name": "Extra Creamy Hot Chocolate Bar",
+      "previewUrl": "https://brands.prv.kraftheinz.com/jet-puffed/recipes/i4FeaUPIgUyJ0X14er8nV-extra-creamy-hot-chocolate-bar",
+      "productionUrl": "https://www.kraftheinz.com/jet-puffed/recipes/i4FeaUPIgUyJ0X14er8nV-extra-creamy-hot-chocolate-bar"
+
+    },
+         {
+      "name": "Marshmallow Hot Chocolate Bombs",
+      "previewUrl": "https://brands.prv.kraftheinz.com/jet-puffed/recipes/6JZx7u9RzrEL4eO0399A8A-marshmallow-hot-chocolate-bombs",
+      "productionUrl": "https://www.kraftheinz.com/jet-puffed/recipes/6JZx7u9RzrEL4eO0399A8A-marshmallow-hot-chocolate-bombs"
 
     }
     

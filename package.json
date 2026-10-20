@@ -35,6 +35,8 @@
     "audit:link-finder": "playwright test tests/audits/link-finder-audit.spec.ts",
     "dam:urls": "playwright test tests/dam/dam-url-validation.spec.ts",
     "dam:urls:headed": "playwright test tests/dam/dam-url-validation.spec.ts --headed",
+    "dam:asset-load": "playwright test tests/dam/dam-asset-load-audit.spec.ts",
+    "dam:asset-load:headed": "playwright test tests/dam/dam-asset-load-audit.spec.ts --headed",
     "dam": "playwright test tests/dam",
     "test:suite": "playwright test tests/compare-urls.spec.ts tests/analyze-page.spec.ts tests/grammar-check.spec.ts tests/recipe-geo-guidelines.spec.ts tests/test-forms.spec.ts"
   },
